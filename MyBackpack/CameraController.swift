@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import MobileCoreServices
 
 class CameraController: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
@@ -23,7 +25,9 @@ class CameraController: NSObject, UIImagePickerControllerDelegate, UINavigationC
         self.imagePicker.delegate = self
         self.imagePicker.allowsEditing = false
         self.imagePicker.sourceType = .camera
-        self.imagePicker.cameraCaptureMode = .photo
+        self.imagePicker.mediaTypes = [kUTTypeMovie as String]
+        self.imagePicker.cameraCaptureMode = .video
+        self.imagePicker.videoMaximumDuration = 60
         self.imagePicker.modalPresentationStyle = .fullScreen
     }
     
@@ -36,6 +40,7 @@ class CameraController: NSObject, UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.takenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.sourceViewController.dismiss(animated: true, completion: nil)
+        self.sourceViewController.performSegue(withIdentifier: "saveRecord", sender: self)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

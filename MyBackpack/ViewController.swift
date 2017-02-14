@@ -17,7 +17,6 @@ class ViewController: UIViewController
     @IBOutlet var menuView: UIStackView!
     @IBOutlet weak var imageView: UIImageView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.pictureController = CameraController(forViewController: self)
