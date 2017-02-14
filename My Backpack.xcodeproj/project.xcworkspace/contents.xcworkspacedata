@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MyBackpack.xcodeproj">
+      location = "self:/Users/sergiy/Desktop/TEST/MyBackpack Project/MyBackpack/My Backpack.xcodeproj">
    </FileRef>
 </Workspace>
