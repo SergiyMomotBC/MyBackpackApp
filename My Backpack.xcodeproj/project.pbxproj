@@ -11,11 +11,11 @@
 		651FDAC61E5288BF00CB3D4B /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FDAC51E5288BF00CB3D4B /* CameraController.swift */; };
 		651FDAC81E5295AE00CB3D4B /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651FDAC71E5295AE00CB3D4B /* test.jpg */; };
 		656A956F1E514631001761BD /* ImageSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A956E1E514631001761BD /* ImageSaveViewController.swift */; };
-		656A95721E514F3F001761BD /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656A95711E514F3F001761BD /* ViewControllerExtension.swift */; };
 		6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */; };
 		6576D4F01E4A8AEB0036176B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4EF1E4A8AEB0036176B /* ViewController.swift */; };
 		6576D4F61E4A8AEB0036176B /* MyBackpack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4F41E4A8AEB0036176B /* MyBackpack.xcdatamodeld */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
+		6587467C1E529BED009CE542 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6587467B1E529BED009CE542 /* ViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +23,13 @@
 		651FDAC51E5288BF00CB3D4B /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		651FDAC71E5295AE00CB3D4B /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
 		656A956E1E514631001761BD /* ImageSaveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSaveViewController.swift; sourceTree = "<group>"; };
-		656A95711E514F3F001761BD /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		6576D4EA1E4A8AEB0036176B /* My Backpack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Backpack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6576D4EF1E4A8AEB0036176B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6576D4F51E4A8AEB0036176B /* MyBackpack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyBackpack.xcdatamodel; sourceTree = "<group>"; };
 		6576D4F71E4A8AEB0036176B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6576D4FC1E4A8AEB0036176B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6587467B1E529BED009CE542 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerExtension.swift; path = MyBackpack/ViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +46,7 @@
 		656A95701E514F15001761BD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				656A95711E514F3F001761BD /* ViewControllerExtension.swift */,
+				6587467B1E529BED009CE542 /* ViewControllerExtension.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -160,9 +160,9 @@
 			files = (
 				651FDAC61E5288BF00CB3D4B /* CameraController.swift in Sources */,
 				6576D4F01E4A8AEB0036176B /* ViewController.swift in Sources */,
+				6587467C1E529BED009CE542 /* ViewControllerExtension.swift in Sources */,
 				656A956F1E514631001761BD /* ImageSaveViewController.swift in Sources */,
 				6576D4F61E4A8AEB0036176B /* MyBackpack.xcdatamodeld in Sources */,
-				656A95721E514F3F001761BD /* ViewControllerExtension.swift in Sources */,
 				6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
