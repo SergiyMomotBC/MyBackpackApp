@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6511BEED1E53F3C90000F529 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511BEEC1E53F3C90000F529 /* MenuController.swift */; };
 		651FDAC41E5275F300CB3D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651FDAC21E5275F300CB3D4B /* Main.storyboard */; };
 		651FDAC61E5288BF00CB3D4B /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651FDAC51E5288BF00CB3D4B /* CameraController.swift */; };
 		651FDAC81E5295AE00CB3D4B /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 651FDAC71E5295AE00CB3D4B /* test.jpg */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6511BEEC1E53F3C90000F529 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		651FDAC31E5275F300CB3D4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		651FDAC51E5288BF00CB3D4B /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		651FDAC71E5295AE00CB3D4B /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				6576D4F41E4A8AEB0036176B /* MyBackpack.xcdatamodeld */,
 				651FDAC71E5295AE00CB3D4B /* test.jpg */,
 				651FDAC51E5288BF00CB3D4B /* CameraController.swift */,
+				6511BEEC1E53F3C90000F529 /* MenuController.swift */,
 			);
 			path = MyBackpack;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				651FDAC61E5288BF00CB3D4B /* CameraController.swift in Sources */,
+				6511BEED1E53F3C90000F529 /* MenuController.swift in Sources */,
 				6576D4F01E4A8AEB0036176B /* ViewController.swift in Sources */,
 				6587467C1E529BED009CE542 /* ViewControllerExtension.swift in Sources */,
 				656A956F1E514631001761BD /* ImageSaveViewController.swift in Sources */,
