@@ -24,31 +24,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="test.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ftv-C3-B4T">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osc-gC-eUy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hPD-hj-Sdf">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4T-RP-ZN9">
+                                <rect key="frame" x="16" y="8" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.57236819672150685" green="1" blue="0.98009775402817056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ftv-C3-B4T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4Ze-fT-NJS"/>
                             <constraint firstItem="ftv-C3-B4T" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Ngc-j0-QGw"/>
-                            <constraint firstItem="Osc-gC-eUy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b8O-0C-86v"/>
                             <constraint firstAttribute="trailing" secondItem="ftv-C3-B4T" secondAttribute="trailing" id="gEh-sy-GtO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Osc-gC-eUy" secondAttribute="bottom" id="rCE-aZ-mhJ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ftv-C3-B4T" secondAttribute="bottom" id="seG-U1-tVK"/>
-                            <constraint firstItem="Osc-gC-eUy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tiy-jW-NE2"/>
-                            <constraint firstAttribute="trailing" secondItem="Osc-gC-eUy" secondAttribute="trailing" id="xRO-11-vc4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Osc-gC-eUy"/>
-                            </mask>
-                        </variation>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <toolbarItems/>
@@ -61,7 +52,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addCloseBarButton" destination="DNW-JS-v8j" id="lHC-7W-gv8"/>
-                        <outlet property="blurEffect" destination="Osc-gC-eUy" id="vkL-Dy-rpj"/>
                         <outlet property="imageView" destination="vBR-zj-aWE" id="tv1-4t-vHw"/>
                         <outlet property="menuView" destination="rxc-4n-MD0" id="5kT-id-TCW"/>
                         <segue destination="12X-MM-IOX" kind="presentation" identifier="saveRecord" id="7du-1i-z9D"/>

@@ -31,15 +31,15 @@ class ViewController: UIViewController
     
     @IBAction func showMenu(_ sender: UIBarButtonItem) {
         if !self.menuController.isShowing {
-            self.menuController.show(completion: { success in
+            self.menuController.show { success in
                 let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.stop, target: self, action: #selector(self.showMenu))
                 self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
-            })
+            }
         } else {
-            self.menuController.hide(completion: { success in
+            self.menuController.hide { success in
                 let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.showMenu))
                 self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
-            })
+            }
         }
     }
     
@@ -47,6 +47,15 @@ class ViewController: UIViewController
         if segue.identifier == "saveRecord" {
             let vc = segue.destination as! ImageSaveViewController
             vc.sourceImage = self.pictureController?.takenImage ?? nil
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if self.menuController.isShowing {
+            self.menuController.hide { success in
+                let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.showMenu))
+                self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
+            }
         }
     }
 }
