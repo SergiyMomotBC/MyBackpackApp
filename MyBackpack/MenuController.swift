@@ -12,21 +12,19 @@ class MenuController
 {
     private let animationDuration = 0.12
     private(set) var isShowing: Bool = false
+    private let verticalOffset: CGFloat
     
     let menu: UIStackView!
     let targetViewController: UIViewController!
-    let blurEffect: UIVisualEffectView?
+    let blurEffect: UIVisualEffectView
     
-    init(withStackView stackView: UIStackView, inViewController vc: UIViewController, useBlur shouldBlur: Bool) {
+    init(withStackView stackView: UIStackView, inViewController vc: UIViewController, withYOffset yOffset: Double) {
         self.menu = stackView
         self.targetViewController = vc
+        self.verticalOffset = CGFloat(yOffset)
         
-        if shouldBlur {
-            self.blurEffect = UIVisualEffectView(frame: self.targetViewController.view.frame)
-            self.setupBlurEffect()
-        } else {
-            self.blurEffect = nil
-        }
+        self.blurEffect = UIVisualEffectView(frame: self.targetViewController.view.frame)
+        self.setupBlurEffect()
         
         self.setupMenu()
     }
@@ -37,8 +35,8 @@ class MenuController
                        options: UIViewAnimationOptions.curveLinear,
                        animations:
                             { () -> Void in
-                                self.menu.center.y = self.menu.bounds.height / 2 + 1
-                                self.blurEffect?.alpha = 1.0
+                                self.menu.center.y = self.verticalOffset + self.menu.bounds.height / 2 + 1
+                                self.blurEffect.alpha = 1.0
                             },
                        completion: completion)
         
@@ -51,8 +49,8 @@ class MenuController
                        options: UIViewAnimationOptions.curveLinear,
                        animations:
                             { () -> Void in
-                                self.menu.center.y = -self.menu.bounds.height / 2
-                                self.blurEffect?.alpha = 0.0
+                                self.menu.center.y = self.verticalOffset - self.menu.bounds.height / 2
+                                self.blurEffect.alpha = 0.0
                             },
                        completion: completion)
         
@@ -61,7 +59,7 @@ class MenuController
     
     private func setupMenu() {
         self.targetViewController.view.addSubview(self.menu)
-        self.menu.center.y = -self.menu.bounds.height / 2
+        self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
         
         let viewsDictionary = ["stackView": self.menu]
         
@@ -82,9 +80,9 @@ class MenuController
     }
     
     private func setupBlurEffect() {
-        self.blurEffect?.effect = UIBlurEffect(style: .light)
-        self.targetViewController.view.addSubview(self.blurEffect!)
-        self.blurEffect!.alpha = 0.0
+        self.blurEffect.effect = UIBlurEffect(style: .light)
+        self.targetViewController.view.addSubview(self.blurEffect)
+        self.blurEffect.alpha = 0.0
         let viewsDictionary = ["blurEffect": self.blurEffect]
         
         let horizontal = NSLayoutConstraint.constraints(

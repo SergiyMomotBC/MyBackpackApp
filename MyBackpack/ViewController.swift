@@ -12,6 +12,7 @@ class ViewController: UIViewController
 {
     var pictureController: CameraController?
     var menuController: MenuController!
+    var navigationTabBar: NavigationTabBar!
     
     @IBOutlet weak var addCloseBarButton: UIBarButtonItem!
     @IBOutlet weak var blurEffect: UIVisualEffectView!
@@ -22,7 +23,8 @@ class ViewController: UIViewController
         super.viewDidLoad()
         //self.pictureController = CameraController(forViewController: self)
         
-        self.menuController = MenuController(withStackView: self.menuView, inViewController: self, useBlur: true)
+        self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: 40)
+        self.navigationTabBar = NavigationTabBar(frame: .zero, forViewController: self)
     }
 
     @IBAction func openCamera(_ sender: Any) {
