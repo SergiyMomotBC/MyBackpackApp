@@ -61,7 +61,7 @@ class MenuController
         self.targetViewController.view.addSubview(self.menu)
         self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
         
-        let viewsDictionary = ["stackView": self.menu]
+        let viewsDictionary: [String: UIView] = ["stackView": self.menu]
         
         let stackView_H = NSLayoutConstraint.constraints(
             withVisualFormat: "H:|-0-[stackView]-0-|",
