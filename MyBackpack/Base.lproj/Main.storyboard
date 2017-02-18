@@ -14,6 +14,7 @@
             <objects>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="9aw-Av-Wbs" customClass="PageViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="CISC 3325" id="qzU-Rk-4Mc">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="BTb-w9-tih"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="t9n-b3-m8E">
                             <connections>
                                 <action selector="showMenu:" destination="9aw-Av-Wbs" id="0OG-OR-0si"/>
@@ -22,45 +23,133 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuView" destination="bUk-Or-oir" id="G7G-WT-Keo"/>
+                        <segue destination="nYD-9N-dQ6" kind="custom" id="j7b-LH-vN6"/>
+                        <segue destination="g2H-Mi-yDd" kind="custom" id="dr6-R5-cAp"/>
+                        <segue destination="mQ5-hS-ATf" kind="custom" id="xm4-u9-q7s"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ga-Um-VRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" id="bUk-Or-oir">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="401"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Add Content..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvJ-aB-Bki">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.23921568627450981" green="0.50588235294117645" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZT-bz-gsT">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                            <rect key="frame" x="0.0" y="44.5" width="375" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Picture"/>
                         </button>
                         <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt6-tO-8so">
-                            <rect key="frame" x="0.0" y="50" width="375" height="49.5"/>
+                            <rect key="frame" x="0.0" y="89.5" width="375" height="43.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Video"/>
                         </button>
                         <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImQ-pc-4aL">
-                            <rect key="frame" x="0.0" y="100.5" width="375" height="49"/>
+                            <rect key="frame" x="0.0" y="134" width="375" height="43.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Note"/>
                         </button>
                         <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RA-5c-uk5">
-                            <rect key="frame" x="0.0" y="150.5" width="375" height="49"/>
+                            <rect key="frame" x="0.0" y="178.5" width="375" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Voice"/>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMJ-4z-Ias">
-                            <rect key="frame" x="0.0" y="200.5" width="375" height="49.5"/>
-                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Add Remainder..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgx-XS-tKt">
+                            <rect key="frame" x="0.0" y="223.5" width="375" height="43.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.23921568630000001" green="0.50588235290000005" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-5A-8qC">
-                            <rect key="frame" x="0.0" y="251" width="375" height="49"/>
+                            <rect key="frame" x="0.0" y="268" width="375" height="43.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Homework"/>
+                        </button>
+                        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQY-4s-bTA">
+                            <rect key="frame" x="0.0" y="312.5" width="375" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Test"/>
+                        </button>
+                        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amp-N9-oVx">
+                            <rect key="frame" x="0.0" y="357.5" width="375" height="43.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="Custom"/>
                         </button>
                     </subviews>
                 </stackView>
             </objects>
             <point key="canvasLocation" x="23.199999999999999" y="-500.59970014992507"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="9Wj-Jz-5Et">
+            <objects>
+                <tableViewController storyboardIdentifier="contentVC" id="nYD-9N-dQ6" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="c53-7v-olA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K3E-E9-tZ6">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K3E-E9-tZ6" id="d1q-dM-THN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nYD-9N-dQ6" id="048-ah-9Lc"/>
+                            <outlet property="delegate" destination="nYD-9N-dQ6" id="CSV-fa-4A8"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="com-8S-TY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-916" y="260"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="28Y-rp-DqM">
+            <objects>
+                <viewController storyboardIdentifier="calendarVC" id="g2H-Mi-yDd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kbz-lR-Sky"/>
+                        <viewControllerLayoutGuide type="bottom" id="9zK-HF-l19"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xuh-yB-AS6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1NP-Ng-clW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="23" y="260"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8fm-LB-ow7">
+            <objects>
+                <viewController storyboardIdentifier="settingsVC" id="mQ5-hS-ATf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X4D-YR-YZL"/>
+                        <viewControllerLayoutGuide type="bottom" id="JB4-WN-KnA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BFX-t6-bGb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qt6-70-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iy8-a8-p9v">
@@ -90,4 +179,7 @@
             <point key="canvasLocation" x="-916" y="-500.59970014992507"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="32" height="32"/>
+    </resources>
 </document>

@@ -55,11 +55,12 @@ class MenuController
     
     private func setupViews() {
         self.targetViewController.view.addSubview(self.menu)
+        self.menu.layer.zPosition = CGFloat.greatestFiniteMagnitude - 1
         self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
         self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.menu)
-        self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height))-[v0(300)]", views: self.menu)
+        self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height))-[v0(400)]", views: self.menu)
 
-        self.blurEffect.effect = UIBlurEffect(style: .light)
+        self.blurEffect.effect = UIBlurEffect(style: .regular)
         self.targetViewController.view.addSubview(self.blurEffect)
         self.blurEffect.alpha = 0.0
         self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.blurEffect)

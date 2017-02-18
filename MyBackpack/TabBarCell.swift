@@ -12,7 +12,6 @@ class TabBarCell: UICollectionViewCell
 {
     let imageView: UIImageView
     let selectorView: UIView
-    
     var normalImage: UIImage?
     var highlightedImage: UIImage?
     
@@ -40,7 +39,7 @@ class TabBarCell: UICollectionViewCell
     func setImages(normal normalImageName: String, highlighted highlightedImageName: String, withColor color: UIColor?) {
         self.normalImage = UIImage(named: normalImageName)?.withRenderingMode(.alwaysTemplate)
         self.highlightedImage = UIImage(named: highlightedImageName)?.withRenderingMode(.alwaysTemplate)
-        self.imageView.image = self.normalImage
+        self.imageView.image = isSelected ? self.highlightedImage : self.normalImage
         self.imageView.tintColor = color ?? UIColor.black
         self.selectorView.backgroundColor = color ?? UIColor.black
     }
