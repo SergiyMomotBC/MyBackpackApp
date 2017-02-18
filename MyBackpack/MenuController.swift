@@ -13,23 +13,19 @@ class MenuController
     private let animationDuration = 0.12
     private(set) var isShowing: Bool = false
     private let verticalOffset: CGFloat
-    
-    let menu: UIStackView!
-    let targetViewController: UIViewController!
-    let blurEffect: UIVisualEffectView
+    private let menu: UIStackView
+    private let targetViewController: UIViewController
+    private let blurEffect: UIVisualEffectView
     
     init(withStackView stackView: UIStackView, inViewController vc: UIViewController, withYOffset yOffset: Double) {
         self.menu = stackView
         self.targetViewController = vc
         self.verticalOffset = CGFloat(yOffset)
-        
         self.blurEffect = UIVisualEffectView(frame: self.targetViewController.view.frame)
-        self.setupBlurEffect()
-        
-        self.setupMenu()
+        self.setupViews()
     }
     
-    func show(completion: @escaping (Bool) -> Void) {
+    func show(completion: ((Bool) -> Void)?) {
         UIView.animate(withDuration: self.animationDuration,
                        delay: 0,
                        options: UIViewAnimationOptions.curveLinear,
@@ -43,7 +39,7 @@ class MenuController
         self.isShowing = true
     }
     
-    func hide(completion: @escaping (Bool) -> Void) {
+    func hide(completion: ((Bool) -> Void)?) {
         UIView.animate(withDuration: self.animationDuration,
                        delay: 0,
                        options: UIViewAnimationOptions.curveLinear,
@@ -57,47 +53,16 @@ class MenuController
         self.isShowing = false
     }
     
-    private func setupMenu() {
+    private func setupViews() {
         self.targetViewController.view.addSubview(self.menu)
         self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
-        
-        let viewsDictionary: [String: UIView] = ["stackView": self.menu]
-        
-        let stackView_H = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[stackView]-0-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: viewsDictionary)
-        
-        let stackView_V = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[stackView(300)]|",
-            options: NSLayoutFormatOptions(rawValue:0),
-            metrics: nil,
-            views: viewsDictionary)
-        
-        self.targetViewController.view.addConstraints(stackView_V)
-        self.targetViewController.view.addConstraints(stackView_H)
-    }
-    
-    private func setupBlurEffect() {
+        self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.menu)
+        self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height))-[v0(300)]", views: self.menu)
+
         self.blurEffect.effect = UIBlurEffect(style: .light)
         self.targetViewController.view.addSubview(self.blurEffect)
         self.blurEffect.alpha = 0.0
-        let viewsDictionary = ["blurEffect": self.blurEffect]
-        
-        let horizontal = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-0-[blurEffect]-0-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: viewsDictionary)
-        
-        let vertical = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[blurEffect]-0-|",
-            options: NSLayoutFormatOptions(rawValue: 0),
-            metrics: nil,
-            views: viewsDictionary)
-        
-        self.targetViewController.view.addConstraints(horizontal)
-        self.targetViewController.view.addConstraints(vertical)
+        self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.blurEffect)
+        self.targetViewController.view.addConstraintsWithFormat(format: "V:|[v0]|", views: self.blurEffect)
     }
 }
