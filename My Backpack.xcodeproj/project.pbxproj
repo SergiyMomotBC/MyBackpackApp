@@ -18,6 +18,7 @@
 		6576D4F61E4A8AEB0036176B /* MyBackpack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4F41E4A8AEB0036176B /* MyBackpack.xcdatamodeld */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
 		6587467C1E529BED009CE542 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6587467B1E529BED009CE542 /* ViewControllerExtension.swift */; };
+		6589D9221E5955D30090E23A /* CGGradientLayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6589D9211E5955D30090E23A /* CGGradientLayerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		6576D4F71E4A8AEB0036176B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6576D4FC1E4A8AEB0036176B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6587467B1E529BED009CE542 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerExtension.swift; path = MyBackpack/ViewControllerExtension.swift; sourceTree = "<group>"; };
+		6589D9211E5955D30090E23A /* CGGradientLayerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGGradientLayerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			children = (
 				6587467B1E529BED009CE542 /* ViewControllerExtension.swift */,
 				655202EA1E577E9A009966B9 /* UIViewExtentions.swift */,
+				6589D9211E5955D30090E23A /* CGGradientLayerExtension.swift */,
 			);
 			name = Extensions;
 			path = ..;
@@ -192,6 +195,7 @@
 				6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */,
 				6587467C1E529BED009CE542 /* ViewControllerExtension.swift in Sources */,
 				655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */,
+				6589D9221E5955D30090E23A /* CGGradientLayerExtension.swift in Sources */,
 				655202EB1E577E9A009966B9 /* UIViewExtentions.swift in Sources */,
 				6576D4F61E4A8AEB0036176B /* MyBackpack.xcdatamodeld in Sources */,
 				6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */,

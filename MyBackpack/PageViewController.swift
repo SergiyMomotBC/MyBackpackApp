@@ -36,6 +36,17 @@ class PageViewController: UIPageViewController{
             self.setViewControllers([initialViewController], direction: .forward, animated: true, completion: nil)
             self.navigationTabBar.selectTab(atIndex: 0)
         }
+        
+        var frame = self.navigationController?.navigationBar.bounds
+        frame?.size.height +=  CGFloat(20 + NavigationTabBar.height)
+        
+        let layer = CAGradientLayer.gradientLayer(forBounds: frame!, startColor: UIColor.black, endColor: (self.navigationController?.navigationBar.barTintColor)!)
+        UIGraphicsBeginImageContext(layer.bounds.size)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(image?.resizableImage(withCapInsets: UIEdgeInsetsMake(0, 0, 0, 0), resizingMode: .stretch), for: .default)
     }
     
     @IBAction func showMenu(_ sender: UIBarButtonItem) {
