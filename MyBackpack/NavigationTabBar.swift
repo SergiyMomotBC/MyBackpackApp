@@ -43,7 +43,7 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.tabMenu.register(TabBarCell.self, forCellWithReuseIdentifier: "tabButtonCell")
         
         let bottomLineView = UIView()
-        bottomLineView.backgroundColor = UIColor.lightGray
+        bottomLineView.backgroundColor = UIColor.white
         self.addSubview(bottomLineView)
         self.addConstraintsWithFormat(format: "H:|[v0]|", views: bottomLineView)
         self.addConstraintsWithFormat(format: "V:[v0(0.5)]|", views: bottomLineView)

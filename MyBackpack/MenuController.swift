@@ -26,6 +26,10 @@ class MenuController
     }
     
     func show(completion: ((Bool) -> Void)?) {
+        self.targetViewController.view.bringSubview(toFront: self.menu)
+        self.targetViewController.view.layoutSubviews()
+        self.isShowing = true
+        
         UIView.animate(withDuration: self.animationDuration,
                        delay: 0,
                        options: UIViewAnimationOptions.curveLinear,
@@ -34,9 +38,8 @@ class MenuController
                                 self.menu.center.y = self.verticalOffset + self.menu.bounds.height / 2 + 1
                                 self.blurEffect.alpha = 1.0
                             },
-                       completion: completion)
-        
-        self.isShowing = true
+                       completion: completion
+        )
     }
     
     func hide(completion: ((Bool) -> Void)?) {
@@ -48,19 +51,23 @@ class MenuController
                                 self.menu.center.y = self.verticalOffset - self.menu.bounds.height / 2
                                 self.blurEffect.alpha = 0.0
                             },
-                       completion: completion)
-        
-        self.isShowing = false
+                       completion:
+                            { success in
+                                self.targetViewController.view.sendSubview(toBack: self.menu)
+                                self.targetViewController.view.layoutSubviews()
+                                self.isShowing = false
+                                completion?(success)
+                            }
+        )
     }
     
     private func setupViews() {
         self.targetViewController.view.addSubview(self.menu)
-        self.menu.layer.zPosition = CGFloat.greatestFiniteMagnitude - 1
         self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
         self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.menu)
         self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height))-[v0(400)]", views: self.menu)
 
-        self.blurEffect.effect = UIBlurEffect(style: .regular)
+        self.blurEffect.effect = UIBlurEffect(style: .dark)
         self.targetViewController.view.addSubview(self.blurEffect)
         self.blurEffect.alpha = 0.0
         self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.blurEffect)
