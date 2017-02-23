@@ -94,6 +94,12 @@ class PageViewController: UIPageViewController
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuBlurEffectStyle = UIBlurEffectStyle.dark
     }
+    
+    
+    @IBAction func takePicture() {
+        let vc = NewContentPageViewController(forContentType: .Picture)
+        self.present(vc, animated: true, completion: nil)
+    }
 }
 
 extension PageViewController : UIPageViewControllerDelegate
