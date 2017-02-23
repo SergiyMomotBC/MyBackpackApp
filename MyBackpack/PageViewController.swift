@@ -97,7 +97,7 @@ class PageViewController: UIPageViewController
     
     
     @IBAction func takePicture() {
-        let vc = NewContentPageViewController(forContentType: .Picture)
+        let vc = NewContentViewController(forContentType: .Picture)
         self.present(vc, animated: true, completion: nil)
     }
 }

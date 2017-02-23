@@ -220,9 +220,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="menuView" destination="bUk-Or-oir" id="G7G-WT-Keo"/>
-                        <segue destination="nYD-9N-dQ6" kind="custom" id="j7b-LH-vN6"/>
-                        <segue destination="g2H-Mi-yDd" kind="custom" id="dr6-R5-cAp"/>
-                        <segue destination="mQ5-hS-ATf" kind="custom" identifier="settings" id="xm4-u9-q7s"/>
+                        <segue destination="nYD-9N-dQ6" kind="show" identifier="content" id="j7b-LH-vN6"/>
+                        <segue destination="g2H-Mi-yDd" kind="show" identifier="calendar" id="dr6-R5-cAp"/>
+                        <segue destination="mQ5-hS-ATf" kind="show" identifier="settings" id="xm4-u9-q7s"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ga-Um-VRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -316,7 +316,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="contentVC" id="nYD-9N-dQ6" customClass="ContentTableViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="c53-7v-olA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -430,7 +430,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="com-8S-TY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-916" y="259.52023988005999"/>
+            <point key="canvasLocation" x="-917" y="344"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="28Y-rp-DqM">
@@ -441,7 +441,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9zK-HF-l19"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xuh-yB-AS6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -449,7 +449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NP-Ng-clW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="260"/>
+            <point key="canvasLocation" x="23" y="344"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8fm-LB-ow7">
@@ -460,14 +460,14 @@
                         <viewControllerLayoutGuide type="bottom" id="JB4-WN-KnA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BFX-t6-bGb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qt6-70-X5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="961" y="260"/>
+            <point key="canvasLocation" x="961" y="344"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="iy8-a8-p9v">
