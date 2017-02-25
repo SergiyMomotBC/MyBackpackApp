@@ -63,7 +63,6 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.tabMenu.selectItem(at: IndexPath(item: index, section: 0), animated: true, scrollPosition: .centeredHorizontally)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if self.targetVC.menuController.isShowing {
             self.targetVC.hideMenu()
@@ -79,7 +78,6 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
                 }
             }
         )
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -12,7 +12,7 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
 {
     private let contentType: ContentType
     let saveContentVC: SaveContentViewController
-    var captureContentVC: CameraContentController?
+    var captureContentVC: ContentProvider?
     
     init(forContentType type: ContentType) {
         self.contentType = type
@@ -26,6 +26,13 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
         switch type {
         case .Picture:
             captureContentVC = CameraContentController(for: self, withCameraMode: .photo)
+            captureContentVC?.presentAnimated(inScrollDirection: .forward)
+        case .Video:
+            captureContentVC = CameraContentController(for: self, withCameraMode: .video)
+            captureContentVC?.presentAnimated(inScrollDirection: .forward)
+        case .Audio:
+            captureContentVC = AudioRecorderController(for: self)
+            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         default:
             print("Type is not supported yet")
         }
@@ -35,14 +42,7 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
         fatalError("init(coder:) has not been implemented")
     }
     
-    func didTakePicture(_ image: UIImage) {
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        self.saveContentVC.fillContentPreview(withView: imageView)
-        self.setViewControllers([saveContentVC], direction: .forward, animated: true, completion: nil)
-    }
-    
-    func didTakeVideo(_ videoURL: URL) {
+    func contentProviderDidSuccesfullyFinished() {
         self.setViewControllers([saveContentVC], direction: .forward, animated: true, completion: nil)
     }
 }

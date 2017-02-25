@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>IQAudioRecorderController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-My Backpack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SCSiriWaveformView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1A4D22A968B83171880FAD675BABC6A2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>817FB62A0F4BDF529258D8F138F83390</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>923C199FC8844D48B6E4D0E9B013C7C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF5E8492AD833171E67A19F798CC6361</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -48,6 +48,12 @@ class PageViewController: UIPageViewController
         self.present(SideMenuManager.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
+    @IBAction func newContentTapped(_ sender: UIButton) {
+        let newContentVC = NewContentViewController(forContentType: ContentType(rawValue: sender.tag)!)
+        self.present(newContentVC, animated: true, completion: nil)
+        self.hideMenu()
+    }
+    
     func hideMenu() {
         self.menuController.hide { success in
             let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.showMenu))
@@ -62,11 +68,14 @@ class PageViewController: UIPageViewController
         }
     }
     
+    // MARK: Private methods
+    
     private func applyGradientToNavigationBar() {
-        var frame = self.navigationController?.navigationBar.bounds
-        frame?.size.height +=  CGFloat(20)
+        let layer = CAGradientLayer()
+        layer.frame = (self.navigationController?.navigationBar.bounds)!
+        layer.frame.size.height += 20
+        layer.colors = [UIColor.black.cgColor, (self.navigationController?.navigationBar.barTintColor)!.cgColor]
         
-        let layer = CAGradientLayer.gradientLayer(forBounds: frame!, startColor: UIColor.black, endColor: (self.navigationController?.navigationBar.barTintColor)!)
         UIGraphicsBeginImageContext(layer.bounds.size)
         layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -93,12 +102,6 @@ class PageViewController: UIPageViewController
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuBlurEffectStyle = UIBlurEffectStyle.dark
-    }
-    
-    
-    @IBAction func takePicture() {
-        let vc = NewContentViewController(forContentType: .Picture)
-        self.present(vc, animated: true, completion: nil)
     }
 }
 

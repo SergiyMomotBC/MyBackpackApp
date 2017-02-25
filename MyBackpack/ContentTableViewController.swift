@@ -8,13 +8,6 @@
 
 import UIKit
 
-enum ContentType: Int {
-    case Audio
-    case Picture
-    case Video
-    case Note
-}
-
 class ContentTableViewController: UITableViewController {
 
     let types = [ContentType.Audio, ContentType.Picture, ContentType.Note, ContentType.Video]
