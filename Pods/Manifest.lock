@@ -1,18 +1,24 @@
 PODS:
   - IQAudioRecorderController (1.2.0):
     - SCSiriWaveformView
+  - IQDropDownTextField (1.1.0)
+  - RichEditorView (3.2.0)
   - SCSiriWaveformView (1.0.3)
   - SideMenu (2.2.0)
 
 DEPENDENCIES:
   - IQAudioRecorderController
+  - IQDropDownTextField
+  - RichEditorView
   - SideMenu
 
 SPEC CHECKSUMS:
   IQAudioRecorderController: 1d46d99330cb2c9381568665d123cf435460a43e
+  IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
+  RichEditorView: b4ee60a4f5301cbe8f3fcb1f065cdd7de74ddd10
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
   SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
 
-PODFILE CHECKSUM: 981dd24eda04d26239777c7341563202116e5646
+PODFILE CHECKSUM: 26bdb3c6328649f32e60c4867bf2e9532dc05471
 
 COCOAPODS: 1.2.0

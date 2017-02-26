@@ -20,7 +20,6 @@ class ContentTableViewCell: UITableViewCell
         
         switch type {
         case .Audio:
-            
             self.contentPreview.image = UIImage(named: "recordingContent")?.withRenderingMode(.alwaysTemplate)
             self.contentPreview.tintColor = .white
             self.contentPreview.contentMode = .center

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RichEditorView
 
 class NewContentViewController: UIPageViewController, UIImagePickerControllerDelegate
 {
@@ -33,8 +34,9 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
         case .Audio:
             captureContentVC = AudioRecorderController(for: self)
             captureContentVC?.presentAnimated(inScrollDirection: .forward)
-        default:
-            print("Type is not supported yet")
+        case .Note:
+            captureContentVC = TakeNoteController(for: self)
+            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         }
     }
     

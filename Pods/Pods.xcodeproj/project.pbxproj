@@ -7,89 +7,176 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0183E6D8926F00B7F8A2DBB87A55F726 /* IQAudioRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 284462D20374E5F757545E2D6249ECCC /* IQAudioRecorderViewController.m */; };
-		0277A7134D5971C426810F17F1226338 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
+		014EF4113F8981A339EDFAD98AEF6D91 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761B670232DCEC0470E2449CD79F97B3 /* SideMenuTransition.swift */; };
+		0177EBA038BDB9EF6B392A5D07828FFC /* justify_center.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD1FFE03BAF8F6C9A689A1B7114C0B5 /* justify_center.png */; };
+		0183E6D8926F00B7F8A2DBB87A55F726 /* IQAudioRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F9670502C2A61F70328E009398B16 /* IQAudioRecorderViewController.m */; };
+		031DB16096A132EE287053A8F5CB6CF6 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FB0926559362314D479DB787EA141B4 /* clear.png */; };
+		04F1E21EFF4C8E48844A9A1038AA39B6 /* outdent.png in Resources */ = {isa = PBXBuildFile; fileRef = 947D79EC26B25FDE323512D9EC008296 /* outdent.png */; };
+		055953442A787707A21DF6197147D7D0 /* subscript.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D00E7AD80C800E9CE4ED0965F2D2349 /* subscript.png */; };
 		05713E54A4D5AE78DB21AB7DF79BF016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EAB7B151BC697BE40B6F6D050C046B /* UIKit.framework */; };
-		17D424BA5C309E1109615172FD2C5017 /* audio_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C31388092046E61B17D89AC97B2F086 /* audio_record.png */; };
+		07D42303D10E3A302B07AC262F35D95C /* unordered_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 468FE9F1F718C62E54ED375022B885FE /* unordered_list@2x.png */; };
+		0828E55097E9BA57295C3D866560FD6E /* subscript@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6014718F76AB00289933EF4AA35EC3BD /* subscript@2x.png */; };
+		0A390BD1C0F2FCED7D6F827922EEE205 /* insert_link.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C071A20AA3F831CEBFD9253800830E4 /* insert_link.png */; };
+		0AFBF640171BCF06BAEBA67419D49171 /* IQDropDownTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A75A6B6B708A84992914BB5CFF34604 /* IQDropDownTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B905595AAC225C87E2B710F16BA0AC6 /* bg_color.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DFF51D6C4246006F8B0933A474E4EB /* bg_color.png */; };
+		0F9AB768B8129802A596EF0CE37BD2F5 /* h3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68FEB7F445611A1B4356E4F36ED93193 /* h3@2x.png */; };
+		101CB5AABD8772463B809572CCA009D4 /* rich_editor_tests.js in Resources */ = {isa = PBXBuildFile; fileRef = 98D5280CC3F06148E2BA122799C70986 /* rich_editor_tests.js */; };
+		107EF1680B7F01EBFCDF7284B4402F4F /* underline.png in Resources */ = {isa = PBXBuildFile; fileRef = B24839B67197BD3A073C7E82138665E4 /* underline.png */; };
+		10F4A32AF2DAF70D7D7178C75176B556 /* superscript.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A13C510359B0ECF981E5E2CE2BAB60 /* superscript.png */; };
+		1361CA3ACA01D2343143FEE293707973 /* h6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DC24323720AFE98E8FF408BD7FF0E5E /* h6@2x.png */; };
+		1478F17FB3DBBFA4A05FFEE505EB7AE9 /* ordered_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F12B3780E696D2673D2705D7E9DD77 /* ordered_list.png */; };
+		15F54D6775ED5CC780A214D7E3310023 /* CJWWebView+HackishAccessoryHiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CFB48B9D49E7306DEE0CC49903B9BEB /* CJWWebView+HackishAccessoryHiding.m */; };
+		17D424BA5C309E1109615172FD2C5017 /* audio_record.png in Resources */ = {isa = PBXBuildFile; fileRef = 0292BFDB862FBC71031F42BBE9BD44D2 /* audio_record.png */; };
+		18D724B4F8BA59AFB6BA0112E656901E /* h4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6604CFBAB867F3D4B33F2106B2B4BD /* h4@2x.png */; };
+		1B4EB8AC9207C4D3500016120B592A6F /* redo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 43430DAE0FC39A804DBD4085F548EFF7 /* redo@2x.png */; };
+		1D4C1E0AAB3149E54604F040BD4FE6F8 /* CJWWebView+HackishAccessoryHiding.h in Headers */ = {isa = PBXBuildFile; fileRef = 48061D08052BFF442D00C26B0ECF0647 /* CJWWebView+HackishAccessoryHiding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29E0F9D1AACCBB7E7533A9D0D1A2C547 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADFFC6C371E0E240CC417FC7EA0ACE91 /* QuartzCore.framework */; };
-		3015F02E49347B64CB43DF58EB06D1AD /* scissor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C93585CC1E9546A87E90E5E6A60F8DC7 /* scissor@2x.png */; };
-		305269DD136262175D1A0727D7CDA9A2 /* stop_recording@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D0171692534429015CD2DB15597B5247 /* stop_recording@2x.png */; };
+		2BC5B26BF133B6A2536B883F03CD292C /* RichEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB16F7BCBB0FEE13723064E62927D0D /* RichEditorView.swift */; };
+		2D563EE03B3DD68F8350D012D096D30D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
+		2D79911AB204E59F2951C095E23352BF /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054E932FEDB8542F2E47CDC3520E66D4 /* SideMenuManager.swift */; };
+		3015F02E49347B64CB43DF58EB06D1AD /* scissor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D911D2E6D38AB74573EBFA7B6116C87F /* scissor@2x.png */; };
+		305269DD136262175D1A0727D7CDA9A2 /* stop_recording@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 78D6EF976555758B7238A53040479FE6 /* stop_recording@2x.png */; };
 		3665A878FFE0805592A4674253A3B91C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6893A2CCAE60DC427CA15D87BA59F60 /* CoreGraphics.framework */; };
-		37C799676D843531B4F8CE0325603183 /* NSString+IQTimeIntervalFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E69CAB73928D208DCB8717F048F7C88 /* NSString+IQTimeIntervalFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		381F3CA68BBF3C341D3B52CD68779619 /* SideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2AA4686D16BB7F5DE73D03270CCA583 /* SideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3ED606BF23EDB4A6B13161A5895EC1D8 /* IQ_FDWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = 63AF27FEBA7700B72B9B525F192D3A79 /* IQ_FDWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		41EA8AF56DE242EDA2F3714B761EDE86 /* IQCropSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF4663AD2806758E65283C774B0A9B1 /* IQCropSelectionView.m */; };
-		429DEBBF3B75DC7468B68CA71148F6D4 /* stop_playing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34FC3429B9046E38B9A994B8B622B52F /* stop_playing@2x.png */; };
-		443767ECD9924DEEA1A36A2D61682F6C /* IQPlaybackDurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A1A9776204F10533BE0E0847B31A9C /* IQPlaybackDurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		452C92BB5D06338EEEBF013C73C34001 /* stop_playing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF3FBDAB110349D78BD31C90C6A7E257 /* stop_playing@3x.png */; };
-		46A9E4DAD4C35811079A329E722BBE3E /* microphone_access@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4388C9F0596CF88BBF8880E48171B7D /* microphone_access@3x.png */; };
-		4742C6B8FF177DF03A38F91F877F1F89 /* microphone_access@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6618330D14EB4EC45789A7294FC29A4 /* microphone_access@2x.png */; };
-		4A61C8394F3074A12A159A8A1415AE90 /* IQAudioCropperViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07AE0BC8C205DFDFEB5F918DC76CAB1E /* IQAudioCropperViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4EDC3E688F83FF99F042AF8955A5F2C2 /* stop_recording@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEB570D70F3BB1AFF818E60E46ACEB20 /* stop_recording@3x.png */; };
-		4F1E3EAAA5E21C07C86AB289A5E0076E /* IQAudioRecorderController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C3AAA91427934316B14E80AEBB2CD0 /* IQAudioRecorderController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5D5BBFD8B361F6D80ED22F88FDEF30F1 /* IQPlaybackDurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABD49869C2DF5AB87E0C918EE23D1A1 /* IQPlaybackDurationView.m */; };
+		37C799676D843531B4F8CE0325603183 /* NSString+IQTimeIntervalFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 2873C78621D0CD196AAC3F93FEF73398 /* NSString+IQTimeIntervalFormatter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3ED606BF23EDB4A6B13161A5895EC1D8 /* IQ_FDWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FD13D297557768201DF6FA939BF43C6 /* IQ_FDWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		40396AA7A49BCDECC96E1DD1CA9BBD72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
+		41EA8AF56DE242EDA2F3714B761EDE86 /* IQCropSelectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FE7985E5D49AD15EB31E75585EE25DDD /* IQCropSelectionView.m */; };
+		429DEBBF3B75DC7468B68CA71148F6D4 /* stop_playing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A6FB783C9E018A1EBAAD0857C593AEF /* stop_playing@2x.png */; };
+		43D0A01EFB0172C8C2589D1A83392A11 /* text_color.png in Resources */ = {isa = PBXBuildFile; fileRef = 11BF18569982941450D37200CA1D0DE1 /* text_color.png */; };
+		443767ECD9924DEEA1A36A2D61682F6C /* IQPlaybackDurationView.h in Headers */ = {isa = PBXBuildFile; fileRef = EAE680A5CF2AFF4F5366A8EF5895109C /* IQPlaybackDurationView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		452C92BB5D06338EEEBF013C73C34001 /* stop_playing@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24B4C61EC8E967DB9D4DF593CA25AE55 /* stop_playing@3x.png */; };
+		46A9E4DAD4C35811079A329E722BBE3E /* microphone_access@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73C45945FA1185C2330DF219CAFE64F4 /* microphone_access@3x.png */; };
+		4742C6B8FF177DF03A38F91F877F1F89 /* microphone_access@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F3913A096BC96F88C382D26AB67B1537 /* microphone_access@2x.png */; };
+		476E4956B22E2526ADD1147856FF4DF2 /* rich_editor.js in Resources */ = {isa = PBXBuildFile; fileRef = 08D60DC5F40BD15F561D51B11D29651E /* rich_editor.js */; };
+		47A093E4988BB995BFFF861BB9734A97 /* ordered_list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B6E70AD38C7C00AADB978F7C81451D5 /* ordered_list@2x.png */; };
+		48FC8010E52937D6E5C4DFE8AA62F53A /* RichEditorOptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF9DC45BF7B7DDF54AC5B267788ED3 /* RichEditorOptionItem.swift */; };
+		4A61C8394F3074A12A159A8A1415AE90 /* IQAudioCropperViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E91DD4C8EEC11E3745565AE8844657A /* IQAudioCropperViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4EDC3E688F83FF99F042AF8955A5F2C2 /* stop_recording@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E0E433C407B65FE01500B2940B51F775 /* stop_recording@3x.png */; };
+		4F1E3EAAA5E21C07C86AB289A5E0076E /* IQAudioRecorderController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 85FAFA947051D2648F944D43542F1E9B /* IQAudioRecorderController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		504CF8BD181842122B4D1320BBB91DB3 /* justify_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5A1626BC27B61C0138A5E26C0EAC0CD /* justify_left@2x.png */; };
+		57EBF1C7B197C22455019437ADFAC5F2 /* h2.png in Resources */ = {isa = PBXBuildFile; fileRef = 09BB28FE72996F1AC1F53604DDD97FA5 /* h2.png */; };
+		5C48D0B259FF6CF5C61014ECF89920FF /* IQDropDownTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 5042FDB40E970F50DA60B6BF295ECCD1 /* IQDropDownTextField.m */; };
+		5D5BBFD8B361F6D80ED22F88FDEF30F1 /* IQPlaybackDurationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CD605AE1D7CD719ED6A71BDF3D4AADB /* IQPlaybackDurationView.m */; };
+		5DFDAE6C1D6517A822D48E14D350D286 /* assert.js in Resources */ = {isa = PBXBuildFile; fileRef = 83C63D085A68AF514D75ADB100CDCBDF /* assert.js */; };
 		5E9534FF91AAB97A4A08A8117AB41B69 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3015C65EFD93E6C9A2C3E0CDF08BF6CB /* AVFoundation.framework */; };
-		62BFF1854627D667B663118C80804616 /* scissor@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 915A63382889923FCB5F8C30FC97CFD1 /* scissor@3x.png */; };
-		64A2196AB6080C641DF100096E267EF2 /* NSString+IQTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7888161F539D2BEF2A7EB02DEEA4D979 /* NSString+IQTimeIntervalFormatter.m */; };
-		757174AA9B1B03484BA2F7F00BAA3576 /* IQCropSelectionEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9702AFC74F1178264E765633BE1E1F0A /* IQCropSelectionEndView.m */; };
-		7C1801C836D425C7ED44CDA094E22723 /* IQAudioRecorderConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = BD6E6416F80FE2AC2B9356710EDADAAD /* IQAudioRecorderConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7D017C4766A8A6B24A80A356575F707A /* SCSiriWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = 535EADB6F6C51391B0FDA529C555A265 /* SCSiriWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		806C21A7C6E61CFF69D639CAD77E714F /* IQCropSelectionEndView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B0DB8A75F67D65222670AD9C70A0F82 /* IQCropSelectionEndView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		62BFF1854627D667B663118C80804616 /* scissor@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E04F87C157B63F5D2DD1F0D4D4A35E1 /* scissor@3x.png */; };
+		64A2196AB6080C641DF100096E267EF2 /* NSString+IQTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84173A7EFB2B58DB58ED62604A30CEC9 /* NSString+IQTimeIntervalFormatter.m */; };
+		6783262F09D211EDB1E9C76C9A1774A2 /* h6.png in Resources */ = {isa = PBXBuildFile; fileRef = CF741268257DB69E5481CE14612398A4 /* h6.png */; };
+		6B881872BBA036A573D2C60FAC73AC92 /* IQDropDownTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F792657EFB324D051600D3FE4A6C5E /* IQDropDownTextField-dummy.m */; };
+		7086155226E09A9E592C1C8D102FD542 /* justify_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 164A0ECEE7991E6B44168DEEEC765873 /* justify_right.png */; };
+		7542A40076A05B0BCCD7521747BEA857 /* undo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D44644D45291074D12BA8AF9B7C1EB5 /* undo@2x.png */; };
+		757174AA9B1B03484BA2F7F00BAA3576 /* IQCropSelectionEndView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD9578A0986C27DB527CE28C987FCD40 /* IQCropSelectionEndView.m */; };
+		7C1801C836D425C7ED44CDA094E22723 /* IQAudioRecorderConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FCD91FA4C5FBEB8712847B7872242F /* IQAudioRecorderConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CCF904078939F904840270921AF9C09 /* indent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C3E1B6EB5F619EF714DB86A93784AD /* indent@2x.png */; };
+		7D017C4766A8A6B24A80A356575F707A /* SCSiriWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = A7AD3AC53738045F6147A241C1DA1B83 /* SCSiriWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7D527C429452F48403A68440C35EAB74 /* justify_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 86EC92647CDB7A2A8E0DF9D3D0CF2FD8 /* justify_left.png */; };
+		805820BD04B1F05D1984CF87A8060873 /* strikethrough.png in Resources */ = {isa = PBXBuildFile; fileRef = 3884562C5CF0A55CC66A807C511F760F /* strikethrough.png */; };
+		806C21A7C6E61CFF69D639CAD77E714F /* IQCropSelectionEndView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9C2B76239D088D315E59FFFF3EA1F4 /* IQCropSelectionEndView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80A45D4AE05008356595D8EB613504FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
-		80BCDC067D49E704079BE5C15C046614 /* IQAudioRecorderController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE818AE2C35A3F2AEB0E6CEDF11B9A85 /* IQAudioRecorderController-dummy.m */; };
-		8206FDD2F6696F14419FD2BA9C633460 /* SCSiriWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF1E02C0050F2B9BAD06A3417948C07 /* SCSiriWaveformView-dummy.m */; };
-		849A8449312926683E7110EACC5EB524 /* stop_recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 4215C4475E0712F79597AA460822D479 /* stop_recording.png */; };
-		8A3836948B26F090FADA7CA4A58D31C2 /* audio_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2E7F90215B5F47887AD38E4F175CBD3B /* audio_record@2x.png */; };
-		8AE23E99B5D81CE013A479C8C01DB9E6 /* IQAudioCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A884B9BAA90474A9701093B4CC1C0B /* IQAudioCropperViewController.m */; };
+		80BCDC067D49E704079BE5C15C046614 /* IQAudioRecorderController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A0ACAB59C5478904D4AED66BD04CF5 /* IQAudioRecorderController-dummy.m */; };
+		8206FDD2F6696F14419FD2BA9C633460 /* SCSiriWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 982FF27FFBC678A7179143CA9915DCEB /* SCSiriWaveformView-dummy.m */; };
+		849A8449312926683E7110EACC5EB524 /* stop_recording.png in Resources */ = {isa = PBXBuildFile; fileRef = 148C2324E5308AAA9CAA7CA79644AD25 /* stop_recording.png */; };
+		8A3836948B26F090FADA7CA4A58D31C2 /* audio_record@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7994FB2ED7048DC25F24464325B7BED /* audio_record@2x.png */; };
+		8AE23E99B5D81CE013A479C8C01DB9E6 /* IQAudioCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F545BF8BE7F69F2CEC765BC57A69AA /* IQAudioCropperViewController.m */; };
+		8D2DA48BD9D1E79F90A409A4C6C5F458 /* insert_link@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 948C986EFD28CEA85ACA6DDDD21E4A36 /* insert_link@2x.png */; };
+		8E30F63BC055E37C75FF74B7969A77D0 /* Pods-My Backpack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FC29794FE9C4C17CB05AE2B00D2FF1 /* Pods-My Backpack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E671EC7933CCDDD7BB86C8427126A84 /* h1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46FDF02BE25C46B6E46E103EDB0218D2 /* h1@2x.png */; };
+		8F009644E628DFDAC8AAC0B462C01359 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 615160C6C09EAE62838BE7BFA7F66149 /* style.css */; };
 		9396A049E3CDB24CE8208655AC29824F /* SCSiriWaveformView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB365B068D9500F5060990563F2F0799 /* SCSiriWaveformView.framework */; };
-		9860170FC39EA871E949CBBC46B5C95A /* IQMessageDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8FB741901B49C6C431F989D3D68E1E /* IQMessageDisplayView.m */; };
-		98D9550A1723D833731DC63B667F07EF /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527384E18DE194F8BFEC9FDC7EE22F1 /* UISideMenuNavigationController.swift */; };
-		9CC5B819FD827819674EEEA6FCBFD34D /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = C1ABA33DB2D03E78648179BD56A2FC4E /* SCSiriWaveformView.m */; };
-		9EFA54977D58CC42FE19072C6BF7D542 /* scissor.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6EA0EA633C3A5355BBF313C7C8F0A1 /* scissor.png */; };
+		94F49CE70CC22DFA49CFB3E0CBC8EEE7 /* rich_editor_tests.html in Resources */ = {isa = PBXBuildFile; fileRef = 8454ABA381CBB5CF8D3A86D086035170 /* rich_editor_tests.html */; };
+		95C9CB53F6E1E4A8A48B2F6DE44AB9FD /* redo.png in Resources */ = {isa = PBXBuildFile; fileRef = 76EE856A0941F97DD195CD256BAD930F /* redo.png */; };
+		9663A8DF6A8582E3F6080799EB83B941 /* insert_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F09D864BCDB5C21F5640AC3A49DD0F4 /* insert_image@2x.png */; };
+		9860170FC39EA871E949CBBC46B5C95A /* IQMessageDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA010C84ECB40B70706C4C48A6E3FA1 /* IQMessageDisplayView.m */; };
+		98D2DA05E73CE04B5F906653A4FA9303 /* italic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0838C49DB51B89148C849FFD6AD080C3 /* italic@2x.png */; };
+		98E9AD323C176221BE3EE632503B922C /* h5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3292A6074D5091590E1C7DA1D76FB7BE /* h5@2x.png */; };
+		997339E5224AAE0392274AA0765E53CD /* superscript@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A46AB08CCD46A71BDA03B1396FF3C4E /* superscript@2x.png */; };
+		9B764964012AF2AD0463F65A93B781F0 /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347E022D980962E6A8F48494DE816403 /* UISideMenuNavigationController.swift */; };
+		9CC5B819FD827819674EEEA6FCBFD34D /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E2C548CC6DC21A89B6F0A091A203B6D /* SCSiriWaveformView.m */; };
+		9D1B40FC278ABA02827F8624337BFA04 /* RichEditorToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 260805C12ACFA8BF2D0086BD8DBD7342 /* RichEditorToolbar.swift */; };
+		9EFA54977D58CC42FE19072C6BF7D542 /* scissor.png in Resources */ = {isa = PBXBuildFile; fileRef = 633509B471568185FCFE6FD53A0E3C1E /* scissor.png */; };
+		9F496941B2C4F3CAC4ECA3CC8A0F6D4E /* Pods-My Backpack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 120BB06DEBF30644F0A0B3345A75B6B2 /* Pods-My Backpack-dummy.m */; };
+		A284C05193BEB3E22062040EE625D5E1 /* rich_editor.html in Resources */ = {isa = PBXBuildFile; fileRef = 130EF02C2433590F1AEAC87849978767 /* rich_editor.html */; };
 		A2F8521A1771731F9D394B6CC0F57A6F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3015C65EFD93E6C9A2C3E0CDF08BF6CB /* AVFoundation.framework */; };
-		A607D67F3725E6083F0F013357D51659 /* Pods-My Backpack-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C3FC29794FE9C4C17CB05AE2B00D2FF1 /* Pods-My Backpack-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A61335FD431AD2A1A9EA8E6CF3FB9DBF /* h3.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C8BF727B65E7E6AE0D9D8B43CBC376 /* h3.png */; };
 		A787E360F6AF854351D0F21A00C16C7F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EAB7B151BC697BE40B6F6D050C046B /* UIKit.framework */; };
-		A9BBA058D9732AC59A7377152E719112 /* IQCropSelectionBeginView.h in Headers */ = {isa = PBXBuildFile; fileRef = 513323AEE03C9BC39D676B74B5CCB68B /* IQCropSelectionBeginView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAA696E6745D5B874A75B3EE613F3E41 /* IQCropSelectionBeginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B589624A62AC9E097379174A4B0946 /* IQCropSelectionBeginView.m */; };
+		A8DB275D9F9B055DD18D8FF822494348 /* clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86C843E7A2A1C42D627104EE9E958F9C /* clear@2x.png */; };
+		A90058B9F6EA31A1B955741684783312 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580A83E1EEC558F20A229462C4E799C9 /* UITableViewVibrantCell.swift */; };
+		A9BBA058D9732AC59A7377152E719112 /* IQCropSelectionBeginView.h in Headers */ = {isa = PBXBuildFile; fileRef = E6485E75B2738B6BC64BA7D65E51E1F7 /* IQCropSelectionBeginView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA696E6745D5B874A75B3EE613F3E41 /* IQCropSelectionBeginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BD186AC693C2D7165F7AEE21533E04A /* IQCropSelectionBeginView.m */; };
+		AB62B3F275BD13B3103D50506A842041 /* IQDropDownTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 629AFDED4ABB1F4C1C160B4ADE13C2EB /* IQDropDownTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B3C9FAF26144E807925F06CF070C13B3 /* justify_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07D0979415D0DDAABC409EE434028FE3 /* justify_right@2x.png */; };
 		B5539F8FD01B0346AD6C4F2743BB0B67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
-		B59FB7ADF2C3686C4A8CA39E1E0598CE /* stop_playing.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B7619EDAACA8AB7EFCFAC152EB67140 /* stop_playing.png */; };
-		B8FCF87620600A7A6CE45858E0FA8B67 /* SCSiriWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E18E5BBF0BD762E600D01E1CB9D3579 /* SCSiriWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C20ED5A79C2335EAEFD046731DBB4263 /* IQ_FDWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA60D1A4DE8D26C8A64B0FB861E4AFE /* IQ_FDWaveformView.m */; };
-		C3A6D3F620D9F37F27EBDA2C6E0FEC70 /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A840C502DD3F9556FFE4A66B3B0DDF /* UITableViewVibrantCell.swift */; };
-		C85B68F7CE1CD55A995DC20927FBE52D /* audio_record@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9D6831CE21C0EF9759A251EEE5E8ECE /* audio_record@3x.png */; };
-		D0286A5C4C78DB4D4D92DF93A71775B2 /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64964B99DB574EEBDD0ACC5025FD4A6 /* SideMenuManager.swift */; };
-		D47E35F0562357205AA7EEF436254E9B /* Pods-My Backpack-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 120BB06DEBF30644F0A0B3345A75B6B2 /* Pods-My Backpack-dummy.m */; };
-		D7E587EB20BD9D32CF69D24F9CE3500D /* IQAudioRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 51747D5FA0BA8DED78F52D8B33196AFD /* IQAudioRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA1F68FAA7BC02E5E38377F0F453C2AA /* IQCropSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E5A40F94957587D212A9C740D0E60C /* IQCropSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DC13A616B7AFC1A9DC10C0EE948F79A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
-		E2D4A0B6BC5CDEDF80FC0312D9FF973B /* IQAudioRecorderConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = A99378EF0EEA65E31D6C413FC3D49A86 /* IQAudioRecorderConstraints.m */; };
-		E6FA3B105E57094506F4780DA6808C33 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D4B11ACF232A98A7E01BB7BA6EEA1 /* SideMenuTransition.swift */; };
-		E8905186EDB4294CF1448530E73E734C /* SideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E368C78D4C9BE97717D85B087B98798B /* SideMenu-dummy.m */; };
-		F21082BBCEF15A9FBCAB996129A36479 /* IQMessageDisplayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 90FEB85388FC84EAB74DEAB60883FE24 /* IQMessageDisplayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F460337DCEFE83C126EEDCDDBFBDF5BE /* microphone_access.png in Resources */ = {isa = PBXBuildFile; fileRef = F0B5E1B8354B240B8B5522F36D110106 /* microphone_access.png */; };
+		B59FB7ADF2C3686C4A8CA39E1E0598CE /* stop_playing.png in Resources */ = {isa = PBXBuildFile; fileRef = A44A4F328401D75055AF6D453DB880CB /* stop_playing.png */; };
+		B8A97E6472724CE7ED9630EE21893A77 /* strikethrough@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE555B379959ADF0F8971553BBD0C0D8 /* strikethrough@2x.png */; };
+		B8FCF87620600A7A6CE45858E0FA8B67 /* SCSiriWaveformView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FE5B980372C083F8639C7D46B6893519 /* SCSiriWaveformView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BA62A2E0F8A808E98E0C84D86528ADF8 /* insert_image.png in Resources */ = {isa = PBXBuildFile; fileRef = F8FEF2BBC8166AE2FA2B402BF5F4434C /* insert_image.png */; };
+		BF7773CE3ADA1FD03090BA4C82B81F6A /* bold.png in Resources */ = {isa = PBXBuildFile; fileRef = D2DB63078720B69914762ACB0F15C326 /* bold.png */; };
+		C09577EF8E82A4684186D3A2BAAF4A39 /* h5.png in Resources */ = {isa = PBXBuildFile; fileRef = 82A615DB37082CB1D3922F59119E1FB0 /* h5.png */; };
+		C20ED5A79C2335EAEFD046731DBB4263 /* IQ_FDWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A575ED5D7A7E260AD0667A45A1A934 /* IQ_FDWaveformView.m */; };
+		C6BF4E74CC2651928DBAF835D54C090E /* italic.png in Resources */ = {isa = PBXBuildFile; fileRef = 32D3C12858984A5E9BA68A3CBC6EF7E8 /* italic.png */; };
+		C8212174D8FAF90409A8B7F25B050939 /* outdent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5ABF8662FA8E6D39C88ACA55946CB18F /* outdent@2x.png */; };
+		C82D1E3ABA67A6717BB8BA09D48E8C82 /* text_color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B116C26D6DB919F1E1DFEFE88C7BD18 /* text_color@2x.png */; };
+		C85B68F7CE1CD55A995DC20927FBE52D /* audio_record@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EE3925390FBFAB8908B3D3455F845B0 /* audio_record@3x.png */; };
+		C9736D3EB22C8413542F4F2B110E4F87 /* UIView+Responder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56291892C036594DD324035EDD4185E9 /* UIView+Responder.swift */; };
+		CBFFBBB336BBCDCBD35C9FE7F9314F40 /* bold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1EC80AB938CDDEA434F7C32FF7F4F9F7 /* bold@2x.png */; };
+		D4031A8DC567EEBBD6D062851D94494B /* RichEditorView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EA772E3D382F0DA054974D305A17FC6E /* RichEditorView-dummy.m */; };
+		D7E587EB20BD9D32CF69D24F9CE3500D /* IQAudioRecorderViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FC6FDC4034E1D21F6A2323B6234AA1F8 /* IQAudioRecorderViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA1F68FAA7BC02E5E38377F0F453C2AA /* IQCropSelectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 33D83FAED6C991E1BD0724E578BC13D9 /* IQCropSelectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB27C2FB7753DF904A1C7FD6716E4CB8 /* SideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7369359970C0937888D7ECCB8C158E4C /* SideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE4776D17983840E9AB4763C56E67281 /* underline@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC29B5E4BCE29544AB35555A653925CD /* underline@2x.png */; };
+		E20DB94B52E8F87C71A524C38F20250B /* h2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B57805BEE5965460AABEBD5B9CE8B726 /* h2@2x.png */; };
+		E2D4A0B6BC5CDEDF80FC0312D9FF973B /* IQAudioRecorderConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 822A84B51FBD8F36E6AB66617421C6D1 /* IQAudioRecorderConstraints.m */; };
+		E43754E18482021B5B9EBE8CF174751A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
+		E4CFA3D66F35C16EC500D5978E30D1DF /* RichEditorView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 30B0AFBBE824901DFE0F546F9C754C9D /* RichEditorView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8F41698C400CEF153F52130A161F795 /* undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2F544DC49692A48AABE53E0485B8DD /* undo.png */; };
+		EC44ABA9A041A364E77C1685E28258CC /* unordered_list.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FB7744C965FDD5C1D7FF541152D20B3 /* unordered_list.png */; };
+		EDA642B36DF183D45AE8FC15A1222047 /* justify_center@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FDCAF1D986A2D652010AB6455557CA7 /* justify_center@2x.png */; };
+		F16F74331AB1E3A14CDE171ACB567416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */; };
+		F1EC0628BA9A055BEEF814AB1B8F5E72 /* indent.png in Resources */ = {isa = PBXBuildFile; fileRef = E516DE35E0734EDB180A4B3FEC8F1B27 /* indent.png */; };
+		F21082BBCEF15A9FBCAB996129A36479 /* IQMessageDisplayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DEE4BC050449D6CF884054D0898BFD4 /* IQMessageDisplayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F460337DCEFE83C126EEDCDDBFBDF5BE /* microphone_access.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F2D061F6DB04067E511DDCD72A1C0D /* microphone_access.png */; };
+		F5888D05143BCEE9170FE1322F9788DC /* h1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C26E1EB6C35B4E872432A76E423E504 /* h1.png */; };
+		F6CD6848617EF7BCF188AB887F43E88A /* SideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 71FECBCE72877ECB46E3D81E085FAA16 /* SideMenu-dummy.m */; };
+		FB80A031638D04E6B735A2B17F234CEE /* h4.png in Resources */ = {isa = PBXBuildFile; fileRef = DA4B2B91C8C1AF3DC672D61FB0928CB1 /* h4.png */; };
+		FE7CAC5A5152097FEDC92C38B66EAA36 /* bg_color@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5E8D68E3D2EEB36AF8BFF1C87177DF /* bg_color@2x.png */; };
+		FF3CB95CF98B7305A43ADFF6EAC12AC3 /* normalize.css in Resources */ = {isa = PBXBuildFile; fileRef = 004CB2BFEBDC0DE9A1032D70B40EF51D /* normalize.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		709B0FD1D1372FEF46F37AF8D43C970E /* PBXContainerItemProxy */ = {
+		214162004511993918901FAC7DD873B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 817FB62A0F4BDF529258D8F138F83390;
-			remoteInfo = SideMenu;
+			remoteGlobalIDString = 67F8853D1EFECB81E8A37485125C3C0A;
+			remoteInfo = RichEditorView;
 		};
-		BE13A0A62F24048A5471E02A95802F7B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 923C199FC8844D48B6E4D0E9B013C7C4;
-			remoteInfo = SCSiriWaveformView;
-		};
-		C56D165E4245E996CF678F977328A05D /* PBXContainerItemProxy */ = {
+		36DF410C1AB0C6626E00B735DAF6B621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BF5E8492AD833171E67A19F798CC6361;
 			remoteInfo = IQAudioRecorderController;
+		};
+		8501592FBBCE49DB408EB99D5F2EF4A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6AD32235C68E82618C442A5559F12D6;
+			remoteInfo = IQDropDownTextField;
+		};
+		8D3BADE9595C940A9E4EB8A6A1239F4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC0B7A322FD632CF149668F4A9CB67FC;
+			remoteInfo = SideMenu;
+		};
+		951EAEE19B8E6DDCB60BA840FDFCCE03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 923C199FC8844D48B6E4D0E9B013C7C4;
+			remoteInfo = SCSiriWaveformView;
 		};
 		DFF9654EB4EE42317C4F79D7461CC365 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -101,89 +188,178 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06C56125BF668652987C8DDB8C22403B /* IQAudioRecorderController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = IQAudioRecorderController.modulemap; sourceTree = "<group>"; };
-		07AE0BC8C205DFDFEB5F918DC76CAB1E /* IQAudioCropperViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioCropperViewController.h; path = IQAudioRecorderController/IQAudioCropperViewController.h; sourceTree = "<group>"; };
-		0E69CAB73928D208DCB8717F048F7C88 /* NSString+IQTimeIntervalFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+IQTimeIntervalFormatter.h"; path = "IQAudioRecorderController/NSString+IQTimeIntervalFormatter.h"; sourceTree = "<group>"; };
+		004CB2BFEBDC0DE9A1032D70B40EF51D /* normalize.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = normalize.css; path = RichEditorView/Assets/editor/normalize.css; sourceTree = "<group>"; };
+		0121451E2CF287F174EBC6CBC0DA33D7 /* RichEditorView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RichEditorView-prefix.pch"; sourceTree = "<group>"; };
+		0292BFDB862FBC71031F42BBE9BD44D2 /* audio_record.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = audio_record.png; path = IQAudioRecorderController/Resources/audio_record.png; sourceTree = "<group>"; };
+		054E932FEDB8542F2E47CDC3520E66D4 /* SideMenuManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuManager.swift; path = Pod/Classes/SideMenuManager.swift; sourceTree = "<group>"; };
+		07D0979415D0DDAABC409EE434028FE3 /* justify_right@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "justify_right@2x.png"; path = "RichEditorView/Assets/icons/justify_right@2x.png"; sourceTree = "<group>"; };
+		0838C49DB51B89148C849FFD6AD080C3 /* italic@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "italic@2x.png"; path = "RichEditorView/Assets/icons/italic@2x.png"; sourceTree = "<group>"; };
+		08D60DC5F40BD15F561D51B11D29651E /* rich_editor.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = rich_editor.js; path = RichEditorView/Assets/editor/rich_editor.js; sourceTree = "<group>"; };
+		09BB28FE72996F1AC1F53604DDD97FA5 /* h2.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h2.png; path = RichEditorView/Assets/icons/h2.png; sourceTree = "<group>"; };
+		09C1007E8A5DFD20DA4CB95558321D40 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C26E1EB6C35B4E872432A76E423E504 /* h1.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h1.png; path = RichEditorView/Assets/icons/h1.png; sourceTree = "<group>"; };
+		0C9C2B76239D088D315E59FFFF3EA1F4 /* IQCropSelectionEndView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionEndView.h; path = IQAudioRecorderController/IQCropSelectionEndView.h; sourceTree = "<group>"; };
+		0E04F87C157B63F5D2DD1F0D4D4A35E1 /* scissor@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "scissor@3x.png"; path = "IQAudioRecorderController/Resources/scissor@3x.png"; sourceTree = "<group>"; };
+		11BF18569982941450D37200CA1D0DE1 /* text_color.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = text_color.png; path = RichEditorView/Assets/icons/text_color.png; sourceTree = "<group>"; };
 		120BB06DEBF30644F0A0B3345A75B6B2 /* Pods-My Backpack-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-My Backpack-dummy.m"; sourceTree = "<group>"; };
-		1527384E18DE194F8BFEC9FDC7EE22F1 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISideMenuNavigationController.swift; path = Pod/Classes/UISideMenuNavigationController.swift; sourceTree = "<group>"; };
-		284462D20374E5F757545E2D6249ECCC /* IQAudioRecorderViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioRecorderViewController.m; path = IQAudioRecorderController/IQAudioRecorderViewController.m; sourceTree = "<group>"; };
-		2ABD49869C2DF5AB87E0C918EE23D1A1 /* IQPlaybackDurationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPlaybackDurationView.m; path = IQAudioRecorderController/IQPlaybackDurationView.m; sourceTree = "<group>"; };
-		2AD3E36BD29C8F6D835BE3FFD74EE3BC /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SideMenu.modulemap; sourceTree = "<group>"; };
-		2E7F90215B5F47887AD38E4F175CBD3B /* audio_record@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "audio_record@2x.png"; path = "IQAudioRecorderController/Resources/audio_record@2x.png"; sourceTree = "<group>"; };
+		130EF02C2433590F1AEAC87849978767 /* rich_editor.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = rich_editor.html; path = RichEditorView/Assets/editor/rich_editor.html; sourceTree = "<group>"; };
+		148C2324E5308AAA9CAA7CA79644AD25 /* stop_recording.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = stop_recording.png; path = IQAudioRecorderController/Resources/stop_recording.png; sourceTree = "<group>"; };
+		152B7BBE5FEEFCC1A9F566C6E022CA5C /* SCSiriWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCSiriWaveformView.xcconfig; sourceTree = "<group>"; };
+		164A0ECEE7991E6B44168DEEEC765873 /* justify_right.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = justify_right.png; path = RichEditorView/Assets/icons/justify_right.png; sourceTree = "<group>"; };
+		1821B9788AE6080D2B750F0EA95C494A /* RichEditorView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = RichEditorView.modulemap; sourceTree = "<group>"; };
+		1EC80AB938CDDEA434F7C32FF7F4F9F7 /* bold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bold@2x.png"; path = "RichEditorView/Assets/icons/bold@2x.png"; sourceTree = "<group>"; };
+		24B4C61EC8E967DB9D4DF593CA25AE55 /* stop_playing@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "stop_playing@3x.png"; path = "IQAudioRecorderController/Resources/stop_playing@3x.png"; sourceTree = "<group>"; };
+		24F792657EFB324D051600D3FE4A6C5E /* IQDropDownTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQDropDownTextField-dummy.m"; sourceTree = "<group>"; };
+		260805C12ACFA8BF2D0086BD8DBD7342 /* RichEditorToolbar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RichEditorToolbar.swift; path = RichEditorView/Classes/RichEditorToolbar.swift; sourceTree = "<group>"; };
+		2873C78621D0CD196AAC3F93FEF73398 /* NSString+IQTimeIntervalFormatter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+IQTimeIntervalFormatter.h"; path = "IQAudioRecorderController/NSString+IQTimeIntervalFormatter.h"; sourceTree = "<group>"; };
+		2B116C26D6DB919F1E1DFEFE88C7BD18 /* text_color@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "text_color@2x.png"; path = "RichEditorView/Assets/icons/text_color@2x.png"; sourceTree = "<group>"; };
+		2D00E7AD80C800E9CE4ED0965F2D2349 /* subscript.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = subscript.png; path = RichEditorView/Assets/icons/subscript.png; sourceTree = "<group>"; };
+		2D4F9670502C2A61F70328E009398B16 /* IQAudioRecorderViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioRecorderViewController.m; path = IQAudioRecorderController/IQAudioRecorderViewController.m; sourceTree = "<group>"; };
+		2D5E8D68E3D2EEB36AF8BFF1C87177DF /* bg_color@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "bg_color@2x.png"; path = "RichEditorView/Assets/icons/bg_color@2x.png"; sourceTree = "<group>"; };
+		2F3AFFA606B1FB0003B43D03955F3AE0 /* Pods_My_Backpack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Backpack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3015C65EFD93E6C9A2C3E0CDF08BF6CB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
-		33A884B9BAA90474A9701093B4CC1C0B /* IQAudioCropperViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioCropperViewController.m; path = IQAudioRecorderController/IQAudioCropperViewController.m; sourceTree = "<group>"; };
-		34762FDB9F7EAB8A07C7BCF581E30693 /* Pods_My_Backpack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_My_Backpack.framework; path = "Pods-My Backpack.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		34FC3429B9046E38B9A994B8B622B52F /* stop_playing@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "stop_playing@2x.png"; path = "IQAudioRecorderController/Resources/stop_playing@2x.png"; sourceTree = "<group>"; };
+		30B0AFBBE824901DFE0F546F9C754C9D /* RichEditorView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RichEditorView-umbrella.h"; sourceTree = "<group>"; };
+		3292A6074D5091590E1C7DA1D76FB7BE /* h5@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h5@2x.png"; path = "RichEditorView/Assets/icons/h5@2x.png"; sourceTree = "<group>"; };
+		32D3C12858984A5E9BA68A3CBC6EF7E8 /* italic.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = italic.png; path = RichEditorView/Assets/icons/italic.png; sourceTree = "<group>"; };
+		33D284DC01DD3A213F21F50911C68BB2 /* IQAudioRecorderController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IQAudioRecorderController.modulemap; sourceTree = "<group>"; };
+		33D83FAED6C991E1BD0724E578BC13D9 /* IQCropSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionView.h; path = IQAudioRecorderController/IQCropSelectionView.h; sourceTree = "<group>"; };
+		347E022D980962E6A8F48494DE816403 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISideMenuNavigationController.swift; path = Pod/Classes/UISideMenuNavigationController.swift; sourceTree = "<group>"; };
 		355ADB2DCD5AF5F8515E7CB8C3CAB6E5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E18E5BBF0BD762E600D01E1CB9D3579 /* SCSiriWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCSiriWaveformView-umbrella.h"; sourceTree = "<group>"; };
-		4215C4475E0712F79597AA460822D479 /* stop_recording.png */ = {isa = PBXFileReference; includeInIndex = 1; name = stop_recording.png; path = IQAudioRecorderController/Resources/stop_recording.png; sourceTree = "<group>"; };
-		43570E3B54D6ED780A23B08F019630D4 /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SideMenu.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		48E5A40F94957587D212A9C740D0E60C /* IQCropSelectionView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionView.h; path = IQAudioRecorderController/IQCropSelectionView.h; sourceTree = "<group>"; };
-		4FB907EFFB32FA3FAD5DE88FBF0975F7 /* SCSiriWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCSiriWaveformView-prefix.pch"; sourceTree = "<group>"; };
-		513323AEE03C9BC39D676B74B5CCB68B /* IQCropSelectionBeginView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionBeginView.h; path = IQAudioRecorderController/IQCropSelectionBeginView.h; sourceTree = "<group>"; };
-		51747D5FA0BA8DED78F52D8B33196AFD /* IQAudioRecorderViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioRecorderViewController.h; path = IQAudioRecorderController/IQAudioRecorderViewController.h; sourceTree = "<group>"; };
-		535EADB6F6C51391B0FDA529C555A265 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSiriWaveformView.h; path = SCSiriWaveformView/SCSiriWaveformView.h; sourceTree = "<group>"; };
-		62AD84E4F0C88C65D840BEB27A22152B /* IQAudioRecorderController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQAudioRecorderController.xcconfig; sourceTree = "<group>"; };
+		3884562C5CF0A55CC66A807C511F760F /* strikethrough.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = strikethrough.png; path = RichEditorView/Assets/icons/strikethrough.png; sourceTree = "<group>"; };
+		39A0ACAB59C5478904D4AED66BD04CF5 /* IQAudioRecorderController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQAudioRecorderController-dummy.m"; sourceTree = "<group>"; };
+		3C4AABF6EF8E2DF24F036E3AF3EEF6CD /* IQAudioRecorderController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQAudioRecorderController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB0926559362314D479DB787EA141B4 /* clear.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = clear.png; path = RichEditorView/Assets/icons/clear.png; sourceTree = "<group>"; };
+		41512BA7D4A57FE59524CCD5CFDDACBD /* SideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-prefix.pch"; sourceTree = "<group>"; };
+		43430DAE0FC39A804DBD4085F548EFF7 /* redo@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "redo@2x.png"; path = "RichEditorView/Assets/icons/redo@2x.png"; sourceTree = "<group>"; };
+		44C6354AEE5A7A30F7F724800DA2559E /* IQAudioRecorderController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQAudioRecorderController.xcconfig; sourceTree = "<group>"; };
+		465BDD70A2DBA1AD24274EFFBBD200DC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		468FE9F1F718C62E54ED375022B885FE /* unordered_list@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "unordered_list@2x.png"; path = "RichEditorView/Assets/icons/unordered_list@2x.png"; sourceTree = "<group>"; };
+		46C3E1B6EB5F619EF714DB86A93784AD /* indent@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "indent@2x.png"; path = "RichEditorView/Assets/icons/indent@2x.png"; sourceTree = "<group>"; };
+		46FDF02BE25C46B6E46E103EDB0218D2 /* h1@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h1@2x.png"; path = "RichEditorView/Assets/icons/h1@2x.png"; sourceTree = "<group>"; };
+		48061D08052BFF442D00C26B0ECF0647 /* CJWWebView+HackishAccessoryHiding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "CJWWebView+HackishAccessoryHiding.h"; path = "RichEditorView/Classes/CJWWebView+HackishAccessoryHiding.h"; sourceTree = "<group>"; };
+		4C4689AB2ACAAB267ABAD40A81892C7D /* RichEditorView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RichEditorView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DC24323720AFE98E8FF408BD7FF0E5E /* h6@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h6@2x.png"; path = "RichEditorView/Assets/icons/h6@2x.png"; sourceTree = "<group>"; };
+		4F09D864BCDB5C21F5640AC3A49DD0F4 /* insert_image@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "insert_image@2x.png"; path = "RichEditorView/Assets/icons/insert_image@2x.png"; sourceTree = "<group>"; };
+		5042FDB40E970F50DA60B6BF295ECCD1 /* IQDropDownTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQDropDownTextField.m; path = IQDropDownTextField/IQDropDownTextField.m; sourceTree = "<group>"; };
+		55E1E4F11C1DA7091BE013DC24780C89 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56291892C036594DD324035EDD4185E9 /* UIView+Responder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Responder.swift"; path = "RichEditorView/Classes/UIView+Responder.swift"; sourceTree = "<group>"; };
+		580A83E1EEC558F20A229462C4E799C9 /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewVibrantCell.swift; path = Pod/Classes/UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		5ABF8662FA8E6D39C88ACA55946CB18F /* outdent@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "outdent@2x.png"; path = "RichEditorView/Assets/icons/outdent@2x.png"; sourceTree = "<group>"; };
+		5C2F544DC49692A48AABE53E0485B8DD /* undo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = undo.png; path = RichEditorView/Assets/icons/undo.png; sourceTree = "<group>"; };
+		5C5B99D8A1E4C2F73CF569492CE6709A /* RichEditorView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RichEditorView.xcconfig; sourceTree = "<group>"; };
+		5CD605AE1D7CD719ED6A71BDF3D4AADB /* IQPlaybackDurationView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPlaybackDurationView.m; path = IQAudioRecorderController/IQPlaybackDurationView.m; sourceTree = "<group>"; };
+		5E91DD4C8EEC11E3745565AE8844657A /* IQAudioCropperViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioCropperViewController.h; path = IQAudioRecorderController/IQAudioCropperViewController.h; sourceTree = "<group>"; };
+		6014718F76AB00289933EF4AA35EC3BD /* subscript@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "subscript@2x.png"; path = "RichEditorView/Assets/icons/subscript@2x.png"; sourceTree = "<group>"; };
+		615160C6C09EAE62838BE7BFA7F66149 /* style.css */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.css; name = style.css; path = RichEditorView/Assets/editor/style.css; sourceTree = "<group>"; };
+		629AFDED4ABB1F4C1C160B4ADE13C2EB /* IQDropDownTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQDropDownTextField-umbrella.h"; sourceTree = "<group>"; };
 		62B516AFD780FCC13F928EC2F9801BE2 /* Pods-My Backpack-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-My Backpack-frameworks.sh"; sourceTree = "<group>"; };
-		63AF27FEBA7700B72B9B525F192D3A79 /* IQ_FDWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQ_FDWaveformView.h; path = IQAudioRecorderController/FDWaveformView/IQ_FDWaveformView.h; sourceTree = "<group>"; };
-		6FF1E02C0050F2B9BAD06A3417948C07 /* SCSiriWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCSiriWaveformView-dummy.m"; sourceTree = "<group>"; };
-		73B589624A62AC9E097379174A4B0946 /* IQCropSelectionBeginView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionBeginView.m; path = IQAudioRecorderController/IQCropSelectionBeginView.m; sourceTree = "<group>"; };
-		7888161F539D2BEF2A7EB02DEEA4D979 /* NSString+IQTimeIntervalFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+IQTimeIntervalFormatter.m"; path = "IQAudioRecorderController/NSString+IQTimeIntervalFormatter.m"; sourceTree = "<group>"; };
+		633509B471568185FCFE6FD53A0E3C1E /* scissor.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = scissor.png; path = IQAudioRecorderController/Resources/scissor.png; sourceTree = "<group>"; };
+		65FCD91FA4C5FBEB8712847B7872242F /* IQAudioRecorderConstraints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioRecorderConstraints.h; path = IQAudioRecorderController/IQAudioRecorderConstraints.h; sourceTree = "<group>"; };
+		67F12B3780E696D2673D2705D7E9DD77 /* ordered_list.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = ordered_list.png; path = RichEditorView/Assets/icons/ordered_list.png; sourceTree = "<group>"; };
+		68FEB7F445611A1B4356E4F36ED93193 /* h3@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h3@2x.png"; path = "RichEditorView/Assets/icons/h3@2x.png"; sourceTree = "<group>"; };
+		6A6FB783C9E018A1EBAAD0857C593AEF /* stop_playing@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "stop_playing@2x.png"; path = "IQAudioRecorderController/Resources/stop_playing@2x.png"; sourceTree = "<group>"; };
+		6A75A6B6B708A84992914BB5CFF34604 /* IQDropDownTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQDropDownTextField.h; path = IQDropDownTextField/IQDropDownTextField.h; sourceTree = "<group>"; };
+		6EE3925390FBFAB8908B3D3455F845B0 /* audio_record@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "audio_record@3x.png"; path = "IQAudioRecorderController/Resources/audio_record@3x.png"; sourceTree = "<group>"; };
+		6EF8D4804B288807BC10D7CC204AAC09 /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FDCAF1D986A2D652010AB6455557CA7 /* justify_center@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "justify_center@2x.png"; path = "RichEditorView/Assets/icons/justify_center@2x.png"; sourceTree = "<group>"; };
+		71324BD93243AF78A5ABAC647F8A0854 /* SCSiriWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SCSiriWaveformView.modulemap; sourceTree = "<group>"; };
+		71FECBCE72877ECB46E3D81E085FAA16 /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
+		7369359970C0937888D7ECCB8C158E4C /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
+		73C45945FA1185C2330DF219CAFE64F4 /* microphone_access@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "microphone_access@3x.png"; path = "IQAudioRecorderController/Resources/microphone_access@3x.png"; sourceTree = "<group>"; };
+		761B670232DCEC0470E2449CD79F97B3 /* SideMenuTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransition.swift; path = Pod/Classes/SideMenuTransition.swift; sourceTree = "<group>"; };
+		76EE856A0941F97DD195CD256BAD930F /* redo.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = redo.png; path = RichEditorView/Assets/icons/redo.png; sourceTree = "<group>"; };
+		78D6EF976555758B7238A53040479FE6 /* stop_recording@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "stop_recording@2x.png"; path = "IQAudioRecorderController/Resources/stop_recording@2x.png"; sourceTree = "<group>"; };
 		7A6ECBE227A30055A1FAD76437DA1517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7AA63393CEF3A5007D5B4B635C631046 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E65EC5FA1F67EC7EA5AC4607040D29B /* Pods-My Backpack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-My Backpack.modulemap"; sourceTree = "<group>"; };
-		83A1A9776204F10533BE0E0847B31A9C /* IQPlaybackDurationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPlaybackDurationView.h; path = IQAudioRecorderController/IQPlaybackDurationView.h; sourceTree = "<group>"; };
-		88B1740CBEDE0D6ADEB946DCAC024B2A /* SideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.xcconfig; sourceTree = "<group>"; };
-		8A8FB741901B49C6C431F989D3D68E1E /* IQMessageDisplayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQMessageDisplayView.m; path = IQAudioRecorderController/IQMessageDisplayView.m; sourceTree = "<group>"; };
-		8C31388092046E61B17D89AC97B2F086 /* audio_record.png */ = {isa = PBXFileReference; includeInIndex = 1; name = audio_record.png; path = IQAudioRecorderController/Resources/audio_record.png; sourceTree = "<group>"; };
-		90FEB85388FC84EAB74DEAB60883FE24 /* IQMessageDisplayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQMessageDisplayView.h; path = IQAudioRecorderController/IQMessageDisplayView.h; sourceTree = "<group>"; };
-		915A63382889923FCB5F8C30FC97CFD1 /* scissor@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "scissor@3x.png"; path = "IQAudioRecorderController/Resources/scissor@3x.png"; sourceTree = "<group>"; };
-		92C3AAA91427934316B14E80AEBB2CD0 /* IQAudioRecorderController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQAudioRecorderController-umbrella.h"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93D00B8E6A1EC4A412A922B4E3DCD55E /* SCSiriWaveformView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SCSiriWaveformView.modulemap; sourceTree = "<group>"; };
-		9702AFC74F1178264E765633BE1E1F0A /* IQCropSelectionEndView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionEndView.m; path = IQAudioRecorderController/IQCropSelectionEndView.m; sourceTree = "<group>"; };
-		98C543F6A2E0A4ED40FD888D22AA84B8 /* SideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-prefix.pch"; sourceTree = "<group>"; };
-		9B0DB8A75F67D65222670AD9C70A0F82 /* IQCropSelectionEndView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionEndView.h; path = IQAudioRecorderController/IQCropSelectionEndView.h; sourceTree = "<group>"; };
-		9B7619EDAACA8AB7EFCFAC152EB67140 /* stop_playing.png */ = {isa = PBXFileReference; includeInIndex = 1; name = stop_playing.png; path = IQAudioRecorderController/Resources/stop_playing.png; sourceTree = "<group>"; };
-		A5A840C502DD3F9556FFE4A66B3B0DDF /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewVibrantCell.swift; path = Pod/Classes/UITableViewVibrantCell.swift; sourceTree = "<group>"; };
-		A6618330D14EB4EC45789A7294FC29A4 /* microphone_access@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "microphone_access@2x.png"; path = "IQAudioRecorderController/Resources/microphone_access@2x.png"; sourceTree = "<group>"; };
-		A99378EF0EEA65E31D6C413FC3D49A86 /* IQAudioRecorderConstraints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioRecorderConstraints.m; path = IQAudioRecorderController/IQAudioRecorderConstraints.m; sourceTree = "<group>"; };
+		7B6E70AD38C7C00AADB978F7C81451D5 /* ordered_list@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ordered_list@2x.png"; path = "RichEditorView/Assets/icons/ordered_list@2x.png"; sourceTree = "<group>"; };
+		7BD186AC693C2D7165F7AEE21533E04A /* IQCropSelectionBeginView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionBeginView.m; path = IQAudioRecorderController/IQCropSelectionBeginView.m; sourceTree = "<group>"; };
+		7CA010C84ECB40B70706C4C48A6E3FA1 /* IQMessageDisplayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQMessageDisplayView.m; path = IQAudioRecorderController/IQMessageDisplayView.m; sourceTree = "<group>"; };
+		7D44644D45291074D12BA8AF9B7C1EB5 /* undo@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "undo@2x.png"; path = "RichEditorView/Assets/icons/undo@2x.png"; sourceTree = "<group>"; };
+		7E2C548CC6DC21A89B6F0A091A203B6D /* SCSiriWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSiriWaveformView.m; path = SCSiriWaveformView/SCSiriWaveformView.m; sourceTree = "<group>"; };
+		7E65EC5FA1F67EC7EA5AC4607040D29B /* Pods-My Backpack.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-My Backpack.modulemap"; sourceTree = "<group>"; };
+		7FB7744C965FDD5C1D7FF541152D20B3 /* unordered_list.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = unordered_list.png; path = RichEditorView/Assets/icons/unordered_list.png; sourceTree = "<group>"; };
+		7FD13D297557768201DF6FA939BF43C6 /* IQ_FDWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQ_FDWaveformView.h; path = IQAudioRecorderController/FDWaveformView/IQ_FDWaveformView.h; sourceTree = "<group>"; };
+		822A84B51FBD8F36E6AB66617421C6D1 /* IQAudioRecorderConstraints.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioRecorderConstraints.m; path = IQAudioRecorderController/IQAudioRecorderConstraints.m; sourceTree = "<group>"; };
+		82A615DB37082CB1D3922F59119E1FB0 /* h5.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h5.png; path = RichEditorView/Assets/icons/h5.png; sourceTree = "<group>"; };
+		83C63D085A68AF514D75ADB100CDCBDF /* assert.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = assert.js; path = RichEditorView/Assets/editor/assert.js; sourceTree = "<group>"; };
+		84173A7EFB2B58DB58ED62604A30CEC9 /* NSString+IQTimeIntervalFormatter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+IQTimeIntervalFormatter.m"; path = "IQAudioRecorderController/NSString+IQTimeIntervalFormatter.m"; sourceTree = "<group>"; };
+		8454ABA381CBB5CF8D3A86D086035170 /* rich_editor_tests.html */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.html; name = rich_editor_tests.html; path = RichEditorView/Assets/editor/rich_editor_tests.html; sourceTree = "<group>"; };
+		85FAFA947051D2648F944D43542F1E9B /* IQAudioRecorderController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQAudioRecorderController-umbrella.h"; sourceTree = "<group>"; };
+		86C843E7A2A1C42D627104EE9E958F9C /* clear@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "clear@2x.png"; path = "RichEditorView/Assets/icons/clear@2x.png"; sourceTree = "<group>"; };
+		86EC92647CDB7A2A8E0DF9D3D0CF2FD8 /* justify_left.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = justify_left.png; path = RichEditorView/Assets/icons/justify_left.png; sourceTree = "<group>"; };
+		8826B1C0F7DA46800CE41DF48DD98F2E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89F2D061F6DB04067E511DDCD72A1C0D /* microphone_access.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = microphone_access.png; path = IQAudioRecorderController/Resources/microphone_access.png; sourceTree = "<group>"; };
+		8A46AB08CCD46A71BDA03B1396FF3C4E /* superscript@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "superscript@2x.png"; path = "RichEditorView/Assets/icons/superscript@2x.png"; sourceTree = "<group>"; };
+		8C071A20AA3F831CEBFD9253800830E4 /* insert_link.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = insert_link.png; path = RichEditorView/Assets/icons/insert_link.png; sourceTree = "<group>"; };
+		8DEE4BC050449D6CF884054D0898BFD4 /* IQMessageDisplayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQMessageDisplayView.h; path = IQAudioRecorderController/IQMessageDisplayView.h; sourceTree = "<group>"; };
+		93808570227CEF8E73193DC9BF0EE701 /* IQDropDownTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = IQDropDownTextField.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		947D79EC26B25FDE323512D9EC008296 /* outdent.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = outdent.png; path = RichEditorView/Assets/icons/outdent.png; sourceTree = "<group>"; };
+		948C986EFD28CEA85ACA6DDDD21E4A36 /* insert_link@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "insert_link@2x.png"; path = "RichEditorView/Assets/icons/insert_link@2x.png"; sourceTree = "<group>"; };
+		982FF27FFBC678A7179143CA9915DCEB /* SCSiriWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCSiriWaveformView-dummy.m"; sourceTree = "<group>"; };
+		98D5280CC3F06148E2BA122799C70986 /* rich_editor_tests.js */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.javascript; name = rich_editor_tests.js; path = RichEditorView/Assets/editor/rich_editor_tests.js; sourceTree = "<group>"; };
+		9CFB48B9D49E7306DEE0CC49903B9BEB /* CJWWebView+HackishAccessoryHiding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "CJWWebView+HackishAccessoryHiding.m"; path = "RichEditorView/Classes/CJWWebView+HackishAccessoryHiding.m"; sourceTree = "<group>"; };
+		A44A4F328401D75055AF6D453DB880CB /* stop_playing.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = stop_playing.png; path = IQAudioRecorderController/Resources/stop_playing.png; sourceTree = "<group>"; };
+		A7AD3AC53738045F6147A241C1DA1B83 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSiriWaveformView.h; path = SCSiriWaveformView/SCSiriWaveformView.h; sourceTree = "<group>"; };
+		A841814DEE936AD1B05E2969D6D0F18B /* IQDropDownTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = IQDropDownTextField.xcconfig; sourceTree = "<group>"; };
+		A8A13C510359B0ECF981E5E2CE2BAB60 /* superscript.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = superscript.png; path = RichEditorView/Assets/icons/superscript.png; sourceTree = "<group>"; };
 		ADFFC6C371E0E240CC417FC7EA0ACE91 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		B4388C9F0596CF88BBF8880E48171B7D /* microphone_access@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "microphone_access@3x.png"; path = "IQAudioRecorderController/Resources/microphone_access@3x.png"; sourceTree = "<group>"; };
+		AFA4A956AF0F326F3FE417B6E6FFBF5A /* SideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.xcconfig; sourceTree = "<group>"; };
+		B24839B67197BD3A073C7E82138665E4 /* underline.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = underline.png; path = RichEditorView/Assets/icons/underline.png; sourceTree = "<group>"; };
+		B28BBCD9E8A1385B1ACF3C309FEA42D9 /* SCSiriWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCSiriWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EE655B2430F3D3647957BFFC0F6327 /* Pods-My Backpack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Backpack.debug.xcconfig"; sourceTree = "<group>"; };
+		B51E0A7D43E27B524B334F069A4BA1C9 /* SCSiriWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCSiriWaveformView-prefix.pch"; sourceTree = "<group>"; };
+		B57805BEE5965460AABEBD5B9CE8B726 /* h2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h2@2x.png"; path = "RichEditorView/Assets/icons/h2@2x.png"; sourceTree = "<group>"; };
 		B64AAF310BF6F96EF3CE7B3304B4DB7A /* Pods-My Backpack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Backpack.release.xcconfig"; sourceTree = "<group>"; };
 		B72EB184BC7FC2D4D7E5FF5B9712F129 /* Pods-My Backpack-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-My Backpack-acknowledgements.plist"; sourceTree = "<group>"; };
-		BD6E6416F80FE2AC2B9356710EDADAAD /* IQAudioRecorderConstraints.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioRecorderConstraints.h; path = IQAudioRecorderController/IQAudioRecorderConstraints.h; sourceTree = "<group>"; };
-		BE1D4B11ACF232A98A7E01BB7BA6EEA1 /* SideMenuTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransition.swift; path = Pod/Classes/SideMenuTransition.swift; sourceTree = "<group>"; };
-		C00CBB5CCC8D240EA71C236F2F0372BF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C1ABA33DB2D03E78648179BD56A2FC4E /* SCSiriWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSiriWaveformView.m; path = SCSiriWaveformView/SCSiriWaveformView.m; sourceTree = "<group>"; };
+		B7994FB2ED7048DC25F24464325B7BED /* audio_record@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "audio_record@2x.png"; path = "IQAudioRecorderController/Resources/audio_record@2x.png"; sourceTree = "<group>"; };
+		C12ECA48EFA904B49A2BBFBBB456A22A /* IQDropDownTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQDropDownTextField-prefix.pch"; sourceTree = "<group>"; };
+		C17AE23E1052335F7A8A0F7D4FC54A5E /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SideMenu.modulemap; sourceTree = "<group>"; };
+		C2A575ED5D7A7E260AD0667A45A1A934 /* IQ_FDWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQ_FDWaveformView.m; path = IQAudioRecorderController/FDWaveformView/IQ_FDWaveformView.m; sourceTree = "<group>"; };
 		C3FC29794FE9C4C17CB05AE2B00D2FF1 /* Pods-My Backpack-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-My Backpack-umbrella.h"; sourceTree = "<group>"; };
-		C4246FA22C53739A71DBD49B2D99E2D5 /* IQAudioRecorderController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = IQAudioRecorderController.framework; path = IQAudioRecorderController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C64964B99DB574EEBDD0ACC5025FD4A6 /* SideMenuManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuManager.swift; path = Pod/Classes/SideMenuManager.swift; sourceTree = "<group>"; };
 		C8AC5B76690F927ACAB398B5C78BD33B /* Pods-My Backpack-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-My Backpack-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C93585CC1E9546A87E90E5E6A60F8DC7 /* scissor@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "scissor@2x.png"; path = "IQAudioRecorderController/Resources/scissor@2x.png"; sourceTree = "<group>"; };
-		CDF4663AD2806758E65283C774B0A9B1 /* IQCropSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionView.m; path = IQAudioRecorderController/IQCropSelectionView.m; sourceTree = "<group>"; };
-		CF3FBDAB110349D78BD31C90C6A7E257 /* stop_playing@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "stop_playing@3x.png"; path = "IQAudioRecorderController/Resources/stop_playing@3x.png"; sourceTree = "<group>"; };
-		D0171692534429015CD2DB15597B5247 /* stop_recording@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "stop_recording@2x.png"; path = "IQAudioRecorderController/Resources/stop_recording@2x.png"; sourceTree = "<group>"; };
-		D2AA4686D16BB7F5DE73D03270CCA583 /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
+		CB6604CFBAB867F3D4B33F2106B2B4BD /* h4@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "h4@2x.png"; path = "RichEditorView/Assets/icons/h4@2x.png"; sourceTree = "<group>"; };
+		CC29B5E4BCE29544AB35555A653925CD /* underline@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "underline@2x.png"; path = "RichEditorView/Assets/icons/underline@2x.png"; sourceTree = "<group>"; };
+		CF741268257DB69E5481CE14612398A4 /* h6.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h6.png; path = RichEditorView/Assets/icons/h6.png; sourceTree = "<group>"; };
+		D1DFF51D6C4246006F8B0933A474E4EB /* bg_color.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = bg_color.png; path = RichEditorView/Assets/icons/bg_color.png; sourceTree = "<group>"; };
+		D2D5132899242601B53505787B73DEF5 /* IQAudioRecorderController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQAudioRecorderController-prefix.pch"; sourceTree = "<group>"; };
+		D2DB63078720B69914762ACB0F15C326 /* bold.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = bold.png; path = RichEditorView/Assets/icons/bold.png; sourceTree = "<group>"; };
+		D5A1626BC27B61C0138A5E26C0EAC0CD /* justify_left@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "justify_left@2x.png"; path = "RichEditorView/Assets/icons/justify_left@2x.png"; sourceTree = "<group>"; };
+		D5F545BF8BE7F69F2CEC765BC57A69AA /* IQAudioCropperViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQAudioCropperViewController.m; path = IQAudioRecorderController/IQAudioCropperViewController.m; sourceTree = "<group>"; };
+		D6FF9DC45BF7B7DDF54AC5B267788ED3 /* RichEditorOptionItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RichEditorOptionItem.swift; path = RichEditorView/Classes/RichEditorOptionItem.swift; sourceTree = "<group>"; };
 		D74D41F5B4776DEFB43848C197F8CF86 /* Pods-My Backpack-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-My Backpack-resources.sh"; sourceTree = "<group>"; };
-		D902E70E0B70C91821FDC534DDB5C920 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCA60D1A4DE8D26C8A64B0FB861E4AFE /* IQ_FDWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQ_FDWaveformView.m; path = IQAudioRecorderController/FDWaveformView/IQ_FDWaveformView.m; sourceTree = "<group>"; };
-		DEB570D70F3BB1AFF818E60E46ACEB20 /* stop_recording@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "stop_recording@3x.png"; path = "IQAudioRecorderController/Resources/stop_recording@3x.png"; sourceTree = "<group>"; };
-		E368C78D4C9BE97717D85B087B98798B /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
-		E37FA3DEDC451C11930BD5E5F9CCBCA6 /* IQAudioRecorderController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "IQAudioRecorderController-prefix.pch"; sourceTree = "<group>"; };
-		E81AF5C945FFC4FDD953FFB32503C307 /* SCSiriWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SCSiriWaveformView.framework; path = SCSiriWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D911D2E6D38AB74573EBFA7B6116C87F /* scissor@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "scissor@2x.png"; path = "IQAudioRecorderController/Resources/scissor@2x.png"; sourceTree = "<group>"; };
+		DA4B2B91C8C1AF3DC672D61FB0928CB1 /* h4.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h4.png; path = RichEditorView/Assets/icons/h4.png; sourceTree = "<group>"; };
+		DD9578A0986C27DB527CE28C987FCD40 /* IQCropSelectionEndView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionEndView.m; path = IQAudioRecorderController/IQCropSelectionEndView.m; sourceTree = "<group>"; };
+		E0E433C407B65FE01500B2940B51F775 /* stop_recording@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "stop_recording@3x.png"; path = "IQAudioRecorderController/Resources/stop_recording@3x.png"; sourceTree = "<group>"; };
+		E3BF5C8E79048533475D731251F393FB /* IQDropDownTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IQDropDownTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E516DE35E0734EDB180A4B3FEC8F1B27 /* indent.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = indent.png; path = RichEditorView/Assets/icons/indent.png; sourceTree = "<group>"; };
+		E6485E75B2738B6BC64BA7D65E51E1F7 /* IQCropSelectionBeginView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQCropSelectionBeginView.h; path = IQAudioRecorderController/IQCropSelectionBeginView.h; sourceTree = "<group>"; };
+		E6C8BF727B65E7E6AE0D9D8B43CBC376 /* h3.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = h3.png; path = RichEditorView/Assets/icons/h3.png; sourceTree = "<group>"; };
+		EA772E3D382F0DA054974D305A17FC6E /* RichEditorView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RichEditorView-dummy.m"; sourceTree = "<group>"; };
+		EAE680A5CF2AFF4F5366A8EF5895109C /* IQPlaybackDurationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPlaybackDurationView.h; path = IQAudioRecorderController/IQPlaybackDurationView.h; sourceTree = "<group>"; };
+		EB352568955E4B43DE55F41F0C947223 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB365B068D9500F5060990563F2F0799 /* SCSiriWaveformView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SCSiriWaveformView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE818AE2C35A3F2AEB0E6CEDF11B9A85 /* IQAudioRecorderController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "IQAudioRecorderController-dummy.m"; sourceTree = "<group>"; };
-		F0B5E1B8354B240B8B5522F36D110106 /* microphone_access.png */ = {isa = PBXFileReference; includeInIndex = 1; name = microphone_access.png; path = IQAudioRecorderController/Resources/microphone_access.png; sourceTree = "<group>"; };
+		EBD1FFE03BAF8F6C9A689A1B7114C0B5 /* justify_center.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = justify_center.png; path = RichEditorView/Assets/icons/justify_center.png; sourceTree = "<group>"; };
+		EE555B379959ADF0F8971553BBD0C0D8 /* strikethrough@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "strikethrough@2x.png"; path = "RichEditorView/Assets/icons/strikethrough@2x.png"; sourceTree = "<group>"; };
+		EFB16F7BCBB0FEE13723064E62927D0D /* RichEditorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RichEditorView.swift; path = RichEditorView/Classes/RichEditorView.swift; sourceTree = "<group>"; };
+		F3913A096BC96F88C382D26AB67B1537 /* microphone_access@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "microphone_access@2x.png"; path = "IQAudioRecorderController/Resources/microphone_access@2x.png"; sourceTree = "<group>"; };
 		F5EAB7B151BC697BE40B6F6D050C046B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		F6679C9D3CCDE9802E3B2D98B5EC838F /* SCSiriWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCSiriWaveformView.xcconfig; sourceTree = "<group>"; };
 		F6893A2CCAE60DC427CA15D87BA59F60 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		F9D6831CE21C0EF9759A251EEE5E8ECE /* audio_record@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "audio_record@3x.png"; path = "IQAudioRecorderController/Resources/audio_record@3x.png"; sourceTree = "<group>"; };
-		FA6EA0EA633C3A5355BBF313C7C8F0A1 /* scissor.png */ = {isa = PBXFileReference; includeInIndex = 1; name = scissor.png; path = IQAudioRecorderController/Resources/scissor.png; sourceTree = "<group>"; };
+		F8FEF2BBC8166AE2FA2B402BF5F4434C /* insert_image.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = insert_image.png; path = RichEditorView/Assets/icons/insert_image.png; sourceTree = "<group>"; };
+		FC6FDC4034E1D21F6A2323B6234AA1F8 /* IQAudioRecorderViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQAudioRecorderViewController.h; path = IQAudioRecorderController/IQAudioRecorderViewController.h; sourceTree = "<group>"; };
+		FE5B980372C083F8639C7D46B6893519 /* SCSiriWaveformView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCSiriWaveformView-umbrella.h"; sourceTree = "<group>"; };
+		FE7985E5D49AD15EB31E75585EE25DDD /* IQCropSelectionView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQCropSelectionView.m; path = IQAudioRecorderController/IQCropSelectionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0C58E8176B17ED19412D73D07831EF92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40396AA7A49BCDECC96E1DD1CA9BBD72 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1B1B6BC52CC22E78BAEF7CAA93529513 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,19 +372,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7F11221A72DA3FA9D9B1275FD6722F5C /* Frameworks */ = {
+		5647AD1348808C51949954B1E1A27AE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0277A7134D5971C426810F17F1226338 /* Foundation.framework in Frameworks */,
+				2D563EE03B3DD68F8350D012D096D30D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C320B371D7AC0BB49EAC3B0075769428 /* Frameworks */ = {
+		69A2F08FA95DB1562905B9FBB9E7BFDD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC13A616B7AFC1A9DC10C0EE948F79A1 /* Foundation.framework in Frameworks */,
+				E43754E18482021B5B9EBE8CF174751A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,9 +399,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E363CA27D201CCE3FC249D1567606427 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F16F74331AB1E3A14CDE171ACB567416 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06CBF75019B01942FB2A37467FA4885D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				09C1007E8A5DFD20DA4CB95558321D40 /* Info.plist */,
+				71324BD93243AF78A5ABAC647F8A0854 /* SCSiriWaveformView.modulemap */,
+				152B7BBE5FEEFCC1A9F566C6E022CA5C /* SCSiriWaveformView.xcconfig */,
+				982FF27FFBC678A7179143CA9915DCEB /* SCSiriWaveformView-dummy.m */,
+				B51E0A7D43E27B524B334F069A4BA1C9 /* SCSiriWaveformView-prefix.pch */,
+				FE5B980372C083F8639C7D46B6893519 /* SCSiriWaveformView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SCSiriWaveformView";
+			sourceTree = "<group>";
+		};
 		19144D53A751FBC68D69D5013BA095F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,31 +433,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B594B7044DA261F0F18FF9252F46B5C /* Support Files */ = {
+		1A1AD7D94850A364B80836305F45C2B1 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D902E70E0B70C91821FDC534DDB5C920 /* Info.plist */,
-				93D00B8E6A1EC4A412A922B4E3DCD55E /* SCSiriWaveformView.modulemap */,
-				F6679C9D3CCDE9802E3B2D98B5EC838F /* SCSiriWaveformView.xcconfig */,
-				6FF1E02C0050F2B9BAD06A3417948C07 /* SCSiriWaveformView-dummy.m */,
-				4FB907EFFB32FA3FAD5DE88FBF0975F7 /* SCSiriWaveformView-prefix.pch */,
-				3E18E5BBF0BD762E600D01E1CB9D3579 /* SCSiriWaveformView-umbrella.h */,
+				EB352568955E4B43DE55F41F0C947223 /* Info.plist */,
+				33D284DC01DD3A213F21F50911C68BB2 /* IQAudioRecorderController.modulemap */,
+				44C6354AEE5A7A30F7F724800DA2559E /* IQAudioRecorderController.xcconfig */,
+				39A0ACAB59C5478904D4AED66BD04CF5 /* IQAudioRecorderController-dummy.m */,
+				D2D5132899242601B53505787B73DEF5 /* IQAudioRecorderController-prefix.pch */,
+				85FAFA947051D2648F944D43542F1E9B /* IQAudioRecorderController-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/SCSiriWaveformView";
-			sourceTree = "<group>";
-		};
-		1DFBAA3590F795E0467930CF12850C6A /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				C64964B99DB574EEBDD0ACC5025FD4A6 /* SideMenuManager.swift */,
-				BE1D4B11ACF232A98A7E01BB7BA6EEA1 /* SideMenuTransition.swift */,
-				1527384E18DE194F8BFEC9FDC7EE22F1 /* UISideMenuNavigationController.swift */,
-				A5A840C502DD3F9556FFE4A66B3B0DDF /* UITableViewVibrantCell.swift */,
-				352DE6F13084FF51B769A4FE9CE61BA0 /* Support Files */,
-			);
-			name = SideMenu;
-			path = SideMenu;
+			path = "../Target Support Files/IQAudioRecorderController";
 			sourceTree = "<group>";
 		};
 		2A4560BB0503E3D990588AECE401DFD4 /* Targets Support Files */ = {
@@ -270,40 +455,93 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		352DE6F13084FF51B769A4FE9CE61BA0 /* Support Files */ = {
+		352AD81741D6426FE3378C1ACC83A4D0 /* SCSiriWaveformView */ = {
 			isa = PBXGroup;
 			children = (
-				7AA63393CEF3A5007D5B4B635C631046 /* Info.plist */,
-				2AD3E36BD29C8F6D835BE3FFD74EE3BC /* SideMenu.modulemap */,
-				88B1740CBEDE0D6ADEB946DCAC024B2A /* SideMenu.xcconfig */,
-				E368C78D4C9BE97717D85B087B98798B /* SideMenu-dummy.m */,
-				98C543F6A2E0A4ED40FD888D22AA84B8 /* SideMenu-prefix.pch */,
-				D2AA4686D16BB7F5DE73D03270CCA583 /* SideMenu-umbrella.h */,
+				A7AD3AC53738045F6147A241C1DA1B83 /* SCSiriWaveformView.h */,
+				7E2C548CC6DC21A89B6F0A091A203B6D /* SCSiriWaveformView.m */,
+				06CBF75019B01942FB2A37467FA4885D /* Support Files */,
+			);
+			path = SCSiriWaveformView;
+			sourceTree = "<group>";
+		};
+		394C7DE10B54AF61C7B339CEE70ACC2E /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				054E932FEDB8542F2E47CDC3520E66D4 /* SideMenuManager.swift */,
+				761B670232DCEC0470E2449CD79F97B3 /* SideMenuTransition.swift */,
+				347E022D980962E6A8F48494DE816403 /* UISideMenuNavigationController.swift */,
+				580A83E1EEC558F20A229462C4E799C9 /* UITableViewVibrantCell.swift */,
+				3B4FD55AA14DF65078F7F09AD754FE19 /* Support Files */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		398B85B402CCDF53936F2AEC7C0B0745 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8826B1C0F7DA46800CE41DF48DD98F2E /* Info.plist */,
+				1821B9788AE6080D2B750F0EA95C494A /* RichEditorView.modulemap */,
+				5C5B99D8A1E4C2F73CF569492CE6709A /* RichEditorView.xcconfig */,
+				EA772E3D382F0DA054974D305A17FC6E /* RichEditorView-dummy.m */,
+				0121451E2CF287F174EBC6CBC0DA33D7 /* RichEditorView-prefix.pch */,
+				30B0AFBBE824901DFE0F546F9C754C9D /* RichEditorView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/RichEditorView";
+			sourceTree = "<group>";
+		};
+		3B4FD55AA14DF65078F7F09AD754FE19 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				55E1E4F11C1DA7091BE013DC24780C89 /* Info.plist */,
+				C17AE23E1052335F7A8A0F7D4FC54A5E /* SideMenu.modulemap */,
+				AFA4A956AF0F326F3FE417B6E6FFBF5A /* SideMenu.xcconfig */,
+				71FECBCE72877ECB46E3D81E085FAA16 /* SideMenu-dummy.m */,
+				41512BA7D4A57FE59524CCD5CFDDACBD /* SideMenu-prefix.pch */,
+				7369359970C0937888D7ECCB8C158E4C /* SideMenu-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SideMenu";
 			sourceTree = "<group>";
 		};
-		3F0018D7EC5C598D9D23C8528637D891 /* SCSiriWaveformView */ = {
+		4D6B483A94EDF1D621801CCFCAEF216B /* IQDropDownTextField */ = {
 			isa = PBXGroup;
 			children = (
-				535EADB6F6C51391B0FDA529C555A265 /* SCSiriWaveformView.h */,
-				C1ABA33DB2D03E78648179BD56A2FC4E /* SCSiriWaveformView.m */,
-				1B594B7044DA261F0F18FF9252F46B5C /* Support Files */,
+				6A75A6B6B708A84992914BB5CFF34604 /* IQDropDownTextField.h */,
+				5042FDB40E970F50DA60B6BF295ECCD1 /* IQDropDownTextField.m */,
+				F05978426849AFEDCA14C4FE48870E29 /* Support Files */,
 			);
-			name = SCSiriWaveformView;
-			path = SCSiriWaveformView;
+			path = IQDropDownTextField;
 			sourceTree = "<group>";
 		};
-		7A3507724833613D60CE0AC78CB76ED6 /* Products */ = {
+		5E2A1233392A7EDC3AFFBD70B55C890A /* IQAudioRecorderController */ = {
 			isa = PBXGroup;
 			children = (
-				C4246FA22C53739A71DBD49B2D99E2D5 /* IQAudioRecorderController.framework */,
-				34762FDB9F7EAB8A07C7BCF581E30693 /* Pods_My_Backpack.framework */,
-				E81AF5C945FFC4FDD953FFB32503C307 /* SCSiriWaveformView.framework */,
-				43570E3B54D6ED780A23B08F019630D4 /* SideMenu.framework */,
+				7FD13D297557768201DF6FA939BF43C6 /* IQ_FDWaveformView.h */,
+				C2A575ED5D7A7E260AD0667A45A1A934 /* IQ_FDWaveformView.m */,
+				5E91DD4C8EEC11E3745565AE8844657A /* IQAudioCropperViewController.h */,
+				D5F545BF8BE7F69F2CEC765BC57A69AA /* IQAudioCropperViewController.m */,
+				65FCD91FA4C5FBEB8712847B7872242F /* IQAudioRecorderConstraints.h */,
+				822A84B51FBD8F36E6AB66617421C6D1 /* IQAudioRecorderConstraints.m */,
+				FC6FDC4034E1D21F6A2323B6234AA1F8 /* IQAudioRecorderViewController.h */,
+				2D4F9670502C2A61F70328E009398B16 /* IQAudioRecorderViewController.m */,
+				E6485E75B2738B6BC64BA7D65E51E1F7 /* IQCropSelectionBeginView.h */,
+				7BD186AC693C2D7165F7AEE21533E04A /* IQCropSelectionBeginView.m */,
+				0C9C2B76239D088D315E59FFFF3EA1F4 /* IQCropSelectionEndView.h */,
+				DD9578A0986C27DB527CE28C987FCD40 /* IQCropSelectionEndView.m */,
+				33D83FAED6C991E1BD0724E578BC13D9 /* IQCropSelectionView.h */,
+				FE7985E5D49AD15EB31E75585EE25DDD /* IQCropSelectionView.m */,
+				8DEE4BC050449D6CF884054D0898BFD4 /* IQMessageDisplayView.h */,
+				7CA010C84ECB40B70706C4C48A6E3FA1 /* IQMessageDisplayView.m */,
+				EAE680A5CF2AFF4F5366A8EF5895109C /* IQPlaybackDurationView.h */,
+				5CD605AE1D7CD719ED6A71BDF3D4AADB /* IQPlaybackDurationView.m */,
+				2873C78621D0CD196AAC3F93FEF73398 /* NSString+IQTimeIntervalFormatter.h */,
+				84173A7EFB2B58DB58ED62604A30CEC9 /* NSString+IQTimeIntervalFormatter.m */,
+				9B1E27A99D6D2822D2CBF32395CF9050 /* Resources */,
+				1A1AD7D94850A364B80836305F45C2B1 /* Support Files */,
 			);
-			name = Products;
+			path = IQAudioRecorderController;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -311,34 +549,38 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				19144D53A751FBC68D69D5013BA095F1 /* Frameworks */,
-				884487CB5082F4F93BA754CEE453FD20 /* Pods */,
-				7A3507724833613D60CE0AC78CB76ED6 /* Products */,
+				DB447591AC0BCC73F86BC31AB804A000 /* Pods */,
+				8815127BA797511FBA2C4454F52D272E /* Products */,
 				2A4560BB0503E3D990588AECE401DFD4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		85889F2B1D76C85BA2B0F182C4E7D391 /* Support Files */ = {
+		8815127BA797511FBA2C4454F52D272E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C00CBB5CCC8D240EA71C236F2F0372BF /* Info.plist */,
-				06C56125BF668652987C8DDB8C22403B /* IQAudioRecorderController.modulemap */,
-				62AD84E4F0C88C65D840BEB27A22152B /* IQAudioRecorderController.xcconfig */,
-				EE818AE2C35A3F2AEB0E6CEDF11B9A85 /* IQAudioRecorderController-dummy.m */,
-				E37FA3DEDC451C11930BD5E5F9CCBCA6 /* IQAudioRecorderController-prefix.pch */,
-				92C3AAA91427934316B14E80AEBB2CD0 /* IQAudioRecorderController-umbrella.h */,
+				3C4AABF6EF8E2DF24F036E3AF3EEF6CD /* IQAudioRecorderController.framework */,
+				E3BF5C8E79048533475D731251F393FB /* IQDropDownTextField.framework */,
+				2F3AFFA606B1FB0003B43D03955F3AE0 /* Pods_My_Backpack.framework */,
+				4C4689AB2ACAAB267ABAD40A81892C7D /* RichEditorView.framework */,
+				B28BBCD9E8A1385B1ACF3C309FEA42D9 /* SCSiriWaveformView.framework */,
+				6EF8D4804B288807BC10D7CC204AAC09 /* SideMenu.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/IQAudioRecorderController";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		884487CB5082F4F93BA754CEE453FD20 /* Pods */ = {
+		890A5C3A1116C30B65DC9C42A68EBB5C /* RichEditorView */ = {
 			isa = PBXGroup;
 			children = (
-				B52B859C714F77D8853E0CF5E0E05D9D /* IQAudioRecorderController */,
-				3F0018D7EC5C598D9D23C8528637D891 /* SCSiriWaveformView */,
-				1DFBAA3590F795E0467930CF12850C6A /* SideMenu */,
+				48061D08052BFF442D00C26B0ECF0647 /* CJWWebView+HackishAccessoryHiding.h */,
+				9CFB48B9D49E7306DEE0CC49903B9BEB /* CJWWebView+HackishAccessoryHiding.m */,
+				D6FF9DC45BF7B7DDF54AC5B267788ED3 /* RichEditorOptionItem.swift */,
+				260805C12ACFA8BF2D0086BD8DBD7342 /* RichEditorToolbar.swift */,
+				EFB16F7BCBB0FEE13723064E62927D0D /* RichEditorView.swift */,
+				56291892C036594DD324035EDD4185E9 /* UIView+Responder.swift */,
+				B8EDE99CDC505DB00D206F264095627C /* Resources */,
+				398B85B402CCDF53936F2AEC7C0B0745 /* Support Files */,
 			);
-			name = Pods;
+			path = RichEditorView;
 			sourceTree = "<group>";
 		};
 		9240A04D3884AAC8BD7A7B25ED7231B6 /* Pods-My Backpack */ = {
@@ -359,56 +601,92 @@
 			path = "Target Support Files/Pods-My Backpack";
 			sourceTree = "<group>";
 		};
-		9D222E6DEDBE50282DAAE20006F96F8B /* Resources */ = {
+		9B1E27A99D6D2822D2CBF32395CF9050 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8C31388092046E61B17D89AC97B2F086 /* audio_record.png */,
-				2E7F90215B5F47887AD38E4F175CBD3B /* audio_record@2x.png */,
-				F9D6831CE21C0EF9759A251EEE5E8ECE /* audio_record@3x.png */,
-				F0B5E1B8354B240B8B5522F36D110106 /* microphone_access.png */,
-				A6618330D14EB4EC45789A7294FC29A4 /* microphone_access@2x.png */,
-				B4388C9F0596CF88BBF8880E48171B7D /* microphone_access@3x.png */,
-				FA6EA0EA633C3A5355BBF313C7C8F0A1 /* scissor.png */,
-				C93585CC1E9546A87E90E5E6A60F8DC7 /* scissor@2x.png */,
-				915A63382889923FCB5F8C30FC97CFD1 /* scissor@3x.png */,
-				9B7619EDAACA8AB7EFCFAC152EB67140 /* stop_playing.png */,
-				34FC3429B9046E38B9A994B8B622B52F /* stop_playing@2x.png */,
-				CF3FBDAB110349D78BD31C90C6A7E257 /* stop_playing@3x.png */,
-				4215C4475E0712F79597AA460822D479 /* stop_recording.png */,
-				D0171692534429015CD2DB15597B5247 /* stop_recording@2x.png */,
-				DEB570D70F3BB1AFF818E60E46ACEB20 /* stop_recording@3x.png */,
+				0292BFDB862FBC71031F42BBE9BD44D2 /* audio_record.png */,
+				B7994FB2ED7048DC25F24464325B7BED /* audio_record@2x.png */,
+				6EE3925390FBFAB8908B3D3455F845B0 /* audio_record@3x.png */,
+				89F2D061F6DB04067E511DDCD72A1C0D /* microphone_access.png */,
+				F3913A096BC96F88C382D26AB67B1537 /* microphone_access@2x.png */,
+				73C45945FA1185C2330DF219CAFE64F4 /* microphone_access@3x.png */,
+				633509B471568185FCFE6FD53A0E3C1E /* scissor.png */,
+				D911D2E6D38AB74573EBFA7B6116C87F /* scissor@2x.png */,
+				0E04F87C157B63F5D2DD1F0D4D4A35E1 /* scissor@3x.png */,
+				A44A4F328401D75055AF6D453DB880CB /* stop_playing.png */,
+				6A6FB783C9E018A1EBAAD0857C593AEF /* stop_playing@2x.png */,
+				24B4C61EC8E967DB9D4DF593CA25AE55 /* stop_playing@3x.png */,
+				148C2324E5308AAA9CAA7CA79644AD25 /* stop_recording.png */,
+				78D6EF976555758B7238A53040479FE6 /* stop_recording@2x.png */,
+				E0E433C407B65FE01500B2940B51F775 /* stop_recording@3x.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		B52B859C714F77D8853E0CF5E0E05D9D /* IQAudioRecorderController */ = {
+		B8EDE99CDC505DB00D206F264095627C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				63AF27FEBA7700B72B9B525F192D3A79 /* IQ_FDWaveformView.h */,
-				DCA60D1A4DE8D26C8A64B0FB861E4AFE /* IQ_FDWaveformView.m */,
-				07AE0BC8C205DFDFEB5F918DC76CAB1E /* IQAudioCropperViewController.h */,
-				33A884B9BAA90474A9701093B4CC1C0B /* IQAudioCropperViewController.m */,
-				BD6E6416F80FE2AC2B9356710EDADAAD /* IQAudioRecorderConstraints.h */,
-				A99378EF0EEA65E31D6C413FC3D49A86 /* IQAudioRecorderConstraints.m */,
-				51747D5FA0BA8DED78F52D8B33196AFD /* IQAudioRecorderViewController.h */,
-				284462D20374E5F757545E2D6249ECCC /* IQAudioRecorderViewController.m */,
-				513323AEE03C9BC39D676B74B5CCB68B /* IQCropSelectionBeginView.h */,
-				73B589624A62AC9E097379174A4B0946 /* IQCropSelectionBeginView.m */,
-				9B0DB8A75F67D65222670AD9C70A0F82 /* IQCropSelectionEndView.h */,
-				9702AFC74F1178264E765633BE1E1F0A /* IQCropSelectionEndView.m */,
-				48E5A40F94957587D212A9C740D0E60C /* IQCropSelectionView.h */,
-				CDF4663AD2806758E65283C774B0A9B1 /* IQCropSelectionView.m */,
-				90FEB85388FC84EAB74DEAB60883FE24 /* IQMessageDisplayView.h */,
-				8A8FB741901B49C6C431F989D3D68E1E /* IQMessageDisplayView.m */,
-				83A1A9776204F10533BE0E0847B31A9C /* IQPlaybackDurationView.h */,
-				2ABD49869C2DF5AB87E0C918EE23D1A1 /* IQPlaybackDurationView.m */,
-				0E69CAB73928D208DCB8717F048F7C88 /* NSString+IQTimeIntervalFormatter.h */,
-				7888161F539D2BEF2A7EB02DEEA4D979 /* NSString+IQTimeIntervalFormatter.m */,
-				9D222E6DEDBE50282DAAE20006F96F8B /* Resources */,
-				85889F2B1D76C85BA2B0F182C4E7D391 /* Support Files */,
+				83C63D085A68AF514D75ADB100CDCBDF /* assert.js */,
+				D1DFF51D6C4246006F8B0933A474E4EB /* bg_color.png */,
+				2D5E8D68E3D2EEB36AF8BFF1C87177DF /* bg_color@2x.png */,
+				D2DB63078720B69914762ACB0F15C326 /* bold.png */,
+				1EC80AB938CDDEA434F7C32FF7F4F9F7 /* bold@2x.png */,
+				3FB0926559362314D479DB787EA141B4 /* clear.png */,
+				86C843E7A2A1C42D627104EE9E958F9C /* clear@2x.png */,
+				0C26E1EB6C35B4E872432A76E423E504 /* h1.png */,
+				46FDF02BE25C46B6E46E103EDB0218D2 /* h1@2x.png */,
+				09BB28FE72996F1AC1F53604DDD97FA5 /* h2.png */,
+				B57805BEE5965460AABEBD5B9CE8B726 /* h2@2x.png */,
+				E6C8BF727B65E7E6AE0D9D8B43CBC376 /* h3.png */,
+				68FEB7F445611A1B4356E4F36ED93193 /* h3@2x.png */,
+				DA4B2B91C8C1AF3DC672D61FB0928CB1 /* h4.png */,
+				CB6604CFBAB867F3D4B33F2106B2B4BD /* h4@2x.png */,
+				82A615DB37082CB1D3922F59119E1FB0 /* h5.png */,
+				3292A6074D5091590E1C7DA1D76FB7BE /* h5@2x.png */,
+				CF741268257DB69E5481CE14612398A4 /* h6.png */,
+				4DC24323720AFE98E8FF408BD7FF0E5E /* h6@2x.png */,
+				E516DE35E0734EDB180A4B3FEC8F1B27 /* indent.png */,
+				46C3E1B6EB5F619EF714DB86A93784AD /* indent@2x.png */,
+				F8FEF2BBC8166AE2FA2B402BF5F4434C /* insert_image.png */,
+				4F09D864BCDB5C21F5640AC3A49DD0F4 /* insert_image@2x.png */,
+				8C071A20AA3F831CEBFD9253800830E4 /* insert_link.png */,
+				948C986EFD28CEA85ACA6DDDD21E4A36 /* insert_link@2x.png */,
+				32D3C12858984A5E9BA68A3CBC6EF7E8 /* italic.png */,
+				0838C49DB51B89148C849FFD6AD080C3 /* italic@2x.png */,
+				EBD1FFE03BAF8F6C9A689A1B7114C0B5 /* justify_center.png */,
+				6FDCAF1D986A2D652010AB6455557CA7 /* justify_center@2x.png */,
+				86EC92647CDB7A2A8E0DF9D3D0CF2FD8 /* justify_left.png */,
+				D5A1626BC27B61C0138A5E26C0EAC0CD /* justify_left@2x.png */,
+				164A0ECEE7991E6B44168DEEEC765873 /* justify_right.png */,
+				07D0979415D0DDAABC409EE434028FE3 /* justify_right@2x.png */,
+				004CB2BFEBDC0DE9A1032D70B40EF51D /* normalize.css */,
+				67F12B3780E696D2673D2705D7E9DD77 /* ordered_list.png */,
+				7B6E70AD38C7C00AADB978F7C81451D5 /* ordered_list@2x.png */,
+				947D79EC26B25FDE323512D9EC008296 /* outdent.png */,
+				5ABF8662FA8E6D39C88ACA55946CB18F /* outdent@2x.png */,
+				76EE856A0941F97DD195CD256BAD930F /* redo.png */,
+				43430DAE0FC39A804DBD4085F548EFF7 /* redo@2x.png */,
+				130EF02C2433590F1AEAC87849978767 /* rich_editor.html */,
+				08D60DC5F40BD15F561D51B11D29651E /* rich_editor.js */,
+				8454ABA381CBB5CF8D3A86D086035170 /* rich_editor_tests.html */,
+				98D5280CC3F06148E2BA122799C70986 /* rich_editor_tests.js */,
+				3884562C5CF0A55CC66A807C511F760F /* strikethrough.png */,
+				EE555B379959ADF0F8971553BBD0C0D8 /* strikethrough@2x.png */,
+				615160C6C09EAE62838BE7BFA7F66149 /* style.css */,
+				2D00E7AD80C800E9CE4ED0965F2D2349 /* subscript.png */,
+				6014718F76AB00289933EF4AA35EC3BD /* subscript@2x.png */,
+				A8A13C510359B0ECF981E5E2CE2BAB60 /* superscript.png */,
+				8A46AB08CCD46A71BDA03B1396FF3C4E /* superscript@2x.png */,
+				11BF18569982941450D37200CA1D0DE1 /* text_color.png */,
+				2B116C26D6DB919F1E1DFEFE88C7BD18 /* text_color@2x.png */,
+				B24839B67197BD3A073C7E82138665E4 /* underline.png */,
+				CC29B5E4BCE29544AB35555A653925CD /* underline@2x.png */,
+				5C2F544DC49692A48AABE53E0485B8DD /* undo.png */,
+				7D44644D45291074D12BA8AF9B7C1EB5 /* undo@2x.png */,
+				7FB7744C965FDD5C1D7FF541152D20B3 /* unordered_list.png */,
+				468FE9F1F718C62E54ED375022B885FE /* unordered_list@2x.png */,
 			);
-			name = IQAudioRecorderController;
-			path = IQAudioRecorderController;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		D57126AEEF2E31723D39878DC26305D3 /* iOS */ = {
@@ -423,14 +701,66 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		DB447591AC0BCC73F86BC31AB804A000 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E2A1233392A7EDC3AFFBD70B55C890A /* IQAudioRecorderController */,
+				4D6B483A94EDF1D621801CCFCAEF216B /* IQDropDownTextField */,
+				890A5C3A1116C30B65DC9C42A68EBB5C /* RichEditorView */,
+				352AD81741D6426FE3378C1ACC83A4D0 /* SCSiriWaveformView */,
+				394C7DE10B54AF61C7B339CEE70ACC2E /* SideMenu */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F05978426849AFEDCA14C4FE48870E29 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				465BDD70A2DBA1AD24274EFFBBD200DC /* Info.plist */,
+				93808570227CEF8E73193DC9BF0EE701 /* IQDropDownTextField.modulemap */,
+				A841814DEE936AD1B05E2969D6D0F18B /* IQDropDownTextField.xcconfig */,
+				24F792657EFB324D051600D3FE4A6C5E /* IQDropDownTextField-dummy.m */,
+				C12ECA48EFA904B49A2BBFBBB456A22A /* IQDropDownTextField-prefix.pch */,
+				629AFDED4ABB1F4C1C160B4ADE13C2EB /* IQDropDownTextField-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/IQDropDownTextField";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6AF03AC6C902BFE253DAF2C53C555D7A /* Headers */ = {
+		52FA904C8CFC7FDCA8D7621FB4D33F01 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A607D67F3725E6083F0F013357D51659 /* Pods-My Backpack-umbrella.h in Headers */,
+				1D4C1E0AAB3149E54604F040BD4FE6F8 /* CJWWebView+HackishAccessoryHiding.h in Headers */,
+				E4CFA3D66F35C16EC500D5978E30D1DF /* RichEditorView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E5DD73A91E07D811A75EA0714F0EAFE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB27C2FB7753DF904A1C7FD6716E4CB8 /* SideMenu-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		722ED0AE98AC709DFAB892B85097DE3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8E30F63BC055E37C75FF74B7969A77D0 /* Pods-My Backpack-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8CE6D55F790344C290F5D5CC461AE3B4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB62B3F275BD13B3103D50506A842041 /* IQDropDownTextField-umbrella.h in Headers */,
+				0AFBF640171BCF06BAEBA67419D49171 /* IQDropDownTextField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,14 +770,6 @@
 			files = (
 				B8FCF87620600A7A6CE45858E0FA8B67 /* SCSiriWaveformView-umbrella.h in Headers */,
 				7D017C4766A8A6B24A80A356575F707A /* SCSiriWaveformView.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D261DDEC113C59E10BBC4151DBE9AAD5 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				381F3CA68BBF3C341D3B52CD68779619 /* SideMenu-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,41 +794,44 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1A4D22A968B83171880FAD675BABC6A2 /* Pods-My Backpack */ = {
+		0FD2E997995214EC86EEF7D947600183 /* Pods-My Backpack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9C26EB203653D885FE1A08CE7B5BF1FD /* Build configuration list for PBXNativeTarget "Pods-My Backpack" */;
+			buildConfigurationList = 4AC00E45839104F179F85C7063163EDE /* Build configuration list for PBXNativeTarget "Pods-My Backpack" */;
 			buildPhases = (
-				FF081D19BBF3BB48CE2A8E04FF6BE10D /* Sources */,
-				C320B371D7AC0BB49EAC3B0075769428 /* Frameworks */,
-				6AF03AC6C902BFE253DAF2C53C555D7A /* Headers */,
+				BFCC6737F4FE92696C81F0366B1084D8 /* Sources */,
+				5647AD1348808C51949954B1E1A27AE6 /* Frameworks */,
+				722ED0AE98AC709DFAB892B85097DE3C /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				075DE781C7A114342274298BD6F3A298 /* PBXTargetDependency */,
-				B58C67E8579A46B2900AA857CB6CD61A /* PBXTargetDependency */,
-				3A3A598CC6E78BDF18684EDABFD0F040 /* PBXTargetDependency */,
+				42CAFBD7296FA3FDE049BF4D4E09D13B /* PBXTargetDependency */,
+				9C777C7BF4DAD33226C06958B8175462 /* PBXTargetDependency */,
+				9662EBE38A48FA9C54D50B49D6319CE9 /* PBXTargetDependency */,
+				24C6B01747CE976819138CB47A8454EB /* PBXTargetDependency */,
+				1FEEA1F44505359A6CF3A4DCC26DF711 /* PBXTargetDependency */,
 			);
 			name = "Pods-My Backpack";
 			productName = "Pods-My Backpack";
-			productReference = 34762FDB9F7EAB8A07C7BCF581E30693 /* Pods_My_Backpack.framework */;
+			productReference = 2F3AFFA606B1FB0003B43D03955F3AE0 /* Pods_My_Backpack.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		817FB62A0F4BDF529258D8F138F83390 /* SideMenu */ = {
+		67F8853D1EFECB81E8A37485125C3C0A /* RichEditorView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8922F9C93D997C268CAAAE142EDA8FE9 /* Build configuration list for PBXNativeTarget "SideMenu" */;
+			buildConfigurationList = 8DFEB985069103F68AE0CE1C9CC95346 /* Build configuration list for PBXNativeTarget "RichEditorView" */;
 			buildPhases = (
-				4DB6FB097D2BF36E2E5959D435B3681F /* Sources */,
-				7F11221A72DA3FA9D9B1275FD6722F5C /* Frameworks */,
-				D261DDEC113C59E10BBC4151DBE9AAD5 /* Headers */,
+				8749FF778D9BD286FFF4856D5A04D8A7 /* Sources */,
+				E363CA27D201CCE3FC249D1567606427 /* Frameworks */,
+				52FA904C8CFC7FDCA8D7621FB4D33F01 /* Headers */,
+				3B2E14ED5D2B5728154101B0397A9177 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SideMenu;
-			productName = SideMenu;
-			productReference = 43570E3B54D6ED780A23B08F019630D4 /* SideMenu.framework */;
+			name = RichEditorView;
+			productName = RichEditorView;
+			productReference = 4C4689AB2ACAAB267ABAD40A81892C7D /* RichEditorView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		923C199FC8844D48B6E4D0E9B013C7C4 /* SCSiriWaveformView */ = {
@@ -523,7 +848,7 @@
 			);
 			name = SCSiriWaveformView;
 			productName = SCSiriWaveformView;
-			productReference = E81AF5C945FFC4FDD953FFB32503C307 /* SCSiriWaveformView.framework */;
+			productReference = B28BBCD9E8A1385B1ACF3C309FEA42D9 /* SCSiriWaveformView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		BF5E8492AD833171E67A19F798CC6361 /* IQAudioRecorderController */ = {
@@ -542,7 +867,41 @@
 			);
 			name = IQAudioRecorderController;
 			productName = IQAudioRecorderController;
-			productReference = C4246FA22C53739A71DBD49B2D99E2D5 /* IQAudioRecorderController.framework */;
+			productReference = 3C4AABF6EF8E2DF24F036E3AF3EEF6CD /* IQAudioRecorderController.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C6AD32235C68E82618C442A5559F12D6 /* IQDropDownTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D4CA6EAD9EBA5268BFAB45BD8E00560 /* Build configuration list for PBXNativeTarget "IQDropDownTextField" */;
+			buildPhases = (
+				1450DB938DDFBF887EAB9CC2C99FF751 /* Sources */,
+				69A2F08FA95DB1562905B9FBB9E7BFDD /* Frameworks */,
+				8CE6D55F790344C290F5D5CC461AE3B4 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IQDropDownTextField;
+			productName = IQDropDownTextField;
+			productReference = E3BF5C8E79048533475D731251F393FB /* IQDropDownTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC0B7A322FD632CF149668F4A9CB67FC /* SideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9CECF20AF75822CE5F04F154B9CF2B2C /* Build configuration list for PBXNativeTarget "SideMenu" */;
+			buildPhases = (
+				18FF145C883C2A2D63AADBE0C9748645 /* Sources */,
+				0C58E8176B17ED19412D73D07831EF92 /* Frameworks */,
+				6E5DD73A91E07D811A75EA0714F0EAFE /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SideMenu;
+			productName = SideMenu;
+			productReference = 6EF8D4804B288807BC10D7CC204AAC09 /* SideMenu.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -553,6 +912,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					67F8853D1EFECB81E8A37485125C3C0A = {
+						LastSwiftMigration = 0820;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -562,19 +926,87 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 7A3507724833613D60CE0AC78CB76ED6 /* Products */;
+			productRefGroup = 8815127BA797511FBA2C4454F52D272E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BF5E8492AD833171E67A19F798CC6361 /* IQAudioRecorderController */,
-				1A4D22A968B83171880FAD675BABC6A2 /* Pods-My Backpack */,
+				C6AD32235C68E82618C442A5559F12D6 /* IQDropDownTextField */,
+				0FD2E997995214EC86EEF7D947600183 /* Pods-My Backpack */,
+				67F8853D1EFECB81E8A37485125C3C0A /* RichEditorView */,
 				923C199FC8844D48B6E4D0E9B013C7C4 /* SCSiriWaveformView */,
-				817FB62A0F4BDF529258D8F138F83390 /* SideMenu */,
+				DC0B7A322FD632CF149668F4A9CB67FC /* SideMenu */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3B2E14ED5D2B5728154101B0397A9177 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DFDAE6C1D6517A822D48E14D350D286 /* assert.js in Resources */,
+				0B905595AAC225C87E2B710F16BA0AC6 /* bg_color.png in Resources */,
+				FE7CAC5A5152097FEDC92C38B66EAA36 /* bg_color@2x.png in Resources */,
+				BF7773CE3ADA1FD03090BA4C82B81F6A /* bold.png in Resources */,
+				CBFFBBB336BBCDCBD35C9FE7F9314F40 /* bold@2x.png in Resources */,
+				031DB16096A132EE287053A8F5CB6CF6 /* clear.png in Resources */,
+				A8DB275D9F9B055DD18D8FF822494348 /* clear@2x.png in Resources */,
+				F5888D05143BCEE9170FE1322F9788DC /* h1.png in Resources */,
+				8E671EC7933CCDDD7BB86C8427126A84 /* h1@2x.png in Resources */,
+				57EBF1C7B197C22455019437ADFAC5F2 /* h2.png in Resources */,
+				E20DB94B52E8F87C71A524C38F20250B /* h2@2x.png in Resources */,
+				A61335FD431AD2A1A9EA8E6CF3FB9DBF /* h3.png in Resources */,
+				0F9AB768B8129802A596EF0CE37BD2F5 /* h3@2x.png in Resources */,
+				FB80A031638D04E6B735A2B17F234CEE /* h4.png in Resources */,
+				18D724B4F8BA59AFB6BA0112E656901E /* h4@2x.png in Resources */,
+				C09577EF8E82A4684186D3A2BAAF4A39 /* h5.png in Resources */,
+				98E9AD323C176221BE3EE632503B922C /* h5@2x.png in Resources */,
+				6783262F09D211EDB1E9C76C9A1774A2 /* h6.png in Resources */,
+				1361CA3ACA01D2343143FEE293707973 /* h6@2x.png in Resources */,
+				F1EC0628BA9A055BEEF814AB1B8F5E72 /* indent.png in Resources */,
+				7CCF904078939F904840270921AF9C09 /* indent@2x.png in Resources */,
+				BA62A2E0F8A808E98E0C84D86528ADF8 /* insert_image.png in Resources */,
+				9663A8DF6A8582E3F6080799EB83B941 /* insert_image@2x.png in Resources */,
+				0A390BD1C0F2FCED7D6F827922EEE205 /* insert_link.png in Resources */,
+				8D2DA48BD9D1E79F90A409A4C6C5F458 /* insert_link@2x.png in Resources */,
+				C6BF4E74CC2651928DBAF835D54C090E /* italic.png in Resources */,
+				98D2DA05E73CE04B5F906653A4FA9303 /* italic@2x.png in Resources */,
+				0177EBA038BDB9EF6B392A5D07828FFC /* justify_center.png in Resources */,
+				EDA642B36DF183D45AE8FC15A1222047 /* justify_center@2x.png in Resources */,
+				7D527C429452F48403A68440C35EAB74 /* justify_left.png in Resources */,
+				504CF8BD181842122B4D1320BBB91DB3 /* justify_left@2x.png in Resources */,
+				7086155226E09A9E592C1C8D102FD542 /* justify_right.png in Resources */,
+				B3C9FAF26144E807925F06CF070C13B3 /* justify_right@2x.png in Resources */,
+				FF3CB95CF98B7305A43ADFF6EAC12AC3 /* normalize.css in Resources */,
+				1478F17FB3DBBFA4A05FFEE505EB7AE9 /* ordered_list.png in Resources */,
+				47A093E4988BB995BFFF861BB9734A97 /* ordered_list@2x.png in Resources */,
+				04F1E21EFF4C8E48844A9A1038AA39B6 /* outdent.png in Resources */,
+				C8212174D8FAF90409A8B7F25B050939 /* outdent@2x.png in Resources */,
+				95C9CB53F6E1E4A8A48B2F6DE44AB9FD /* redo.png in Resources */,
+				1B4EB8AC9207C4D3500016120B592A6F /* redo@2x.png in Resources */,
+				A284C05193BEB3E22062040EE625D5E1 /* rich_editor.html in Resources */,
+				476E4956B22E2526ADD1147856FF4DF2 /* rich_editor.js in Resources */,
+				94F49CE70CC22DFA49CFB3E0CBC8EEE7 /* rich_editor_tests.html in Resources */,
+				101CB5AABD8772463B809572CCA009D4 /* rich_editor_tests.js in Resources */,
+				805820BD04B1F05D1984CF87A8060873 /* strikethrough.png in Resources */,
+				B8A97E6472724CE7ED9630EE21893A77 /* strikethrough@2x.png in Resources */,
+				8F009644E628DFDAC8AAC0B462C01359 /* style.css in Resources */,
+				055953442A787707A21DF6197147D7D0 /* subscript.png in Resources */,
+				0828E55097E9BA57295C3D866560FD6E /* subscript@2x.png in Resources */,
+				10F4A32AF2DAF70D7D7178C75176B556 /* superscript.png in Resources */,
+				997339E5224AAE0392274AA0765E53CD /* superscript@2x.png in Resources */,
+				43D0A01EFB0172C8C2589D1A83392A11 /* text_color.png in Resources */,
+				C82D1E3ABA67A6717BB8BA09D48E8C82 /* text_color@2x.png in Resources */,
+				107EF1680B7F01EBFCDF7284B4402F4F /* underline.png in Resources */,
+				DE4776D17983840E9AB4763C56E67281 /* underline@2x.png in Resources */,
+				E8F41698C400CEF153F52130A161F795 /* undo.png in Resources */,
+				7542A40076A05B0BCCD7521747BEA857 /* undo@2x.png in Resources */,
+				EC44ABA9A041A364E77C1685E28258CC /* unordered_list.png in Resources */,
+				07D42303D10E3A302B07AC262F35D95C /* unordered_list@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9E1BCAB31085E5F4E4AE2B1466EA339A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -600,6 +1032,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1450DB938DDFBF887EAB9CC2C99FF751 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B881872BBA036A573D2C60FAC73AC92 /* IQDropDownTextField-dummy.m in Sources */,
+				5C48D0B259FF6CF5C61014ECF89920FF /* IQDropDownTextField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		18FF145C883C2A2D63AADBE0C9748645 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6CD6848617EF7BCF188AB887F43E88A /* SideMenu-dummy.m in Sources */,
+				2D79911AB204E59F2951C095E23352BF /* SideMenuManager.swift in Sources */,
+				014EF4113F8981A339EDFAD98AEF6D91 /* SideMenuTransition.swift in Sources */,
+				9B764964012AF2AD0463F65A93B781F0 /* UISideMenuNavigationController.swift in Sources */,
+				A90058B9F6EA31A1B955741684783312 /* UITableViewVibrantCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3684FD5E443A0B14CC251235ADA1E560 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -609,15 +1062,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4DB6FB097D2BF36E2E5959D435B3681F /* Sources */ = {
+		8749FF778D9BD286FFF4856D5A04D8A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8905186EDB4294CF1448530E73E734C /* SideMenu-dummy.m in Sources */,
-				D0286A5C4C78DB4D4D92DF93A71775B2 /* SideMenuManager.swift in Sources */,
-				E6FA3B105E57094506F4780DA6808C33 /* SideMenuTransition.swift in Sources */,
-				98D9550A1723D833731DC63B667F07EF /* UISideMenuNavigationController.swift in Sources */,
-				C3A6D3F620D9F37F27EBDA2C6E0FEC70 /* UITableViewVibrantCell.swift in Sources */,
+				15F54D6775ED5CC780A214D7E3310023 /* CJWWebView+HackishAccessoryHiding.m in Sources */,
+				48FC8010E52937D6E5C4DFE8AA62F53A /* RichEditorOptionItem.swift in Sources */,
+				9D1B40FC278ABA02827F8624337BFA04 /* RichEditorToolbar.swift in Sources */,
+				D4031A8DC567EEBBD6D062851D94494B /* RichEditorView-dummy.m in Sources */,
+				2BC5B26BF133B6A2536B883F03CD292C /* RichEditorView.swift in Sources */,
+				C9736D3EB22C8413542F4F2B110E4F87 /* UIView+Responder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,28 +1093,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF081D19BBF3BB48CE2A8E04FF6BE10D /* Sources */ = {
+		BFCC6737F4FE92696C81F0366B1084D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D47E35F0562357205AA7EEF436254E9B /* Pods-My Backpack-dummy.m in Sources */,
+				9F496941B2C4F3CAC4ECA3CC8A0F6D4E /* Pods-My Backpack-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		075DE781C7A114342274298BD6F3A298 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = IQAudioRecorderController;
-			target = BF5E8492AD833171E67A19F798CC6361 /* IQAudioRecorderController */;
-			targetProxy = C56D165E4245E996CF678F977328A05D /* PBXContainerItemProxy */;
-		};
-		3A3A598CC6E78BDF18684EDABFD0F040 /* PBXTargetDependency */ = {
+		1FEEA1F44505359A6CF3A4DCC26DF711 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SideMenu;
-			target = 817FB62A0F4BDF529258D8F138F83390 /* SideMenu */;
-			targetProxy = 709B0FD1D1372FEF46F37AF8D43C970E /* PBXContainerItemProxy */;
+			target = DC0B7A322FD632CF149668F4A9CB67FC /* SideMenu */;
+			targetProxy = 8D3BADE9595C940A9E4EB8A6A1239F4A /* PBXContainerItemProxy */;
+		};
+		24C6B01747CE976819138CB47A8454EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SCSiriWaveformView;
+			target = 923C199FC8844D48B6E4D0E9B013C7C4 /* SCSiriWaveformView */;
+			targetProxy = 951EAEE19B8E6DDCB60BA840FDFCCE03 /* PBXContainerItemProxy */;
 		};
 		3F9AC8F959D262F76CC83D25A9100FEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -668,18 +1122,30 @@
 			target = 923C199FC8844D48B6E4D0E9B013C7C4 /* SCSiriWaveformView */;
 			targetProxy = DFF9654EB4EE42317C4F79D7461CC365 /* PBXContainerItemProxy */;
 		};
-		B58C67E8579A46B2900AA857CB6CD61A /* PBXTargetDependency */ = {
+		42CAFBD7296FA3FDE049BF4D4E09D13B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SCSiriWaveformView;
-			target = 923C199FC8844D48B6E4D0E9B013C7C4 /* SCSiriWaveformView */;
-			targetProxy = BE13A0A62F24048A5471E02A95802F7B /* PBXContainerItemProxy */;
+			name = IQAudioRecorderController;
+			target = BF5E8492AD833171E67A19F798CC6361 /* IQAudioRecorderController */;
+			targetProxy = 36DF410C1AB0C6626E00B735DAF6B621 /* PBXContainerItemProxy */;
+		};
+		9662EBE38A48FA9C54D50B49D6319CE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RichEditorView;
+			target = 67F8853D1EFECB81E8A37485125C3C0A /* RichEditorView */;
+			targetProxy = 214162004511993918901FAC7DD873B8 /* PBXContainerItemProxy */;
+		};
+		9C777C7BF4DAD33226C06958B8175462 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IQDropDownTextField;
+			target = C6AD32235C68E82618C442A5559F12D6 /* IQDropDownTextField */;
+			targetProxy = 8501592FBBCE49DB408EB99D5F2EF4A5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2AB505D2E4B971D798392BB67600D676 /* Release */ = {
+		122F51207AC7F3A050AF98FB88C7C088 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88B1740CBEDE0D6ADEB946DCAC024B2A /* SideMenu.xcconfig */;
+			baseConfigurationReference = A841814DEE936AD1B05E2969D6D0F18B /* IQDropDownTextField.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -692,14 +1158,14 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/IQDropDownTextField/IQDropDownTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQDropDownTextField/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
+				MODULEMAP_FILE = "Target Support Files/IQDropDownTextField/IQDropDownTextField.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SideMenu;
+				PRODUCT_NAME = IQDropDownTextField;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -708,39 +1174,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		3078009F9F1A33105FEE1407C4F6F8C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88B1740CBEDE0D6ADEB946DCAC024B2A /* SideMenu.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SideMenu;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		59B042A655B7C20CBAB90E385BF4E4C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -786,9 +1219,42 @@
 			};
 			name = Debug;
 		};
+		5F2519AE11A912C50F436EEC4A68557F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C5B99D8A1E4C2F73CF569492CE6709A /* RichEditorView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RichEditorView/RichEditorView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RichEditorView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RichEditorView/RichEditorView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = RichEditorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		6AF116B51B25BB82336D5754F0360A18 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6679C9D3CCDE9802E3B2D98B5EC838F /* SCSiriWaveformView.xcconfig */;
+			baseConfigurationReference = 152B7BBE5FEEFCC1A9F566C6E022CA5C /* SCSiriWaveformView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -818,44 +1284,9 @@
 			};
 			name = Debug;
 		};
-		78B8CC0EE7C6D044D2F612F7417D5431 /* Release */ = {
+		8298F8CD28683BBED4EE92627C2CBF1B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B64AAF310BF6F96EF3CE7B3304B4DB7A /* Pods-My Backpack.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-My Backpack/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-My Backpack/Pods-My Backpack.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_My_Backpack;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		874968220AB6AF1520CDEB61E5445B07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B4EE655B2430F3D3647957BFFC0F6327 /* Pods-My Backpack.debug.xcconfig */;
+			baseConfigurationReference = A841814DEE936AD1B05E2969D6D0F18B /* IQDropDownTextField.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -868,21 +1299,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-My Backpack/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/IQDropDownTextField/IQDropDownTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/IQDropDownTextField/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-My Backpack/Pods-My Backpack.modulemap";
+				MODULEMAP_FILE = "Target Support Files/IQDropDownTextField/IQDropDownTextField.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_My_Backpack;
+				PRODUCT_NAME = IQDropDownTextField;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -891,7 +1318,7 @@
 		};
 		917A570ECF65897BAF26F59EF6572254 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F6679C9D3CCDE9802E3B2D98B5EC838F /* SCSiriWaveformView.xcconfig */;
+			baseConfigurationReference = 152B7BBE5FEEFCC1A9F566C6E022CA5C /* SCSiriWaveformView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -921,9 +1348,74 @@
 			};
 			name = Release;
 		};
+		99A8C703CF7D2C61DEAC1504EC6824A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA4A956AF0F326F3FE417B6E6FFBF5A /* SideMenu.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SideMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AC5871A7656F82817994CA9FB0CF8EF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFA4A956AF0F326F3FE417B6E6FFBF5A /* SideMenu.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SideMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		B66BAFE0D48F523E3F6D157DB8ADC387 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62AD84E4F0C88C65D840BEB27A22152B /* IQAudioRecorderController.xcconfig */;
+			baseConfigurationReference = 44C6354AEE5A7A30F7F724800DA2559E /* IQAudioRecorderController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -993,9 +1485,80 @@
 			};
 			name = Release;
 		};
+		BA06182E7DBD4A3A9510E6B9CE707429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4EE655B2430F3D3647957BFFC0F6327 /* Pods-My Backpack.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-My Backpack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-My Backpack/Pods-My Backpack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_My_Backpack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C0B6781EB0D6ADDE3A7717AFE708FB9F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B64AAF310BF6F96EF3CE7B3304B4DB7A /* Pods-My Backpack.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-My Backpack/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-My Backpack/Pods-My Backpack.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_My_Backpack;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		D38ECBC21EE67A32F8E0D6CF0607598A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62AD84E4F0C88C65D840BEB27A22152B /* IQAudioRecorderController.xcconfig */;
+			baseConfigurationReference = 44C6354AEE5A7A30F7F724800DA2559E /* IQAudioRecorderController.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -1024,6 +1587,38 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		E562C5FBF7965C4849400B1C3552A75B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C5B99D8A1E4C2F73CF569492CE6709A /* RichEditorView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/RichEditorView/RichEditorView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RichEditorView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RichEditorView/RichEditorView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = RichEditorView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1055,20 +1650,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8922F9C93D997C268CAAAE142EDA8FE9 /* Build configuration list for PBXNativeTarget "SideMenu" */ = {
+		4AC00E45839104F179F85C7063163EDE /* Build configuration list for PBXNativeTarget "Pods-My Backpack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3078009F9F1A33105FEE1407C4F6F8C6 /* Debug */,
-				2AB505D2E4B971D798392BB67600D676 /* Release */,
+				BA06182E7DBD4A3A9510E6B9CE707429 /* Debug */,
+				C0B6781EB0D6ADDE3A7717AFE708FB9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9C26EB203653D885FE1A08CE7B5BF1FD /* Build configuration list for PBXNativeTarget "Pods-My Backpack" */ = {
+		6D4CA6EAD9EBA5268BFAB45BD8E00560 /* Build configuration list for PBXNativeTarget "IQDropDownTextField" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				874968220AB6AF1520CDEB61E5445B07 /* Debug */,
-				78B8CC0EE7C6D044D2F612F7417D5431 /* Release */,
+				8298F8CD28683BBED4EE92627C2CBF1B /* Debug */,
+				122F51207AC7F3A050AF98FB88C7C088 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8DFEB985069103F68AE0CE1C9CC95346 /* Build configuration list for PBXNativeTarget "RichEditorView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F2519AE11A912C50F436EEC4A68557F /* Debug */,
+				E562C5FBF7965C4849400B1C3552A75B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9CECF20AF75822CE5F04F154B9CF2B2C /* Build configuration list for PBXNativeTarget "SideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC5871A7656F82817994CA9FB0CF8EF1 /* Debug */,
+				99A8C703CF7D2C61DEAC1504EC6824A9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

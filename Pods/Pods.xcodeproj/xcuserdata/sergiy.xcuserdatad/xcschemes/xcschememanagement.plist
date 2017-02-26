@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IQDropDownTextField.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-My Backpack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RichEditorView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1A4D22A968B83171880FAD675BABC6A2</key>
+		<key>0FD2E997995214EC86EEF7D947600183</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>817FB62A0F4BDF529258D8F138F83390</key>
+		<key>67F8853D1EFECB81E8A37485125C3C0A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +53,16 @@
 			<true/>
 		</dict>
 		<key>BF5E8492AD833171E67A19F798CC6361</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C6AD32235C68E82618C442A5559F12D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC0B7A322FD632CF149668F4A9CB67FC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

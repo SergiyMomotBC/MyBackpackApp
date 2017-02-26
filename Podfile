@@ -8,4 +8,6 @@ target 'My Backpack' do
 
     pod 'SideMenu'
     pod 'IQAudioRecorderController'
+    pod 'IQDropDownTextField'
+    pod 'RichEditorView'
 end
