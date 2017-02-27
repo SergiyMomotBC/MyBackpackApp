@@ -17,17 +17,20 @@ class TakeNoteController: NSObject, ContentProvider
     
     private lazy var toolbar: RichEditorToolbar = {
         let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: 0, width: (self.navigationVC?.view.bounds.width)!, height: 44))
-        toolbar.options = RichEditorOptions.all()
+        toolbar.options = [RichEditorOptions.undo, RichEditorOptions.redo, RichEditorOptions.bold, RichEditorOptions.italic,
+                           RichEditorOptions.subscript, RichEditorOptions.superscript, RichEditorOptions.underline,
+                           RichEditorOptions.textColor, RichEditorOptions.header(1)]
+        toolbar.tintColor = .red
         return toolbar
     }()
     
     init(for parent: NewContentViewController) {
         self.parentVC = parent
+        let noteController = UIViewController()
+        self.editorView = RichEditorView(frame: noteController.view.frame)
         
         super.init()
         
-        let noteController = UIViewController()
-        let editorView = RichEditorView(frame: noteController.view.frame)
         editorView.backgroundColor = .white
         noteController.view.addSubview(editorView)
         
@@ -96,7 +99,7 @@ class TakeNoteController: NSObject, ContentProvider
     
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection) {
         
-        self.parentVC.setViewControllers([self.navigationVC!], direction: direction, animated: true, completion: nil)
+        self.parentVC.setViewControllers([self.navigationVC!], direction: direction, animated: true, completion: { success in self.editorView.becomeFirstResponder() })
     }
     
 }
