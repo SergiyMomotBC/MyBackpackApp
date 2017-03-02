@@ -94,7 +94,7 @@ class TakeNoteController: NSObject, ContentProvider
     }
     
     var resource: AnyObject? {
-        return self.takenNoteHTMLText as AnyObject?
+        return String("Hello") as AnyObject?
     }
     
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection) {

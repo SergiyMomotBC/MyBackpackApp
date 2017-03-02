@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DoneHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQAudioRecorderController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0FD2E997995214EC86EEF7D947600183</key>
+		<key>132984631C042933E0FE40341AF5B082</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>67F8853D1EFECB81E8A37485125C3C0A</key>
+		<key>35C9BC679A040C524C2690211DDAF694</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3BE1CD4F1A86D102CED3AC45FFAF7DF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC0B7A322FD632CF149668F4A9CB67FC</key>
+		<key>C78756BD6C31A88BD1AE09A76855A20D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

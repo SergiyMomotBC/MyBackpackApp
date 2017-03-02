@@ -1,4 +1,5 @@
 PODS:
+  - DoneHUD (1.0.0)
   - IQAudioRecorderController (1.2.0):
     - SCSiriWaveformView
   - IQDropDownTextField (1.1.0)
@@ -7,18 +8,20 @@ PODS:
   - SideMenu (2.2.0)
 
 DEPENDENCIES:
+  - DoneHUD
   - IQAudioRecorderController
   - IQDropDownTextField
   - RichEditorView
   - SideMenu
 
 SPEC CHECKSUMS:
+  DoneHUD: e3717eefe0ed8a977153024400693e100a3bc0e9
   IQAudioRecorderController: 1d46d99330cb2c9381568665d123cf435460a43e
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   RichEditorView: b4ee60a4f5301cbe8f3fcb1f065cdd7de74ddd10
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
   SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
 
-PODFILE CHECKSUM: 26bdb3c6328649f32e60c4867bf2e9532dc05471
+PODFILE CHECKSUM: ed0de2418ccfaba73a6a6f4a5898610af0db36ab
 
 COCOAPODS: 1.2.0

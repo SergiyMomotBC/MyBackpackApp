@@ -10,4 +10,5 @@ target 'My Backpack' do
     pod 'IQAudioRecorderController'
     pod 'IQDropDownTextField'
     pod 'RichEditorView'
+    pod 'DoneHUD'
 end
