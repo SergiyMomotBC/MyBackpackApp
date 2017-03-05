@@ -543,5 +543,4 @@ extension RichEditorView {
             focus()
         }
     }
-    
 }

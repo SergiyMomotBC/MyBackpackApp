@@ -111,7 +111,7 @@ open class DoneView: UIView {
         self.blurView = UIView()
         self.insertSubview(self.blurView!, at: 0)
         self.blurView?.frame = self.bounds
-        self.blurView?.backgroundColor = UIColor.white
+        self.blurView?.backgroundColor = UIColor.lightGray
     }
     
     fileprivate func animate(_ completion: (() -> Void)?) {

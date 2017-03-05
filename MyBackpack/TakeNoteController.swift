@@ -43,6 +43,7 @@ class TakeNoteController: NSObject, ContentProvider
     }
     
     @objc private func done() {
+        self.takenNoteHTMLText = self.editorView.getHTML()
         self.parentVC.contentProviderDidSuccesfullyFinished()
     }
     
@@ -94,7 +95,7 @@ class TakeNoteController: NSObject, ContentProvider
     }
     
     var resource: AnyObject? {
-        return String("Hello") as AnyObject?
+        return self.takenNoteHTMLText as AnyObject?
     }
     
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection) {

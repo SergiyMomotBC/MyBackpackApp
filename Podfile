@@ -11,4 +11,5 @@ target 'My Backpack' do
     pod 'IQDropDownTextField'
     pod 'RichEditorView'
     pod 'DoneHUD'
+    pod 'NYTPhotoViewer'
 end

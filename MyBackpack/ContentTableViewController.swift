@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import AVKit
+import NYTPhotoViewer
 
-class ContentTableViewController: UITableViewController
+class ContentTableViewController: UITableViewController, AVPlayerViewControllerDelegate
 {
     var records: [Content]?
     
@@ -42,11 +44,26 @@ class ContentTableViewController: UITableViewController
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if records?[indexPath.row].typeID == 1 {
+            let playerViewController = AVPlayerViewController()
+            playerViewController.player = AVPlayer(url: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(records![indexPath.row].resourceURL!))
+            self.present(playerViewController, animated: true) {
+                playerViewController.player!.play()
+            }
+        } else if records![indexPath.row].typeID == 0 {
+            let photo = PhotoInfo(image: UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(records![indexPath.row].resourceURL!).path)!)
+            let controller = NYTPhotosViewController(photos: [photo])
+            self.present(controller, animated: true, completion: nil)
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: " Delete") { (action, indexPath) in
             if let row = self.records?.remove(at: indexPath.row) {
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 CoreDataManager.shared.managedContext.delete(row)
+                try! FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(row.resourceURL!))
                 CoreDataManager.shared.saveContext()
             }
         }
@@ -68,14 +85,4 @@ class ContentTableViewController: UITableViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "header")
         return cell?.contentView
     }
-    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            if let row = records?.remove(at: indexPath.row) {
-//                self.tableView.deleteRows(at: [indexPath], with: .fade)
-//                CoreDataManager.shared.managedContext.delete(row)
-//                CoreDataManager.shared.saveContext()
-//            }
-//        }
-//    }
 }

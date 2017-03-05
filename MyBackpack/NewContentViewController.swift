@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import RichEditorView
 
 class NewContentViewController: UIPageViewController, UIImagePickerControllerDelegate
 {
     private let contentType: ContentType
-    let saveContentVC: SaveContentViewController
+    private let saveContentVC: SaveContentViewController
     var captureContentVC: ContentProvider?
     
     init(forContentType type: ContentType) {
@@ -21,23 +20,20 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
         self.saveContentVC.view.tag = 0
         
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        
         self.saveContentVC.contentController = self
         
         switch type {
         case .Picture:
             captureContentVC = CameraContentController(for: self, withCameraMode: .photo)
-            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         case .Video:
             captureContentVC = CameraContentController(for: self, withCameraMode: .video)
-            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         case .Audio:
             captureContentVC = AudioRecorderController(for: self)
-            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         case .Note:
             captureContentVC = TakeNoteController(for: self)
-            captureContentVC?.presentAnimated(inScrollDirection: .forward)
         }
+        
+        captureContentVC!.presentAnimated(inScrollDirection: .forward)
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +41,10 @@ class NewContentViewController: UIPageViewController, UIImagePickerControllerDel
     }
     
     func contentProviderDidSuccesfullyFinished() {
-        self.setViewControllers([saveContentVC], direction: .forward, animated: true, completion: nil)
+        if let resource = self.captureContentVC?.resource, let type = self.captureContentVC?.providedContentType {
+            self.saveContentVC.resourceType = type
+            self.saveContentVC.resource = resource
+            self.setViewControllers([saveContentVC], direction: .forward, animated: true, completion: nil)
+        }
     }
 }

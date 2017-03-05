@@ -11,4 +11,17 @@ enum ContentType: Int {
     case Video
     case Note
     case Audio
+    
+    var name: String {
+        switch self {
+        case .Picture:
+            return "Picture"
+        case .Video:
+            return "Video"
+        case .Note:
+            return "Text Note"
+        case .Audio:
+            return "Voice Recording"
+        }
+    }
 }

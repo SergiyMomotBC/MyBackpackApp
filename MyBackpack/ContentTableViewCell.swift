@@ -39,7 +39,7 @@ class ContentTableViewCell: UITableViewCell
             self.contentTypeLabel.text = "Text Note"
             
         case .Picture:
-            self.contentPreview.image = UIImage(named: "test")
+            self.contentPreview.image = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!).path)
             self.contentTypeLabel.text = "Picture"
             
         case .Video:
@@ -51,7 +51,7 @@ class ContentTableViewCell: UITableViewCell
             imageView.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
             self.contentPreview.addSubview(imageView)
             
-            self.contentTimeDateLabel.text = "Video"
+            self.contentTitleLabel.text = "Video"
         }
     }
     

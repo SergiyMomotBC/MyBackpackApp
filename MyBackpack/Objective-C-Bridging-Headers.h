@@ -9,7 +9,8 @@
 #ifndef IQAudioRecorderViewControllerHeader_h
 #define IQAudioRecorderViewControllerHeader_h
 
-#import "/Users/sergiy/Desktop/My Backpack Project/MyBackpack/Pods/IQAudioRecorderController/IQAudioRecorderController/IQAudioRecorderViewController.h"
-#import "/Users/sergiy/Desktop/My Backpack Project/MyBackpack/Pods/IQDropDownTextField/IQDropDownTextField/IQDropDownTextField.h"
+#import "Pods/IQAudioRecorderController/IQAudioRecorderController/IQAudioRecorderViewController.h"
+#import "Pods/IQDropDownTextField/IQDropDownTextField/IQDropDownTextField.h"
+#import "Pods/NYTPhotoViewer/NYTPhotoViewer/NYTPhotosViewController.h"
 
 #endif /* IQAudioRecorderViewControllerHeader_h */

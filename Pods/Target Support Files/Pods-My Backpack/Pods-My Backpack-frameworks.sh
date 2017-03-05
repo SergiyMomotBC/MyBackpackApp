@@ -90,16 +90,20 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DoneHUD/DoneHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FLAnimatedImage/FLAnimatedImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQAudioRecorderController/IQAudioRecorderController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/NYTPhotoViewer/NYTPhotoViewer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCSiriWaveformView/SCSiriWaveformView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/DoneHUD/DoneHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FLAnimatedImage/FLAnimatedImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQAudioRecorderController/IQAudioRecorderController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/NYTPhotoViewer/NYTPhotoViewer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCSiriWaveformView/SCSiriWaveformView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
