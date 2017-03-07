@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Jukebox.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>NYTPhotoViewer-NYTPhotoViewer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,17 +62,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0A521FD5A46DDD3CBBB218DE11ECB37E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>3BE1CD4F1A86D102CED3AC45FFAF7DF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56FB634131F793174F75490930325D33</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6DED4C33E6EE249B12C1FFE61FD78465</key>
+		<key>51577F1A008B25CD9A7F57933816CF13</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -78,6 +83,11 @@
 			<true/>
 		</dict>
 		<key>923C199FC8844D48B6E4D0E9B013C7C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6C08E500BACC437211DDBD07532C8B8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC51F03B71302C250497F164D1C0D06D</key>
+		<key>CB233ACD48C6723D6C8C4EFF8D4B05D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>

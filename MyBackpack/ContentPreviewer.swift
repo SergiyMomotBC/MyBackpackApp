@@ -8,6 +8,7 @@
 
 import Foundation
 import RichEditorView
+import Jukebox
 
 class ContentPreviewer
 {
@@ -18,6 +19,8 @@ class ContentPreviewer
     private var videoPlayer: AVPlayer!
     private var playPauseButton: UIButton!
     private var isPlaying = false
+    
+    private var musicController: MusicViewController!
     
     init(forContentType type: ContentType, withResource resource: AnyObject, inView view: UIView) {
         self.contentType = type
@@ -60,7 +63,13 @@ class ContentPreviewer
     }
     
     private func previewAudio(url: URL) {
-        
+        musicController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "jukebox") as! MusicViewController
+        musicController.jukebox = Jukebox(delegate: musicController, items: [JukeboxItem(URL: url)])
+        self.view.addSubview(musicController.view)
+        self.view.addConstraintsWithFormat(format: "H:|[v0]|", views: musicController.view)
+        self.view.addConstraintsWithFormat(format: "V:|[v0]|", views: musicController.view)
+        self.musicController.view.backgroundColor = .clear
+        self.musicController.centerContainer.backgroundColor = .white
     }
     
     private func previewVideo(url: URL) {

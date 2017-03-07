@@ -13,6 +13,4 @@
 #import "Pods/IQDropDownTextField/IQDropDownTextField/IQDropDownTextField.h"
 #import "Pods/NYTPhotoViewer/NYTPhotoViewer/NYTPhotosViewController.h"
 
-
-
 #endif /* IQAudioRecorderViewControllerHeader_h */

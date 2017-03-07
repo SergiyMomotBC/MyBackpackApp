@@ -12,4 +12,5 @@ target 'My Backpack' do
     pod 'RichEditorView'
     pod 'DoneHUD'
     pod 'NYTPhotoViewer'
+    pod 'Jukebox'
 end
