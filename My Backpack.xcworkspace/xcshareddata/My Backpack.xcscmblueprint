@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "80F857290B1545E393CA70CA5F24E163801D0C61",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "80F857290B1545E393CA70CA5F24E163801D0C61" : 9223372036854775807,
+    "0060B9D0DCAC4C67C52F47254248773BF255BF80" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2FD7AC5B-07D7-4A6F-9CEB-5F7EDEBF4A87",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "80F857290B1545E393CA70CA5F24E163801D0C61" : "MyBackpack\/",
+    "0060B9D0DCAC4C67C52F47254248773BF255BF80" : "MyBackpack\/MyBackpack\/Jukebox\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "My Backpack",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "My Backpack.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/teodorpatras\/Jukebox.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0060B9D0DCAC4C67C52F47254248773BF255BF80"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SergiyMomotBC\/MyBackpackApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "80F857290B1545E393CA70CA5F24E163801D0C61"
+    }
+  ]
+}
