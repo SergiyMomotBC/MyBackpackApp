@@ -19,6 +19,10 @@ class ContentTableViewCell: UITableViewCell
         self.contentView.subviews.first?.layer.cornerRadius = 8
         self.contentPreview.tintColor = .white
         
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.5)
+        self.selectedBackgroundView = backgroundColorView
+        
         let type = ContentType(rawValue: Int(content.typeID))!
         
         self.contentTitleLabel.text = content.title

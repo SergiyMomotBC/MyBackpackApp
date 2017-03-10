@@ -70,6 +70,7 @@ class ContentPreviewer
         self.view.addConstraintsWithFormat(format: "V:|[v0]|", views: musicController.view)
         self.musicController.view.backgroundColor = .clear
         self.musicController.centerContainer.backgroundColor = .white
+        self.musicController.centerContainer.layer.cornerRadius = 10
     }
     
     private func previewVideo(url: URL) {

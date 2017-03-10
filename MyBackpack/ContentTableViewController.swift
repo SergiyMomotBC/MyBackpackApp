@@ -13,10 +13,13 @@ import NYTPhotoViewer
 class ContentTableViewController: UITableViewController, AVPlayerViewControllerDelegate
 {
     var records: [Content]?
+    lazy var contentPresenter = ContentPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
+        let backgroundColorView = UIView()
+        backgroundColorView.backgroundColor = .green
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,17 +48,8 @@ class ContentTableViewController: UITableViewController, AVPlayerViewControllerD
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if records?[indexPath.row].typeID == 1 {
-            let playerViewController = AVPlayerViewController()
-            playerViewController.player = AVPlayer(url: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(records![indexPath.row].resourceURL!))
-            self.present(playerViewController, animated: true) {
-                playerViewController.player!.play()
-            }
-        } else if records![indexPath.row].typeID == 0 {
-            let photo = PhotoInfo(image: UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(records![indexPath.row].resourceURL!).path)!)
-            let controller = NYTPhotosViewController(photos: [photo])
-            self.present(controller, animated: true, completion: nil)
-        }
+        self.tableView.deselectRow(at: indexPath, animated: false)
+        self.contentPresenter.presentContent(records![indexPath.row], inViewController: self)
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
