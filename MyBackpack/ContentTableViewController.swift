@@ -25,7 +25,6 @@ class ContentTableViewController: UITableViewController, AVPlayerViewControllerD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.records = try! CoreDataManager.shared.managedContext.fetch(Content.fetchRequest())
         self.tableView.reloadData()
     }
 

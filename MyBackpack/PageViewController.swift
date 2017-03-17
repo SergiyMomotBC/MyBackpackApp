@@ -102,6 +102,7 @@ class PageViewController: UIPageViewController
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuBlurEffectStyle = UIBlurEffectStyle.dark
+        SideMenuManager.menuFadeStatusBar = false
     }
 }
 
