@@ -2,7 +2,7 @@
 //  ClassDay+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 3/17/17.
+//  Created by Sergiy Momot on 3/18/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
@@ -17,7 +17,6 @@ extension ClassDay {
     }
 
     @NSManaged public var day: String?
-    @NSManaged public var startTime: NSDate?
-    @NSManaged public var endTime: NSDate?
-
+    @NSManaged public var endTime: TimeTransformable?
+    @NSManaged public var startTime: TimeTransformable?
 }

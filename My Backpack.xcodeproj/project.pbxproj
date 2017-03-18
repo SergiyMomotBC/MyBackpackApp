@@ -22,6 +22,7 @@
 		654AA5E51E6A5EB1001128BA /* ContentPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */; };
 		655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655202E81E577C22009966B9 /* NavigationTabBar.swift */; };
 		655202EB1E577E9A009966B9 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655202EA1E577E9A009966B9 /* UIViewExtentions.swift */; };
+		655DF2BF1E7DDB6E00BDAB68 /* TimeTransformable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655DF2BE1E7DDB6E00BDAB68 /* TimeTransformable.swift */; };
 		6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */; };
 		6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4EF1E4A8AEB0036176B /* PageViewController.swift */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPreviewer.swift; sourceTree = "<group>"; };
 		655202E81E577C22009966B9 /* NavigationTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
 		655202EA1E577E9A009966B9 /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
+		655DF2BE1E7DDB6E00BDAB68 /* TimeTransformable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeTransformable.swift; sourceTree = "<group>"; };
 		6576D4EA1E4A8AEB0036176B /* My Backpack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Backpack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6576D4EF1E4A8AEB0036176B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				65FAA9AD1E689A11004FFB8E /* Content+CoreDataProperties.swift */,
 				6504F2BB1E68945600A4F202 /* MyBackpack.xcdatamodeld */,
 				6504F2B91E68901200A4F202 /* CoreDataManager.swift */,
+				655DF2BE1E7DDB6E00BDAB68 /* TimeTransformable.swift */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				6504F2BA1E68901200A4F202 /* CoreDataManager.swift in Sources */,
 				6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */,
 				655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */,
+				655DF2BF1E7DDB6E00BDAB68 /* TimeTransformable.swift in Sources */,
 				65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */,
 				6522D4FE1E6A486D00A409A8 /* ContentFileManager.swift in Sources */,
 				65E352BF1E7C34A8004BC038 /* ClassDay+CoreDataClass.swift in Sources */,
