@@ -11,5 +11,4 @@ import CoreData
 
 @objc(ClassDay)
 public class ClassDay: NSManagedObject {
-
 }

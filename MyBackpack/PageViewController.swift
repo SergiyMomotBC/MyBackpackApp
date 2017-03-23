@@ -67,10 +67,11 @@ class PageViewController: UIPageViewController
             self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
         }
     }
-    
-    // MARK: Private methods
-    
-    private func applyGradientToNavigationBar() {
+}    
+
+fileprivate extension PageViewController
+{
+    func applyGradientToNavigationBar() {
         let layer = CAGradientLayer()
         layer.frame = (self.navigationController?.navigationBar.bounds)!
         layer.frame.size.height += 20
@@ -84,7 +85,7 @@ class PageViewController: UIPageViewController
         self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
     }
     
-    private func setupChildViewControllers() {
+    func setupChildViewControllers() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "contentVC"))
@@ -97,7 +98,7 @@ class PageViewController: UIPageViewController
         }
     }
     
-    private func setupSideMenu() {
+    func setupSideMenu() {
         SideMenuManager.menuLeftNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenu") as? UISideMenuNavigationController
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         SideMenuManager.menuPresentMode = .menuSlideIn

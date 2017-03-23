@@ -1,4 +1,4 @@
-//
+ //
 //  SaveContentViewController.swift
 //  My Backpack
 //
@@ -65,6 +65,33 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         newObject.dateCreated = NSDate()
         newObject.resourceURL = ContentFileManager.shared.saveResource(self.resource, ofType: self.resourceType)
         
+        let currClass = SideMenuViewController.currentClass
+        
+        let id = Int16(lectureDropDownList.itemList.count - lectureDropDownList.selectedRow - 1)
+        
+        if let lecture = currClass.lectures?.first(where: { return ($0 as! Lecture).countID == id }) as? Lecture {
+            newObject.lecture = lecture
+            lecture.addToContents(newObject)
+        } else {
+            let newLecture = NSEntityDescription.insertNewObject(forEntityName: "Lecture", into: CoreDataManager.shared.managedContext) as! Lecture
+            newLecture.countID = id
+            
+            var index = lectureDropDownList.selectedItem!.characters.index(of: "-")!
+            index = lectureDropDownList.selectedItem!.index(index, offsetBy: 2)
+            let dateString = lectureDropDownList.selectedItem!.substring(from: index)
+            
+            print(dateString)
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            
+            newLecture.date = dateFormatter.date(from: dateString) as NSDate? 
+            newObject.lecture = newLecture
+            newLecture.addToContents(newObject)
+            currClass.addToLectures(newLecture)
+            print("Created")
+        }
+        
         CoreDataManager.shared.saveContext()
         
         DoneHUD.shared.showInView(self.view, message: "Saved") {
@@ -72,10 +99,50 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    private func retrieveLecturesList() -> [String] {
+        let currClass = SideMenuViewController.currentClass
+        var lectureNames: [String] = []
+        
+        var lectureIntervals: [Int] = []
+        
+        let days = (currClass.days?.map { ($0 as! ClassDay).day } ?? []).sorted()
+        
+        for i in 1..<days.count {
+            lectureIntervals.append(days[i] - days[i - 1])
+        }
+        
+        lectureIntervals.append(Int(7 - days.last!) + Int(days.first!))
+        
+        let dayOfWeek = Calendar.current.dateComponents([.weekday], from: currClass.firstLectureDate! as Date).weekday!
+        
+        let firstDay = days.index(of: Int16(dayOfWeek))!
+        
+        for _ in 1...firstDay {
+            let tmp = lectureIntervals.removeFirst()
+            lectureIntervals.append(tmp)
+        }
+        
+        var currentDate = currClass.firstLectureDate! as Date
+        let todayDate = Date()
+        var lecturesCount = 1
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        
+        while currentDate < todayDate {
+            lectureNames.insert("Lecture \(lecturesCount) - \(dateFormatter.string(from: currentDate))", at: 0)
+            currentDate = currentDate.addingTimeInterval(TimeInterval(3600 * 24 * lectureIntervals.first!))
+            lectureIntervals.append(lectureIntervals.removeFirst())
+            lecturesCount += 1
+        }
+        
+        return lectureNames
+    }
+    
     private func setupPickerAndToolbar() {
         contentPreviewView.backgroundColor = UIColor.clear
         self.lectureDropDownList.isOptionalDropDown = false
-        self.lectureDropDownList.itemList = ["Lecture 5", "Lecture 4", "Lecture 3", "Lecture 2", "Lecture 1"]
+        self.lectureDropDownList.itemList = retrieveLecturesList()
         self.lectureDropDownList.inputView?.backgroundColor = .white
         
         let toolBar = UIToolbar()

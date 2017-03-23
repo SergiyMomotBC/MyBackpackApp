@@ -10,8 +10,12 @@ import UIKit
 import CoreData
 import SideMenu
 
-class SideMenuViewController: UIViewController 
+class SideMenuViewController: UIViewController, NewClassViewControllerDelegate
 {
+    fileprivate(set) static var currentClass: Class = {
+       return try! CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()).first!
+    }()
+    
     @IBOutlet weak var classesTableView: UITableView!
     
     lazy var classList: [Class] = {
@@ -22,28 +26,22 @@ class SideMenuViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.classesTableView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addNewClass" {
+            let vc = segue.destination as! NewClassViewController
+            vc.delegate = self
+        }
+    }
+    
+    func newClassViewController(_ newClassVC: NewClassViewController, didFinishWithSuccess success: Bool) {
+        if success {
+            self.classList = try! CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())
+            self.classesTableView.reloadData()
+        }
         
-        /*
-        let newClass1 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass1.name = "CISC 3325"
-        
-        let newClass2 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass2.name = "CISC 3220"
-        
-        let newClass3 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass3.name = "CHEM 1050"
-        
-        let newClass4 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass4.name = "CISC 3350"
-        
-        let newClass5 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass5.name = "CISC 3150"
-        
-        let newClass6 = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
-        newClass6.name = "CISC 4900"
-        
-        CoreDataManager.shared.saveContext()
-         */
+        newClassVC.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -59,8 +57,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.classesTableView.dequeueReusableCell(withIdentifier: "classButtonCell")
-        
-        let className = cell?.contentView.subviews[1] as! UILabel
+
+        let className = cell?.contentView.subviews[0].subviews[0] as! UILabel
         className.text = self.classList[indexPath.row].name
         
         return cell!
@@ -73,5 +71,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.classesTableView.deselectRow(at: indexPath, animated: false)
         SideMenuManager.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
+        SideMenuViewController.currentClass = classList[indexPath.row]
     }
 }

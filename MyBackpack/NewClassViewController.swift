@@ -23,7 +23,11 @@ class NewClassViewController: UIViewController
     @IBOutlet weak var dayViewHeightConstrait: NSLayoutConstraint!
     @IBOutlet weak var toTimeField: IQDropDownTextField!
     
+    var delegate: NewClassViewControllerDelegate?
+    
     private lazy var lectureDays = [(String, Date, Date)]()
+    
+    let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     fileprivate lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar()
@@ -80,7 +84,7 @@ class NewClassViewController: UIViewController
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.delegate?.newClassViewController(self, didFinishWithSuccess: false)
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -101,7 +105,7 @@ class NewClassViewController: UIViewController
         saveClassToCoreData()
         
         DoneHUD.shared.showInView(self.view, message: "Saved") {
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.newClassViewController(self, didFinishWithSuccess: true)
         }
     }
     
@@ -109,19 +113,19 @@ class NewClassViewController: UIViewController
         let newClass = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
         
         newClass.name = self.classNameField.text
-        newClass.firstLectureDate = self.firstLectureDateField.date! as NSDate
-        newClass.lastLectureDate = self.lastLectureDateField.date! as NSDate
+        newClass.firstLectureDate = self.firstLectureDateField.date as NSDate?
+        newClass.lastLectureDate = self.lastLectureDateField.date as NSDate?
         
         for day in lectureDays {
-            let lectureDay = NSEntityDescription.insertNewObject(forEntityName: "Day", into: CoreDataManager.shared.managedContext) as! ClassDay
+            let lectureDay = NSEntityDescription.insertNewObject(forEntityName: "ClassDay", into: CoreDataManager.shared.managedContext) as! ClassDay
             
-            lectureDay.day = day.0
+            lectureDay.day = Int16(dayNames.index(of: day.0)! + 1)
             
             var components = Calendar.current.dateComponents([.hour, .minute], from: day.1)
-            lectureDay.startTime = TimeTransformable(hour: components.hour!, minute: components.minute!)
+            lectureDay.startTime = Int16(components.hour! * 60 + components.minute!)
             
             components = Calendar.current.dateComponents([.hour, .minute], from: day.2)
-            lectureDay.endTime = TimeTransformable(hour: components.hour!, minute: components.minute!)
+            lectureDay.endTime = Int16(components.hour! * 60 + components.minute!)
             
             newClass.addToDays(lectureDay)
         }
@@ -179,7 +183,7 @@ fileprivate extension NewClassViewController
         dayField.dropDownMode = .textPicker
         dayField.inputAccessoryView = toolbar
         dayField.isOptionalDropDown = false
-        dayField.itemList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        dayField.itemList = dayNames
     }
 }
 
