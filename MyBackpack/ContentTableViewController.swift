@@ -7,57 +7,68 @@
 //
 
 import UIKit
-import AVKit
-import NYTPhotoViewer
 
-class ContentTableViewController: UITableViewController, AVPlayerViewControllerDelegate
+class ContentTableViewController: UITableViewController, ClassObserver
 {
-    lazy var contentDataSource: ContentDataSource = {
-        return ContentDataSource(forClass: SideMenuViewController.currentClass)
-    }()
-    
-    lazy var contentPresenter = ContentPresenter()
+    private lazy var contentPresenter = ContentPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = .green
+        ContentDataSource.shared.addObserver(self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        contentDataSource.refresh()
+        ContentDataSource.shared.refresh()
         self.tableView.reloadData()
     }
 
+    func classDidChange() {
+        self.tableView.reloadData()
+        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return contentDataSource.lecturesCount
+        return ContentDataSource.shared.lecturesCount
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentDataSource.lecture(forSection: section)?.contents?.count ?? 0
+        return ContentDataSource.shared.contentsCount(forLecture: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContentTableViewCell
         
-        cell.prepareCell(forContent: contentDataSource.content(forIndexPath: indexPath)!)
+        cell.prepareCell(forContent: ContentDataSource.shared.content(forIndexPath: indexPath)!)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: false)
-        self.contentPresenter.presentContent(contentDataSource.content(forIndexPath: indexPath)!, inViewController: self)
+        self.contentPresenter.presentContent(ContentDataSource.shared.content(forIndexPath: indexPath)!, inViewController: self)
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .destructive, title: " Delete") { (action, indexPath) in
-             self.contentDataSource.remove(atIndexPath: indexPath)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            self.tableView.beginUpdates()
+            
+            let count = ContentDataSource.shared.contentsCount(forLecture: indexPath.section)
+            ContentDataSource.shared.removeContent(atIndexPath: indexPath)
+            
+            if count == 1 {
+                self.tableView.deleteSections([indexPath.section], with: .top)
+            } else {
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+            }
+            
+            self.tableView.endUpdates()
         }
         
         let edit = UITableViewRowAction(style: .normal, title: " Edit     ") { (action, indexPath) in
@@ -80,7 +91,7 @@ class ContentTableViewController: UITableViewController, AVPlayerViewControllerD
         dateFormatter.dateStyle = .long
         
         let headerLabel = cell?.contentView.subviews.first as! UILabel
-        let lecture = contentDataSource.lecture(forSection: section)!
+        let lecture = ContentDataSource.shared.lecture(forSection: section)!
         
         headerLabel.text = "Lecture \(lecture.countID + 1) • \(dateFormatter.string(from: lecture.date! as Date))"
         

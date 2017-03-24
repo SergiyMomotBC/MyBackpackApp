@@ -12,10 +12,6 @@ import SideMenu
 
 class SideMenuViewController: UIViewController, NewClassViewControllerDelegate
 {
-    fileprivate(set) static var currentClass: Class = {
-       return try! CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()).first!
-    }()
-    
     @IBOutlet weak var classesTableView: UITableView!
     
     lazy var classList: [Class] = {
@@ -71,6 +67,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.classesTableView.deselectRow(at: indexPath, animated: false)
         SideMenuManager.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
-        SideMenuViewController.currentClass = classList[indexPath.row]
+        ContentDataSource.shared.loadData(forClass: classList[indexPath.row])
     }
 }

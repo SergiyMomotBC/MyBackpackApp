@@ -65,7 +65,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         newObject.dateCreated = NSDate()
         newObject.resourceURL = ContentFileManager.shared.saveResource(self.resource, ofType: self.resourceType)
         
-        let currClass = SideMenuViewController.currentClass
+        let currClass = ContentDataSource.shared.currentClass!
         
         let id = Int16(lectureDropDownList.itemList.count - lectureDropDownList.selectedRow - 1)
         
@@ -100,7 +100,8 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
     }
     
     private func retrieveLecturesList() -> [String] {
-        let currClass = SideMenuViewController.currentClass
+        guard let currClass = ContentDataSource.shared.currentClass else { return [] }
+        
         var lectureNames: [String] = []
         
         var lectureIntervals: [Int] = []
@@ -117,7 +118,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         
         let firstDay = days.index(of: Int16(dayOfWeek))!
         
-        for _ in 1...firstDay {
+        for _ in 0..<firstDay {
             let tmp = lectureIntervals.removeFirst()
             lectureIntervals.append(tmp)
         }
