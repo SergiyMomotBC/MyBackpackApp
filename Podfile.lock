@@ -1,5 +1,6 @@
 PODS:
   - DoneHUD (1.0.0)
+  - DZNEmptyDataSet (1.8.1)
   - FLAnimatedImage (1.0.12)
   - IQAudioRecorderController (1.2.0):
     - SCSiriWaveformView
@@ -18,6 +19,7 @@ PODS:
 
 DEPENDENCIES:
   - DoneHUD
+  - DZNEmptyDataSet
   - IQAudioRecorderController
   - IQDropDownTextField
   - Jukebox
@@ -27,6 +29,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   DoneHUD: e3717eefe0ed8a977153024400693e100a3bc0e9
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQAudioRecorderController: 1d46d99330cb2c9381568665d123cf435460a43e
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
@@ -36,6 +39,6 @@ SPEC CHECKSUMS:
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
   SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
 
-PODFILE CHECKSUM: b997ac850c69957f637e850aee04b759077c92a0
+PODFILE CHECKSUM: a74ebc9c11fa9175544ffab59cada74e5f2dcc22
 
 COCOAPODS: 1.2.0

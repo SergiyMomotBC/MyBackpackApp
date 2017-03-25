@@ -80,8 +80,6 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
             index = lectureDropDownList.selectedItem!.index(index, offsetBy: 2)
             let dateString = lectureDropDownList.selectedItem!.substring(from: index)
             
-            print(dateString)
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .long
             
@@ -89,7 +87,6 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
             newObject.lecture = newLecture
             newLecture.addToContents(newObject)
             currClass.addToLectures(newLecture)
-            print("Created")
         }
         
         CoreDataManager.shared.saveContext()
@@ -119,8 +116,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         let firstDay = days.index(of: Int16(dayOfWeek))!
         
         for _ in 0..<firstDay {
-            let tmp = lectureIntervals.removeFirst()
-            lectureIntervals.append(tmp)
+            lectureIntervals.append(lectureIntervals.removeFirst())
         }
         
         var currentDate = currClass.firstLectureDate! as Date

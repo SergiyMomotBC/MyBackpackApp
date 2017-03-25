@@ -210,11 +210,11 @@
 			children = (
 				65E352BD1E7C34A8004BC038 /* ClassDay+CoreDataClass.swift */,
 				65E352BE1E7C34A8004BC038 /* ClassDay+CoreDataProperties.swift */,
-				65E7E1F71E7B1F2C002D07ED /* Lecture+CoreDataClass.swift */,
 				65E7E1F81E7B1F2C002D07ED /* Lecture+CoreDataProperties.swift */,
 				65E7E1F91E7B1F2C002D07ED /* Class+CoreDataClass.swift */,
 				65E7E1FA1E7B1F2C002D07ED /* Class+CoreDataProperties.swift */,
 				65FAA9AC1E689A11004FFB8E /* Content+CoreDataClass.swift */,
+				65E7E1F71E7B1F2C002D07ED /* Lecture+CoreDataClass.swift */,
 				65FAA9AD1E689A11004FFB8E /* Content+CoreDataProperties.swift */,
 				6504F2BB1E68945600A4F202 /* MyBackpack.xcdatamodeld */,
 				6504F2B91E68901200A4F202 /* CoreDataManager.swift */,

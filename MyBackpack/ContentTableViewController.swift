@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 class ContentTableViewController: UITableViewController, ClassObserver
 {
@@ -18,6 +19,9 @@ class ContentTableViewController: UITableViewController, ClassObserver
         let backgroundColorView = UIView()
         backgroundColorView.backgroundColor = .green
         ContentDataSource.shared.addObserver(self)
+        
+        tableView.emptyDataSetSource = self
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -96,5 +100,24 @@ class ContentTableViewController: UITableViewController, ClassObserver
         headerLabel.text = "Lecture \(lecture.countID + 1) • \(dateFormatter.string(from: lecture.date! as Date))"
         
         return cell?.contentView
+    }
+}
+
+extension ContentTableViewController: DZNEmptyDataSetSource
+{
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 24)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "No content so far.", attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "You can add new content by pressing a '+' button in the upper right corner.", attributes: attrs)
+    }
+    
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.lightGray
     }
 }
