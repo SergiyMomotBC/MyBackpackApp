@@ -11,17 +11,13 @@ import DZNEmptyDataSet
 
 class ContentTableViewController: UITableViewController, ClassObserver
 {
-    private lazy var contentPresenter = ContentPresenter()
+    fileprivate lazy var contentPresenter = ContentPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
-        let backgroundColorView = UIView()
-        backgroundColorView.backgroundColor = .green
         ContentDataSource.shared.addObserver(self)
-        
         tableView.emptyDataSetSource = self
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,9 +30,10 @@ class ContentTableViewController: UITableViewController, ClassObserver
         self.tableView.reloadData()
         self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
     }
-    
-    // MARK: - Table view data source
+}    
 
+extension ContentTableViewController 
+{
     override func numberOfSections(in tableView: UITableView) -> Int {
         return ContentDataSource.shared.lecturesCount
     }
