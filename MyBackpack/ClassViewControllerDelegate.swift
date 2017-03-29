@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol NewClassViewControllerDelegate {
-    func newClassViewController(_ newClassVC: NewClassViewController, didFinishWithSuccess success: Bool)
+protocol ClassViewControllerDelegate {
+    func classViewController(_ classVC: UIViewController, didCommitChanges success: Bool)
 }

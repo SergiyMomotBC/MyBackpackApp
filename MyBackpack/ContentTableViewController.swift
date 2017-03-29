@@ -18,6 +18,8 @@ class ContentTableViewController: UITableViewController, ClassObserver
         super.tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
         ContentDataSource.shared.addObserver(self)
         tableView.emptyDataSetSource = self
+        
+        classDidChange()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +31,12 @@ class ContentTableViewController: UITableViewController, ClassObserver
     func classDidChange() {
         self.tableView.reloadData()
         self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
+        
+        if ContentDataSource.shared.currentClass == nil {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
+        } else {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
+        }
     }
 }    
 

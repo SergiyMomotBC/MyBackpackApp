@@ -10,7 +10,7 @@
 		098B014FD6C40F6E5F6B39D4 /* Pods_My_Backpack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE5005747BBC189E389D19E /* Pods_My_Backpack.framework */; };
 		6504F2BA1E68901200A4F202 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6504F2B91E68901200A4F202 /* CoreDataManager.swift */; };
 		6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6504F2BB1E68945600A4F202 /* MyBackpack.xcdatamodeld */; };
-		650B8F851E81D29F001F997D /* NewClassViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B8F841E81D29F001F997D /* NewClassViewControllerDelegate.swift */; };
+		650B8F851E81D29F001F997D /* ClassViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B8F841E81D29F001F997D /* ClassViewControllerDelegate.swift */; };
 		650C74611E579AA1008E8590 /* TabBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650C74601E579AA1008E8590 /* TabBarCell.swift */; };
 		6511BEED1E53F3C90000F529 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6511BEEC1E53F3C90000F529 /* MenuController.swift */; };
 		651FDAC41E5275F300CB3D4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 651FDAC21E5275F300CB3D4B /* Main.storyboard */; };
@@ -41,6 +41,7 @@
 		65E7E1FE1E7B1F2C002D07ED /* Class+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E1FA1E7B1F2C002D07ED /* Class+CoreDataProperties.swift */; };
 		65E7E2001E7B1FE1002D07ED /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E1FF1E7B1FE1002D07ED /* SideMenuViewController.swift */; };
 		65EF52491E858D0100201628 /* ClassObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF52481E858D0100201628 /* ClassObserver.swift */; };
+		65F58E191E8AEC3600890FD3 /* ManageClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F58E181E8AEC3600890FD3 /* ManageClassesViewController.swift */; };
 		65F82BC81E732DEC005A0A66 /* ContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */; };
 		65F82BCA1E73442A005A0A66 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F82BC91E73442A005A0A66 /* MusicViewController.swift */; };
 		65FAA9AE1E689A11004FFB8E /* Content+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FAA9AC1E689A11004FFB8E /* Content+CoreDataClass.swift */; };
@@ -51,7 +52,7 @@
 		01FF2DCAFB1091E9E192E9E3 /* Pods-My Backpack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Backpack.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Backpack/Pods-My Backpack.release.xcconfig"; sourceTree = "<group>"; };
 		6504F2B91E68901200A4F202 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6504F2BC1E68945600A4F202 /* MyBackpack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyBackpack.xcdatamodel; sourceTree = "<group>"; };
-		650B8F841E81D29F001F997D /* NewClassViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClassViewControllerDelegate.swift; sourceTree = "<group>"; };
+		650B8F841E81D29F001F997D /* ClassViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewControllerDelegate.swift; sourceTree = "<group>"; };
 		650C74601E579AA1008E8590 /* TabBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCell.swift; sourceTree = "<group>"; };
 		6511BEEC1E53F3C90000F529 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
 		651FDAC31E5275F300CB3D4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		65E7E1FA1E7B1F2C002D07ED /* Class+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Class+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		65E7E1FF1E7B1FE1002D07ED /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		65EF52481E858D0100201628 /* ClassObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassObserver.swift; sourceTree = "<group>"; };
+		65F58E181E8AEC3600890FD3 /* ManageClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageClassesViewController.swift; sourceTree = "<group>"; };
 		65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentPresenter.swift; sourceTree = "<group>"; };
 		65F82BC91E73442A005A0A66 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		65FAA9AC1E689A11004FFB8E /* Content+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Content+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 				6544CB071E623C7300A83848 /* TakeNoteController.swift */,
 				65E7E1FF1E7B1FE1002D07ED /* SideMenuViewController.swift */,
 				65E352C11E7C41AF004BC038 /* NewClassViewController.swift */,
-				650B8F841E81D29F001F997D /* NewClassViewControllerDelegate.swift */,
+				65F58E181E8AEC3600890FD3 /* ManageClassesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +223,7 @@
 		65DF48471E86DC0100D70A11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				650B8F841E81D29F001F997D /* ClassViewControllerDelegate.swift */,
 				65BCF5E41E60A85700632751 /* ContentProvider.swift */,
 				65EF52481E858D0100201628 /* ClassObserver.swift */,
 			);
@@ -351,11 +354,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6520B2511E5B1787002C846D /* ContentTableViewController.swift in Sources */,
-				650B8F851E81D29F001F997D /* NewClassViewControllerDelegate.swift in Sources */,
+				650B8F851E81D29F001F997D /* ClassViewControllerDelegate.swift in Sources */,
 				6511BEED1E53F3C90000F529 /* MenuController.swift in Sources */,
 				653E0BFF1E60C5F5000B0C98 /* AudioRecorderController.swift in Sources */,
 				6544CB081E623C7300A83848 /* TakeNoteController.swift in Sources */,
 				65F82BC81E732DEC005A0A66 /* ContentPresenter.swift in Sources */,
+				65F58E191E8AEC3600890FD3 /* ManageClassesViewController.swift in Sources */,
 				6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */,
 				65E7E1FD1E7B1F2C002D07ED /* Class+CoreDataClass.swift in Sources */,
 				65EF52491E858D0100201628 /* ClassObserver.swift in Sources */,

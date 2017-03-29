@@ -10,9 +10,10 @@ import UIKit
 import CoreData
 import SideMenu
 
-class SideMenuViewController: UIViewController, NewClassViewControllerDelegate
+class SideMenuViewController: UIViewController, ClassViewControllerDelegate
 {
     @IBOutlet weak var classesTableView: UITableView!
+    @IBOutlet weak var manageClassesButton: UIButton!
     
     lazy var classList: [Class] = {
         let request: NSFetchRequest<Class> = Class.fetchRequest()
@@ -24,20 +25,34 @@ class SideMenuViewController: UIViewController, NewClassViewControllerDelegate
         self.classesTableView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        manageClassesButton.isHidden = classList.isEmpty
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addNewClass" {
             let vc = segue.destination as! NewClassViewController
             vc.delegate = self
+        } else if segue.identifier == "manageClasses" {
+            let vc = segue.destination as! ManageClassesViewController
+            vc.delegate = self
         }
     }
     
-    func newClassViewController(_ newClassVC: NewClassViewController, didFinishWithSuccess success: Bool) {
+    func classViewController(_ classVC: UIViewController, didCommitChanges success: Bool) {
         if success {
             self.classList = try! CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())
             self.classesTableView.reloadData()
+            
+            if classList.isEmpty {
+                ContentDataSource.shared.loadData(forClass: nil)
+            } else if ContentDataSource.shared.currentClass == nil || !classList.contains(ContentDataSource.shared.currentClass!) {
+                ContentDataSource.shared.loadData(forClass: classList.first)
+            }
         }
         
-        newClassVC.dismiss(animated: true, completion: nil)
+        classVC.dismiss(animated: true, completion: nil)
     }
 }
 

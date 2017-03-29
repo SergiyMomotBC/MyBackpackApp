@@ -47,4 +47,30 @@ class CoreDataManager
             }
         }
     }
+    
+    func deleteClasses(_ classes: [Class]) {
+        for object in classes {
+            if let lectures = object.lectures?.allObjects as? [Lecture] {
+                for lecture in lectures {
+                    for content in lecture.contents!.allObjects as! [Content] {
+                        do {
+                            try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
+                        } catch {
+                            print("File could not be deleted")
+                        }
+                        
+                        lecture.removeFromContents(content)
+                        managedContext.delete(content)
+                    }
+                    
+                    object.removeFromLectures(lecture)
+                    managedContext.delete(lecture)
+                }
+            }
+            
+            managedContext.delete(object)
+        }
+        
+        saveContext()
+    }
 }

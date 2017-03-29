@@ -40,15 +40,23 @@ final class ContentDataSource
         if let classObject = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()))?.first {
             currentClass = classObject
             loadData(forClass: classObject)
-        }  
+        } else {
+            loadData(forClass: nil)
+        }
     }
     
-    func loadData(forClass classObject: Class) {
+    func loadData(forClass classObject: Class?) {
         currentClass = classObject
-        lectures.removeAll()
-        lectures.append(contentsOf: (currentClass!.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date })
         
+        lectures.removeAll()
         contentObjects.removeAll()
+        
+        guard currentClass != nil else {
+            subscribers.forEach { $0.classDidChange() }
+            return
+        }
+        
+        lectures.append(contentsOf: (currentClass!.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date })
         
         for lecture in lectures {
             let fetchRequest: NSFetchRequest<Content> = Content.fetchRequest()

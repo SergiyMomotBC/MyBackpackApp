@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import DoneHUD
 
-class NewClassViewController: UIViewController
+final class NewClassViewController: UIViewController
 {
     private let lectureDayEntryHeight: CGFloat = 24.0
     
@@ -23,11 +23,11 @@ class NewClassViewController: UIViewController
     @IBOutlet weak var dayViewHeightConstrait: NSLayoutConstraint!
     @IBOutlet weak var toTimeField: IQDropDownTextField!
     
-    var delegate: NewClassViewControllerDelegate?
+    var delegate: ClassViewControllerDelegate?
     
-    private lazy var lectureDays = [(String, Date, Date)]()
+    fileprivate lazy var lectureDays = [(String, Date, Date)]()
     
-    let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    fileprivate let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
     fileprivate lazy var toolbar: UIToolbar = {
         let toolbar = UIToolbar()
@@ -84,7 +84,7 @@ class NewClassViewController: UIViewController
     }
     
     @IBAction func cancelAction(_ sender: Any) {
-        self.delegate?.newClassViewController(self, didFinishWithSuccess: false)
+        self.delegate?.classViewController(self, didCommitChanges: false)
     }
     
     @IBAction func saveAction(_ sender: Any) {
@@ -92,8 +92,24 @@ class NewClassViewController: UIViewController
         
         if classNameField.text!.isEmpty {
             errorMessage = "Class name is not specified."
+        } else if firstLectureDateField.date == nil {
+            errorMessage = "First lecture date is not specified."
+        } else if lastLectureDateField.date == nil {
+            errorMessage = "Last lecture date is not specified."
         } else if daysStackView.arrangedSubviews.count == 0 {
             errorMessage = "Class should have at least one lecture day."
+        } else {
+            var weekday = Calendar.current.dateComponents([Calendar.Component.weekday], from: self.firstLectureDateField.date! as Date).weekday!
+        
+            if !lectureDays.contains(where: { self.dayNames.index(of: $0.0)! + 1 == weekday }) {
+                errorMessage = "First lecture date is not one of the lecture days."
+            }
+            
+            weekday = Calendar.current.dateComponents([Calendar.Component.weekday], from: self.lastLectureDateField.date! as Date).weekday!
+            
+            if !lectureDays.contains(where: { self.dayNames.index(of: $0.0)! + 1 == weekday }) {
+                errorMessage = "Last lecture date is not one of the lecture days."
+            }
         }
         
         guard errorMessage == nil else {
@@ -105,7 +121,7 @@ class NewClassViewController: UIViewController
         saveClassToCoreData()
         
         DoneHUD.shared.showInView(self.view, message: "Saved") {
-            self.delegate?.newClassViewController(self, didFinishWithSuccess: true)
+            self.delegate?.classViewController(self, didCommitChanges: true)
         }
     }
     
