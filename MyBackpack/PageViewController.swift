@@ -13,27 +13,36 @@ class PageViewController: UIPageViewController
 {
     var menuController: MenuController!
     var navigationTabBar: NavigationTabBar!
+    var searchController: SearchController!
     var orderedViewControllers: [UIViewController] = []
     var currentPageIndex: Int = 0
     
     @IBOutlet var menuView: UIStackView!
+    @IBOutlet weak var searchBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!]
-        
         self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: NavigationTabBar.height)
         self.navigationTabBar = NavigationTabBar(frame: .zero, forViewController: self)
+        self.searchController = SearchController(forViewController: self)
         
         self.delegate = self
         
-        self.setupChildViewControllers()
-        
-        self.applyGradientToNavigationBar()
-        
-        self.setupSideMenu()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)   
+        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "contentVC"))
+        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "calendarVC"))
+        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "settingsVC"))
+            
+        if let initialViewController = self.orderedViewControllers.first {
+            self.setViewControllers([initialViewController], direction: .forward, animated: true, completion: nil)
+            self.navigationTabBar.selectTab(atIndex: 0)
+        }
+    }
+    
+    @IBAction func showSearch(_ sender: Any) {
+        searchController.presentSearchBar(withResultsShowingIn: (orderedViewControllers[currentPageIndex] as! ContentTableViewController).tableView)
     }
     
     @IBAction func showMenu(_ sender: UIBarButtonItem) {
@@ -68,44 +77,6 @@ class PageViewController: UIPageViewController
         }
     }
 }    
-
-fileprivate extension PageViewController
-{
-    func applyGradientToNavigationBar() {
-        let layer = CAGradientLayer()
-        layer.frame = (self.navigationController?.navigationBar.bounds)!
-        layer.frame.size.height += 20
-        layer.colors = [UIColor.black.cgColor, (self.navigationController?.navigationBar.barTintColor)!.cgColor]
-        
-        UIGraphicsBeginImageContext(layer.bounds.size)
-        layer.render(in: UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        self.navigationController?.navigationBar.setBackgroundImage(image, for: .default)
-    }
-    
-    func setupChildViewControllers() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "contentVC"))
-        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "calendarVC"))
-        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "settingsVC"))
-        
-        if let initialViewController = self.orderedViewControllers.first {
-            self.setViewControllers([initialViewController], direction: .forward, animated: true, completion: nil)
-            self.navigationTabBar.selectTab(atIndex: 0)
-        }
-    }
-    
-    func setupSideMenu() {
-        SideMenuManager.menuLeftNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenu") as? UISideMenuNavigationController
-        SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.menuPresentMode = .menuSlideIn
-        SideMenuManager.menuBlurEffectStyle = UIBlurEffectStyle.dark
-        SideMenuManager.menuFadeStatusBar = false
-    }
-}
 
 extension PageViewController : UIPageViewControllerDelegate
 {

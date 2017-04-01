@@ -10,7 +10,7 @@ import UIKit
 
 class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    static let height = 40.0
+    static let height = 44.0
     
     let targetVC: PageViewController
     let tabMenu: UICollectionView
@@ -48,7 +48,7 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
         self.addConstraintsWithFormat(format: "H:|[v0]|", views: bottomLineView)
         self.addConstraintsWithFormat(format: "V:[v0(0.5)]|", views: bottomLineView)
         
-        self.layer.zPosition = CGFloat.greatestFiniteMagnitude
+        self.layer.zPosition = CGFloat.greatestFiniteMagnitude - 2.0
     }
     
     required init?(coder aDecoder: NSCoder) {
