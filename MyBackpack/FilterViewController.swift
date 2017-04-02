@@ -12,6 +12,8 @@ class FilterViewController: UIViewController {
 
     @IBOutlet weak var optionsView: UIView!
     
+    var searchController: SearchController?
+    
     var filterOptions: FilterOptionsViewController {
         return self.childViewControllers.first! as! FilterOptionsViewController
     }
@@ -21,6 +23,12 @@ class FilterViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.searchController?.updateSearch()
+        }
+    }
+    
+    @IBAction func clearOptions(_ sender: Any) {
+        filterOptions.reset()
     }
 }

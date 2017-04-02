@@ -134,16 +134,17 @@ extension ContentDataSource
         dataCopy = nil
     }
     
-    func updateDataForSearchString(_ text: String) {
-        if text.isEmpty {
-            contentObjects = dataCopy!
-            return
-        }
-        
+    func updateDataForSearchString(_ text: String, withFilterOptions options: FilterOptions) {
         contentObjects.removeAll()
         
+        print("Searching for: \(text)")
+        
         for lecture in dataCopy! {
-            let result = lecture.filter { $0.title!.lowercased().contains(text.lowercased()) }
+            let result = lecture.filter { 
+                   $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
+                && options.types.contains(Int($0.typeID)) 
+                && (options.fromLecture...options.toLecture).contains(Int($0.lecture!.countID))
+            }
             
             if result.count > 0 {
                 contentObjects.append(result)
