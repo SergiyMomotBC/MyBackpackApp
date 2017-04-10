@@ -11,6 +11,16 @@ import DZNEmptyDataSet
 
 class ContentTableViewController: UITableViewController, ClassObserver
 {
+    let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+    
+    lazy var blurView: UIView = {
+        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+        blurView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        blurView.addSubview(self.indicator)
+        self.indicator.center = blurView.center
+        return blurView
+    }()
+    
     fileprivate lazy var contentPresenter = ContentPresenter()
     
     override func viewDidLoad() {
@@ -19,7 +29,13 @@ class ContentTableViewController: UITableViewController, ClassObserver
         ContentDataSource.shared.addObserver(self)
         tableView.emptyDataSetSource = self
         
-        classDidChange()
+        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
+        
+        if ContentDataSource.shared.currentClass == nil {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
+        } else {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +44,11 @@ class ContentTableViewController: UITableViewController, ClassObserver
         self.tableView.reloadData()
     }
 
+    func classWillChange() {
+        view.addSubview(blurView)
+        indicator.startAnimating()
+    }
+    
     func classDidChange() {
         self.tableView.reloadData()
         self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
@@ -37,6 +58,9 @@ class ContentTableViewController: UITableViewController, ClassObserver
         } else {
             self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
         }
+        
+        indicator.stopAnimating()
+        blurView.removeFromSuperview()
     }
 }    
 

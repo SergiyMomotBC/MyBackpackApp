@@ -24,7 +24,7 @@ public class Class: NSManagedObject
         let days = (currClass.days?.map { ($0 as! ClassDay).day } ?? []).sorted()
         
         for i in 1..<days.count {
-            lectureIntervals.append(days[i] - days[i - 1])
+            lectureIntervals.append(Int(days[i] - days[i - 1]))
         }
         
         lectureIntervals.append(Int(7 - days.last!) + Int(days.first!))

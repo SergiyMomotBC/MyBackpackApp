@@ -446,6 +446,7 @@ extension RichEditorView {
     :param:   js The JavaScript string to be run
     :returns: The result of the JavaScript that was run
     */
+    @discardableResult
     public func runJS(_ js: String) -> String {
         let string = webView.stringByEvaluatingJavaScript(from: js) ?? ""
         return string

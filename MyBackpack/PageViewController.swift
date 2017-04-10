@@ -42,6 +42,9 @@ class PageViewController: UIPageViewController
     }
     
     @IBAction func showSearch(_ sender: Any) {
+        if menuController.isShowing {
+            self.hideMenu()
+        }
         searchController.presentSearchBar(withResultsShowingIn: (orderedViewControllers[currentPageIndex] as! ContentTableViewController).tableView)
     }
     
@@ -74,6 +77,7 @@ class PageViewController: UIPageViewController
         self.menuController.show { success in
             let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.stop, target: self, action: #selector(self.showMenu))
             self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
+            self.searchController.hideSearchBar()
         }
     }
 }    

@@ -10,4 +10,5 @@ import Foundation
 
 protocol ClassObserver {
     func classDidChange()
+    func classWillChange()
 }

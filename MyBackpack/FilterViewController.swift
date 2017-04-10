@@ -8,8 +8,8 @@
 
 import UIKit
 
-class FilterViewController: UIViewController {
-
+class FilterViewController: UIViewController 
+{
     @IBOutlet weak var optionsView: UIView!
     
     var searchController: SearchController?

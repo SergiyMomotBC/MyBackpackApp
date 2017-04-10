@@ -34,7 +34,7 @@ final class ContentDataSource
     func contentsCount(forLecture lecture: Int) -> Int {
         return contentObjects[lecture].count 
     }
-    
+
     init() {
         if let classObject = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()))?.first {
             currentClass = classObject
@@ -44,37 +44,61 @@ final class ContentDataSource
         }
     }
     
-    func loadData(forClass classObject: Class?) {
-        currentClass = classObject
-        
-        contentObjects.removeAll()
-        
+    func loadData(forClass classObject: Class?, notify: Bool = true) {
+        if notify {
+            subscribers.forEach { $0.classWillChange() }
+        }
+
         guard currentClass != nil else {
-            subscribers.forEach { $0.classDidChange() }
+            if notify {
+                subscribers.forEach { $0.classDidChange() }
+            }
             return
         }
         
-        let lectures = (currentClass!.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date }
-        
-        for lecture in lectures {
-            let fetchRequest: NSFetchRequest<Content> = Content.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
-            fetchRequest.predicate = NSPredicate(format: "lecture.countID == %d", lecture.countID) 
-            fetchRequest.fetchBatchSize = 12
+        DispatchQueue.global().async {
+            usleep(250_000)
             
-            if let contents = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) as [Content] {
-                contentObjects.append(contents)
-            } else {
-                contentObjects.append([])
+            self.currentClass = classObject
+            self.contentObjects.removeAll()
+            
+            let lectures = (self.currentClass!.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date }
+            
+            for lecture in lectures {
+                let fetchRequest: NSFetchRequest<Content> = Content.fetchRequest()
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+                fetchRequest.predicate = NSPredicate(format: "lecture.countID == %d AND lecture.inClass.name == %@", lecture.countID, self.currentClass!.name!) 
+                fetchRequest.fetchBatchSize = 12
+                
+                if let contents = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) as [Content] {
+                    self.contentObjects.append(contents)
+                } else {
+                    self.contentObjects.append([])
+                }
+            }
+            
+            if notify {
+                DispatchQueue.main.async {
+                    self.subscribers.forEach { $0.classDidChange() }
+                }
             }
         }
-        
-        subscribers.forEach { $0.classDidChange() }
     }
     
     func refresh() {
+        guard dataCopy == nil else {
+            return
+        }
+        
         if let classObject = currentClass {
-            loadData(forClass: classObject)
+            let fetchRequest: NSFetchRequest<Content> = Content.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "lecture.inClass.name == %@", currentClass!.name!)
+            
+            let count = contentObjects.reduce(0, { $0 + $1.count })
+            
+            if try! CoreDataManager.shared.managedContext.count(for: fetchRequest) != count {
+                loadData(forClass: classObject)
+            }
         }
     }
     
@@ -103,6 +127,7 @@ final class ContentDataSource
         
         CoreDataManager.shared.saveContext()
     }
+    
     
     func content(forIndexPath indexPath: IndexPath) -> Content? {
         return contentObjects[indexPath.section][indexPath.row]
@@ -136,9 +161,7 @@ extension ContentDataSource
     
     func updateDataForSearchString(_ text: String, withFilterOptions options: FilterOptions) {
         contentObjects.removeAll()
-        
-        print("Searching for: \(text)")
-        
+
         for lecture in dataCopy! {
             let result = lecture.filter { 
                    $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
@@ -152,3 +175,9 @@ extension ContentDataSource
         }
     } 
 }
+
+
+
+
+
+

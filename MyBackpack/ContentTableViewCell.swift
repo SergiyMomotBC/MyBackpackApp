@@ -55,7 +55,7 @@ class ContentTableViewCell: UITableViewCell
             imageView.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
             self.contentPreview.addSubview(imageView)
             
-            self.contentTitleLabel.text = "Video"
+            self.contentTypeLabel.text = "Video"
         }
     }
     

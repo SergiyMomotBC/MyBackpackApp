@@ -18,6 +18,8 @@ fileprivate class NoCancelButtonSearchBar: UISearchBar {
 
 class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
 {
+    var isActive = false
+    
     lazy var searchBar: UISearchBar = {
         let searchBar = NoCancelButtonSearchBar()
         searchBar.searchBarStyle = .minimal
@@ -89,9 +91,14 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         }
         
         searchBar.becomeFirstResponder()
+        isActive = true
     }
     
-    @objc private func hideSearchBar() {
+    func hideSearchBar() {
+        guard isActive else {
+            return
+        }
+        
         UIView.animate(withDuration: 0.2) { 
             self.navigationBar.center.x = self.parentViewController.view.bounds.width * 1.5
         } 
@@ -105,6 +112,7 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         
         targetTableView.reloadData()
         targetTableView = nil
+        isActive = false
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
