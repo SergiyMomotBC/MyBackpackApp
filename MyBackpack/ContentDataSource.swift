@@ -37,8 +37,21 @@ final class ContentDataSource
 
     init() {
         let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
+    
+        let components = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        let timeStamp = Int16(components.hour! * 60 + components.minute!)
         
         if let classes = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) {
+            
+            for object in classes {
+                for day in object.days?.allObjects as! [ClassDay] {
+                    if timeStamp >= day.startTime && timeStamp <= day.endTime {
+                        loadData(forClass: object)
+                        return
+                    }
+                }
+            }
+            
             if UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) != nil {
                 let index = UserDefaults.standard.integer(forKey: SideMenuViewController.savedClassIndex)
                 loadData(forClass: classes[index])

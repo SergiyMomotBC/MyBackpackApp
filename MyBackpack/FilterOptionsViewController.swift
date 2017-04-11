@@ -59,10 +59,12 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
         
         fromLecture.isOptionalDropDown = false
         fromLecture.inputAccessoryView = toolbar
+        fromLecture.delegate = self
         fromLecture.tag = 0
         
         toLecture.isOptionalDropDown = false
         toLecture.inputAccessoryView = toolbar
+        toLecture.delegate = self
         toLecture.tag = 1
     }
 

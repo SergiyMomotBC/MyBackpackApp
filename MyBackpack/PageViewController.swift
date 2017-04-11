@@ -9,7 +9,7 @@
 import UIKit
 import SideMenu
 
-class PageViewController: UIPageViewController
+class PageViewController: UIPageViewController, ClassObserver
 {
     var menuController: MenuController!
     var navigationTabBar: NavigationTabBar!
@@ -23,6 +23,8 @@ class PageViewController: UIPageViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
+        
+        ContentDataSource.shared.addObserver(self)
         
         self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: NavigationTabBar.height)
         self.navigationTabBar = NavigationTabBar(frame: .zero, forViewController: self)
@@ -74,12 +76,24 @@ class PageViewController: UIPageViewController
     }
     
     func presentMenu() {
+        self.searchController.hideSearchBar()
         self.menuController.show { success in
             let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.stop, target: self, action: #selector(self.showMenu))
             self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButton
-            self.searchController.hideSearchBar()
         }
     }
+    
+    func classWillChange() {
+        if menuController.isShowing {
+            hideMenu()
+        }
+        
+        if searchController.isActive {
+            searchController.hideSearchBar()
+        }
+    }
+    
+    func classDidChange() {}
 }    
 
 extension PageViewController : UIPageViewControllerDelegate
