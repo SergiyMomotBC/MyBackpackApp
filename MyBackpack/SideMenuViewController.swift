@@ -12,6 +12,8 @@ import SideMenu
 
 class SideMenuViewController: UIViewController, ClassViewControllerDelegate
 {
+    static let savedClassIndex = "savedClassIndex"
+    
     @IBOutlet weak var classesTableView: UITableView!
     @IBOutlet weak var manageClassesButton: UIButton!
     
@@ -25,17 +27,29 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         
         classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
         
-        if let currClass = ContentDataSource.shared.currentClass {
-            selectedClassIndex = classesList.index(of: currClass) ?? -1
-        }
-        
         self.classesTableView.delegate = self
+        self.classesTableView.alwaysBounceVertical = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         manageClassesButton.isHidden = classesList.isEmpty
+        
+        if selectedClassIndex == -1 && ContentDataSource.shared.currentClass != nil {
+            selectedClassIndex = classesList.index(of: ContentDataSource.shared.currentClass!) ?? -1
+        }
+        
         classesTableView.reloadData()
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "addNewClass" && classesList.count >= 8 {
+            let alert = UIAlertController(title: "Action not allowed", message: "Maximum of 8 classes can be managed simultaneously.", preferredStyle: .alert)
+            present(alert, animated: true, completion: nil)
+            return false
+        } else {
+            return true
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,17 +67,21 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
             self.classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
             
             if classesList.isEmpty {
-                ContentDataSource.shared.loadData(forClass: nil)
-                selectedClassIndex = -1
+                selectClass(atIndex: -1)
             } else if ContentDataSource.shared.currentClass == nil || !classesList.contains(ContentDataSource.shared.currentClass!) {
-                ContentDataSource.shared.loadData(forClass: classesList.first)
-                selectedClassIndex = 0
+                selectClass(atIndex: 0)
             }
             
             self.classesTableView.reloadData()
         }
         
         classVC.dismiss(animated: true, completion: nil)
+    }
+    
+    fileprivate func selectClass(atIndex index: Int) {
+        selectedClassIndex = index
+        UserDefaults.standard.set(index, forKey: SideMenuViewController.savedClassIndex)
+        ContentDataSource.shared.loadData(forClass: index != -1 ? classesList[index] : nil)
     }
 }
 
@@ -96,8 +114,8 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
         
         guard indexPath.row != selectedClassIndex else { return }
         
-        selectedClassIndex = indexPath.row
         SideMenuManager.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
-        ContentDataSource.shared.loadData(forClass: classesList[indexPath.row])
+        
+        selectClass(atIndex: indexPath.row)
     }        
 }

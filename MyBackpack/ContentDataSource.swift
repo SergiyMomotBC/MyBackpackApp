@@ -36,11 +36,17 @@ final class ContentDataSource
     }
 
     init() {
-        if let classObject = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()))?.first {
-            currentClass = classObject
-            loadData(forClass: classObject)
-        } else {
-            loadData(forClass: nil)
+        let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
+        
+        if let classes = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) {
+            if UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) != nil {
+                let index = UserDefaults.standard.integer(forKey: SideMenuViewController.savedClassIndex)
+                loadData(forClass: classes[index])
+            } else if classes.count > 0 {
+                loadData(forClass: classes.first)
+            } else {
+                loadData(forClass: nil)
+            }
         }
     }
     
@@ -49,7 +55,7 @@ final class ContentDataSource
             subscribers.forEach { $0.classWillChange() }
         }
 
-        guard currentClass != nil else {
+        guard classObject != nil else {
             if notify {
                 subscribers.forEach { $0.classDidChange() }
             }
