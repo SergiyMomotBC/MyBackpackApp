@@ -97,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Jukebox/Jukebox.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NYTPhotoViewer/NYTPhotoViewer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCSiriWaveformView/SCSiriWaveformView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
 fi
@@ -109,6 +110,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Jukebox/Jukebox.framework"
   install_framework "$BUILT_PRODUCTS_DIR/NYTPhotoViewer/NYTPhotoViewer.framework"
   install_framework "$BUILT_PRODUCTS_DIR/RichEditorView/RichEditorView.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/SCLAlertView/SCLAlertView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SCSiriWaveformView/SCSiriWaveformView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
 fi

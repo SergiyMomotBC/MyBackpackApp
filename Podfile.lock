@@ -14,6 +14,7 @@ PODS:
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.2.0)
   - RichEditorView (3.2.0)
+  - SCLAlertView (0.7.0)
   - SCSiriWaveformView (1.0.3)
   - SideMenu (2.2.0)
 
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Jukebox
   - NYTPhotoViewer
   - RichEditorView
+  - SCLAlertView
   - SideMenu
 
 SPEC CHECKSUMS:
@@ -36,9 +38,10 @@ SPEC CHECKSUMS:
   Jukebox: 81db618ccd3a1cc9b154f4ae0f5c4b54638666dd
   NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
   RichEditorView: b4ee60a4f5301cbe8f3fcb1f065cdd7de74ddd10
+  SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
   SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
 
-PODFILE CHECKSUM: a74ebc9c11fa9175544ffab59cada74e5f2dcc22
+PODFILE CHECKSUM: 074c9fe76421acf33c1b51347f745e2d412dc8d2
 
 COCOAPODS: 1.2.0

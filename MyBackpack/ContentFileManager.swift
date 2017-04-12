@@ -6,6 +6,8 @@
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
+import AVFoundation
+
 fileprivate enum IDParameter: String {
     case nextPictureID
     case nextVideoID
@@ -54,12 +56,15 @@ class ContentFileManager
     
     private func savePicture(image: UIImage, filename: String) -> String? {
         let data = UIImageJPEGRepresentation(image, 1.0)
-        let path = documentsFolderURL.appendingPathComponent(filename + ".png")
+        let path = documentsFolderURL.appendingPathComponent(filename + ".jpeg")
+        let dataThumbnail = UIImageJPEGRepresentation(generateImageThumbnail(ofPicture: image), 1.0)
+        let pathThumbnail = documentsFolderURL.appendingPathComponent(filename + "_t.jpeg")
         
         do {
             try data?.write(to: path, options: .atomic)
+            try dataThumbnail?.write(to: pathThumbnail, options: .atomic)
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextPictureID.rawValue) + 1, forKey: IDParameter.nextPictureID.rawValue)
-            return filename + ".png"
+            return filename + ".jpeg"
         } catch {
             print("Image could not be written to documents directory...")
             return nil
@@ -68,6 +73,14 @@ class ContentFileManager
     
     private func saveVideo(url: URL, filename: String) -> String? {
         let path = documentsFolderURL.appendingPathComponent(filename + ".mov")
+        
+        if let thumbnail = generateVideoThumbnail(fromURL: url) {
+            let data = UIImageJPEGRepresentation(thumbnail, 1.0)
+            let path = documentsFolderURL.appendingPathComponent(filename + "_t.jpeg")
+            
+            try? data?.write(to: path, options: .atomic)
+        }
+        
         if moveToDocuments(from: url, to: path) {
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextVideoID.rawValue) + 1, forKey: IDParameter.nextVideoID.rawValue)
             return filename + ".mov"
@@ -94,5 +107,31 @@ class ContentFileManager
             print("File could not be moved to documents folder...")
             return false
         }
+    }
+    
+    private func generateVideoThumbnail(fromURL url: URL) -> UIImage? {
+        let imageGenerator = AVAssetImageGenerator(asset: AVURLAsset(url: url))
+        imageGenerator.appliesPreferredTrackTransform = true
+        
+        if let cgImage = try? imageGenerator.copyCGImage(at: CMTimeMake(0, 1), actualTime: nil) {
+            return UIImage(cgImage: cgImage)
+        } else {
+            return nil
+        }
+    }
+    
+    private func generateImageThumbnail(ofPicture image: UIImage) -> UIImage {
+        let finalSize: CGFloat = 128.0
+        let scale = max(finalSize / image.size.width, finalSize / image.size.height)
+        let width = image.size.width * scale
+        let height = image.size.height * scale
+        let imageRect = CGRect(x: (finalSize - width) / 2.0, y: (finalSize - height) / 2.0, width: width, height: height)
+        
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: finalSize, height: finalSize), false, 0)
+        image.draw(in: imageRect)
+        let thumbnail = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return thumbnail!
     }
 }

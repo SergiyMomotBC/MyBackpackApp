@@ -8,6 +8,7 @@
 
 import UIKit
 import DZNEmptyDataSet
+import SCLAlertView
 
 class ContentTableViewController: UITableViewController, ClassObserver
 {
@@ -105,7 +106,28 @@ extension ContentTableViewController
         }
         
         let edit = UITableViewRowAction(style: .normal, title: " Edit     ") { (action, indexPath) in
-            print("Edit is not implemented yet...")
+            let appearance = SCLAlertView.SCLAppearance(
+                kWindowWidth: CGFloat(self.view.bounds.size.width - 40),
+                kWindowHeight: self.view.frame.height / 2.0,
+                kTextHeight: 50,
+                kButtonHeight: 50.0,
+                kTitleFont: UIFont(name: "Avenir Next", size: 18)!,
+                kTextFont: UIFont(name: "Avenir Next", size: 14)!,
+                kButtonFont: UIFont(name: "Avenir Next", size: 15)!
+            )
+            
+            let editPopUp = SCLAlertView(appearance: appearance)
+            let newTitle = editPopUp.addTextField("Enter new title")
+            
+            editPopUp.addButton("Save", backgroundColor: .green, textColor: .white, showDurationStatus: false) {
+                if let text = newTitle.text, text != ContentDataSource.shared.content(forIndexPath: indexPath)!.title! {
+                    ContentDataSource.shared.updateContent(forIndexPath: indexPath, newTitle: text)
+                    self.tableView.reloadData()
+                }
+            }
+            
+            editPopUp.showEdit("Edit content", subTitle: "", closeButtonTitle: "Cancel", duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
+            self.tableView.setEditing(false, animated: true)
         }
         
         edit.backgroundColor = UIColor(red: 0.0, green: 191/255.0, blue: 1.0, alpha: 1.0)

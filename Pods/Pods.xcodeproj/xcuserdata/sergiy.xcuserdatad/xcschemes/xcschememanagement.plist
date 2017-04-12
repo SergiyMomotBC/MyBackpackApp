@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SCSiriWaveformView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,12 +77,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2E0F9D623F60FE0E4055B2237E06E4CA</key>
+		<key>3BE1CD4F1A86D102CED3AC45FFAF7DF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3BE1CD4F1A86D102CED3AC45FFAF7DF7</key>
+		<key>437DF1BB40DBF31DB8C0856CC08A8300</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5E8FC4F8BA94600D2EF296DE7B9EED14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,12 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A463473621D757A9C8E5A41E2DAB7378</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A5589C40A2594333CC3C1D56B0799531</key>
+		<key>951088BCBCF94B2F4AA0B059E99AB180</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,6 +123,11 @@
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D991A3308E79CFE56DCF0F50082660A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

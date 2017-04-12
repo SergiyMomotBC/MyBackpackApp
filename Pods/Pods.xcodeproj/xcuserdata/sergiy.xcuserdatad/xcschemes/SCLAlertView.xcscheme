@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '951088BCBCF94B2F4AA0B059E99AB180'
-               BlueprintName = 'RichEditorView'
+               BlueprintIdentifier = '437DF1BB40DBF31DB8C0856CC08A8300'
+               BlueprintName = 'SCLAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RichEditorView.framework'>
+               BuildableName = 'SCLAlertView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -14,4 +14,5 @@ target 'My Backpack' do
     pod 'NYTPhotoViewer'
     pod 'Jukebox'
     pod 'DZNEmptyDataSet'
+    pod 'SCLAlertView'
 end

@@ -104,6 +104,11 @@ final class ContentDataSource
         }
     }
     
+    func updateContent(forIndexPath indexPath: IndexPath, newTitle: String) {
+        contentObjects[indexPath.section][indexPath.row].title = newTitle
+        CoreDataManager.shared.saveContext()
+    }
+    
     func refresh() {
         guard dataCopy == nil else {
             return

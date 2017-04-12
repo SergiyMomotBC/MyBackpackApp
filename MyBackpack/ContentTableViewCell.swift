@@ -43,11 +43,12 @@ class ContentTableViewCell: UITableViewCell
             self.contentTypeLabel.text = "Text Note"
             
         case .Picture:
-            self.contentPreview.image = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!).path)
+            setImageThumbnail(fromPath: content.resourceURL!)
             self.contentTypeLabel.text = "Picture"
             
         case .Video:
-            self.contentPreview.image = UIImage(named: "test")
+            setImageThumbnail(fromPath: content.resourceURL!)
+                        
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: contentPreview.frame.width, height: contentPreview.frame.height))
             imageView.contentMode = .center
             imageView.tag = 1
@@ -62,5 +63,17 @@ class ContentTableViewCell: UITableViewCell
     override func prepareForReuse() {
         self.contentPreview.viewWithTag(1)?.removeFromSuperview()
         self.contentPreview.image = nil
+    }
+    
+    private func setImageThumbnail(fromPath pathString: String) {
+        var path = pathString
+
+        if let pointIndex = path.characters.index(of: ".") {
+            path.insert(contentsOf: "_t".characters, at: pointIndex)
+            
+            path = path.replacingOccurrences(of: ".mov", with: ".jpeg")
+            
+            self.contentPreview.image = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(path).path)
+        }
     }
 }
