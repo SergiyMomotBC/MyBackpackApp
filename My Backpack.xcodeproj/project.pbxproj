@@ -21,6 +21,11 @@
 		6522D4FE1E6A486D00A409A8 /* ContentFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6522D4FD1E6A486D00A409A8 /* ContentFileManager.swift */; };
 		6526944E1E6120EB008265E1 /* ContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6526944D1E6120EB008265E1 /* ContentType.swift */; };
 		653E0BFF1E60C5F5000B0C98 /* AudioRecorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653E0BFE1E60C5F5000B0C98 /* AudioRecorderController.swift */; };
+		6540D8FC1E9FC1E800B274CD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6540D8FB1E9FC1E800B274CD /* CalendarViewController.swift */; };
+		6540D8FF1EA00C5F00B274CD /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6540D8FD1EA00C5F00B274CD /* Reminder+CoreDataClass.swift */; };
+		6540D9001EA00C5F00B274CD /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6540D8FE1EA00C5F00B274CD /* Reminder+CoreDataProperties.swift */; };
+		6540D9021EA016D600B274CD /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6540D9011EA016D600B274CD /* NewReminderViewController.swift */; };
+		6540D9041EA04BE600B274CD /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6540D9031EA04BE600B274CD /* RemindersTableViewController.swift */; };
 		6544CB081E623C7300A83848 /* TakeNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6544CB071E623C7300A83848 /* TakeNoteController.swift */; };
 		654AA5E51E6A5EB1001128BA /* ContentPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */; };
 		655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655202E81E577C22009966B9 /* NavigationTabBar.swift */; };
@@ -70,6 +75,11 @@
 		6526944D1E6120EB008265E1 /* ContentType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentType.swift; path = MyBackpack/ContentType.swift; sourceTree = "<group>"; };
 		653E0BFE1E60C5F5000B0C98 /* AudioRecorderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioRecorderController.swift; sourceTree = "<group>"; };
 		653E0C001E60C81F000B0C98 /* Objective-C-Bridging-Headers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-C-Bridging-Headers.h"; sourceTree = "<group>"; };
+		6540D8FB1E9FC1E800B274CD /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		6540D8FD1EA00C5F00B274CD /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6540D8FE1EA00C5F00B274CD /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6540D9011EA016D600B274CD /* NewReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		6540D9031EA04BE600B274CD /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		6544CB071E623C7300A83848 /* TakeNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeNoteController.swift; sourceTree = "<group>"; };
 		654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentPreviewer.swift; path = MyBackpack/ContentPreviewer.swift; sourceTree = "<group>"; };
 		655202E81E577C22009966B9 /* NavigationTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
@@ -226,6 +236,9 @@
 				65CB223D1E8F262000C0C36B /* MainNavigationViewController.swift */,
 				6509C15E1E902D7700CA9AF6 /* FilterOptionsViewController.swift */,
 				6509C1601E903E2D00CA9AF6 /* FilterViewController.swift */,
+				6540D8FB1E9FC1E800B274CD /* CalendarViewController.swift */,
+				6540D9011EA016D600B274CD /* NewReminderViewController.swift */,
+				6540D9031EA04BE600B274CD /* RemindersTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -233,6 +246,8 @@
 		65A52D281E57B9B1008B998D /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				6540D8FD1EA00C5F00B274CD /* Reminder+CoreDataClass.swift */,
+				6540D8FE1EA00C5F00B274CD /* Reminder+CoreDataProperties.swift */,
 				65E352BD1E7C34A8004BC038 /* ClassDay+CoreDataClass.swift */,
 				65E352BE1E7C34A8004BC038 /* ClassDay+CoreDataProperties.swift */,
 				65E7E1F81E7B1F2C002D07ED /* Lecture+CoreDataProperties.swift */,
@@ -393,18 +408,22 @@
 				65E7E1FD1E7B1F2C002D07ED /* Class+CoreDataClass.swift in Sources */,
 				65EF52491E858D0100201628 /* ClassObserver.swift in Sources */,
 				65B75D651E7B521B00B7BAAC /* ContentDataSource.swift in Sources */,
+				6540D8FC1E9FC1E800B274CD /* CalendarViewController.swift in Sources */,
 				65CB223C1E8F072C00C0C36B /* SearchingEngine.swift in Sources */,
 				65CB223E1E8F262000C0C36B /* MainNavigationViewController.swift in Sources */,
 				65FAA9AE1E689A11004FFB8E /* Content+CoreDataClass.swift in Sources */,
 				6504F2BA1E68901200A4F202 /* CoreDataManager.swift in Sources */,
 				6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */,
 				6509C1611E903E2D00CA9AF6 /* FilterViewController.swift in Sources */,
+				6540D9041EA04BE600B274CD /* RemindersTableViewController.swift in Sources */,
 				655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */,
 				65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */,
 				6522D4FE1E6A486D00A409A8 /* ContentFileManager.swift in Sources */,
+				6540D9021EA016D600B274CD /* NewReminderViewController.swift in Sources */,
 				65E352BF1E7C34A8004BC038 /* ClassDay+CoreDataClass.swift in Sources */,
 				65E352C01E7C34A8004BC038 /* ClassDay+CoreDataProperties.swift in Sources */,
 				65DC13671E5F5EDB00F5D5B5 /* CameraContentController.swift in Sources */,
+				6540D8FF1EA00C5F00B274CD /* Reminder+CoreDataClass.swift in Sources */,
 				65DC13651E5F126100F5D5B5 /* NewContentViewController.swift in Sources */,
 				65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */,
 				65E352C21E7C41AF004BC038 /* NewClassViewController.swift in Sources */,
@@ -418,6 +437,7 @@
 				65E7E1FB1E7B1F2C002D07ED /* Lecture+CoreDataClass.swift in Sources */,
 				650C74611E579AA1008E8590 /* TabBarCell.swift in Sources */,
 				65F82BCA1E73442A005A0A66 /* MusicViewController.swift in Sources */,
+				6540D9001EA00C5F00B274CD /* Reminder+CoreDataProperties.swift in Sources */,
 				65DC13691E5F72A700F5D5B5 /* SaveContentViewController.swift in Sources */,
 				6520B2531E5B7557002C846D /* ContentTableViewCell.swift in Sources */,
 				65E7E2001E7B1FE1002D07ED /* SideMenuViewController.swift in Sources */,

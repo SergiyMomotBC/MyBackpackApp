@@ -89,9 +89,11 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/ATHMultiSelectionSegmentedControl/ATHMultiSelectionSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DoneHUD/DoneHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FLAnimatedImage/FLAnimatedImage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQAudioRecorderController/IQAudioRecorderController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Jukebox/Jukebox.framework"
@@ -102,9 +104,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SideMenu/SideMenu.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "$BUILT_PRODUCTS_DIR/ATHMultiSelectionSegmentedControl/ATHMultiSelectionSegmentedControl.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DoneHUD/DoneHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FLAnimatedImage/FLAnimatedImage.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/FSCalendar/FSCalendar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQAudioRecorderController/IQAudioRecorderController.framework"
   install_framework "$BUILT_PRODUCTS_DIR/IQDropDownTextField/IQDropDownTextField.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Jukebox/Jukebox.framework"

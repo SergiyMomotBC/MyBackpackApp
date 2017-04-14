@@ -100,7 +100,6 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         contentPreviewView.backgroundColor = UIColor.clear
         self.lectureDropDownList.isOptionalDropDown = false
         self.lectureDropDownList.itemList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass)
-        self.lectureDropDownList.inputView?.backgroundColor = .white
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default

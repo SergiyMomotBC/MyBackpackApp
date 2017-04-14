@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16C68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Class" representedClassName="Class" syncable="YES">
         <attribute name="firstLectureDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lastLectureDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="days" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ClassDay" inverseName="forClass" inverseEntity="ClassDay" syncable="YES"/>
         <relationship name="lectures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lecture" inverseName="inClass" inverseEntity="Lecture" syncable="YES"/>
+        <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="inClass" inverseEntity="Reminder" syncable="YES"/>
     </entity>
     <entity name="ClassDay" representedClassName="ClassDay" syncable="YES">
         <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -26,10 +27,18 @@
         <relationship name="contents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Content" inverseName="lecture" inverseEntity="Content" syncable="YES"/>
         <relationship name="inClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="lectures" inverseEntity="Class" syncable="YES"/>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="remark" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="typeID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="inClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Class" inverseName="reminders" inverseEntity="Class" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Class" positionX="-45" positionY="36" width="128" height="120"/>
-        <element name="ClassDay" positionX="-54" positionY="45" width="128" height="105"/>
-        <element name="Content" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Lecture" positionX="-63" positionY="9" width="128" height="105"/>
+        <element name="Class" positionX="358" positionY="207" width="128" height="135"/>
+        <element name="ClassDay" positionX="126" positionY="63" width="128" height="105"/>
+        <element name="Content" positionX="-72" positionY="468" width="128" height="120"/>
+        <element name="Lecture" positionX="126" positionY="336" width="128" height="105"/>
+        <element name="Reminder" positionX="619" positionY="348" width="128" height="120"/>
     </elements>
 </model>

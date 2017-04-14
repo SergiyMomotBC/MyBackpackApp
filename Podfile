@@ -15,4 +15,6 @@ target 'My Backpack' do
     pod 'Jukebox'
     pod 'DZNEmptyDataSet'
     pod 'SCLAlertView'
+    pod 'FSCalendar'
+    pod "ATHMultiSelectionSegmentedControl"
 end

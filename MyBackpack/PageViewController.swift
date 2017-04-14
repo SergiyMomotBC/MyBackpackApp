@@ -68,6 +68,13 @@ class PageViewController: UIPageViewController, ClassObserver
         self.hideMenu()
     }
     
+    @IBAction func newReminderTapped(_ sender: UIButton) {
+        let newReminderVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "newReminderVC") as! NewReminderViewController
+        newReminderVC.reminderType = ReminderType(rawValue: sender.tag)
+        self.present(newReminderVC, animated: true, completion: nil)
+        self.hideMenu()
+    }
+    
     func hideMenu() {
         self.menuController.hide { success in
             let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(self.showMenu))

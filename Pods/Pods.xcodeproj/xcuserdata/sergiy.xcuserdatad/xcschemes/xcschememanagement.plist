@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ATHMultiSelectionSegmentedControl.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DZNEmptyDataSet.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>FLAnimatedImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FSCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -82,12 +92,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>437DF1BB40DBF31DB8C0856CC08A8300</key>
+		<key>4DF78D330F9EDCA6CA6EBB0B8B9F48B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E8FC4F8BA94600D2EF296DE7B9EED14</key>
+		<key>6AA13DD4B3F89867331EE88E06DCB4E8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>71EDE3D3764B80BFC0B6269304E7CCDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7745501694AA4F2FC5A0A87B26A8FDC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +122,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>951088BCBCF94B2F4AA0B059E99AB180</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B6E369C222DD33457F12EE0AA1A80ACD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BC263F4F9844CC08A4BF54BC7E695914</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BF5E8492AD833171E67A19F798CC6361</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5A2DB7A84B7B78E359870D2E1B24AA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -123,11 +148,6 @@
 			<true/>
 		</dict>
 		<key>D386C75EFD4F03725E4EFB866B600B9A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D991A3308E79CFE56DCF0F50082660A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

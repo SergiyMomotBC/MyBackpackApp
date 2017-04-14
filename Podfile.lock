@@ -1,7 +1,9 @@
 PODS:
+  - ATHMultiSelectionSegmentedControl (0.2.1)
   - DoneHUD (1.0.0)
   - DZNEmptyDataSet (1.8.1)
   - FLAnimatedImage (1.0.12)
+  - FSCalendar (2.7.2)
   - IQAudioRecorderController (1.2.0):
     - SCSiriWaveformView
   - IQDropDownTextField (1.1.0)
@@ -19,8 +21,10 @@ PODS:
   - SideMenu (2.2.0)
 
 DEPENDENCIES:
+  - ATHMultiSelectionSegmentedControl
   - DoneHUD
   - DZNEmptyDataSet
+  - FSCalendar
   - IQAudioRecorderController
   - IQDropDownTextField
   - Jukebox
@@ -30,9 +34,11 @@ DEPENDENCIES:
   - SideMenu
 
 SPEC CHECKSUMS:
+  ATHMultiSelectionSegmentedControl: 9f574fc68f62639768fe9eeffb1a4ffcfe09eb25
   DoneHUD: e3717eefe0ed8a977153024400693e100a3bc0e9
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FSCalendar: 6200ef796dfe85005ff2fb19bbd429f8be742f86
   IQAudioRecorderController: 1d46d99330cb2c9381568665d123cf435460a43e
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   Jukebox: 81db618ccd3a1cc9b154f4ae0f5c4b54638666dd
@@ -42,6 +48,6 @@ SPEC CHECKSUMS:
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
   SideMenu: eeff6b85456c5c6e14165655691d2033f6b24969
 
-PODFILE CHECKSUM: 074c9fe76421acf33c1b51347f745e2d412dc8d2
+PODFILE CHECKSUM: ab40c4dfec1c6d4b931757d8d30384596fb03cd2
 
 COCOAPODS: 1.2.0

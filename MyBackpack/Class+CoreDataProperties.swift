@@ -2,7 +2,7 @@
 //  Class+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 3/17/17.
+//  Created by Sergiy Momot on 4/13/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
@@ -13,14 +13,32 @@ import CoreData
 extension Class {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Class> {
-        return NSFetchRequest<Class>(entityName: "Class");
+        return NSFetchRequest<Class>(entityName: "Class")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var firstLectureDate: NSDate?
     @NSManaged public var lastLectureDate: NSDate?
-    @NSManaged public var lectures: NSSet?
+    @NSManaged public var name: String?
     @NSManaged public var days: NSSet?
+    @NSManaged public var lectures: NSSet?
+    @NSManaged public var reminders: NSSet?
+
+}
+
+// MARK: Generated accessors for days
+extension Class {
+
+    @objc(addDaysObject:)
+    @NSManaged public func addToDays(_ value: ClassDay)
+
+    @objc(removeDaysObject:)
+    @NSManaged public func removeFromDays(_ value: ClassDay)
+
+    @objc(addDays:)
+    @NSManaged public func addToDays(_ values: NSSet)
+
+    @objc(removeDays:)
+    @NSManaged public func removeFromDays(_ values: NSSet)
 
 }
 
@@ -41,19 +59,19 @@ extension Class {
 
 }
 
-// MARK: Generated accessors for days
+// MARK: Generated accessors for reminders
 extension Class {
 
-    @objc(addDaysObject:)
-    @NSManaged public func addToDays(_ value: ClassDay)
+    @objc(addRemindersObject:)
+    @NSManaged public func addToReminders(_ value: Reminder)
 
-    @objc(removeDaysObject:)
-    @NSManaged public func removeFromDays(_ value: ClassDay)
+    @objc(removeRemindersObject:)
+    @NSManaged public func removeFromReminders(_ value: Reminder)
 
-    @objc(addDays:)
-    @NSManaged public func addToDays(_ values: NSSet)
+    @objc(addReminders:)
+    @NSManaged public func addToReminders(_ values: NSSet)
 
-    @objc(removeDays:)
-    @NSManaged public func removeFromDays(_ values: NSSet)
+    @objc(removeReminders:)
+    @NSManaged public func removeFromReminders(_ values: NSSet)
 
 }
