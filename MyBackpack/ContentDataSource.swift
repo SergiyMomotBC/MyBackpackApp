@@ -13,8 +13,9 @@ final class ContentDataSource
 {
     public static let shared = ContentDataSource()
     
-    fileprivate(set) var currentClass: Class? = nil
+    fileprivate(set) var currentClass: Class?
     fileprivate var contentObjects: [[Content]] = []
+    fileprivate var reminders: [Reminder] = []
     private var subscribers: [ClassObserver] = []
     
     fileprivate var dataCopy: [[Content]]?
@@ -31,9 +32,13 @@ final class ContentDataSource
         return contentObjects.count
     }
     
+    var remindersCount: Int {
+        return reminders.count
+    }
+    
     func contentsCount(forLecture lecture: Int) -> Int {
         return contentObjects[lecture].count 
-    }
+    }   
 
     init() {
         let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
@@ -96,6 +101,13 @@ final class ContentDataSource
                 }
             }
             
+            let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+            fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+            fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", self.currentClass!.name!)
+            fetchReminders.fetchBatchSize = 12
+            
+            self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
+            
             if notify {
                 DispatchQueue.main.async {
                     self.subscribers.forEach { $0.classDidChange() }
@@ -152,13 +164,16 @@ final class ContentDataSource
         CoreDataManager.shared.saveContext()
     }
     
-    
     func content(forIndexPath indexPath: IndexPath) -> Content? {
         return contentObjects[indexPath.section][indexPath.row]
     }
     
     func lecture(forSection section: Int) -> Lecture? {
         return contentObjects[section][0].lecture
+    }
+    
+    func reminder(forRow row: Int) -> Reminder? {
+        return reminders[row]
     }
 }
 

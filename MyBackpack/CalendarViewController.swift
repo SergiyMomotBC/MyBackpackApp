@@ -34,18 +34,12 @@ class CalendarViewController: UIViewController {
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        if calendar.scope == .month {
-            calendar.setScope(.week, animated: true)
-        } else {
-            calendar.setScope(.month, animated: true)
-        }
+        
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         UIView.animate(withDuration: 0.3, animations: { 
             self.heightConstraint.constant = bounds.size.height
         })
-               
-        self.view.layoutIfNeeded()
     }
 }

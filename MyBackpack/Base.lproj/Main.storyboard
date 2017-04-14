@@ -1598,13 +1598,96 @@
         <scene sceneID="FzO-9y-YOJ">
             <objects>
                 <viewController id="E6S-VC-sr8" customClass="RemindersTableViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2aS-V2-FZC"/>
+                        <viewControllerLayoutGuide type="bottom" id="2ej-wF-tEE"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u7A-GL-UfI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XF1-ty-6rn">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XF1-ty-6rn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="30" id="4Jy-a7-L6o" customClass="ReminderTableViewCell" customModule="My_Backpack" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="30"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="center" tableViewCell="4Jy-a7-L6o" id="ycz-O7-9ao">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="29.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuU-6M-ywH">
+                                                    <rect key="frame" x="8" y="4" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="JuU-6M-ywH" firstAttribute="top" secondItem="ycz-O7-9ao" secondAttribute="top" constant="4" id="JD1-3D-079"/>
+                                                <constraint firstAttribute="bottom" secondItem="JuU-6M-ywH" secondAttribute="bottom" constant="4" id="KVY-Gn-IP5"/>
+                                                <constraint firstItem="JuU-6M-ywH" firstAttribute="leading" secondItem="ycz-O7-9ao" secondAttribute="leading" constant="8" id="txU-aj-vWo"/>
+                                                <constraint firstAttribute="trailing" secondItem="JuU-6M-ywH" secondAttribute="trailing" constant="8" id="ull-vL-oLp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reminderCell" rowHeight="50" id="jM6-Jl-g1D" customClass="ReminderTableViewCell" customModule="My_Backpack" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="58" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jM6-Jl-g1D" id="adH-sw-Hvn">
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-5n-7eG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History of USA essay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX8-qZ-LM9">
+                                                            <rect key="frame" x="8" y="5" width="298" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="YDX-Gg-Jw0"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homework - Friday Apr 9, 2017 12:30 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tts-df-Oyy">
+                                                            <rect key="frame" x="8" y="30" width="298" height="15"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.61513157890000003" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="tts-df-Oyy" secondAttribute="bottom" constant="5" id="6Jr-Ma-dkY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tts-df-Oyy" secondAttribute="trailing" constant="90" id="DXC-Om-bBh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CX8-qZ-LM9" secondAttribute="trailing" constant="90" id="MQB-pk-HKt"/>
+                                                        <constraint firstItem="tts-df-Oyy" firstAttribute="leading" secondItem="BvU-5n-7eG" secondAttribute="leading" constant="8" id="Vn5-vl-otW"/>
+                                                        <constraint firstItem="CX8-qZ-LM9" firstAttribute="leading" secondItem="BvU-5n-7eG" secondAttribute="leading" constant="8" id="Wn7-hy-xeL"/>
+                                                        <constraint firstItem="CX8-qZ-LM9" firstAttribute="top" secondItem="BvU-5n-7eG" secondAttribute="top" constant="5" id="ccd-eB-RmJ"/>
+                                                        <constraint firstItem="tts-df-Oyy" firstAttribute="top" secondItem="CX8-qZ-LM9" secondAttribute="bottom" constant="5" id="oe5-kQ-uOx"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="BvU-5n-7eG" secondAttribute="bottom" id="Do7-WU-xmf"/>
+                                                <constraint firstAttribute="trailing" secondItem="BvU-5n-7eG" secondAttribute="trailing" constant="-68" id="XzT-5a-ov3"/>
+                                                <constraint firstItem="BvU-5n-7eG" firstAttribute="top" secondItem="adH-sw-Hvn" secondAttribute="top" id="bRM-pa-MR9"/>
+                                                <constraint firstItem="BvU-5n-7eG" firstAttribute="leading" secondItem="adH-sw-Hvn" secondAttribute="leading" id="k43-1p-AzP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="detailsLabel" destination="tts-df-Oyy" id="D7p-x3-jrP"/>
+                                            <outlet property="titleLabel" destination="CX8-qZ-LM9" id="ddg-Oa-7AY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1621,7 +1704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JST-fs-Isa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-343.19999999999999" y="921.58920539730138"/>
+            <point key="canvasLocation" x="-676" y="929.68515742128943"/>
         </scene>
     </scenes>
     <resources>

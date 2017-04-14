@@ -37,6 +37,7 @@
 		65B75D651E7B521B00B7BAAC /* ContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */; };
 		65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCF5E41E60A85700632751 /* ContentProvider.swift */; };
 		65BE1CB81E9C4AF100FD7430 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */; };
+		65CADA5D1EA14AA3009D4F2B /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */; };
 		65CB223C1E8F072C00C0C36B /* SearchingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB223B1E8F072C00C0C36B /* SearchingEngine.swift */; };
 		65CB223E1E8F262000C0C36B /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB223D1E8F262000C0C36B /* MainNavigationViewController.swift */; };
 		65DC13651E5F126100F5D5B5 /* NewContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DC13641E5F126100F5D5B5 /* NewContentViewController.swift */; };
@@ -93,6 +94,7 @@
 		65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDataSource.swift; path = MyBackpack/ContentDataSource.swift; sourceTree = "<group>"; };
 		65BCF5E41E60A85700632751 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		65CB223B1E8F072C00C0C36B /* SearchingEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchingEngine.swift; path = MyBackpack/SearchingEngine.swift; sourceTree = "<group>"; };
 		65CB223D1E8F262000C0C36B /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		65DC13641E5F126100F5D5B5 /* NewContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewContentViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				655202E81E577C22009966B9 /* NavigationTabBar.swift */,
 				650C74601E579AA1008E8590 /* TabBarCell.swift */,
 				6520B2521E5B7557002C846D /* ContentTableViewCell.swift */,
+				65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				6540D8FC1E9FC1E800B274CD /* CalendarViewController.swift in Sources */,
 				65CB223C1E8F072C00C0C36B /* SearchingEngine.swift in Sources */,
 				65CB223E1E8F262000C0C36B /* MainNavigationViewController.swift in Sources */,
+				65CADA5D1EA14AA3009D4F2B /* ReminderTableViewCell.swift in Sources */,
 				65FAA9AE1E689A11004FFB8E /* Content+CoreDataClass.swift in Sources */,
 				6504F2BA1E68901200A4F202 /* CoreDataManager.swift in Sources */,
 				6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */,
