@@ -147,6 +147,18 @@ final class ContentDataSource
         }
     }
     
+    func reminders(forDate date: Date) -> [Reminder] {
+        var results: [Reminder] = []
+        
+        for reminder in reminders {
+            if Calendar.current.compare(date, to: reminder.date! as Date, toGranularity: .day) == .orderedSame {
+                results.append(reminder)
+            }
+        }
+        
+        return results
+    }
+    
     func removeReminder(atRow row: Int) {
         guard let currentClass = currentClass else {
             return
