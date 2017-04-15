@@ -24,8 +24,13 @@ class RemindersViewController: UIViewController, Updatable
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ContentDataSource.shared.refreshRemindersOnly()
+    }
+    
     func update() {
-        calendarViewController.calendar.reloadData()
-        remindersTableViewController.tableView.reloadData()
+        calendarViewController.calendar.reloadData() 
+        remindersTableViewController.showReminders(forDate: nil)
     }
 }

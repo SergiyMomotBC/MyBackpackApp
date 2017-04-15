@@ -121,14 +121,18 @@ final class ContentDataSource
         CoreDataManager.shared.saveContext()
     }
     
+    func refreshRemindersOnly() {
+        let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+        fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", self.currentClass?.name! ?? "no")
+        fetchReminders.fetchBatchSize = 12
+        
+        self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
+    }
+    
     func refresh() {
         defer {
-            let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
-            fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-            fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", self.currentClass?.name! ?? "no")
-            fetchReminders.fetchBatchSize = 12
-            
-            self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
+            refreshRemindersOnly()
         }
         
         guard dataCopy == nil else {
@@ -147,7 +151,11 @@ final class ContentDataSource
         }
     }
     
-    func reminders(forDate date: Date) -> [Reminder] {
+    func reminders(forDate date: Date?) -> [Reminder] {
+        guard let date = date else {
+            return reminders
+        }
+        
         var results: [Reminder] = []
         
         for reminder in reminders {

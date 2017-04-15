@@ -14,6 +14,9 @@ class RemindersTableViewController: UIViewController
 {
     @IBOutlet weak var tableView: UITableView!
     
+    fileprivate var reminders: [Reminder] = []
+    fileprivate var headerText = "All reminders:"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -25,10 +28,23 @@ class RemindersTableViewController: UIViewController
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ContentDataSource.shared.refresh()
+        reminders = ContentDataSource.shared.reminders(forDate: nil)
         tableView.reloadData()
     }
     
+    func showReminders(forDate date: Date?) {
+        reminders = ContentDataSource.shared.reminders(forDate: date)
+        
+        if let date = date {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .long
+            headerText = "Reminders at \(dateFormatter.string(from: date)):"
+        } else {
+            headerText = "All reminders:"
+        }
+        
+        tableView.reloadData()
+    }
 }
 
 extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSource
@@ -38,17 +54,23 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ContentDataSource.shared.remindersCount
+        return reminders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell") as! ReminderTableViewCell
-        cell.setup(forReminder: ContentDataSource.shared.reminder(forRow: indexPath.row)!)
+        cell.setup(forReminder: reminders[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
+        let headerView = tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
+        
+        if let headerLabel = headerView.subviews.first as? UILabel {
+            headerLabel.text = headerText
+        }
+        
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -64,7 +86,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
             kButtonFont: UIFont(name: "Avenir Next", size: 15)!
         )
         
-        let reminder = ContentDataSource.shared.reminder(forRow: indexPath.row)!
+        let reminder = reminders[indexPath.row]
         
         let editPopUp = SCLAlertView(appearance: appearance)
         
@@ -87,6 +109,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             ContentDataSource.shared.removeReminder(atRow: indexPath.row)
+            reminders.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .left)
             tableView.endUpdates()

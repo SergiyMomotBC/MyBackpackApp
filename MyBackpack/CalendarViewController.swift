@@ -9,11 +9,12 @@
 import UIKit
 import FSCalendar
 
-class CalendarViewController: UIViewController {
-
+class CalendarViewController: UIViewController 
+{
     @IBOutlet weak var calendar: FSCalendar!
-    var heightConstraint: NSLayoutConstraint!
-    var previouslySelectedDate: Date? = nil
+    
+    var previouslySelectedDate: Date?
+    var controller: RemindersViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,24 +26,21 @@ class CalendarViewController: UIViewController {
     }
     
     override func didMove(toParentViewController parent: UIViewController?) {
-        for constraint in view.superview!.constraints {
-            if constraint.identifier == "height" {
-                heightConstraint = constraint
-            }
-        }
+        controller = parent as? RemindersViewController
     }
 }
 
-extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource 
+{
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if let lastDate = previouslySelectedDate, lastDate == date {
             calendar.deselect(date)
             previouslySelectedDate = nil
-        } else {
+            controller?.remindersTableViewController.showReminders(forDate: nil)
+        } else { 
             previouslySelectedDate = date
+            controller?.remindersTableViewController.showReminders(forDate: date)
         }
-        
-        //send event to parent with selected date or nil if no selection
     }
     
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
@@ -66,8 +64,5 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        UIView.animate(withDuration: 0.3, animations: { 
-            self.heightConstraint.constant = bounds.size.height
-        })
     }
 }
