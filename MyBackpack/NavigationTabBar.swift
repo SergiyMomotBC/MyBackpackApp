@@ -75,6 +75,7 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
             completion: { success in
                 if success {
                     self.targetVC.currentPageIndex = indexPath.item
+                    UserDefaults.standard.set(indexPath.item, forKey: PageViewController.savedPageIndexKey)
                 }
             }
         )

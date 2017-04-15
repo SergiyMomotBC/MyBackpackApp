@@ -33,6 +33,7 @@
 		6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */; };
 		6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4EF1E4A8AEB0036176B /* PageViewController.swift */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
+		659955781EA1AB170052526B /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659955771EA1AB170052526B /* RemindersViewController.swift */; };
 		65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */; };
 		65B75D651E7B521B00B7BAAC /* ContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */; };
 		65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCF5E41E60A85700632751 /* ContentProvider.swift */; };
@@ -90,6 +91,7 @@
 		6576D4EF1E4A8AEB0036176B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		6576D4F71E4A8AEB0036176B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6576D4FC1E4A8AEB0036176B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		659955771EA1AB170052526B /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoInfo.swift; path = MyBackpack/PhotoInfo.swift; sourceTree = "<group>"; };
 		65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDataSource.swift; path = MyBackpack/ContentDataSource.swift; sourceTree = "<group>"; };
 		65BCF5E41E60A85700632751 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				6540D8FB1E9FC1E800B274CD /* CalendarViewController.swift */,
 				6540D9011EA016D600B274CD /* NewReminderViewController.swift */,
 				6540D9031EA04BE600B274CD /* RemindersTableViewController.swift */,
+				659955771EA1AB170052526B /* RemindersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				65DC13651E5F126100F5D5B5 /* NewContentViewController.swift in Sources */,
 				65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */,
 				65E352C21E7C41AF004BC038 /* NewClassViewController.swift in Sources */,
+				659955781EA1AB170052526B /* RemindersViewController.swift in Sources */,
 				65E7E1FC1E7B1F2C002D07ED /* Lecture+CoreDataProperties.swift in Sources */,
 				65E7E1FE1E7B1F2C002D07ED /* Class+CoreDataProperties.swift in Sources */,
 				655202EB1E577E9A009966B9 /* UIViewExtentions.swift in Sources */,

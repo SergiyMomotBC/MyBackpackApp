@@ -8,8 +8,9 @@
 
 import UIKit
 import SCLAlertView
+import DZNEmptyDataSet
 
-class RemindersTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class RemindersTableViewController: UIViewController
 {
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,17 +18,29 @@ class RemindersTableViewController: UIViewController, UITableViewDelegate, UITab
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.emptyDataSetSource = self
         tableView.alwaysBounceVertical = false
+        tableView.tableFooterView = UIView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ContentDataSource.shared.refresh()
+        tableView.reloadData()
+    }
+    
+}
+
+extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSource
+{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ContentDataSource.shared.remindersCount
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell") as! ReminderTableViewCell
         cell.setup(forReminder: ContentDataSource.shared.reminder(forRow: indexPath.row)!)
@@ -69,5 +82,33 @@ class RemindersTableViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            ContentDataSource.shared.removeReminder(atRow: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .left)
+            tableView.endUpdates()
+        }
+    }
+}
+
+extension RemindersTableViewController: DZNEmptyDataSetSource
+{
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 24)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "No content so far.", attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "You can add new reminders by pressing a '+' button in the upper right corner.", attributes: attrs)
+    }
+    
+    func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {
+        return UIColor.lightGray
     }
 }

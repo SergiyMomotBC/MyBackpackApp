@@ -122,6 +122,15 @@ final class ContentDataSource
     }
     
     func refresh() {
+        defer {
+            let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+            fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+            fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", self.currentClass?.name! ?? "no")
+            fetchReminders.fetchBatchSize = 12
+            
+            self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
+        }
+        
         guard dataCopy == nil else {
             return
         }
@@ -136,6 +145,17 @@ final class ContentDataSource
                 loadData(forClass: classObject)
             }
         }
+    }
+    
+    func removeReminder(atRow row: Int) {
+        guard let currentClass = currentClass else {
+            return
+        }
+        
+        let reminder = reminders.remove(at: row)
+        currentClass.removeFromReminders(reminder)
+        CoreDataManager.shared.managedContext.delete(reminder)
+        CoreDataManager.shared.saveContext()
     }
     
     func removeContent(atIndexPath indexPath: IndexPath) {

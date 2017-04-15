@@ -1132,10 +1132,10 @@
             </objects>
             <point key="canvasLocation" x="-887" y="343"/>
         </scene>
-        <!--View Controller-->
+        <!--Reminders View Controller-->
         <scene sceneID="28Y-rp-DqM">
             <objects>
-                <viewController storyboardIdentifier="calendarVC" id="g2H-Mi-yDd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="calendarVC" id="g2H-Mi-yDd" customClass="RemindersViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Kbz-lR-Sky"/>
                         <viewControllerLayoutGuide type="bottom" id="9zK-HF-l19"/>
@@ -1644,10 +1644,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BvU-5n-7eG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="396" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="378" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History of USA essay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CX8-qZ-LM9">
-                                                            <rect key="frame" x="8" y="5" width="298" height="20"/>
+                                                            <rect key="frame" x="8" y="5" width="280" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="YDX-Gg-Jw0"/>
                                                             </constraints>
@@ -1656,7 +1656,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Homework - Friday Apr 9, 2017 12:30 pm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tts-df-Oyy">
-                                                            <rect key="frame" x="8" y="30" width="298" height="15"/>
+                                                            <rect key="frame" x="8" y="30" width="280" height="15"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="0.61513157890000003" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1676,7 +1676,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="BvU-5n-7eG" secondAttribute="bottom" id="Do7-WU-xmf"/>
-                                                <constraint firstAttribute="trailing" secondItem="BvU-5n-7eG" secondAttribute="trailing" constant="-68" id="XzT-5a-ov3"/>
+                                                <constraint firstAttribute="trailing" secondItem="BvU-5n-7eG" secondAttribute="trailing" constant="-50" id="XzT-5a-ov3"/>
                                                 <constraint firstItem="BvU-5n-7eG" firstAttribute="top" secondItem="adH-sw-Hvn" secondAttribute="top" id="bRM-pa-MR9"/>
                                                 <constraint firstItem="BvU-5n-7eG" firstAttribute="leading" secondItem="adH-sw-Hvn" secondAttribute="leading" id="k43-1p-AzP"/>
                                             </constraints>
@@ -1704,7 +1704,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JST-fs-Isa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-676" y="929.68515742128943"/>
+            <point key="canvasLocation" x="-647" y="922"/>
         </scene>
     </scenes>
     <resources>

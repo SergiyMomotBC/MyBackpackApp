@@ -10,33 +10,14 @@ import UIKit
 import DZNEmptyDataSet
 import SCLAlertView
 
-class ContentTableViewController: UITableViewController, ClassObserver
+class ContentTableViewController: UITableViewController, Updatable
 {
-    let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    
-    lazy var blurView: UIView = {
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        blurView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-        blurView.addSubview(self.indicator)
-        self.indicator.center = blurView.center
-        return blurView
-    }()
-    
     fileprivate lazy var contentPresenter = ContentPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
-        ContentDataSource.shared.addObserver(self)
         tableView.emptyDataSetSource = self
-        
-        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
-        
-        if ContentDataSource.shared.currentClass == nil {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
-        } else {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,24 +25,9 @@ class ContentTableViewController: UITableViewController, ClassObserver
         ContentDataSource.shared.refresh()
         self.tableView.reloadData()
     }
-
-    func classWillChange() {
-        view.addSubview(blurView)
-        indicator.startAnimating()
-    }
     
-    func classDidChange() {
+    func update() {
         self.tableView.reloadData()
-        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
-        
-        if ContentDataSource.shared.currentClass == nil {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
-        } else {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
-        }
-        
-        indicator.stopAnimating()
-        blurView.removeFromSuperview()
     }
 }    
 
