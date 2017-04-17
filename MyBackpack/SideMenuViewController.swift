@@ -16,11 +16,13 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     
     @IBOutlet weak var classesTableView: UITableView!
     @IBOutlet weak var manageClassesButton: UIButton!
+    @IBOutlet weak var nextClassInfoLabel: UILabel!
     
     fileprivate var selectedClassIndex: Int = -1
     fileprivate let selectedCellColor = UIColor(red: 1.0, green: 0, blue: 0.5, alpha: 0.25) 
     fileprivate let unselectedCellColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.25)
-    fileprivate var classesList: [Class]! 
+    fileprivate var classesList: [Class]!
+    fileprivate var nextClassTimer: NextClassTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,8 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         
         self.classesTableView.delegate = self
         self.classesTableView.alwaysBounceVertical = false
+        
+        self.nextClassTimer = NextClassTimer(forLabel: nextClassInfoLabel)
     }
     
     override func viewWillAppear(_ animated: Bool) {
