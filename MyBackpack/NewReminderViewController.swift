@@ -14,10 +14,11 @@ import DoneHUD
 enum ReminderType: Int {
     case homework = 0
     case test 
+    case classCanceled
     case custom
     
     static var typeNames: [String] {
-        return ["Homework", "Test", "Custom"]
+        return ["Homework", "Test", "Class Cancelation", "Custom"]
     }
 }
 

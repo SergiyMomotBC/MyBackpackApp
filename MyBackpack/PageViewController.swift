@@ -61,11 +61,15 @@ class PageViewController: UIPageViewController, ClassObserver
         }
     }
     
+    var currentSearchableViewController: Searchable? {
+        return orderedViewControllers[currentPageIndex] as? Searchable
+    }
+    
     @IBAction func showSearch(_ sender: Any) {
         if menuController.isShowing {
             self.hideMenu()
         }
-        searchController.presentSearchBar(withResultsShowingIn: (orderedViewControllers[currentPageIndex] as! ContentTableViewController).tableView)
+        searchController.presentSearchBar()
     }
     
     @IBAction func showMenu(_ sender: UIBarButtonItem) {

@@ -45,6 +45,14 @@ class RemindersTableViewController: UIViewController
         
         tableView.reloadData()
     }
+    
+    func searchRemindersFor(_ text: String, withFilterOptions options: RemindersFilterOptions) {
+        self.reminders = ContentDataSource.shared.reminders(forDate: nil).filter({
+            $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
+                && options.types.contains(Int($0.typeID)) 
+                && (options.fromDate...options.toDate).contains($0.date! as Date)
+        })
+    }
 }
 
 extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSource
@@ -122,7 +130,7 @@ extension RemindersTableViewController: DZNEmptyDataSetSource
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 24)!,
                      NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "No content so far.", attributes: attrs)
+        return NSAttributedString(string: "No reminders so far.", attributes: attrs)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

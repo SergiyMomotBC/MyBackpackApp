@@ -18,8 +18,6 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
 {
     fileprivate var selectedTypes: [Int]!
     fileprivate var lecturesInterval: (from: Int, to: Int)!
-    fileprivate var lecturesList: [String]!
-    private var shouldReset = false
     
     @IBOutlet weak var toLecture: IQDropDownTextField!
     @IBOutlet weak var fromLecture: IQDropDownTextField!
@@ -66,46 +64,47 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
         toLecture.inputAccessoryView = toolbar
         toLecture.delegate = self
         toLecture.tag = 1
-    }
-
-    func textField(_ textField: IQDropDownTextField, didSelectItem item: String?) {
-        if let index = lecturesList.index(of: item!) {
-            if textField.tag == 0 {
-                lecturesInterval.from = index
-            } else {
-                lecturesInterval.to = index
-            }
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        if shouldReset {
-            reset()
-            shouldReset = false
-        }
-    }
-    
-    func prepare() {
-        lecturesList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass).reversed()
+        let lecturesList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass).reversed() as [String]
         fromLecture.itemList = lecturesList
         toLecture.itemList = lecturesList
         
-        selectedTypes = [0, 1, 2, 3]
-        lecturesInterval = (0, lecturesList.count - 1)
+        reset()
+    }
+
+    func textField(_ textField: IQDropDownTextField, didSelectItem item: String?) {
+        let index = textField.selectedRow
         
-        shouldReset = true
+        if textField.tag == 0 {
+            if index > lecturesInterval.to {
+                lecturesInterval.to = index
+                toLecture.selectedRow = index
+            } 
+            
+            lecturesInterval.from = index
+        } else {
+            if index < lecturesInterval.from {
+                lecturesInterval.from = index
+                fromLecture.selectedRow = index
+            }
+            
+            lecturesInterval.to = index
+        }
     }
     
     func reset() {
+        selectedTypes = [0, 1, 2, 3]
+        lecturesInterval = (0, toLecture.itemList.count - 1)
+        
         fromLecture.selectedRow = lecturesInterval.from
         toLecture.selectedRow = lecturesInterval.to
         
-        for row in 0...3 {
-            let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0))!
-            cell.accessoryType = .checkmark
-        }
+        if self.tableView.numberOfRows(inSection: 0) > 0 {
+            for row in 0...3 {
+                let cell = tableView.cellForRow(at: IndexPath(row: row, section: 0))!
+                cell.accessoryType = .checkmark
+            }
+        }    
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

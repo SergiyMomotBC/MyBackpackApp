@@ -13,6 +13,7 @@ import SCLAlertView
 class ContentTableViewController: UITableViewController, Updatable
 {
     fileprivate lazy var contentPresenter = ContentPresenter()
+    fileprivate var filterViewController: FilterViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,35 @@ class ContentTableViewController: UITableViewController, Updatable
         self.tableView.reloadData()
     }
 }    
+
+extension ContentTableViewController: Searchable
+{
+    func prepareForSearch(with controller: SearchController) {
+        filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "filterOptionsVC") as! FilterViewController
+        filterViewController.view.tag = 0
+        filterViewController.searchController = controller
+        
+        self.tableView.emptyDataSetSource = controller
+        ContentDataSource.shared.prepareForSearching()
+    }
+    
+    func getFilterViewControllerToPresent() -> UIViewController {
+        return self.filterViewController
+    }
+
+    
+    func updateSearch(forText text: String) {
+        ContentDataSource.shared.updateDataForSearchString(text, withFilterOptions: filterViewController.filterOptions.options)
+        self.tableView.reloadData()
+    }
+    
+    func endSearch() {
+        ContentDataSource.shared.endSearching()
+        self.tableView.emptyDataSetSource = self
+        self.filterViewController = nil
+        self.tableView.reloadData()
+    }
+}
 
 extension ContentTableViewController 
 {

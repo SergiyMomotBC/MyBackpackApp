@@ -42,16 +42,10 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         return navigationBar
     }()
     
-    private var parentViewController: UIPageViewController
-    private var savedEmptyDataSource: DZNEmptyDataSetSource!
-    private var targetTableView: UITableView!
-    private var filterViewController: FilterViewController
+    private var parentViewController: PageViewController
     
-    init(forViewController vc: UIPageViewController) {
+    init(forViewController vc: PageViewController) {
         parentViewController = vc
-        
-        filterViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "filterOptionsVC") as! FilterViewController
-        filterViewController.view.tag = 0
         
         super.init()
         
@@ -61,43 +55,37 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(hideSearchBar))
         
         searchBar.delegate = self
-        filterViewController.searchController = self
         
         parentViewController.view.addSubview(navigationBar)
     }
     
     @objc private func showFilterOptions() {
-        parentViewController.present(filterViewController, animated: true, completion: nil)
+        if let filterVC = parentViewController.currentSearchableViewController?.getFilterViewControllerToPresent() {
+            parentViewController.present(filterVC, animated: true, completion: nil)
+        }
+    }
+    
+    func sendSearchEvent() {
+        parentViewController.currentSearchableViewController?.updateSearch(forText: searchBar.text!)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        updateSearch()
+        parentViewController.currentSearchableViewController?.updateSearch(forText: searchText)
     }
     
-    func updateSearch() {
-        ContentDataSource.shared.updateDataForSearchString(searchBar.text ?? "", withFilterOptions: filterViewController.filterOptions.options)
-        targetTableView.reloadData()
-    }
-    
-    func presentSearchBar(withResultsShowingIn tableView: UITableView) {
-        filterViewController.filterOptions.prepare()
-        ContentDataSource.shared.prepareForSearching()
-        targetTableView = tableView
-        savedEmptyDataSource = tableView.emptyDataSetSource
-        tableView.emptyDataSetSource = self
-        
+    func presentSearchBar() {
         UIView.animate(withDuration: 0.2) { 
             self.navigationBar.center.x = self.parentViewController.view.bounds.width / 2
         }
         
         searchBar.becomeFirstResponder()
         isActive = true
+        
+        parentViewController.currentSearchableViewController?.prepareForSearch(with: self)
     }
     
     func hideSearchBar() {
-        guard isActive else {
-            return
-        }
+        guard isActive else { return }
         
         UIView.animate(withDuration: 0.2) { 
             self.navigationBar.center.x = self.parentViewController.view.bounds.width * 1.5
@@ -105,14 +93,10 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         
         searchBar.text = ""
         searchBar.resignFirstResponder()
-        ContentDataSource.shared.endSearching()
         
-        targetTableView.emptyDataSetSource = savedEmptyDataSource
-        savedEmptyDataSource = nil
-        
-        targetTableView.reloadData()
-        targetTableView = nil
         isActive = false
+        
+        parentViewController.currentSearchableViewController?.endSearch()
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

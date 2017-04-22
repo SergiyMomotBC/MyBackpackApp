@@ -59,10 +59,6 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource
         return ContentDataSource.shared.currentClass?.firstLectureDate as Date? ?? Date()
     }
     
-    func maximumDate(for calendar: FSCalendar) -> Date {
-        return ContentDataSource.shared.currentClass?.lastLectureDate as Date? ?? Date()
-    }
-    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
     }
 }

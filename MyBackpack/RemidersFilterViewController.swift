@@ -1,25 +1,21 @@
 //
-//  FilterViewController.swift
+//  RemidersFilterViewController.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 4/1/17.
+//  Created by Sergiy Momot on 4/21/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
 import UIKit
 
-class FilterViewController: UIViewController 
+class RemindersFilterViewController: UIViewController 
 {
     var searchController: SearchController?
     
-    var filterOptions: FilterOptionsViewController {
-        return self.childViewControllers.first! as! FilterOptionsViewController
+    var filterOptions: ReminderFilterOptionsViewController {
+        return self.childViewControllers.first! as! ReminderFilterOptionsViewController
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+
     @IBAction func done(_ sender: Any) {
         self.dismiss(animated: true) {
             self.searchController?.sendSearchEvent()
