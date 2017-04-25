@@ -135,9 +135,7 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
             present(alert, animated: true, completion: nil)
             return 
         }
-        
-        //reminders
-        
+    
         let newReminder = NSEntityDescription.insertNewObject(forEntityName: "Reminder", into: CoreDataManager.shared.managedContext) as! Reminder
         
         newReminder.typeID = Int16(typePicker.selectedRow)
@@ -147,6 +145,9 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         ContentDataSource.shared.currentClass?.addToReminders(newReminder)
         
         CoreDataManager.shared.saveContext()
+
+        let daysToRemind = daysToRemindControl.selectedSegmentIndices.map { $0 + 1 }
+        UserNotificationsManager.shared.scheduleNotification(forReminder: newReminder, onDate: datePicker.date!, repeatDayBefore: daysToRemind)
         
         DoneHUD.shared.showInView(view, message: "Saved") { 
             self.dismiss(animated: true, completion: nil)

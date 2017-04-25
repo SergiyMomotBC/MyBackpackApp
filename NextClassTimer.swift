@@ -89,7 +89,7 @@ class NextClassTimer
             } else if diff == 1 {
                 infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts tomorrow at \(timeText)"
             } else {
-                infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts on \(NextClassTimer.dayNames[Int(currentWeekday)]) at \(timeText)"
+                infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts on \(NextClassTimer.dayNames[Int(currentWeekday - 1)]) at \(timeText)"
             }
         }
     }

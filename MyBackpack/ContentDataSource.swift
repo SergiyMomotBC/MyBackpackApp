@@ -41,6 +41,18 @@ final class ContentDataSource
     }   
 
     init() {
+        let remindersRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let reminders = (try? CoreDataManager.shared.managedContext.fetch(remindersRequest)) ?? []
+        
+        let now = Date()
+        reminders.forEach{ reminder in
+            if (reminder.date! as Date) < now {
+                CoreDataManager.shared.managedContext.delete(reminder)
+            }
+        }
+        
+        CoreDataManager.shared.saveContext()
+        
         let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
     
         let components = Calendar.current.dateComponents([.hour, .minute], from: Date())

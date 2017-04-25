@@ -25,6 +25,11 @@ class CalendarViewController: UIViewController
         calendar.today = nil
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        calendar.reloadData()
+    }
+    
     override func didMove(toParentViewController parent: UIViewController?) {
         controller = parent as? RemindersViewController
     }

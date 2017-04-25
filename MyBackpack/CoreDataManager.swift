@@ -68,6 +68,11 @@ class CoreDataManager
                 }
             }
             
+            object.reminders?.forEach { 
+                self.managedContext.delete($0 as! Reminder)
+                UserNotificationsManager.shared.removerNotification(forReminder: $0 as! Reminder)
+            }
+            
             managedContext.delete(object)
         }
         
