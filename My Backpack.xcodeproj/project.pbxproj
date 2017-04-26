@@ -124,7 +124,7 @@
 		65F82BC91E73442A005A0A66 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
 		65FAA9AC1E689A11004FFB8E /* Content+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Content+CoreDataClass.swift"; sourceTree = "<group>"; };
 		65FAA9AD1E689A11004FFB8E /* Content+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Content+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		65FC1A851E8EC64A009197CA /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchController.swift; path = MyBackpack/SearchController.swift; sourceTree = "<group>"; };
+		65FC1A851E8EC64A009197CA /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		79029CD0AABD628340E58694 /* Pods-My Backpack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Backpack.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Backpack/Pods-My Backpack.debug.xcconfig"; sourceTree = "<group>"; };
 		7AE5005747BBC189E389D19E /* Pods_My_Backpack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_Backpack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -167,7 +167,6 @@
 				65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */,
 				65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */,
 				65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */,
-				65FC1A851E8EC64A009197CA /* SearchController.swift */,
 				6507ADEF1EA5695500A7581E /* NextClassTimer.swift */,
 				65BD6F461EABDDAE0035F4EE /* UserNotificationsManager.swift */,
 			);
@@ -212,6 +211,7 @@
 				6576D4F71E4A8AEB0036176B /* Assets.xcassets */,
 				653E0C001E60C81F000B0C98 /* Objective-C-Bridging-Headers.h */,
 				651874BD1E9C1A6D001831C1 /* Model */,
+				65FC1A851E8EC64A009197CA /* SearchController.swift */,
 				65A52D261E57B695008B998D /* Views */,
 				656A95701E514F15001761BD /* Extensions */,
 				65A52D271E57B6C7008B998D /* Controllers */,

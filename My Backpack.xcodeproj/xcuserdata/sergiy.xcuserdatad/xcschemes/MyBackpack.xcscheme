@@ -77,7 +77,7 @@
             BlueprintIdentifier = "6576D4E91E4A8AEB0036176B"
             BuildableName = "My Backpack.app"
             BlueprintName = "My Backpack"
-            ReferencedContainer = "container: .xcodeproj">
+            ReferencedContainer = "container:My Backpack.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

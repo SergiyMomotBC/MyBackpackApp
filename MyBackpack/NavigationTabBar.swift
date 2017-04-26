@@ -14,7 +14,7 @@ class NavigationTabBar: UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     let targetVC: PageViewController
     let tabMenu: UICollectionView
-    let tabImageNames = ["content", "calendar", "settings"]
+    let tabImageNames = ["content", "calendar"]
     
     init(frame: CGRect, forViewController vc: PageViewController) {
         self.targetVC = vc

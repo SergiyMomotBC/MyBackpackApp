@@ -37,7 +37,7 @@ final class ContentDataSource
     }
     
     func contentsCount(forLecture lecture: Int) -> Int {
-        return contentObjects[lecture].count 
+        return dataCopy != nil ? dataCopy![lecture].count : contentObjects[lecture].count 
     }   
 
     init() {
@@ -85,6 +85,8 @@ final class ContentDataSource
             subscribers.forEach { $0.classWillChange() }
         }
 
+        print("Did load")
+        
         guard classObject != nil else {
             if notify {
                 subscribers.forEach { $0.classDidChange() }
@@ -130,6 +132,10 @@ final class ContentDataSource
     
     func updateContent(forIndexPath indexPath: IndexPath, newTitle: String) {
         contentObjects[indexPath.section][indexPath.row].title = newTitle
+        if dataCopy != nil {
+            dataCopy![indexPath.section][indexPath.row].title = newTitle
+        }
+        
         CoreDataManager.shared.saveContext()
     }
     
@@ -196,6 +202,10 @@ final class ContentDataSource
         }
         
         let content = contentObjects[indexPath.section].remove(at: indexPath.row)
+        if dataCopy != nil {
+            dataCopy![indexPath.section].remove(at: indexPath.row)
+        }
+        
         let lecture = content.lecture!
         
         lecture.removeFromContents(content)
@@ -203,6 +213,9 @@ final class ContentDataSource
         
         if lecture.contents?.count == 0 {
             contentObjects.remove(at: indexPath.section)
+            if dataCopy != nil {
+                dataCopy?.remove(at: indexPath.section)
+            }
             currentClass.removeFromLectures(lecture)
             CoreDataManager.shared.managedContext.delete(lecture)
         }

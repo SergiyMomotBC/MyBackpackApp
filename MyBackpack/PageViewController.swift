@@ -49,7 +49,6 @@ class PageViewController: UIPageViewController, ClassObserver
         let storyboard = UIStoryboard(name: "Main", bundle: nil)   
         self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "contentVC"))
         self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "calendarVC"))
-        self.orderedViewControllers.append(storyboard.instantiateViewController(withIdentifier: "settingsVC"))
            
         if UserDefaults.standard.object(forKey: PageViewController.savedPageIndexKey) != nil {
             currentPageIndex = UserDefaults.standard.integer(forKey: PageViewController.savedPageIndexKey)
