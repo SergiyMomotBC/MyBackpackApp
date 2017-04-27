@@ -63,10 +63,9 @@ class MenuController
     
     private func setupViews() {
         self.targetViewController.view.addSubview(self.menu)
-        self.menu.center.y =  self.verticalOffset - self.menu.bounds.height / 2
         self.targetViewController.view.addConstraintsWithFormat(format: "H:|[v0]|", views: self.menu)
-        self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height))-[v0(400)]", views: self.menu)
-
+        self.targetViewController.view.addConstraintsWithFormat(format: "V:|-(\(self.verticalOffset - self.menu.bounds.height - 50))-[v0(440)]", views: self.menu)
+        
         self.blurEffect.effect = UIBlurEffect(style: .dark)
         self.targetViewController.view.addSubview(self.blurEffect)
         self.blurEffect.alpha = 0.0

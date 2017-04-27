@@ -13,8 +13,9 @@ class NextClassTimer
 {
     fileprivate static let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     
-    let infoLabel: UILabel
+    weak var infoLabel: UILabel?
     var daysQueue: [ClassDay]!
+    var timer: Timer?
     
     init(forLabel label: UILabel) {
         self.infoLabel = label
@@ -61,15 +62,23 @@ class NextClassTimer
     fileprivate func setupTimer() {
         let currentSecond = Calendar.current.component(.second, from: Date())
         let fireDate = Calendar.current.date(byAdding: .second, value: 60 - currentSecond + 1, to: Date())!
-        let timer = Timer(fireAt: fireDate, interval: TimeInterval(60), target: self, selector: #selector(update), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: RunLoopMode.defaultRunLoopMode)
+        self.timer = Timer(fireAt: fireDate, interval: TimeInterval(60), target: self, selector: #selector(update), userInfo: nil, repeats: true)
+        RunLoop.main.add(timer!, forMode: RunLoopMode.defaultRunLoopMode)
+    }
+    
+    func reset() {
+        timer?.invalidate()
+        daysQueue.removeAll()
+        loadQueue()
+        update()
     }
     
     @objc fileprivate func update() {
-        guard daysQueue.count > 0 else {
+        guard let infoLabel = self.infoLabel, daysQueue.count > 0 else {
+            self.infoLabel?.text = "No classes"
             return 
         }
-        
+
         let currentTimestamp = Int16(Calendar.current.component(.hour, from: Date()) * 60 + Calendar.current.component(.minute, from: Date()))
         let currentWeekday = Int16(Calendar.current.component(.weekday, from: Date()))
         
@@ -82,7 +91,7 @@ class NextClassTimer
         let className = nextDay.forClass?.name ?? "No class name"
         
         if currentTimestamp >= nextDay.startTime && currentTimestamp <= nextDay.endTime {
-            infoLabel.text = "Now: \(nextDay.forClass!.name!)"
+            infoLabel.text = "Now: \(className)"
         } else {
             let hour = nextDay.startTime / 60 - 12
             let minute = nextDay.startTime % 60

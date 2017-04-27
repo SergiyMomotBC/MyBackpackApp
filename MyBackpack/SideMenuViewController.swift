@@ -76,6 +76,8 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
                 selectClass(atIndex: 0)
             }
             
+            self.nextClassTimer.reset()
+            
             self.classesTableView.reloadData()
         }
         

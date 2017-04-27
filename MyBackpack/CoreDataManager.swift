@@ -6,20 +6,11 @@
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 class CoreDataManager
 {
-    private static var instance: CoreDataManager? = nil
-    
-    static var shared: CoreDataManager {
-        if instance == nil {
-            instance = CoreDataManager()
-        }
-        
-        return instance!
-    }
+    static let shared = CoreDataManager()
     
     private var persistentContainer: NSPersistentContainer
     
@@ -59,12 +50,16 @@ class CoreDataManager
                             print("File could not be deleted")
                         }
                         
-                        lecture.removeFromContents(content)
                         managedContext.delete(content)
                     }
                     
-                    object.removeFromLectures(lecture)
                     managedContext.delete(lecture)
+                }
+            }
+            
+            if let days = object.days?.allObjects as? [ClassDay] {
+                for day in days {
+                    managedContext.delete(day)
                 }
             }
             

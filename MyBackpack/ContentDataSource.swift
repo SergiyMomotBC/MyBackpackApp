@@ -71,7 +71,11 @@ final class ContentDataSource
             
             if UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) != nil {
                 let index = UserDefaults.standard.integer(forKey: SideMenuViewController.savedClassIndex)
-                loadData(forClass: classes[index])
+                if index != -1 {
+                    loadData(forClass: classes[index])
+                } else {
+                    loadData(forClass: nil)
+                }
             } else if classes.count > 0 {
                 loadData(forClass: classes.first)
             } else {
@@ -81,16 +85,11 @@ final class ContentDataSource
     }
     
     func loadData(forClass classObject: Class?, notify: Bool = true) {
-        if notify {
-            subscribers.forEach { $0.classWillChange() }
-        }
+        subscribers.forEach { $0.classWillChange() }
 
-        print("Did load")
-        
         guard classObject != nil else {
-            if notify {
-                subscribers.forEach { $0.classDidChange() }
-            }
+            currentClass = nil
+            subscribers.forEach { $0.classDidChange() }
             return
         }
         
@@ -122,10 +121,8 @@ final class ContentDataSource
             
             self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
             
-            if notify {
-                DispatchQueue.main.async {
-                    self.subscribers.forEach { $0.classDidChange() }
-                }
+            DispatchQueue.main.async {
+                self.subscribers.forEach { $0.classDidChange() }
             }
         }
     }
