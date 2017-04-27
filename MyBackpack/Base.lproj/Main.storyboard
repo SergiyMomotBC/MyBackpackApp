@@ -1595,6 +1595,53 @@
             </objects>
             <point key="canvasLocation" x="650" y="941"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="G6U-ew-Hpy">
+            <objects>
+                <viewController id="TT8-Do-nuy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nfm-Dc-0G4"/>
+                        <viewControllerLayoutGuide type="bottom" id="3TU-yJ-SOX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ivo-rX-zk6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My backpack app helps you to manage your classes.     Please, add your first class, so you can start using the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyK-fn-vOm">
+                                <rect key="frame" x="20" y="140" width="335" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="xCr-Af-rk7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nt1-Bt-DGk">
+                                <rect key="frame" x="107.5" y="348" width="160" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OUB-go-LN9"/>
+                                    <constraint firstAttribute="width" constant="160" id="Rl2-Oz-OgZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Add my first class">
+                                    <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dyK-fn-vOm" firstAttribute="top" secondItem="nfm-Dc-0G4" secondAttribute="bottom" constant="120" id="5WU-LM-bqx"/>
+                            <constraint firstItem="nt1-Bt-DGk" firstAttribute="centerX" secondItem="ivo-rX-zk6" secondAttribute="centerX" id="6H0-eU-CeG"/>
+                            <constraint firstItem="nt1-Bt-DGk" firstAttribute="top" secondItem="dyK-fn-vOm" secondAttribute="bottom" constant="8" id="GiQ-3a-b9c"/>
+                            <constraint firstItem="dyK-fn-vOm" firstAttribute="leading" secondItem="ivo-rX-zk6" secondAttribute="leading" constant="20" id="MwB-fA-bGf"/>
+                            <constraint firstAttribute="trailing" secondItem="dyK-fn-vOm" secondAttribute="trailing" constant="20" id="wnk-XH-q3b"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NdJ-69-OAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5.5999999999999996" y="1505.3973013493255"/>
+        </scene>
         <!--Reminders Table View Controller-->
         <scene sceneID="FzO-9y-YOJ">
             <objects>
