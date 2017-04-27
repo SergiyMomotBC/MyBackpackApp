@@ -10,7 +10,6 @@
 		098B014FD6C40F6E5F6B39D4 /* Pods_My_Backpack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AE5005747BBC189E389D19E /* Pods_My_Backpack.framework */; };
 		6504F2BA1E68901200A4F202 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6504F2B91E68901200A4F202 /* CoreDataManager.swift */; };
 		6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6504F2BB1E68945600A4F202 /* MyBackpack.xcdatamodeld */; };
-		6507ADF01EA5695500A7581E /* NextClassTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6507ADEF1EA5695500A7581E /* NextClassTimer.swift */; };
 		6509C15F1E902D7700CA9AF6 /* FilterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6509C15E1E902D7700CA9AF6 /* FilterOptionsViewController.swift */; };
 		6509C1611E903E2D00CA9AF6 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6509C1601E903E2D00CA9AF6 /* FilterViewController.swift */; };
 		650B8F851E81D29F001F997D /* ClassViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650B8F841E81D29F001F997D /* ClassViewControllerDelegate.swift */; };
@@ -30,15 +29,16 @@
 		6544CB081E623C7300A83848 /* TakeNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6544CB071E623C7300A83848 /* TakeNoteController.swift */; };
 		654AA5E51E6A5EB1001128BA /* ContentPreviewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */; };
 		655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655202E81E577C22009966B9 /* NavigationTabBar.swift */; };
-		655202EB1E577E9A009966B9 /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 655202EA1E577E9A009966B9 /* UIViewExtentions.swift */; };
 		6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */; };
 		6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4EF1E4A8AEB0036176B /* PageViewController.swift */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
+		658268931EB276C100C5577B /* NextClassTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268901EB276C100C5577B /* NextClassTimer.swift */; };
+		658268941EB276C100C5577B /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268911EB276C100C5577B /* UIViewExtentions.swift */; };
+		658268951EB276C100C5577B /* UserNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268921EB276C100C5577B /* UserNotificationsManager.swift */; };
 		659955781EA1AB170052526B /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659955771EA1AB170052526B /* RemindersViewController.swift */; };
 		65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */; };
 		65B75D651E7B521B00B7BAAC /* ContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */; };
 		65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCF5E41E60A85700632751 /* ContentProvider.swift */; };
-		65BD6F471EABDDAE0035F4EE /* UserNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BD6F461EABDDAE0035F4EE /* UserNotificationsManager.swift */; };
 		65BE1CB81E9C4AF100FD7430 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */; };
 		65CADA5D1EA14AA3009D4F2B /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */; };
 		65CB223E1E8F262000C0C36B /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CB223D1E8F262000C0C36B /* MainNavigationViewController.swift */; };
@@ -70,7 +70,6 @@
 		01FF2DCAFB1091E9E192E9E3 /* Pods-My Backpack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Backpack.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Backpack/Pods-My Backpack.release.xcconfig"; sourceTree = "<group>"; };
 		6504F2B91E68901200A4F202 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		6504F2BC1E68945600A4F202 /* MyBackpack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyBackpack.xcdatamodel; sourceTree = "<group>"; };
-		6507ADEF1EA5695500A7581E /* NextClassTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextClassTimer.swift; sourceTree = "<group>"; };
 		6509C15E1E902D7700CA9AF6 /* FilterOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterOptionsViewController.swift; sourceTree = "<group>"; };
 		6509C1601E903E2D00CA9AF6 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		650B8F841E81D29F001F997D /* ClassViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -91,17 +90,18 @@
 		6544CB071E623C7300A83848 /* TakeNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakeNoteController.swift; sourceTree = "<group>"; };
 		654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentPreviewer.swift; path = MyBackpack/ContentPreviewer.swift; sourceTree = "<group>"; };
 		655202E81E577C22009966B9 /* NavigationTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationTabBar.swift; sourceTree = "<group>"; };
-		655202EA1E577E9A009966B9 /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtentions.swift; sourceTree = "<group>"; };
 		6576D4EA1E4A8AEB0036176B /* My Backpack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Backpack.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6576D4EF1E4A8AEB0036176B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		6576D4F71E4A8AEB0036176B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6576D4FC1E4A8AEB0036176B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		658268901EB276C100C5577B /* NextClassTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextClassTimer.swift; path = MyBackpack/NextClassTimer.swift; sourceTree = "<group>"; };
+		658268911EB276C100C5577B /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtentions.swift; path = MyBackpack/UIViewExtentions.swift; sourceTree = "<group>"; };
+		658268921EB276C100C5577B /* UserNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserNotificationsManager.swift; path = MyBackpack/UserNotificationsManager.swift; sourceTree = "<group>"; };
 		659955771EA1AB170052526B /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoInfo.swift; path = MyBackpack/PhotoInfo.swift; sourceTree = "<group>"; };
 		65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDataSource.swift; path = MyBackpack/ContentDataSource.swift; sourceTree = "<group>"; };
 		65BCF5E41E60A85700632751 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
-		65BD6F461EABDDAE0035F4EE /* UserNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationsManager.swift; sourceTree = "<group>"; };
 		65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
 		65CB223D1E8F262000C0C36B /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
@@ -163,15 +163,15 @@
 		651874BD1E9C1A6D001831C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				655202EA1E577E9A009966B9 /* UIViewExtentions.swift */,
+				658268901EB276C100C5577B /* NextClassTimer.swift */,
+				658268911EB276C100C5577B /* UIViewExtentions.swift */,
+				658268921EB276C100C5577B /* UserNotificationsManager.swift */,
 				6522D4FD1E6A486D00A409A8 /* ContentFileManager.swift */,
 				6526944D1E6120EB008265E1 /* ContentType.swift */,
 				654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */,
 				65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */,
 				65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */,
 				65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */,
-				6507ADEF1EA5695500A7581E /* NextClassTimer.swift */,
-				65BD6F461EABDDAE0035F4EE /* UserNotificationsManager.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -411,6 +411,7 @@
 				6520B2511E5B1787002C846D /* ContentTableViewController.swift in Sources */,
 				650B8F851E81D29F001F997D /* ClassViewControllerDelegate.swift in Sources */,
 				6511BEED1E53F3C90000F529 /* MenuController.swift in Sources */,
+				658268951EB276C100C5577B /* UserNotificationsManager.swift in Sources */,
 				653E0BFF1E60C5F5000B0C98 /* AudioRecorderController.swift in Sources */,
 				6544CB081E623C7300A83848 /* TakeNoteController.swift in Sources */,
 				65FC1A861E8EC64A009197CA /* SearchController.swift in Sources */,
@@ -429,7 +430,6 @@
 				6504F2BD1E68945600A4F202 /* MyBackpack.xcdatamodeld in Sources */,
 				6509C1611E903E2D00CA9AF6 /* FilterViewController.swift in Sources */,
 				6540D9041EA04BE600B274CD /* RemindersTableViewController.swift in Sources */,
-				65BD6F471EABDDAE0035F4EE /* UserNotificationsManager.swift in Sources */,
 				65D77EC21EAA97150086F04A /* ReminderFilterOptionsViewController.swift in Sources */,
 				655202E91E577C22009966B9 /* NavigationTabBar.swift in Sources */,
 				65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */,
@@ -440,23 +440,23 @@
 				65DC13671E5F5EDB00F5D5B5 /* CameraContentController.swift in Sources */,
 				6540D8FF1EA00C5F00B274CD /* Reminder+CoreDataClass.swift in Sources */,
 				65D77EC01EAA96BC0086F04A /* RemidersFilterViewController.swift in Sources */,
-				6507ADF01EA5695500A7581E /* NextClassTimer.swift in Sources */,
 				65DC13651E5F126100F5D5B5 /* NewContentViewController.swift in Sources */,
 				65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */,
 				65E352C21E7C41AF004BC038 /* NewClassViewController.swift in Sources */,
 				659955781EA1AB170052526B /* RemindersViewController.swift in Sources */,
 				65E7E1FC1E7B1F2C002D07ED /* Lecture+CoreDataProperties.swift in Sources */,
 				65E7E1FE1E7B1F2C002D07ED /* Class+CoreDataProperties.swift in Sources */,
-				655202EB1E577E9A009966B9 /* UIViewExtentions.swift in Sources */,
 				654AA5E51E6A5EB1001128BA /* ContentPreviewer.swift in Sources */,
 				65FAA9AF1E689A11004FFB8E /* Content+CoreDataProperties.swift in Sources */,
 				6509C15F1E902D7700CA9AF6 /* FilterOptionsViewController.swift in Sources */,
 				6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */,
+				658268931EB276C100C5577B /* NextClassTimer.swift in Sources */,
 				65E7E1FB1E7B1F2C002D07ED /* Lecture+CoreDataClass.swift in Sources */,
 				65CCC3BE1EB25C7000F6202F /* OnboardingViewController.swift in Sources */,
 				650C74611E579AA1008E8590 /* TabBarCell.swift in Sources */,
 				65F82BCA1E73442A005A0A66 /* MusicViewController.swift in Sources */,
 				6540D9001EA00C5F00B274CD /* Reminder+CoreDataProperties.swift in Sources */,
+				658268941EB276C100C5577B /* UIViewExtentions.swift in Sources */,
 				65DC13691E5F72A700F5D5B5 /* SaveContentViewController.swift in Sources */,
 				6520B2531E5B7557002C846D /* ContentTableViewCell.swift in Sources */,
 				65E7E2001E7B1FE1002D07ED /* SideMenuViewController.swift in Sources */,
