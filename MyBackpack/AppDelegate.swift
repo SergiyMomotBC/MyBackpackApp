@@ -7,14 +7,19 @@
 //
 
 import UIKit
-import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate 
 {
+    static let firstLaunchKey = "wasFirstLaunch"
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if let window = self.window, !UserDefaults.standard.bool(forKey: AppDelegate.firstLaunchKey) {
+            window.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "onboarding")
+        }
+        
         return true
     }
 
@@ -37,8 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
         CoreDataManager.shared.saveContext()
     }
 }
