@@ -163,6 +163,7 @@
 		651874BD1E9C1A6D001831C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				655202EA1E577E9A009966B9 /* UIViewExtentions.swift */,
 				6522D4FD1E6A486D00A409A8 /* ContentFileManager.swift */,
 				6526944D1E6120EB008265E1 /* ContentType.swift */,
 				654AA5E41E6A5EB1001128BA /* ContentPreviewer.swift */,
@@ -173,15 +174,6 @@
 				65BD6F461EABDDAE0035F4EE /* UserNotificationsManager.swift */,
 			);
 			name = Model;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		656A95701E514F15001761BD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				655202EA1E577E9A009966B9 /* UIViewExtentions.swift */,
-			);
-			name = Extensions;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -213,9 +205,7 @@
 				6576D4F71E4A8AEB0036176B /* Assets.xcassets */,
 				653E0C001E60C81F000B0C98 /* Objective-C-Bridging-Headers.h */,
 				651874BD1E9C1A6D001831C1 /* Model */,
-				65FC1A851E8EC64A009197CA /* SearchController.swift */,
 				65A52D261E57B695008B998D /* Views */,
-				656A95701E514F15001761BD /* Extensions */,
 				65A52D271E57B6C7008B998D /* Controllers */,
 				65A52D281E57B9B1008B998D /* Core Data */,
 				65DF48471E86DC0100D70A11 /* Protocols */,
@@ -237,6 +227,7 @@
 		65A52D271E57B6C7008B998D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				65FC1A851E8EC64A009197CA /* SearchController.swift */,
 				65CCC3BD1EB25C7000F6202F /* OnboardingViewController.swift */,
 				65F82BC91E73442A005A0A66 /* MusicViewController.swift */,
 				6511BEEC1E53F3C90000F529 /* MenuController.swift */,

@@ -66,6 +66,10 @@ class NextClassTimer
     }
     
     @objc fileprivate func update() {
+        guard daysQueue.count > 0 else {
+            return 
+        }
+        
         let currentTimestamp = Int16(Calendar.current.component(.hour, from: Date()) * 60 + Calendar.current.component(.minute, from: Date()))
         let currentWeekday = Int16(Calendar.current.component(.weekday, from: Date()))
         
@@ -74,6 +78,8 @@ class NextClassTimer
         }
         
         let nextDay = daysQueue.first!
+        
+        let className = nextDay.forClass?.name ?? "No class name"
         
         if currentTimestamp >= nextDay.startTime && currentTimestamp <= nextDay.endTime {
             infoLabel.text = "Now: \(nextDay.forClass!.name!)"
@@ -85,11 +91,11 @@ class NextClassTimer
             let diff = nextDay.day - currentWeekday
             
             if diff == 0 {
-                infoLabel.text = "Next class: \(nextDay.forClass?.name)\nStarts today at \(timeText)"
+                infoLabel.text = "Next class: \(className)\nStarts today at \(timeText)"
             } else if diff == 1 {
-                infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts tomorrow at \(timeText)"
+                infoLabel.text = "Next class: \(className)\nStarts tomorrow at \(timeText)"
             } else {
-                infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts on \(NextClassTimer.dayNames[Int(currentWeekday - 1)]) at \(timeText)"
+                infoLabel.text = "Next class: \(className)\nStarts on \(NextClassTimer.dayNames[Int(currentWeekday - 1)]) at \(timeText)"
             }
         }
     }
