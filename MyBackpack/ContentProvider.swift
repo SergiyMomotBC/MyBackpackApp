@@ -13,5 +13,5 @@ protocol ContentProvider
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection)
     var providedContentType: ContentType { get }
     var resource: AnyObject? { get }
-    var parentVC: NewContentViewController { get set }
+    weak var parentVC: NewContentViewController? { get set }
 }

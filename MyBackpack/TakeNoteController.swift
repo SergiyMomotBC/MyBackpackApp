@@ -44,11 +44,11 @@ class TakeNoteController: NSObject, ContentProvider
     
     @objc private func done() {
         self.takenNoteHTMLText = self.editorView.getHTML()
-        self.parentVC.contentProviderDidSuccesfullyFinished()
+        self.parentVC?.contentProviderDidSuccesfullyFinished()
     }
     
     @objc private func cancel() {
-        self.parentVC.dismiss(animated: true, completion: nil)
+        self.parentVC?.dismiss(animated: true, completion: nil)
     }
     
     private func setupNavigationController(withVC: UIViewController) {
@@ -88,7 +88,7 @@ class TakeNoteController: NSObject, ContentProvider
     
     // MARK: Conforming to ContentProvider protocol
     
-    var parentVC: NewContentViewController
+    weak var parentVC: NewContentViewController?
     
     var providedContentType: ContentType {
         return ContentType.Note
@@ -100,7 +100,7 @@ class TakeNoteController: NSObject, ContentProvider
     
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection) {
         
-        self.parentVC.setViewControllers([self.navigationVC!], direction: direction, animated: true, completion: { success in self.editorView.becomeFirstResponder() })
+        self.parentVC?.setViewControllers([self.navigationVC!], direction: direction, animated: true, completion: { success in self.editorView.becomeFirstResponder() })
     }
     
 }

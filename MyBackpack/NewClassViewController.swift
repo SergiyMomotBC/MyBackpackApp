@@ -143,6 +143,8 @@ final class NewClassViewController: UIViewController
             components = Calendar.current.dateComponents([.hour, .minute], from: day.2)
             lectureDay.endTime = Int16(components.hour! * 60 + components.minute!)
             
+            lectureDay.forClass = newClass
+            
             newClass.addToDays(lectureDay)
         }
         

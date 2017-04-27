@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewContentViewController: UIPageViewController, UIImagePickerControllerDelegate
+class NewContentViewController: UIPageViewController
 {
     private let contentType: ContentType
     private let saveContentVC: SaveContentViewController

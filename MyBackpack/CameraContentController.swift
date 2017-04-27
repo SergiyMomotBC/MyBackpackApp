@@ -43,7 +43,7 @@ class CameraContentController: NSObject, ContentProvider, UIImagePickerControlle
     
     // MARK: Conforming to ContentProvider protocol
     
-    var parentVC: NewContentViewController
+    weak var parentVC: NewContentViewController?
     
     var providedContentType: ContentType {
         return captureMode == .photo ? ContentType.Picture : ContentType.Video
@@ -55,7 +55,7 @@ class CameraContentController: NSObject, ContentProvider, UIImagePickerControlle
     
     func presentAnimated(inScrollDirection direction: UIPageViewControllerNavigationDirection) {
         self.prepareImagePicker()
-        self.parentVC.setViewControllers([self.imagePicker], direction: direction, animated: true, completion: nil)
+        self.parentVC?.setViewControllers([self.imagePicker], direction: direction, animated: true, completion: nil)
     }
     
     // MARK: Conforming to UIImagePickerControllerDelegate protocol
@@ -64,17 +64,17 @@ class CameraContentController: NSObject, ContentProvider, UIImagePickerControlle
         if self.imagePicker.cameraCaptureMode == .photo {
             self.takenImage = info[UIImagePickerControllerOriginalImage] as? UIImage
             if self.takenImage != nil {
-                self.parentVC.contentProviderDidSuccesfullyFinished()
+                self.parentVC?.contentProviderDidSuccesfullyFinished()
             }
         } else {
             self.takenVideoURL = info[UIImagePickerControllerMediaURL] as? URL
             if self.takenVideoURL != nil {
-                self.parentVC.contentProviderDidSuccesfullyFinished()
+                self.parentVC?.contentProviderDidSuccesfullyFinished()
             }
         }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        self.parentVC.dismiss(animated: true, completion: nil)
+        self.parentVC?.dismiss(animated: true, completion: nil)
     }
 }

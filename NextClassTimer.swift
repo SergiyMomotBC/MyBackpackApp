@@ -85,7 +85,7 @@ class NextClassTimer
             let diff = nextDay.day - currentWeekday
             
             if diff == 0 {
-                infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts today at \(timeText)"
+                infoLabel.text = "Next class: \(nextDay.forClass?.name)\nStarts today at \(timeText)"
             } else if diff == 1 {
                 infoLabel.text = "Next class: \(nextDay.forClass!.name!)\nStarts tomorrow at \(timeText)"
             } else {

@@ -30,7 +30,7 @@ class AudioRecorderController: NSObject, ContentProvider, IQAudioRecorderViewCon
     
     // MARK: Conforming to ContentProvider protocol
     
-    var parentVC: NewContentViewController
+    weak var parentVC: NewContentViewController?
     
     var providedContentType: ContentType {
         return ContentType.Audio
@@ -48,17 +48,17 @@ class AudioRecorderController: NSObject, ContentProvider, IQAudioRecorderViewCon
         nc.navigationBar.isTranslucent = true
         self.audioRecorderVC.barStyle = self.audioRecorderVC.barStyle
         
-        self.parentVC.setViewControllers([nc], direction: direction, animated: true, completion: nil)
+        self.parentVC?.setViewControllers([nc], direction: direction, animated: true, completion: nil)
     }
     
     // MARK: Conforming to IQAudioRecorderViewControllerDelegate protocol
     
     func audioRecorderController(_ controller: IQAudioRecorderViewController, didFinishWithAudioAtPath filePath: String) {
         self.recordedAudioURL = URL(fileURLWithPath: filePath)
-        self.parentVC.contentProviderDidSuccesfullyFinished()
+        self.parentVC?.contentProviderDidSuccesfullyFinished()
     }
     
     func audioRecorderControllerDidCancel(_ controller: IQAudioRecorderViewController) {
-        self.parentVC.dismiss(animated: true, completion: nil)
+        self.parentVC?.dismiss(animated: true, completion: nil)
     }
 }
