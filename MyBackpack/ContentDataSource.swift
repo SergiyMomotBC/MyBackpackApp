@@ -6,7 +6,6 @@
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
-import Foundation
 import CoreData
 
 final class ContentDataSource
@@ -40,7 +39,7 @@ final class ContentDataSource
         return dataCopy != nil ? dataCopy![lecture].count : contentObjects[lecture].count 
     }   
 
-    init() {
+    func initialize() {
         let remindersRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
         let reminders = (try? CoreDataManager.shared.managedContext.fetch(remindersRequest)) ?? []
         
@@ -84,7 +83,7 @@ final class ContentDataSource
         }
     }
     
-    func loadData(forClass classObject: Class?, notify: Bool = true) {
+    func loadData(forClass classObject: Class?) {
         subscribers.forEach { $0.classWillChange() }
 
         guard classObject != nil else {
@@ -242,20 +241,12 @@ final class ContentDataSource
 extension ContentDataSource
 {
     func prepareForSearching() {
-        guard dataCopy == nil else {
-            print("Already prepared for searching...")
-            return
-        }
-        
+        guard dataCopy == nil else { return }
         dataCopy = contentObjects
     }
     
     func endSearching() {
-        guard dataCopy != nil else {
-            print("Data was not used for searching")
-            return
-        }
-        
+        guard dataCopy != nil else { return }
         contentObjects = dataCopy!
         dataCopy = nil
     }

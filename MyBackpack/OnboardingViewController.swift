@@ -77,8 +77,6 @@ class OnboardingViewController: UIPageViewController
         UserDefaults.standard.set(true, forKey: AppDelegate.firstLaunchKey)
         
         let root = self.storyboard!.instantiateViewController(withIdentifier: "root")
-        root.view.frame = window.rootViewController!.view.frame
-        root.view.layoutIfNeeded()
         
         UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: { 
             window.rootViewController = root

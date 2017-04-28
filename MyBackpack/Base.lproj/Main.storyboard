@@ -193,7 +193,7 @@
         <!--New Class View Controller-->
         <scene sceneID="BJ5-M1-7wO">
             <objects>
-                <viewController id="MlD-82-JSh" customClass="NewClassViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newClass" id="MlD-82-JSh" customClass="NewClassViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ogi-Ve-59Q"/>
                         <viewControllerLayoutGuide type="bottom" id="2km-my-ZIK"/>
@@ -1595,10 +1595,10 @@
             </objects>
             <point key="canvasLocation" x="650" y="941"/>
         </scene>
-        <!--View Controller-->
+        <!--No Classes View Controller-->
         <scene sceneID="G6U-ew-Hpy">
             <objects>
-                <viewController id="TT8-Do-nuy" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="noClasses" id="TT8-Do-nuy" customClass="NoClassesViewController" customModule="My_Backpack" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nfm-Dc-0G4"/>
                         <viewControllerLayoutGuide type="bottom" id="3TU-yJ-SOX"/>
@@ -1626,6 +1626,9 @@
                                 <state key="normal" title="Add my first class">
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="createFirstClass:" destination="TT8-Do-nuy" eventType="touchUpInside" id="MfP-Y2-PkQ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1640,7 +1643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdJ-69-OAn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5.5999999999999996" y="1505.3973013493255"/>
+            <point key="canvasLocation" x="-20" y="1470"/>
         </scene>
         <!--Reminders Table View Controller-->
         <scene sceneID="FzO-9y-YOJ">

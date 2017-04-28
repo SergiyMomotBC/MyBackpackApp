@@ -37,6 +37,7 @@
 		658268951EB276C100C5577B /* UserNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268921EB276C100C5577B /* UserNotificationsManager.swift */; };
 		659955781EA1AB170052526B /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659955771EA1AB170052526B /* RemindersViewController.swift */; };
 		65B1D3301E6BA66C00D0658D /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */; };
+		65B3AB4B1EB39F62002011C3 /* NoClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B3AB4A1EB39F62002011C3 /* NoClassesViewController.swift */; };
 		65B75D651E7B521B00B7BAAC /* ContentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */; };
 		65BCF5E51E60A85700632751 /* ContentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BCF5E41E60A85700632751 /* ContentProvider.swift */; };
 		65BE1CB81E9C4AF100FD7430 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */; };
@@ -100,6 +101,7 @@
 		658268921EB276C100C5577B /* UserNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserNotificationsManager.swift; path = MyBackpack/UserNotificationsManager.swift; sourceTree = "<group>"; };
 		659955771EA1AB170052526B /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		65B1D32F1E6BA66C00D0658D /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoInfo.swift; path = MyBackpack/PhotoInfo.swift; sourceTree = "<group>"; };
+		65B3AB4A1EB39F62002011C3 /* NoClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoClassesViewController.swift; sourceTree = "<group>"; };
 		65B75D641E7B521B00B7BAAC /* ContentDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDataSource.swift; path = MyBackpack/ContentDataSource.swift; sourceTree = "<group>"; };
 		65BCF5E41E60A85700632751 /* ContentProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentProvider.swift; sourceTree = "<group>"; };
 		65BE1CB71E9C4AF100FD7430 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				659955771EA1AB170052526B /* RemindersViewController.swift */,
 				65D77EBF1EAA96BC0086F04A /* RemidersFilterViewController.swift */,
 				65D77EC11EAA97150086F04A /* ReminderFilterOptionsViewController.swift */,
+				65B3AB4A1EB39F62002011C3 /* NoClassesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */,
 				658268931EB276C100C5577B /* NextClassTimer.swift in Sources */,
 				65E7E1FB1E7B1F2C002D07ED /* Lecture+CoreDataClass.swift in Sources */,
+				65B3AB4B1EB39F62002011C3 /* NoClassesViewController.swift in Sources */,
 				65CCC3BE1EB25C7000F6202F /* OnboardingViewController.swift in Sources */,
 				650C74611E579AA1008E8590 /* TabBarCell.swift in Sources */,
 				65F82BCA1E73442A005A0A66 /* MusicViewController.swift in Sources */,

@@ -67,21 +67,21 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     }
     
     func classViewController(_ classVC: UIViewController, didCommitChanges success: Bool) {
+        classVC.dismiss(animated: true, completion: nil)
+        
         if success {
             self.classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
             
-            if classesList.isEmpty {
+            if self.classesList.isEmpty {
                 selectClass(atIndex: -1)
-            } else if ContentDataSource.shared.currentClass == nil || !classesList.contains(ContentDataSource.shared.currentClass!) {
-                selectClass(atIndex: 0)
+            } else if ContentDataSource.shared.currentClass == nil || !self.classesList.contains(ContentDataSource.shared.currentClass!) {
+                self.selectClass(atIndex: 0)
             }
             
             self.nextClassTimer.reset()
             
             self.classesTableView.reloadData()
         }
-        
-        classVC.dismiss(animated: true, completion: nil)
     }
     
     fileprivate func selectClass(atIndex index: Int) {
