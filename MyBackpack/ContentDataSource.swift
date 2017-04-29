@@ -42,7 +42,6 @@ final class ContentDataSource
 
     func loadFirst() {
         if let object = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()))?.first {
-            print("HAHA")
             loadData(forClass: object)
         }
     }
