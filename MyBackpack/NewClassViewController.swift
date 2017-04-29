@@ -112,11 +112,11 @@ final class NewClassViewController: UIViewController
             }
         }
         
-        guard errorMessage == nil else {
-            self.alert.message = errorMessage
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
+//        guard errorMessage == nil else {
+//            self.alert.message = errorMessage
+//            self.present(alert, animated: true, completion: nil)
+//            return
+//        }
         
         saveClassToCoreData()
         

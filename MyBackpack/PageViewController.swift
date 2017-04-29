@@ -127,10 +127,8 @@ class PageViewController: UIPageViewController, ClassObserver
     func classDidChange() {
         self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
         
-        if ContentDataSource.shared.currentClass == nil {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
-        } else {
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
+        if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
+            buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
         }
         
         (orderedViewControllers[currentPageIndex] as? Updatable)?.update()
