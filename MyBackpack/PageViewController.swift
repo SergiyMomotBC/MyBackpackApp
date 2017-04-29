@@ -60,6 +60,13 @@ class PageViewController: UIPageViewController, ClassObserver
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let count = try? CoreDataManager.shared.managedContext.count(for: Class.fetchRequest()), count > 0 && ContentDataSource.shared.currentClass == nil {
+            ContentDataSource.shared.loadFirst()
+        }
+    }
+    
     var currentSearchableViewController: Searchable? {
         return orderedViewControllers[currentPageIndex] as? Searchable
     }

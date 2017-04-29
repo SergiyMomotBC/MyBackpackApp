@@ -43,8 +43,8 @@ open class JukeboxItem: NSObject {
     
     // MARK:- Properties -
     
-            let identifier: String
-            var delegate: JukeboxItemDelegate?
+    let identifier: String
+    weak var delegate: JukeboxItemDelegate?
     fileprivate var didLoad = false
     open  var localTitle: String?
     open  let URL: Foundation.URL

@@ -15,16 +15,17 @@ final class ContentDataSource
     fileprivate(set) var currentClass: Class?
     fileprivate var contentObjects: [[Content]] = []
     fileprivate var reminders: [Reminder] = []
+    fileprivate(set) var isLoading = false
     private var subscribers: [ClassObserver] = []
     
-    fileprivate var dataCopy: [[Content]]?
+    fileprivate var dataCopy: [[Content]]? = nil
     
     func addObserver(_ observer: ClassObserver) {
         subscribers.append(observer)
     }
         
     var classTitle: String {
-        return currentClass?.name ?? ""
+        return currentClass?.name ?? "No classes"
     }
     
     var lecturesCount: Int {
@@ -36,10 +37,17 @@ final class ContentDataSource
     }
     
     func contentsCount(forLecture lecture: Int) -> Int {
-        return dataCopy != nil ? dataCopy![lecture].count : contentObjects[lecture].count 
+        return contentObjects[lecture].count 
     }   
 
-    func initialize() {
+    func loadFirst() {
+        if let object = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest()))?.first {
+            print("HAHA")
+            loadData(forClass: object)
+        }
+    }
+    
+    init() {
         let remindersRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
         let reminders = (try? CoreDataManager.shared.managedContext.fetch(remindersRequest)) ?? []
         
@@ -84,18 +92,19 @@ final class ContentDataSource
     }
     
     func loadData(forClass classObject: Class?) {
+        self.currentClass = classObject
+        
         subscribers.forEach { $0.classWillChange() }
 
         guard classObject != nil else {
-            currentClass = nil
             subscribers.forEach { $0.classDidChange() }
             return
         }
         
+        isLoading = true
         DispatchQueue.global().async {
             usleep(250_000)
             
-            self.currentClass = classObject
             self.contentObjects.removeAll()
             
             let lectures = (self.currentClass!.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date }
@@ -121,6 +130,7 @@ final class ContentDataSource
             self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
             
             DispatchQueue.main.async {
+                self.isLoading = false
                 self.subscribers.forEach { $0.classDidChange() }
             }
         }
@@ -159,7 +169,7 @@ final class ContentDataSource
             
             let count = contentObjects.reduce(0, { $0 + $1.count })
             
-            if try! CoreDataManager.shared.managedContext.count(for: fetchRequest) != count {
+            if try! CoreDataManager.shared.managedContext.count(for: fetchRequest) != count && !ContentDataSource.shared.isLoading {
                 loadData(forClass: classObject)
             }
         }

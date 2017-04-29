@@ -9,15 +9,14 @@
 import UIKit
 import CoreData
 
-class ManageClassesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource
+class ManageClassesViewController: UIViewController
 {
     @IBOutlet weak var classesListTableView: UITableView!
     
     fileprivate var listOfClasses: [Class]!
     fileprivate var contentCounts: [Int] = []
     fileprivate var classesToDelete: [Class] = []
-    
-    var delegate: ClassViewControllerDelegate?
+    weak var delegate: ClassViewControllerDelegate?
     
     fileprivate lazy var alert: UIAlertController = {
         let alert = UIAlertController(title: "Warning", message: "", preferredStyle: .alert)
@@ -53,6 +52,26 @@ class ManageClassesViewController: UIViewController, UITableViewDelegate, UITabl
         classesListTableView.setEditing(true, animated: false)
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        delegate?.classViewController(self, didCommitChanges: false)
+    }
+    
+    @IBAction func applyChanges(_ sender: Any) {
+        if !classesToDelete.isEmpty {
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            delegate?.classViewController(self, didCommitChanges: false)
+        }
+    }
+    
+    @IBAction func removeAllClasses(_ sender: Any) {
+        classesToDelete += listOfClasses
+        self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ManageClassesViewController:  UITableViewDelegate, UITableViewDataSource
+{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,21 +99,5 @@ class ManageClassesViewController: UIViewController, UITableViewDelegate, UITabl
             classesListTableView.deleteRows(at: [indexPath], with: .left)
         }
     }
-    
-    @IBAction func cancel(_ sender: Any) {
-        delegate?.classViewController(self, didCommitChanges: false)
-    }
-    
-    @IBAction func applyChanges(_ sender: Any) {
-        if !classesToDelete.isEmpty {
-            self.present(alert, animated: true, completion: nil)
-        } else {
-            delegate?.classViewController(self, didCommitChanges: false)
-        }
-    }
-    
-    @IBAction func removeAllClasses(_ sender: Any) {
-        classesToDelete += listOfClasses
-        self.present(alert, animated: true, completion: nil)
-    }
+
 }

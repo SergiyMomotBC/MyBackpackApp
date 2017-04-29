@@ -23,7 +23,7 @@ final class NewClassViewController: UIViewController
     @IBOutlet weak var dayViewHeightConstrait: NSLayoutConstraint!
     @IBOutlet weak var toTimeField: IQDropDownTextField!
     
-    var delegate: ClassViewControllerDelegate?
+    weak var delegate: ClassViewControllerDelegate?
     
     fileprivate lazy var lectureDays = [(String, Date, Date)]()
     
@@ -112,11 +112,11 @@ final class NewClassViewController: UIViewController
             }
         }
         
-//        guard errorMessage == nil else {
-//            self.alert.message = errorMessage
-//            self.present(alert, animated: true, completion: nil)
-//            return
-//        }
+        guard errorMessage == nil else {
+            self.alert.message = errorMessage
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
         saveClassToCoreData()
         
@@ -128,7 +128,7 @@ final class NewClassViewController: UIViewController
     private func saveClassToCoreData() {
         let newClass = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
         
-        newClass.name = self.classNameField.text
+        newClass.name = self.classNameField.text?.uppercased()
         newClass.firstLectureDate = self.firstLectureDateField.date as NSDate?
         newClass.lastLectureDate = self.lastLectureDateField.date as NSDate?
         

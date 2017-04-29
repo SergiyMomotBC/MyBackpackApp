@@ -21,7 +21,5 @@ class MainNavigationViewController: UINavigationController
         SideMenuManager.menuPresentMode = .menuSlideIn
         SideMenuManager.menuBlurEffectStyle = UIBlurEffectStyle.dark
         SideMenuManager.menuFadeStatusBar = false
-        
-        ContentDataSource.shared.initialize()
     }
 }

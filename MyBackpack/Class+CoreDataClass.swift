@@ -23,6 +23,10 @@ public class Class: NSManagedObject
         
         let days = (currClass.days?.map { ($0 as! ClassDay).day } ?? []).sorted()
         
+        if days.isEmpty {
+            return lectureNames
+        }
+        
         for i in 1..<days.count {
             lectureIntervals.append(Int(days[i] - days[i - 1]))
         }
