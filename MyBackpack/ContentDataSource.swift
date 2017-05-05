@@ -102,7 +102,7 @@ final class ContentDataSource
         
         isLoading = true
         DispatchQueue.global().async {
-            usleep(250_000)
+            //usleep(250_000)
             
             self.contentObjects.removeAll()
             

@@ -100,23 +100,6 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         contentPreviewView.backgroundColor = UIColor.clear
         self.lectureDropDownList.isOptionalDropDown = false
         self.lectureDropDownList.itemList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass)
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = .blue
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        toolBar.setItems([spaceButton, doneButton, spaceButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        lectureDropDownList.inputAccessoryView = toolBar
-    }
-    
-    @objc private func donePicker() {
-        self.lectureDropDownList.endEditing(true)
+        lectureDropDownList.inputAccessoryView = PickerToolbar(for: lectureDropDownList)
     }
 }

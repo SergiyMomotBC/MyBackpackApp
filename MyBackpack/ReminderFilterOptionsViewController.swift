@@ -19,31 +19,7 @@ class ReminderFilterOptionsViewController: UITableViewController, IQDropDownText
     
     @IBOutlet weak var fromDate: IQDropDownTextField!
     @IBOutlet weak var toDate: IQDropDownTextField!
-    
-    fileprivate lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
-        
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        toolbar.tintColor = .blue
-        toolbar.sizeToFit() 
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([space, doneButton, space], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
-    
-    @objc private func donePicker() {
-        if fromDate.isEditing {
-            fromDate.endEditing(true)
-        } else {
-            toDate.endEditing(true)
-        }
-    }
-    
+
     var options: RemindersFilterOptions {
         return RemindersFilterOptions(types: selectedTypes, fromDate: datesInterval.from, toDate: datesInterval.to)
     }
@@ -54,13 +30,13 @@ class ReminderFilterOptionsViewController: UITableViewController, IQDropDownText
         self.clearsSelectionOnViewWillAppear = false
         
         fromDate.isOptionalDropDown = false
-        fromDate.inputAccessoryView = toolbar
+        fromDate.inputAccessoryView = PickerToolbar(for: fromDate)
         fromDate.dropDownMode = .datePicker
         fromDate.delegate = self
         fromDate.tag = 0
         
         toDate.isOptionalDropDown = false
-        toDate.inputAccessoryView = toolbar
+        toDate.inputAccessoryView = PickerToolbar(for: toDate)
         toDate.dropDownMode = .datePicker
         toDate.delegate = self
         toDate.tag = 1

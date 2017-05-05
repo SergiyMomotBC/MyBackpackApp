@@ -22,22 +22,6 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
     @IBOutlet weak var toLecture: IQDropDownTextField!
     @IBOutlet weak var fromLecture: IQDropDownTextField!
     
-    fileprivate lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
-        
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        toolbar.tintColor = .blue
-        toolbar.sizeToFit() 
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([space, doneButton, space], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        
-        return toolbar
-    }()
-    
     @objc private func donePicker() {
         if fromLecture.isEditing {
             fromLecture.endEditing(true)
@@ -56,12 +40,12 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
         self.clearsSelectionOnViewWillAppear = false
         
         fromLecture.isOptionalDropDown = false
-        fromLecture.inputAccessoryView = toolbar
+        fromLecture.inputAccessoryView = PickerToolbar(for: fromLecture)
         fromLecture.delegate = self
         fromLecture.tag = 0
         
         toLecture.isOptionalDropDown = false
-        toLecture.inputAccessoryView = toolbar
+        toLecture.inputAccessoryView = PickerToolbar(for: toLecture)
         toLecture.delegate = self
         toLecture.tag = 1
         

@@ -78,7 +78,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
                 self.selectClass(atIndex: 0)
             }
             
-            self.nextClassTimer.reset()
+            self.nextClassTimer.update()
             
             self.classesTableView.reloadData()
         }
@@ -116,12 +116,11 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defer { self.classesTableView.deselectRow(at: indexPath, animated: false) }
-        
-        guard indexPath.row != selectedClassIndex else { return }
-        
+        self.classesTableView.deselectRow(at: indexPath, animated: false) 
         SideMenuManager.menuLeftNavigationController?.dismiss(animated: true, completion: nil)
         
-        selectClass(atIndex: indexPath.row)
+        if indexPath.row != selectedClassIndex { 
+            selectClass(atIndex: indexPath.row)
+        }
     }        
 }

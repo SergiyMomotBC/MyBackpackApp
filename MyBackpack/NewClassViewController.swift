@@ -28,20 +28,7 @@ final class NewClassViewController: UIViewController
     fileprivate lazy var lectureDays = [(String, Date, Date)]()
     
     fileprivate let dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-    
-    fileprivate lazy var toolbar: UIToolbar = {
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        toolbar.tintColor = .blue
-        toolbar.sizeToFit() 
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donePicker))
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([space, doneButton, space], animated: false)
-        toolbar.isUserInteractionEnabled = true
-        return toolbar
-    }()
-    
+
     private lazy var alert: UIAlertController = {
         let alert = UIAlertController(title: "Error", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -185,21 +172,21 @@ fileprivate extension NewClassViewController
     
     func setupPickers() {
         firstLectureDateField.dropDownMode = .datePicker
-        firstLectureDateField.inputAccessoryView = toolbar
+        firstLectureDateField.inputAccessoryView = PickerToolbar(for: firstLectureDateField)
         
         lastLectureDateField.dropDownMode = .datePicker
-        lastLectureDateField.inputAccessoryView = toolbar
+        lastLectureDateField.inputAccessoryView = PickerToolbar(for: lastLectureDateField)
         
         fromTimeField.dropDownMode = .timePicker
-        fromTimeField.inputAccessoryView = toolbar
+        fromTimeField.inputAccessoryView = PickerToolbar(for: fromTimeField)
         fromTimeField.isOptionalDropDown = false
         
         toTimeField.dropDownMode = .timePicker
-        toTimeField.inputAccessoryView = toolbar
+        toTimeField.inputAccessoryView = PickerToolbar(for: toTimeField)
         toTimeField.isOptionalDropDown = false
         
         dayField.dropDownMode = .textPicker
-        dayField.inputAccessoryView = toolbar
+        dayField.inputAccessoryView = PickerToolbar(for: dayField)
         dayField.isOptionalDropDown = false
         dayField.itemList = dayNames
     }
@@ -215,20 +202,6 @@ extension NewClassViewController: UITextFieldDelegate
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.classNameField.isEditing {
             self.classNameField.endEditing(true)
-        }
-    }
-    
-    @objc fileprivate func donePicker() {
-        if firstLectureDateField.isEditing {
-            firstLectureDateField.resignFirstResponder()
-        } else if lastLectureDateField.isEditing {
-            lastLectureDateField.resignFirstResponder()
-        } else if dayField.isEditing {
-            dayField.resignFirstResponder()
-        } else if fromTimeField.isEditing {
-            fromTimeField.resignFirstResponder()
-        } else {
-            toTimeField.resignFirstResponder()
         }
     }
 }

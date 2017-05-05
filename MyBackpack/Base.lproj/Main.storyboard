@@ -157,7 +157,7 @@
                                     <segue destination="nCi-eC-3Q9" kind="presentation" identifier="manageClasses" id="GWo-21-0q4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labe nje" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-OK-u1w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labe nje" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-OK-u1w">
                                 <rect key="frame" x="20" y="40" width="335" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ddS-mx-2tG"/>

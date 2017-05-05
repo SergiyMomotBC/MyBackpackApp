@@ -61,28 +61,8 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         
         descriptionTextField.layer.cornerRadius = 8
         
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = .blue
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        toolBar.setItems([spaceButton, doneButton, spaceButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        typePicker.inputAccessoryView = toolBar
-        datePicker.inputAccessoryView = toolBar
-    }
-    
-    @objc private func donePicker() {
-        if typePicker.isEditing {
-            typePicker.endEditing(true)
-        } else if datePicker.isEditing {
-            datePicker.endEditing(true)
-        } 
+        typePicker.inputAccessoryView = PickerToolbar(for: typePicker)
+        datePicker.inputAccessoryView = PickerToolbar(for: datePicker)
     }
     
     override func viewWillAppear(_ animated: Bool) {
