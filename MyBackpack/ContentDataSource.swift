@@ -228,6 +228,21 @@ final class ContentDataSource
         
         do {
             try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
+            
+            let type = ContentType(rawValue: Int(content.typeID))!
+            
+            if type == .Picture || type == .Video {
+                var tPath: String?
+                
+                if type == .Picture { 
+                    tPath = content.resourceURL!.replacingOccurrences(of: ".jpeg", with: "_t.jpeg") 
+                } else {
+                    tPath = content.resourceURL!.replacingOccurrences(of: ".mov", with: "_t.jpeg") 
+                }
+                
+                try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(tPath!))
+            }
+            
         } catch {
             PopUp().displayError(message: "File could not be deleted.")
         }

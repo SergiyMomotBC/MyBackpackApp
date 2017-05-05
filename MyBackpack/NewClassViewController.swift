@@ -115,7 +115,7 @@ final class NewClassViewController: UIViewController
     private func saveClassToCoreData() {
         let newClass = NSEntityDescription.insertNewObject(forEntityName: "Class", into: CoreDataManager.shared.managedContext) as! Class
         
-        newClass.name = self.classNameField.text?.uppercased()
+        newClass.name = self.classNameField.text
         newClass.firstLectureDate = self.firstLectureDateField.date as NSDate?
         newClass.lastLectureDate = self.lastLectureDateField.date as NSDate?
         
