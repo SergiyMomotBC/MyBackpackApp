@@ -58,12 +58,21 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
     }
     
     @IBAction func doneAction(_ sender: Any) {
+        let result = ContentFileManager.shared.saveResource(self.resource, ofType: self.resourceType)
+        
+        guard let resourceURL = result.0 else {
+            let popUp = PopUp()
+            popUp.displayError(message: result.1!.localizedDescription)
+            return
+        }
+        
         let newObject = NSEntityDescription.insertNewObject(forEntityName: "Content", into: CoreDataManager.shared.managedContext) as! Content
         
         newObject.typeID = Int16(self.resourceType.rawValue)
         newObject.title = (self.contentTitleTextField.text?.isEmpty)! ? self.contentTitleTextField.placeholder : self.contentTitleTextField.text
         newObject.dateCreated = NSDate()
-        newObject.resourceURL = ContentFileManager.shared.saveResource(self.resource, ofType: self.resourceType)
+        
+        newObject.resourceURL = resourceURL
         
         let currClass = ContentDataSource.shared.currentClass!
         

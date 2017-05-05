@@ -8,7 +8,7 @@
 
 import UserNotifications
 
-class UserNotificationsManager: NSObject
+class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
 {
     static let shared = UserNotificationsManager()
     
@@ -16,6 +16,8 @@ class UserNotificationsManager: NSObject
     
     private override init() {
         self.notificationCenter = UNUserNotificationCenter.current()
+        super.init()
+        self.notificationCenter.delegate = self
         notificationCenter.removeAllDeliveredNotifications()
     }
     
@@ -26,8 +28,7 @@ class UserNotificationsManager: NSObject
             })
         }
         
-        //should be 1 not 0
-        let daysToRemind = days.count > 0 ? days : [0]
+        let daysToRemind = days.count > 0 ? days : [1]
         let type = ReminderType(rawValue: Int(reminder.typeID))!
         
         let content = UNMutableNotificationContent()
@@ -73,5 +74,9 @@ class UserNotificationsManager: NSObject
     
     func removerNotification(forReminder reminder: Reminder) {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [reminder.title!])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(UNNotificationPresentationOptions.alert)
     }
 }

@@ -61,14 +61,15 @@ final class ContentDataSource
         
         let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
     
-        let components = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: Date())
         let timeStamp = Int16(components.hour! * 60 + components.minute!)
+        let weekday = Int16(components.weekday!)
         
         if let classes = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) {
             
             for object in classes {
                 for day in object.days?.allObjects as! [ClassDay] {
-                    if timeStamp >= day.startTime && timeStamp <= day.endTime {
+                    if timeStamp >= day.startTime && timeStamp <= day.endTime && day.day == weekday {
                         loadData(forClass: object)
                         return
                     }
@@ -102,7 +103,7 @@ final class ContentDataSource
         
         isLoading = true
         DispatchQueue.global().async {
-            //usleep(250_000)
+            usleep(250_000)
             
             self.contentObjects.removeAll()
             
@@ -228,7 +229,7 @@ final class ContentDataSource
         do {
             try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
         } catch {
-            print("File could not be deleted")
+            PopUp().displayError(message: "File could not be deleted.")
         }
         
         CoreDataManager.shared.saveContext()

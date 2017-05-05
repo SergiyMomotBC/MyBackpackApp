@@ -25,7 +25,7 @@ class ContentFileManager
         self.documentsFolderURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
-    func saveResource(_ resource: AnyObject, ofType type: ContentType) -> String? {
+    func saveResource(_ resource: AnyObject, ofType type: ContentType) -> (String?, Error?) {
         let prefix = type.name.lowercased() + "_"
         
         switch type {
@@ -40,21 +40,20 @@ class ContentFileManager
         }
     }
     
-    private func saveNote(text: String, filename: String) -> String? {
+    private func saveNote(text: String, filename: String) -> (String?, Error?) {
         let data = text.data(using: String.Encoding.unicode)
         let path = documentsFolderURL.appendingPathComponent(filename + ".html")
         
         do {
             try data?.write(to: path, options: .atomic)
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextNoteID.rawValue) + 1, forKey: IDParameter.nextNoteID.rawValue)
-            return filename + ".html"
+            return (filename + ".html", nil)
         } catch {
-            print("HTML text could not be written to documents directory...")
-            return nil
+            return (nil, error)
         }
     }
     
-    private func savePicture(image: UIImage, filename: String) -> String? {
+    private func savePicture(image: UIImage, filename: String) -> (String?, Error?) {
         let data = UIImageJPEGRepresentation(image, 1.0)
         let path = documentsFolderURL.appendingPathComponent(filename + ".jpeg")
         let dataThumbnail = UIImageJPEGRepresentation(generateImageThumbnail(ofPicture: image), 1.0)
@@ -64,14 +63,13 @@ class ContentFileManager
             try data?.write(to: path, options: .atomic)
             try dataThumbnail?.write(to: pathThumbnail, options: .atomic)
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextPictureID.rawValue) + 1, forKey: IDParameter.nextPictureID.rawValue)
-            return filename + ".jpeg"
+            return (filename + ".jpeg", nil)
         } catch {
-            print("Image could not be written to documents directory...")
-            return nil
+            return (nil, error)
         }
     }
     
-    private func saveVideo(url: URL, filename: String) -> String? {
+    private func saveVideo(url: URL, filename: String) -> (String?, Error?) {
         let path = documentsFolderURL.appendingPathComponent(filename + ".mov")
         
         if let thumbnail = generateVideoThumbnail(fromURL: url) {
@@ -81,31 +79,33 @@ class ContentFileManager
             try? data?.write(to: path, options: .atomic)
         }
         
-        if moveToDocuments(from: url, to: path) {
+        let error =  moveToDocuments(from: url, to: path)
+        if error == nil {
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextVideoID.rawValue) + 1, forKey: IDParameter.nextVideoID.rawValue)
-            return filename + ".mov"
+            return (filename + ".mov", nil)
         } else {
-            return nil
+            return (nil, error)
         }
     }
     
-    private func saveAudio(url: URL, filename: String) -> String? {
+    private func saveAudio(url: URL, filename: String) -> (String?, Error?) {
         let path = documentsFolderURL.appendingPathComponent(filename + ".m4a")
-        if moveToDocuments(from: url, to: path) {
+        
+        let error = moveToDocuments(from: url, to: path)
+        if error == nil {
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextAudioID.rawValue) + 1, forKey: IDParameter.nextAudioID.rawValue)
-            return filename + ".m4a"
+            return (filename + ".m4a", nil)
         } else {
-            return nil
+            return (nil, error)
         }
     }
     
-    private func moveToDocuments(from source: URL, to destination: URL) -> Bool {
+    private func moveToDocuments(from source: URL, to destination: URL) -> Error? {
         do {
             try FileManager.default.moveItem(at: source, to: destination)
-            return true
+            return nil
         } catch {
-            print("File could not be moved to documents folder...")
-            return false
+            return error
         }
     }
     
