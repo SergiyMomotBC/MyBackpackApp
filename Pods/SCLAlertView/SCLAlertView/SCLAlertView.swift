@@ -191,7 +191,7 @@ open class SCLAlertView: UIViewController {
             self.hideWhenBackgroundViewIsTapped = hideWhenBackgroundViewIsTapped
         }
         
-        mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
+        public mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
             self.kWindowHeight = kWindowHeight
         }
         
@@ -200,7 +200,7 @@ open class SCLAlertView: UIViewController {
         }
     }
     
-    var appearance: SCLAppearance!
+    open var appearance: SCLAppearance!
     
     // UI Colour
     var viewColor = UIColor()
@@ -952,7 +952,7 @@ class SCLAlertViewStyleKit : NSObject {
     
     class func drawWarning() {
         // Color Declarations
-        let greyColor = UIColor(red: 0.236, green: 0.236, blue: 0.236, alpha: 1.000)
+        let greyColor = UIColor.white
         
         // Warning Group
         // Warning Circle Drawing

@@ -1009,7 +1009,7 @@
                                             <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="applyChanges:" destination="nCi-eC-3Q9" eventType="touchUpInside" id="g5b-sG-Orw"/>
+                                            <action selector="applyChanges" destination="nCi-eC-3Q9" eventType="touchUpInside" id="vSR-E3-xMP"/>
                                             <action selector="cancelAction:" destination="MlD-82-JSh" eventType="touchUpInside" id="3Dr-z6-Bwu"/>
                                         </connections>
                                     </button>

@@ -86,17 +86,9 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let appearance = SCLAlertView.SCLAppearance(
-            kWindowWidth: CGFloat(self.view.bounds.size.width - 40),
-            kButtonHeight: 50.0,
-            kTitleFont: UIFont(name: "Avenir Next", size: 18)!,
-            kTextFont: UIFont(name: "Avenir Next", size: 14)!,
-            kButtonFont: UIFont(name: "Avenir Next", size: 15)!
-        )
-        
         let reminder = reminders[indexPath.row]
         
-        let editPopUp = SCLAlertView(appearance: appearance)
+        let editPopUp = PopUp()
         
         let textView = UITextView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.size.width - 66, height: self.view.bounds.size.height))
         textView.isEditable = false
@@ -106,8 +98,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
         textView.text = reminder.remark!.isEmpty ? "No description" : reminder.remark
         
         editPopUp.customSubview = textView
-        
-        editPopUp.showInfo(reminder.title!, subTitle: "", closeButtonTitle: "Close", duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
+        editPopUp.displayInfo(title: reminder.title!)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

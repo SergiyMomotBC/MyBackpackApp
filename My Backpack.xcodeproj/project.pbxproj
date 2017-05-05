@@ -60,6 +60,7 @@
 		65E7E2001E7B1FE1002D07ED /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E1FF1E7B1FE1002D07ED /* SideMenuViewController.swift */; };
 		65EF52491E858D0100201628 /* ClassObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EF52481E858D0100201628 /* ClassObserver.swift */; };
 		65F2CF261EBD019400BA804E /* PickerToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2CF251EBD019400BA804E /* PickerToolbar.swift */; };
+		65F2CF281EBD03E700BA804E /* PopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2CF271EBD03E700BA804E /* PopUp.swift */; };
 		65F58E191E8AEC3600890FD3 /* ManageClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F58E181E8AEC3600890FD3 /* ManageClassesViewController.swift */; };
 		65F82BC81E732DEC005A0A66 /* ContentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */; };
 		65F82BCA1E73442A005A0A66 /* MusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F82BC91E73442A005A0A66 /* MusicViewController.swift */; };
@@ -125,6 +126,7 @@
 		65E7E1FF1E7B1FE1002D07ED /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		65EF52481E858D0100201628 /* ClassObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassObserver.swift; sourceTree = "<group>"; };
 		65F2CF251EBD019400BA804E /* PickerToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerToolbar.swift; sourceTree = "<group>"; };
+		65F2CF271EBD03E700BA804E /* PopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
 		65F58E181E8AEC3600890FD3 /* ManageClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageClassesViewController.swift; sourceTree = "<group>"; };
 		65F82BC71E732DEC005A0A66 /* ContentPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentPresenter.swift; path = MyBackpack/ContentPresenter.swift; sourceTree = "<group>"; };
 		65F82BC91E73442A005A0A66 /* MusicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				6520B2521E5B7557002C846D /* ContentTableViewCell.swift */,
 				65CADA5C1EA14AA3009D4F2B /* ReminderTableViewCell.swift */,
 				65F2CF251EBD019400BA804E /* PickerToolbar.swift */,
+				65F2CF271EBD03E700BA804E /* PopUp.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				65F82BC81E732DEC005A0A66 /* ContentPresenter.swift in Sources */,
 				65F58E191E8AEC3600890FD3 /* ManageClassesViewController.swift in Sources */,
 				6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */,
+				65F2CF281EBD03E700BA804E /* PopUp.swift in Sources */,
 				65D77EBE1EAA77BA0086F04A /* Searchable.swift in Sources */,
 				65E7E1FD1E7B1F2C002D07ED /* Class+CoreDataClass.swift in Sources */,
 				65EF52491E858D0100201628 /* ClassObserver.swift in Sources */,

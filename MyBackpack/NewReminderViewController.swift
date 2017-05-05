@@ -110,9 +110,8 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func saveReminder(_ sender: Any) {
         guard !titleTextField.text!.isEmpty else {
-            let alert = UIAlertController(title: "Error", message: "Reminder's title cannot be empty.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in alert.dismiss(animated: true, completion: nil) })
-            present(alert, animated: true, completion: nil)
+            let errorPopUp = PopUp()
+            errorPopUp.displayError(message: "Reminder's title cannot be empty.")
             return 
         }
     

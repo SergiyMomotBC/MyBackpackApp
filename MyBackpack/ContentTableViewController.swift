@@ -102,17 +102,9 @@ extension ContentTableViewController
         }
         
         let edit = UITableViewRowAction(style: .normal, title: " Edit     ") { (action, indexPath) in
-            let appearance = SCLAlertView.SCLAppearance(
-                kWindowWidth: CGFloat(self.view.bounds.size.width - 40),
-                kWindowHeight: self.view.frame.height / 2.0,
-                kTextHeight: 50,
-                kButtonHeight: 50.0,
-                kTitleFont: UIFont(name: "Avenir Next", size: 18)!,
-                kTextFont: UIFont(name: "Avenir Next", size: 14)!,
-                kButtonFont: UIFont(name: "Avenir Next", size: 15)!
-            )
+            let editPopUp = PopUp()
+            editPopUp.appearance.setkWindowHeight(self.view.bounds.size.height / 2.0)
             
-            let editPopUp = SCLAlertView(appearance: appearance)
             let newTitle = editPopUp.addTextField("Enter new title")
             
             editPopUp.addButton("Save", backgroundColor: .green, textColor: .white, showDurationStatus: false) {
@@ -122,7 +114,8 @@ extension ContentTableViewController
                 }
             }
             
-            editPopUp.showEdit("Edit content", subTitle: "", closeButtonTitle: "Cancel", duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
+            editPopUp.displayEdit(title: "Edit content")
+            
             self.tableView.setEditing(false, animated: true)
         }
         

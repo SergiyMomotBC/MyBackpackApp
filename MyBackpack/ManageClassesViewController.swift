@@ -18,20 +18,6 @@ class ManageClassesViewController: UIViewController
     fileprivate var classesToDelete: [Class] = []
     weak var delegate: ClassViewControllerDelegate?
     
-    fileprivate lazy var alert: UIAlertController = {
-        let alert = UIAlertController(title: "Warning", message: "", preferredStyle: .alert)
-        alert.message = "Classes and all of its content will be deleted and cannot be restored."
-        
-        alert.addAction(UIAlertAction(title: "Confirm", style: UIAlertActionStyle.destructive, handler: { action in 
-            CoreDataManager.shared.deleteClasses(self.classesToDelete)
-            self.delegate?.classViewController(self, didCommitChanges: true)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
-        
-        return alert
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,17 +42,26 @@ class ManageClassesViewController: UIViewController
         delegate?.classViewController(self, didCommitChanges: false)
     }
     
-    @IBAction func applyChanges(_ sender: Any) {
+    @IBAction func applyChanges() {
         if !classesToDelete.isEmpty {
-            self.present(alert, animated: true, completion: nil)
+            
+            let popUp = PopUp()
+            
+            popUp.addButton("Confirm", backgroundColor: UIColor.red, textColor: UIColor.white, showDurationStatus: false, action: { action in 
+                CoreDataManager.shared.deleteClasses(self.classesToDelete)
+                self.delegate?.classViewController(self, didCommitChanges: true)
+            })
+            
+            popUp.displayWarning(message: "Classes and all of its content will be deleted and cannot be restored.")
+            
         } else {
             delegate?.classViewController(self, didCommitChanges: false)
         }
     }
     
     @IBAction func removeAllClasses(_ sender: Any) {
-        classesToDelete += listOfClasses
-        self.present(alert, animated: true, completion: nil)
+        classesToDelete = listOfClasses
+        applyChanges()
     }
 }
 

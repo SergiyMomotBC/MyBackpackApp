@@ -48,8 +48,8 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "addNewClass" && classesList.count >= 8 {
-            let alert = UIAlertController(title: "Action not allowed", message: "Maximum of 8 classes can be managed simultaneously.", preferredStyle: .alert)
-            present(alert, animated: true, completion: nil)
+            let popUp = PopUp()
+            popUp.displayError(message: "Maximum of 8 classes can be managed simultaneously.")
             return false
         } else {
             return true

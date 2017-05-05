@@ -45,8 +45,8 @@ final class NewClassViewController: UIViewController
     
     @IBAction func addDay(_ sender: Any) {
         guard !self.lectureDays.contains(where: { $0.0 == dayField.selectedItem! }) else {
-            self.alert.message = "Class already has \(dayField.selectedItem!) as a lecture day."
-            self.present(alert, animated: true, completion: nil)
+            let errorPopUp = PopUp()
+            errorPopUp.displayError(message: "Class already has \(dayField.selectedItem!) as a lecture day.")
             return
         }
         
@@ -100,8 +100,8 @@ final class NewClassViewController: UIViewController
         }
         
         guard errorMessage == nil else {
-            self.alert.message = errorMessage
-            self.present(alert, animated: true, completion: nil)
+            let errorPopUp = PopUp()
+            errorPopUp.displayError(message: errorMessage!)
             return
         }
         
