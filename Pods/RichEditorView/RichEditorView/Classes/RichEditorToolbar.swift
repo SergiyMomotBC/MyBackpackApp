@@ -7,37 +7,24 @@
 
 import UIKit
 
-/**
-    RichEditorToolbarDelegate is a protocol for the RichEditorToolbar.
-    Used to receive actions that need extra work to perform (eg. display some UI)
-*/
-@objc public protocol RichEditorToolbarDelegate: NSObjectProtocol {
+/// RichEditorToolbarDelegate is a protocol for the RichEditorToolbar.
+/// Used to receive actions that need extra work to perform (eg. display some UI)
+@objc public protocol RichEditorToolbarDelegate: class {
 
-    /**
-        Called when the Text Color toolbar item is pressed.
-    */
+    /// Called when the Text Color toolbar item is pressed.
     @objc optional func richEditorToolbarChangeTextColor(_ toolbar: RichEditorToolbar)
 
-    /**
-        Called when the Background Color toolbar item is pressed.
-    */
+    /// Called when the Background Color toolbar item is pressed.
     @objc optional func richEditorToolbarChangeBackgroundColor(_ toolbar: RichEditorToolbar)
 
-    /**
-        Called when the Insert Image toolbar item is pressed.
-    */
+    /// Called when the Insert Image toolbar item is pressed.
     @objc optional func richEditorToolbarInsertImage(_ toolbar: RichEditorToolbar)
 
-    /**
-        Called when the Insert Link toolbar item is pressed.
-    */
+    /// Called when the Insert Link toolbar item is pressed.
     @objc optional func richEditorToolbarInsertLink(_ toolbar: RichEditorToolbar)
 }
 
-
-/**
-    RichBarButtonItem is a subclass of UIBarButtonItem that takes a callback as opposed to the target-action pattern
-*/
+/// RichBarButtonItem is a subclass of UIBarButtonItem that takes a callback as opposed to the target-action pattern
 open class RichBarButtonItem: UIBarButtonItem {
     open var actionHandler: ((Void) -> Void)?
     
@@ -60,33 +47,31 @@ open class RichBarButtonItem: UIBarButtonItem {
     }
 }
 
-/**
-    RichEditorToolbar is UIView that contains the toolbar for actions that can be performed on a RichEditorView
-*/
+/// RichEditorToolbar is UIView that contains the toolbar for actions that can be performed on a RichEditorView
 open class RichEditorToolbar: UIView {
 
-    /**
-        The delegate to receive events that cannot be automatically completed
-    */
+    /// The delegate to receive events that cannot be automatically completed
     open weak var delegate: RichEditorToolbarDelegate?
 
-    /**
-        A reference to the RichEditorView that it should be performing actions on
-    */
+    /// A reference to the RichEditorView that it should be performing actions on
     open weak var editor: RichEditorView?
 
-    /**
-        The list of options to be displayed on the toolbar
-    */
+    /// The list of options to be displayed on the toolbar
     open var options: [RichEditorOption] = [] {
         didSet {
             updateToolbar()
         }
     }
 
-    fileprivate var toolbarScroll: UIScrollView
-    fileprivate var toolbar: UIToolbar
-    fileprivate var backgroundToolbar: UIToolbar
+    /// The tint color to apply to the toolbar background.
+    open var barTintColor: UIColor? {
+        get { return backgroundToolbar.barTintColor }
+        set { backgroundToolbar.barTintColor = newValue }
+    }
+
+    private var toolbarScroll: UIScrollView
+    private var toolbar: UIToolbar
+    private var backgroundToolbar: UIToolbar
     
     public override init(frame: CGRect) {
         toolbarScroll = UIScrollView()
@@ -104,21 +89,23 @@ open class RichEditorToolbar: UIView {
         setup()
     }
     
-    fileprivate func setup() {
-        self.autoresizingMask = .flexibleWidth
+    private func setup() {
+        autoresizingMask = .flexibleWidth
+        backgroundColor = .clear
 
-        backgroundToolbar.frame = self.bounds
+        backgroundToolbar.frame = bounds
         backgroundToolbar.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
         toolbar.autoresizingMask = .flexibleWidth
+        toolbar.backgroundColor = .clear
         toolbar.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
         toolbar.setShadowImage(UIImage(), forToolbarPosition: .any)
 
-        toolbarScroll.frame = self.bounds
+        toolbarScroll.frame = bounds
         toolbarScroll.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         toolbarScroll.showsHorizontalScrollIndicator = false
         toolbarScroll.showsVerticalScrollIndicator = false
-        toolbarScroll.backgroundColor = UIColor.clear
+        toolbarScroll.backgroundColor = .clear
         toolbarScroll.isScrollEnabled = false
 
         toolbarScroll.addSubview(toolbar)
@@ -128,15 +115,21 @@ open class RichEditorToolbar: UIView {
         updateToolbar()
     }
     
-    fileprivate func updateToolbar() {
+    private func updateToolbar() {
         var buttons = [UIBarButtonItem]()
         for option in options {
-            if let image = option.image() {
-                let button = RichBarButtonItem(image: image) { [weak self] in  option.action(self) }
+            let handler = { [weak self] in
+                if let strongSelf = self {
+                    option.action(strongSelf)
+                }
+            }
+
+            if let image = option.image {
+                let button = RichBarButtonItem(image: image, handler: handler)
                 buttons.append(button)
             } else {
-                let title = option.title()
-                let button = RichBarButtonItem(title: title) { [weak self] in option.action(self) }
+                let title = option.title
+                let button = RichBarButtonItem(title: title, handler: handler)
                 buttons.append(button)
             }
         }
@@ -155,8 +148,8 @@ open class RichEditorToolbar: UIView {
             }
         }
         
-        if width < self.frame.size.width {
-            toolbar.frame.size.width = self.frame.size.width
+        if width < frame.size.width {
+            toolbar.frame.size.width = frame.size.width
         } else {
             toolbar.frame.size.width = width
         }

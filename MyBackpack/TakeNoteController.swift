@@ -13,8 +13,9 @@ class NoteController: UIViewController
 {
     private lazy var toolbar: RichEditorToolbar = {
         let toolbar = RichEditorToolbar(frame: CGRect(x: 0, y: self.view.frame.height - 44, width: self.view.frame.width, height: 44))
-        toolbar.options = [RichEditorOptions.undo, RichEditorOptions.redo, RichEditorOptions.bold, RichEditorOptions.italic, RichEditorOptions.underline, RichEditorOptions.orderedList, RichEditorOptions.unorderedList,
-                           RichEditorOptions.alignLeft, RichEditorOptions.alignCenter, RichEditorOptions.alignRight]
+        toolbar.options = [RichEditorDefaultOption.undo, RichEditorDefaultOption.redo, RichEditorDefaultOption.bold, RichEditorDefaultOption.italic, RichEditorDefaultOption.underline, 
+                           RichEditorDefaultOption.orderedList, RichEditorDefaultOption.unorderedList, RichEditorDefaultOption.alignLeft, RichEditorDefaultOption.alignCenter, 
+                           RichEditorDefaultOption.alignRight]
         return toolbar
     }()
     
@@ -24,6 +25,7 @@ class NoteController: UIViewController
         super.init(nibName: nil, bundle: nil)
         self.editorView = RichEditorView(frame: CGRect(x: 8, y: 4, width: view.frame.width - 16, height: view.frame.height - 4))
         editorView.backgroundColor = .white
+        editorView.clipsToBounds = true
         view.backgroundColor = .white
         view.addSubview(editorView)
         toolbar.editor = editorView
@@ -37,7 +39,7 @@ class NoteController: UIViewController
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.editorView.focus()
+        self.editorView.runJS("document.getElementById('editor').focus()")
     }
     
     @objc private func keyboardWillShowOrHide(notification: NSNotification) {
@@ -85,7 +87,7 @@ class TakeNoteController: NSObject, ContentProvider
     }
     
     @objc private func done() {
-        self.takenNoteHTMLText = noteController.editorView.getHTML()
+        self.takenNoteHTMLText = noteController.editorView.html
         self.parentVC?.contentProviderDidSuccesfullyFinished()
     }
     

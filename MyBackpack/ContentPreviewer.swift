@@ -46,8 +46,8 @@ class ContentPreviewer
         let editorView = RichEditorView(frame: CGRect(x: 10, y: 2, width: self.view.frame.width - 20, height: self.view.frame.height - 7))
         editorView.backgroundColor = UIColor.white
         editorView.clipsToBounds = true
-        editorView.editingEnabled = false
-        editorView.setHTML(note)
+        editorView.isEditingEnabled = false
+        editorView.html = note
         self.view.addSubview(editorView)
         
         self.view.backgroundColor = UIColor.white
