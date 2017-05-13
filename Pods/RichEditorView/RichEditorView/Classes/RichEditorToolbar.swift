@@ -119,6 +119,7 @@ open class RichEditorToolbar: UIView {
         toolbarScroll.showsHorizontalScrollIndicator = false
         toolbarScroll.showsVerticalScrollIndicator = false
         toolbarScroll.backgroundColor = UIColor.clear
+        toolbarScroll.isScrollEnabled = false
 
         toolbarScroll.addSubview(toolbar)
 
@@ -140,7 +141,9 @@ open class RichEditorToolbar: UIView {
             }
         }
         
-        toolbar.items = buttons
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        space.width = -13
+        toolbar.items = [space] + buttons
 
         let defaultIconWidth: CGFloat = 22
         let barButtonItemMargin: CGFloat = 11

@@ -326,6 +326,7 @@ extension RichEditorView {
     
     public func focus() {
         runJS("RE.focus();")
+        print("Focus")
     }
     
     public func blur() {
