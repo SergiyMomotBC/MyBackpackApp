@@ -66,6 +66,10 @@ RE.customAction = function(action) {
     RE.callback("action/" + action);
 };
 
+RE.updateHeight = function() {
+    RE.callback("updateHeight");
+}
+
 RE.callbackQueue = [];
 RE.runCallbackQueue = function() {
     if (RE.callbackQueue.length === 0) {
@@ -89,7 +93,15 @@ RE.callback = function(method) {
 };
 
 RE.setHtml = function(contents) {
-    RE.editor.innerHTML = contents;
+    var tempWrapper = document.createElement('div');
+    tempWrapper.innerHTML = contents;
+    var images = tempWrapper.querySelectorAll("img");
+
+    for (var i = 0; i < images.length; i++) {
+        images[i].onload = RE.updateHeight;
+    }
+
+    RE.editor.innerHTML = tempWrapper.innerHTML;
     RE.updatePlaceholder();
 };
 
@@ -207,9 +219,21 @@ RE.setJustifyRight = function() {
     document.execCommand('justifyRight', false, null);
 };
 
+RE.getLineHeight = function() {
+    return RE.editor.style.lineHeight;
+};
+
+RE.setLineHeight = function(height) {
+    RE.editor.style.lineHeight = height;
+};
+
 RE.insertImage = function(url, alt) {
-    var html = '<img src="' + url + '" alt="' + alt + '" />';
-    RE.insertHTML(html);
+    var img = document.createElement('img');
+    img.setAttribute("src", url);
+    img.setAttribute("alt", alt);
+    img.onload = RE.updateHeight;
+
+    RE.insertHTML(img.outerHTML);
     RE.callback("input");
 };
 
@@ -293,6 +317,14 @@ RE.focus = function() {
     RE.editor.focus();
 };
 
+RE.focusAtPoint = function(x, y) {
+    var range = document.caretRangeFromPoint(x, y);
+    var selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    RE.editor.focus();
+};
+
 RE.blurFocus = function() {
     RE.editor.blur();
 };
@@ -355,4 +387,29 @@ RE.getSelectedHref = function() {
     }
 
     return href ? href : null;
+};
+
+// Returns the cursor position relative to its current position onscreen.
+// Can be negative if it is above what is visible
+RE.getRelativeCaretYPosition = function() {
+    var y = 0;
+    var sel = window.getSelection();
+    if (sel.rangeCount) {
+        var range = sel.getRangeAt(0);
+        var needsWorkAround = (range.startOffset == 0)
+        /* Removing fixes bug when node name other than 'div' */
+        // && range.startContainer.nodeName.toLowerCase() == 'div');
+        if (needsWorkAround) {
+            y = range.startContainer.offsetTop - window.pageYOffset;
+        } else {
+            if (range.getClientRects) {
+                var rects=range.getClientRects();
+                if (rects.length > 0) {
+                    y = rects[0].top;
+                }
+            }
+        }
+    }
+
+    return y;
 };

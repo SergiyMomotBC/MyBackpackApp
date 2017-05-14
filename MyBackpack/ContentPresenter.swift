@@ -52,8 +52,8 @@ class ContentPresenter
         let noteViewerController = UIViewController()
         let editorView = RichEditorView(frame: noteViewerController.view.frame)
         editorView.backgroundColor = .white
-        editorView.setHTML(text)
-        editorView.editingEnabled = false
+        editorView.html = text
+        editorView.isEditingEnabled = false
         noteViewerController.view.addSubview(editorView)
         
         let navigationVC = UINavigationController(rootViewController: noteViewerController)
