@@ -39,7 +39,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         super.viewWillAppear(animated)
         manageClassesButton.isHidden = classesList.isEmpty
         
-        if selectedClassIndex == -1 && ContentDataSource.shared.currentClass != nil {
+        if ContentDataSource.shared.currentClass != nil {
             selectedClassIndex = classesList.index(of: ContentDataSource.shared.currentClass!) ?? -1
         }
         
