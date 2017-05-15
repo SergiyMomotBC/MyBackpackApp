@@ -20,7 +20,7 @@ class AudioRecorderController: NSObject, ContentProvider, IQAudioRecorderViewCon
         super.init()
         
         self.audioRecorderVC.delegate = self
-        self.audioRecorderVC.maximumRecordDuration = 10
+        self.audioRecorderVC.maximumRecordDuration = 1800
         self.audioRecorderVC.title = "Voice Recording"
         self.audioRecorderVC.allowCropping = false
         self.audioRecorderVC.normalTintColor = .white

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "InterfaceExpendet-08-128.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Stop-100.png",
       "scale" : "2x"
     },
     {

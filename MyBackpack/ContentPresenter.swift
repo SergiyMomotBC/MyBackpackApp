@@ -50,7 +50,8 @@ class ContentPresenter
     
     private func presentNote(text: String, in vc: UIViewController) {
         let noteViewerController = UIViewController()
-        let editorView = RichEditorView(frame: noteViewerController.view.frame)
+        noteViewerController.view.backgroundColor = .white
+        let editorView = RichEditorView(frame: CGRect(x: 8, y: 4, width: noteViewerController.view.frame.width - 16, height: noteViewerController.view.frame.height - 4))
         editorView.backgroundColor = .white
         editorView.html = text
         editorView.isEditingEnabled = false

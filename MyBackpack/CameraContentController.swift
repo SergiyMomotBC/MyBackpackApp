@@ -37,7 +37,7 @@ class CameraContentController: NSObject, ContentProvider, UIImagePickerControlle
             imagePicker.mediaTypes = [kUTTypeMovie as String]
             imagePicker.cameraCaptureMode = .video
             imagePicker.videoQuality = .typeMedium
-            imagePicker.videoMaximumDuration = 120
+            imagePicker.videoMaximumDuration = 600
         }
     }
     

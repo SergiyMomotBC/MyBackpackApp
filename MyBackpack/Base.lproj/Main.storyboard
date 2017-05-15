@@ -2153,9 +2153,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="menu" width="32" height="32"/>
-        <image name="playBtn" width="128" height="128"/>
-        <image name="restartBtn" width="128" height="128"/>
-        <image name="stopBtn" width="128" height="128"/>
+        <image name="menu" width="25" height="25"/>
+        <image name="playBtn" width="50" height="50"/>
+        <image name="restartBtn" width="50" height="50"/>
+        <image name="stopBtn" width="50" height="50"/>
     </resources>
 </document>
