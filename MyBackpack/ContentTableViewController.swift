@@ -23,7 +23,12 @@ class ContentTableViewController: UITableViewController, Updatable
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.tableView.reloadData()
         ContentDataSource.shared.refresh()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     func update() {

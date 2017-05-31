@@ -51,6 +51,8 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         datePicker.maximumDate = ContentDataSource.shared.currentClass?.lastLectureDate as Date?
         datePicker.date = Calendar.current.date(byAdding: .day, value: 1, to: Date())
         
+        descriptionTextField.keyboardAppearance = .dark
+        
         let daysControl = MultiSelectionSegmentedControl(items: ["1", "2", "3", "4", "5", "6", "7"])
         daysControl.tintColor = .white
         daysToRemindControl = daysControl

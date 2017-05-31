@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
             window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "onboarding")
         } 
         
+        UITextField.appearance().keyboardAppearance = .dark
+        
         return true
     }
 
