@@ -48,7 +48,7 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         datePicker.dropDownMode = .dateTimePicker
         datePicker.isOptionalDropDown = false
         datePicker.minimumDate = Date()
-        datePicker.maximumDate = ContentDataSource.shared.currentClass?.lastLectureDate as Date?
+        datePicker.maximumDate = Calendar.current.date(byAdding: .month, value: 1, to: (ContentDataSource.shared.currentClass!.lastLectureDate! as Date))
         datePicker.date = Calendar.current.date(byAdding: .day, value: 1, to: Date())
         
         descriptionTextField.keyboardAppearance = .dark

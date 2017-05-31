@@ -65,17 +65,19 @@ class ReminderFilterOptionsViewController: UITableViewController, IQDropDownText
     }
     
     func reset() {
+        let maxDate = Calendar.current.date(byAdding: .month, value: 1, to: (ContentDataSource.shared.currentClass!.lastLectureDate! as Date))!
+        
         selectedTypes = [0, 1, 2, 3]
-        datesInterval = (ContentDataSource.shared.currentClass!.firstLectureDate! as Date, ContentDataSource.shared.currentClass!.lastLectureDate! as Date)
+        datesInterval = (ContentDataSource.shared.currentClass!.firstLectureDate! as Date, maxDate)
         
         fromDate.date = datesInterval.from
         toDate.date = datesInterval.to
         
         fromDate.minimumDate = ContentDataSource.shared.currentClass?.firstLectureDate as Date?
-        fromDate.maximumDate = ContentDataSource.shared.currentClass?.lastLectureDate as Date?
+        fromDate.maximumDate = maxDate
         
         toDate.minimumDate = ContentDataSource.shared.currentClass?.firstLectureDate as Date?
-        toDate.maximumDate = ContentDataSource.shared.currentClass?.lastLectureDate as Date?
+        toDate.maximumDate = maxDate
         
         if self.tableView.numberOfRows(inSection: 0) > 0 {
             for row in 0...3 {

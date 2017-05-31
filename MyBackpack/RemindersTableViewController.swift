@@ -14,9 +14,9 @@ class RemindersTableViewController: UIViewController
 {
     @IBOutlet weak var tableView: UITableView!
     
-    fileprivate var reminders: [Reminder] = []
+    var reminders: [Reminder] = []
     fileprivate var headerText = "All reminders:"
-    fileprivate var controller: RemindersViewController?
+    var controller: RemindersViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +26,10 @@ class RemindersTableViewController: UIViewController
         tableView.alwaysBounceVertical = false
         tableView.tableFooterView = UIView()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        reminders = ContentDataSource.shared.reminders(forDate: nil)
-        tableView.reloadData()
-    }
     
     func showReminders(forDate date: Date?, isSearching: Bool = false) {
-        reminders = ContentDataSource.shared.reminders(forDate: date)
-        
+        reminders = date != nil ? controller.remindersForDate(date!) : controller.reminders
+    
         if let date = date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .long
@@ -50,15 +44,11 @@ class RemindersTableViewController: UIViewController
     }
     
     func searchRemindersFor(_ text: String, withFilterOptions options: RemindersFilterOptions) {
-        self.reminders = ContentDataSource.shared.reminders(forDate: nil).filter({
+        self.reminders = controller.reminders.filter({
             $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
                 && options.types.contains(Int($0.typeID)) 
                 && (options.fromDate...options.toDate).contains($0.date! as Date)
         })
-    }
-    
-    override func didMove(toParentViewController parent: UIViewController?) {
-        controller = parent as? RemindersViewController
     }
 }
 
@@ -114,7 +104,12 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            ContentDataSource.shared.removeReminder(atRow: indexPath.row)
+            
+            let reminder = controller.reminders.remove(at: indexPath.row)
+            ContentDataSource.shared.currentClass?.removeFromReminders(reminder)
+            CoreDataManager.shared.managedContext.delete(reminder)
+            CoreDataManager.shared.saveContext()
+            
             reminders.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .left)

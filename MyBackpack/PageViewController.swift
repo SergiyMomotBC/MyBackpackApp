@@ -17,16 +17,6 @@ class PageViewController: UIPageViewController, ClassObserver
 {
     static let savedPageIndexKey = "savedPageIndexKey" 
     
-    let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    
-    lazy var blurView: UIView = {
-        let blurView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        blurView.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
-        blurView.addSubview(self.indicator)
-        self.indicator.center = blurView.center
-        return blurView
-    }()
-    
     var menuController: MenuController!
     var navigationTabBar: NavigationTabBar!
     var searchController: SearchController!
@@ -43,6 +33,8 @@ class PageViewController: UIPageViewController, ClassObserver
         if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
             buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
         }
+        
+        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.currentClass?.name ?? "No classes"
         
         ContentDataSource.shared.addObserver(self)
         
@@ -61,13 +53,6 @@ class PageViewController: UIPageViewController, ClassObserver
         } else {
             self.setViewControllers([orderedViewControllers[0]], direction: .forward, animated: true, completion: nil)
             self.navigationTabBar.selectTab(atIndex: 0)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let count = try? CoreDataManager.shared.managedContext.count(for: Class.fetchRequest()), count > 0 && ContentDataSource.shared.currentClass == nil {
-            ContentDataSource.shared.loadFirst()
         }
     }
     
@@ -122,7 +107,7 @@ class PageViewController: UIPageViewController, ClassObserver
         }
     }
     
-    func classWillChange() {
+    func classDidChange() {
         if menuController.isShowing {
             hideMenu()
         }
@@ -131,20 +116,16 @@ class PageViewController: UIPageViewController, ClassObserver
             searchController.hideSearchBar()
         }
         
-        orderedViewControllers[currentPageIndex].view.addSubview(blurView)
-        indicator.startAnimating()
-    }
-    
-    func classDidChange() {
-        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.classTitle
+        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.currentClass?.name ?? "No classes"
         
         if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
             buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
         }
         
-        (orderedViewControllers[currentPageIndex] as? Updatable)?.update()
-        
-        indicator.stopAnimating()
-        blurView.removeFromSuperview()
+        if let contentVC = orderedViewControllers[currentPageIndex] as? ContentTableViewController {
+            contentVC.loadData(animated: true)
+        } else if let remindersVC = orderedViewControllers[currentPageIndex] as? RemindersViewController {
+            remindersVC.loadData(animated: true)
+        }
     }
 }    
