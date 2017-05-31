@@ -173,9 +173,11 @@ fileprivate extension NewClassViewController
     func setupPickers() {
         firstLectureDateField.dropDownMode = .datePicker
         firstLectureDateField.inputAccessoryView = PickerToolbar(for: firstLectureDateField)
+        firstLectureDateField.isOptionalDropDown = false
         
         lastLectureDateField.dropDownMode = .datePicker
         lastLectureDateField.inputAccessoryView = PickerToolbar(for: lastLectureDateField)
+        lastLectureDateField.isOptionalDropDown = false
         
         fromTimeField.dropDownMode = .timePicker
         fromTimeField.inputAccessoryView = PickerToolbar(for: fromTimeField)

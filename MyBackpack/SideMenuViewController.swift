@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import SideMenu
+import DZNEmptyDataSet
 
-class SideMenuViewController: UIViewController, ClassViewControllerDelegate
+class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZNEmptyDataSetSource
 {
     static let savedClassIndex = "savedClassIndex"
     
@@ -22,7 +23,6 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     fileprivate let selectedCellColor = UIColor(red: 1.0, green: 0, blue: 0.5, alpha: 0.25) 
     fileprivate let unselectedCellColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.25)
     fileprivate var classesList: [Class]!
-    fileprivate var nextClassTimer: NextClassTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,8 +31,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         
         self.classesTableView.delegate = self
         self.classesTableView.alwaysBounceVertical = false
-        
-        self.nextClassTimer = NextClassTimer(forLabel: nextClassInfoLabel)
+        self.classesTableView.emptyDataSetSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,8 +77,6 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
                 self.selectClass(atIndex: 0)
             }
             
-            self.nextClassTimer.update()
-            
             self.classesTableView.reloadData()
         }
     }
@@ -88,6 +85,22 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         selectedClassIndex = index
         UserDefaults.standard.set(index, forKey: SideMenuViewController.savedClassIndex)
         ContentDataSource.shared.loadData(forClass: index != -1 ? classesList[index] : nil)
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 20)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "Your backpack is empty.", attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "You can add your first class by tapping on the 'Add...' button above.", attributes: attrs)
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return self.classesTableView.frame.height / -8
     }
 }
 

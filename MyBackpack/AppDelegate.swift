@@ -18,9 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if !UserDefaults.standard.bool(forKey: AppDelegate.firstLaunchKey) {
             window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "onboarding")
-        } else if let count = try? CoreDataManager.shared.managedContext.count(for: Class.fetchRequest()), count == 0 {
-            window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "noClasses")
-        }
+        } 
         
         return true
     }

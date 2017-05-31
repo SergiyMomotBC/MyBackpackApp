@@ -11,6 +11,7 @@ import UIKit
 class RemindersViewController: UIViewController, Updatable 
 {
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerView: UIView!
     
     var calendarViewController: CalendarViewController!
     var remindersTableViewController: RemindersTableViewController!
@@ -52,10 +53,10 @@ extension RemindersViewController: Searchable
        
         remindersTableViewController.tableView.emptyDataSetSource = controller
         calendarHeight = calendarHeightConstraint.constant
-        remindersTableViewController.showReminders(forDate: nil)
+        remindersTableViewController.showReminders(forDate: nil, isSearching: true)
         
         UIView.animate(withDuration: 0.25) { 
-            self.calendarHeightConstraint.constant = 0.0
+            self.calendarHeightConstraint.constant = self.containerView.frame.height * 2
             self.view.layoutIfNeeded()
         }
     }

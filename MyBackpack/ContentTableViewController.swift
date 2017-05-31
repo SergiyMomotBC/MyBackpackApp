@@ -106,7 +106,7 @@ extension ContentTableViewController
             
             let newTitle = editPopUp.addTextField("Enter new title")
             
-            editPopUp.addButton("Save", backgroundColor: .green, textColor: .white, showDurationStatus: false) {
+            editPopUp.addButton("Save", backgroundColor: nil, textColor: .white, showDurationStatus: false) {
                 if let text = newTitle.text, text != ContentDataSource.shared.content(forIndexPath: indexPath)!.title! {
                     ContentDataSource.shared.updateContent(forIndexPath: indexPath, newTitle: text)
                     self.tableView.reloadData()

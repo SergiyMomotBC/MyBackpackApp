@@ -40,6 +40,10 @@ class PageViewController: UIPageViewController, ClassObserver
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
+        if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
+            buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
+        }
+        
         ContentDataSource.shared.addObserver(self)
         
         self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: NavigationTabBar.height)

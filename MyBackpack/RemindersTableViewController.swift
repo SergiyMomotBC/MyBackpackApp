@@ -16,6 +16,7 @@ class RemindersTableViewController: UIViewController
     
     fileprivate var reminders: [Reminder] = []
     fileprivate var headerText = "All reminders:"
+    fileprivate var controller: RemindersViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +33,15 @@ class RemindersTableViewController: UIViewController
         tableView.reloadData()
     }
     
-    func showReminders(forDate date: Date?) {
+    func showReminders(forDate date: Date?, isSearching: Bool = false) {
         reminders = ContentDataSource.shared.reminders(forDate: date)
         
         if let date = date {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .long
-            headerText = "Reminders at \(dateFormatter.string(from: date)):"
+            headerText = "Reminders on \(dateFormatter.string(from: date)):"
+        } else if isSearching {
+            headerText = "Search results:"
         } else {
             headerText = "All reminders:"
         }
@@ -52,6 +55,10 @@ class RemindersTableViewController: UIViewController
                 && options.types.contains(Int($0.typeID)) 
                 && (options.fromDate...options.toDate).contains($0.date! as Date)
         })
+    }
+    
+    override func didMove(toParentViewController parent: UIViewController?) {
+        controller = parent as? RemindersViewController
     }
 }
 
@@ -112,6 +119,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .left)
             tableView.endUpdates()
+            controller?.calendarViewController.calendar.reloadData()
         }
     }
 }
