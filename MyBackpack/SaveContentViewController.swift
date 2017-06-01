@@ -74,7 +74,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         
         newObject.resourceURL = resourceURL
         
-        let currClass = ContentDataSource.shared.currentClass!
+        let currClass = SideMenuViewController.currentClass!
         
         let id = Int16(lectureDropDownList.itemList.count - lectureDropDownList.selectedRow - 1)
         
@@ -108,7 +108,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
     private func setupPickerAndToolbar() {
         contentPreviewView.backgroundColor = UIColor.clear
         self.lectureDropDownList.isOptionalDropDown = false
-        self.lectureDropDownList.itemList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass)
+        self.lectureDropDownList.itemList = Class.retrieveLecturesList(forClass: SideMenuViewController.currentClass)
         lectureDropDownList.inputAccessoryView = PickerToolbar(for: lectureDropDownList)
     }
 }

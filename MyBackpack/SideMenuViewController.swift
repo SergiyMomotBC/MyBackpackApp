@@ -15,6 +15,18 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
 {
     static let savedClassIndex = "savedClassIndex"
     
+    fileprivate(set) static var currentClass: Class? {
+        didSet {
+            self.subscribers.forEach { $0.classDidChange() }
+        }
+    }
+    
+    private static var subscribers: [ClassObserver] = []
+    
+    static func addObserver(_ observer: ClassObserver) {
+        self.subscribers.append(observer)
+    }
+    
     @IBOutlet weak var classesTableView: UITableView!
     @IBOutlet weak var manageClassesButton: UIButton!
     @IBOutlet weak var nextClassInfoLabel: UILabel!
@@ -24,8 +36,56 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
     fileprivate let unselectedCellColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.25)
     fileprivate var classesList: [Class]!
     
+    func initClass() {
+        let remindersRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let reminders = (try? CoreDataManager.shared.managedContext.fetch(remindersRequest)) ?? []
+        
+        let now = Date()
+        reminders.forEach{ reminder in
+            if (reminder.date! as Date) < now {
+                CoreDataManager.shared.managedContext.delete(reminder)
+            }
+        }
+        
+        CoreDataManager.shared.saveContext()
+        
+        let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
+        
+        let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: Date())
+        let timeStamp = Int16(components.hour! * 60 + components.minute!)
+        let weekday = Int16(components.weekday!)
+        
+        if let classes = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) {
+            
+            for object in classes {
+                for day in object.days?.allObjects as! [ClassDay] {
+                    if timeStamp >= day.startTime && timeStamp <= day.endTime && day.day == weekday {
+                        SideMenuViewController.currentClass = object
+                        return
+                    }
+                }
+            }
+            
+            if UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) != nil {
+                let index = UserDefaults.standard.integer(forKey: SideMenuViewController.savedClassIndex)
+                if index != -1 {
+                    SideMenuViewController.currentClass = classes[index]
+                } else {
+                    SideMenuViewController.currentClass = nil
+                }
+            } else if classes.count > 0 {
+                SideMenuViewController.currentClass = classes.first
+            } else {
+                SideMenuViewController.currentClass = nil
+            }
+        }
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        initClass()
         
         classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
         
@@ -38,8 +98,8 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
         super.viewWillAppear(animated)
         manageClassesButton.isHidden = classesList.isEmpty
         
-        if ContentDataSource.shared.currentClass != nil {
-            selectedClassIndex = classesList.index(of: ContentDataSource.shared.currentClass!) ?? -1
+        if SideMenuViewController.currentClass != nil {
+            selectedClassIndex = classesList.index(of: SideMenuViewController.currentClass!) ?? -1
         }
         
         classesTableView.reloadData()
@@ -73,7 +133,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
             
             if self.classesList.isEmpty {
                 selectClass(atIndex: -1)
-            } else if ContentDataSource.shared.currentClass == nil || !self.classesList.contains(ContentDataSource.shared.currentClass!) {
+            } else if SideMenuViewController.currentClass == nil || !self.classesList.contains(SideMenuViewController.currentClass!) {
                 self.selectClass(atIndex: 0)
             }
             
@@ -84,7 +144,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
     fileprivate func selectClass(atIndex index: Int) {
         selectedClassIndex = index
         UserDefaults.standard.set(index, forKey: SideMenuViewController.savedClassIndex)
-        ContentDataSource.shared.loadData(forClass: index != -1 ? classesList[index] : nil)
+        SideMenuViewController.currentClass = index != -1 ? classesList[index] : nil
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

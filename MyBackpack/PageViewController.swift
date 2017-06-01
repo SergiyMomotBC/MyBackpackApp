@@ -31,12 +31,12 @@ class PageViewController: UIPageViewController, ClassObserver
         self.view.backgroundColor = UIColor.white
         
         if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
-            buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
+            buttons.forEach { $0.isEnabled = SideMenuViewController.currentClass != nil }
         }
         
-        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.currentClass?.name ?? "No classes"
+        self.navigationController?.navigationBar.topItem?.title = SideMenuViewController.currentClass?.name ?? "No classes"
         
-        ContentDataSource.shared.addObserver(self)
+        SideMenuViewController.addObserver(self)
         
         self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: NavigationTabBar.height)
         self.navigationTabBar = NavigationTabBar(frame: .zero, forViewController: self)
@@ -116,10 +116,10 @@ class PageViewController: UIPageViewController, ClassObserver
             searchController.hideSearchBar()
         }
         
-        self.navigationController?.navigationBar.topItem?.title = ContentDataSource.shared.currentClass?.name ?? "No classes"
+        self.navigationController?.navigationBar.topItem?.title = SideMenuViewController.currentClass?.name ?? "No classes"
         
         if let buttons = self.navigationController?.navigationBar.topItem?.rightBarButtonItems {
-            buttons.forEach { $0.isEnabled = ContentDataSource.shared.currentClass != nil }
+            buttons.forEach { $0.isEnabled = SideMenuViewController.currentClass != nil }
         }
         
         if let contentVC = orderedViewControllers[currentPageIndex] as? ContentTableViewController {

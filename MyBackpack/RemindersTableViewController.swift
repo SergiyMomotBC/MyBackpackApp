@@ -106,7 +106,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
         if editingStyle == .delete {
             
             let reminder = controller.reminders.remove(at: indexPath.row)
-            ContentDataSource.shared.currentClass?.removeFromReminders(reminder)
+            SideMenuViewController.currentClass?.removeFromReminders(reminder)
             CoreDataManager.shared.managedContext.delete(reminder)
             CoreDataManager.shared.saveContext()
             

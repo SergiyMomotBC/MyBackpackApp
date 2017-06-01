@@ -46,7 +46,8 @@ class ContentTableViewController: UITableViewController
     func loadData(animated: Bool = false) {
         self.contentObjects.removeAll()
         
-        guard let currentClass = ContentDataSource.shared.currentClass else {
+        guard let currentClass = SideMenuViewController.currentClass else {
+            self.tableView.reloadData()
             return
         }
         
@@ -162,7 +163,7 @@ extension ContentTableViewController
             
             if lecture.contents?.count == 0 {
                 self.contentObjects.remove(at: indexPath.section)
-                ContentDataSource.shared.currentClass!.removeFromLectures(lecture)
+                SideMenuViewController.currentClass!.removeFromLectures(lecture)
                 CoreDataManager.shared.managedContext.delete(lecture)
             }
             

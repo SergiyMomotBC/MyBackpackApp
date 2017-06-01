@@ -49,7 +49,7 @@ class FilterOptionsViewController: UITableViewController, IQDropDownTextFieldDel
         toLecture.delegate = self
         toLecture.tag = 1
         
-        let lecturesList = Class.retrieveLecturesList(forClass: ContentDataSource.shared.currentClass).reversed() as [String]
+        let lecturesList = Class.retrieveLecturesList(forClass: SideMenuViewController.currentClass).reversed() as [String]
         fromLecture.itemList = lecturesList
         toLecture.itemList = lecturesList
         

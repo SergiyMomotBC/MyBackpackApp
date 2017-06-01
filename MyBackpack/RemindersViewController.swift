@@ -56,7 +56,7 @@ class RemindersViewController: UIViewController
     func loadData(animated: Bool = false) {
         self.reminders.removeAll()
         
-        guard let currentClass = ContentDataSource.shared.currentClass else {
+        guard let currentClass = SideMenuViewController.currentClass else {
             return
         }
         

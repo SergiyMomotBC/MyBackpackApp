@@ -52,7 +52,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource
     }
     
     func minimumDate(for calendar: FSCalendar) -> Date {
-        return ContentDataSource.shared.currentClass?.firstLectureDate as Date? ?? Date()
+        return SideMenuViewController.currentClass?.firstLectureDate as Date? ?? Date()
     }
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {}
