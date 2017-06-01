@@ -249,6 +249,12 @@ open class MultiSelectionSegmentedControl: UIView {
         
     }
     
+    open func setEnabled(_ enabled: Bool) {
+        for index in 0..<(_segmentButtons?.count ?? 0) {
+            setEnabled(enabled, forSegmentAtIndex: index)
+        }
+    }
+    
     /**
      Returns whether the indicated segment is enabled.
      

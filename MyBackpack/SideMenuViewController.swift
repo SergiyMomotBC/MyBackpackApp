@@ -32,17 +32,6 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     fileprivate var classesList: [Class]!
     
     private func initializeClasses() {
-        let reminders = (try? CoreDataManager.shared.managedContext.fetch(Reminder.fetchRequest())) ?? []
-       
-        let now = Date()
-        reminders.forEach{ reminder in
-            if (reminder.date! as Date) < now && reminder.shouldNotify {
-                CoreDataManager.shared.managedContext.delete(reminder)
-            }
-        }
-        
-        CoreDataManager.shared.saveContext()
-        
         self.classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
         
         let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: Date())
@@ -174,13 +163,13 @@ extension SideMenuViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 20)!,
                      NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "Your backpack is empty.", attributes: attrs)
+        return NSAttributedString(string: "Empty :(", attributes: attrs)
     }
     
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
                      NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "You can add your first class by tapping on the 'Add...' button above.", attributes: attrs)
+        return NSAttributedString(string: "This application will become useful as soon as you add your first class.", attributes: attrs)
     }
     
     func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {

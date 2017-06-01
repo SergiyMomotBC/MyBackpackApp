@@ -7,6 +7,7 @@
 //
 
 import UserNotifications
+import CoreData
 
 class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
 {
@@ -19,6 +20,17 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
         super.init()
         self.notificationCenter.delegate = self
         notificationCenter.removeAllDeliveredNotifications()
+        
+        let reminders = (try? CoreDataManager.shared.managedContext.fetch(Reminder.fetchRequest())) ?? []
+        
+        let now = Date()
+        reminders.forEach{ reminder in
+            if (reminder.date! as Date) < now && reminder.shouldNotify {
+                CoreDataManager.shared.managedContext.delete(reminder)
+            }
+        }
+        
+        CoreDataManager.shared.saveContext()
     }
     
     func scheduleNotification(forReminder reminder: Reminder, onDate date: Date, repeatDayBefore days: [Int]) {
@@ -28,14 +40,13 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
             })
         }
         
-        let daysToRemind = days.count > 0 ? days : [1]
         let type = ReminderType(rawValue: Int(reminder.typeID))!
         
         let content = UNMutableNotificationContent()
         content.title = ReminderType.typeNames[Int(reminder.typeID)] + " reminder"
         content.sound = UNNotificationSound.default()
         
-        for day in daysToRemind {
+        for day in days {
           
             let fireDate = Calendar.current.date(byAdding: .day, value: -day, to: date)!
             let components = Calendar.current.dateComponents(in: .current, from: fireDate)
@@ -43,10 +54,10 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
              
             switch type {
                 case .homework:
-                    content.body = "You have a homework for \(reminder.inClass!.name!) class in \(day) \(day == 1 ? "day" : "days")."
+                    content.body = "You have a homework for \(reminder.inClass!.name!) class\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
                 
                 case .test:
-                    content.body = "You have a \(reminder.inClass!.name!) test in \(day) \(day == 1 ? "day" : "days")."
+                    content.body = "You have a \(reminder.inClass!.name!) test\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
                 
                 case .classCanceled:
                     let formatter = DateFormatter()

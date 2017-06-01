@@ -29,6 +29,8 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var datePicker: IQDropDownTextField!
     @IBOutlet weak var segmentedControlContainer: UIView!
     @IBOutlet weak var descriptionTextField: UITextView!
+    @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var segmentedControlTitle: UILabel!
     
     var reminderType: ReminderType?
     var daysToRemindControl: MultiSelectionSegmentedControl!
@@ -53,9 +55,14 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         
         descriptionTextField.keyboardAppearance = .dark
         
-        let daysControl = MultiSelectionSegmentedControl(items: ["1", "2", "3", "4", "5", "6", "7"])
+        let daysControl = MultiSelectionSegmentedControl(items: ["0", "1", "2", "3", "4", "5", "6"])
         daysControl.tintColor = .white
         daysToRemindControl = daysControl
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0166667) { 
+            self.daysToRemindControl.selectedSegmentIndices = [1]
+        }
+        
         segmentedControlContainer.backgroundColor = .clear
         segmentedControlContainer.addSubview(daysControl)
         segmentedControlContainer.addConstraintsWithFormat(format: "H:|[v0]|", views: daysControl)
@@ -110,6 +117,18 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         }
     }
     
+    
+    @IBAction func notificationSwitchToggled(_ sender: Any) {
+        daysToRemindControl.setEnabled(notificationSwitch.isOn)
+        segmentedControlTitle.isEnabled = notificationSwitch.isOn
+        
+        if notificationSwitch.isOn {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0166667) { 
+                self.daysToRemindControl.selectedSegmentIndices = [1]
+            }
+        }
+    }
+    
     @IBAction func saveReminder(_ sender: Any) {
         guard !titleTextField.text!.isEmpty else {
             let errorPopUp = PopUp()
@@ -123,12 +142,14 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         newReminder.title = titleTextField.text
         newReminder.date = datePicker.date as NSDate?
         newReminder.remark = descriptionTextField.text
+        newReminder.shouldNotify = notificationSwitch.isOn
         SideMenuViewController.currentClass?.addToReminders(newReminder)
         
         CoreDataManager.shared.saveContext()
 
-        let daysToRemind = daysToRemindControl.selectedSegmentIndices.map { $0 + 1 }
-        UserNotificationsManager.shared.scheduleNotification(forReminder: newReminder, onDate: datePicker.date!, repeatDayBefore: daysToRemind)
+        if notificationSwitch.isOn && !daysToRemindControl.selectedSegmentIndices.isEmpty {
+            UserNotificationsManager.shared.scheduleNotification(forReminder: newReminder, onDate: datePicker.date!, repeatDayBefore: daysToRemindControl.selectedSegmentIndices)
+        }
         
         DoneHUD.shared.showInView(view, message: "Saved") { 
             self.dismiss(animated: true, completion: nil)
