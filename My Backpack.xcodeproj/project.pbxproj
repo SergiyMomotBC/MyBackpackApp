@@ -32,7 +32,6 @@
 		6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4ED1E4A8AEB0036176B /* AppDelegate.swift */; };
 		6576D4F01E4A8AEB0036176B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6576D4EF1E4A8AEB0036176B /* PageViewController.swift */; };
 		6576D4F81E4A8AEB0036176B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6576D4F71E4A8AEB0036176B /* Assets.xcassets */; };
-		658268931EB276C100C5577B /* NextClassTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268901EB276C100C5577B /* NextClassTimer.swift */; };
 		658268941EB276C100C5577B /* UIViewExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268911EB276C100C5577B /* UIViewExtentions.swift */; };
 		658268951EB276C100C5577B /* UserNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658268921EB276C100C5577B /* UserNotificationsManager.swift */; };
 		659955781EA1AB170052526B /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659955771EA1AB170052526B /* RemindersViewController.swift */; };
@@ -98,7 +97,6 @@
 		6576D4EF1E4A8AEB0036176B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		6576D4F71E4A8AEB0036176B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6576D4FC1E4A8AEB0036176B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		658268901EB276C100C5577B /* NextClassTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NextClassTimer.swift; path = MyBackpack/NextClassTimer.swift; sourceTree = "<group>"; };
 		658268911EB276C100C5577B /* UIViewExtentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtentions.swift; path = MyBackpack/UIViewExtentions.swift; sourceTree = "<group>"; };
 		658268921EB276C100C5577B /* UserNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserNotificationsManager.swift; path = MyBackpack/UserNotificationsManager.swift; sourceTree = "<group>"; };
 		659955771EA1AB170052526B /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		651874BD1E9C1A6D001831C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				658268901EB276C100C5577B /* NextClassTimer.swift */,
 				658268911EB276C100C5577B /* UIViewExtentions.swift */,
 				658268921EB276C100C5577B /* UserNotificationsManager.swift */,
 				6522D4FD1E6A486D00A409A8 /* ContentFileManager.swift */,
@@ -461,7 +458,6 @@
 				65FAA9AF1E689A11004FFB8E /* Content+CoreDataProperties.swift in Sources */,
 				6509C15F1E902D7700CA9AF6 /* FilterOptionsViewController.swift in Sources */,
 				6576D4EE1E4A8AEB0036176B /* AppDelegate.swift in Sources */,
-				658268931EB276C100C5577B /* NextClassTimer.swift in Sources */,
 				65E7E1FB1E7B1F2C002D07ED /* Lecture+CoreDataClass.swift in Sources */,
 				65B3AB4B1EB39F62002011C3 /* NoClassesViewController.swift in Sources */,
 				65CCC3BE1EB25C7000F6202F /* OnboardingViewController.swift in Sources */,

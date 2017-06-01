@@ -2,7 +2,7 @@
 //  Class+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 4/13/17.
+//  Created by Sergiy Momot on 6/1/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 

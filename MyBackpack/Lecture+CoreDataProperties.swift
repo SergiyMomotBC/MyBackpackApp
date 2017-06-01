@@ -2,7 +2,7 @@
 //  Lecture+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 3/16/17.
+//  Created by Sergiy Momot on 6/1/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension Lecture {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Lecture> {
-        return NSFetchRequest<Lecture>(entityName: "Lecture");
+        return NSFetchRequest<Lecture>(entityName: "Lecture")
     }
 
     @NSManaged public var countID: Int16

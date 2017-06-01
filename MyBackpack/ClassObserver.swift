@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ClassObserver {
+protocol ClassObserver: class {
     func classDidChange()
 }

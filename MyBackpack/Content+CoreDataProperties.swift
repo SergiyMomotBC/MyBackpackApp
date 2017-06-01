@@ -2,7 +2,7 @@
 //  Content+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 3/16/17.
+//  Created by Sergiy Momot on 6/1/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ import CoreData
 extension Content {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Content> {
-        return NSFetchRequest<Content>(entityName: "Content");
+        return NSFetchRequest<Content>(entityName: "Content")
     }
 
     @NSManaged public var dateCreated: NSDate?

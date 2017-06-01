@@ -36,7 +36,7 @@ class PageViewController: UIPageViewController, ClassObserver
         
         self.navigationController?.navigationBar.topItem?.title = SideMenuViewController.currentClass?.name ?? "No classes"
         
-        SideMenuViewController.addObserver(self)
+        SideMenuViewController.subscriber = self
         
         self.menuController = MenuController(withStackView: self.menuView, inViewController: self, withYOffset: NavigationTabBar.height)
         self.navigationTabBar = NavigationTabBar(frame: .zero, forViewController: self)

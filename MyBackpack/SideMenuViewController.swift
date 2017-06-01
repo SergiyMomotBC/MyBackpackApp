@@ -11,97 +11,80 @@ import CoreData
 import SideMenu
 import DZNEmptyDataSet
 
-class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZNEmptyDataSetSource
+class SideMenuViewController: UIViewController, ClassViewControllerDelegate
 {
     static let savedClassIndex = "savedClassIndex"
     
     fileprivate(set) static var currentClass: Class? {
         didSet {
-            self.subscribers.forEach { $0.classDidChange() }
+            self.subscriber?.classDidChange()
         }
     }
     
-    private static var subscribers: [ClassObserver] = []
-    
-    static func addObserver(_ observer: ClassObserver) {
-        self.subscribers.append(observer)
-    }
-    
+    static weak var subscriber: ClassObserver? = nil
+ 
     @IBOutlet weak var classesTableView: UITableView!
     @IBOutlet weak var manageClassesButton: UIButton!
-    @IBOutlet weak var nextClassInfoLabel: UILabel!
     
     fileprivate var selectedClassIndex: Int = -1
     fileprivate let selectedCellColor = UIColor(red: 1.0, green: 0, blue: 0.5, alpha: 0.25) 
     fileprivate let unselectedCellColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 0.25)
     fileprivate var classesList: [Class]!
     
-    func initClass() {
-        let remindersRequest: NSFetchRequest<Reminder> = Reminder.fetchRequest()
-        let reminders = (try? CoreDataManager.shared.managedContext.fetch(remindersRequest)) ?? []
-        
+    private func initializeClasses() {
+        let reminders = (try? CoreDataManager.shared.managedContext.fetch(Reminder.fetchRequest())) ?? []
+       
         let now = Date()
         reminders.forEach{ reminder in
-            if (reminder.date! as Date) < now {
+            if (reminder.date! as Date) < now && reminder.shouldNotify {
                 CoreDataManager.shared.managedContext.delete(reminder)
             }
         }
         
         CoreDataManager.shared.saveContext()
         
-        let fetchRequest: NSFetchRequest<Class> = Class.fetchRequest()
+        self.classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
         
         let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: Date())
         let timeStamp = Int16(components.hour! * 60 + components.minute!)
         let weekday = Int16(components.weekday!)
-        
-        if let classes = try? CoreDataManager.shared.managedContext.fetch(fetchRequest) {
             
-            for object in classes {
-                for day in object.days?.allObjects as! [ClassDay] {
-                    if timeStamp >= day.startTime && timeStamp <= day.endTime && day.day == weekday {
-                        SideMenuViewController.currentClass = object
-                        return
-                    }
+        for (index, object) in self.classesList.enumerated() {
+            for day in object.days?.allObjects as! [ClassDay] {
+                if timeStamp >= day.startTime && timeStamp <= day.endTime && day.day == weekday {
+                    SideMenuViewController.currentClass = object
+                    selectedClassIndex = index
+                    return
                 }
-            }
-            
-            if UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) != nil {
-                let index = UserDefaults.standard.integer(forKey: SideMenuViewController.savedClassIndex)
-                if index != -1 {
-                    SideMenuViewController.currentClass = classes[index]
-                } else {
-                    SideMenuViewController.currentClass = nil
-                }
-            } else if classes.count > 0 {
-                SideMenuViewController.currentClass = classes.first
-            } else {
-                SideMenuViewController.currentClass = nil
             }
         }
-
+        
+        if let index = UserDefaults.standard.object(forKey: SideMenuViewController.savedClassIndex) as? Int {
+            SideMenuViewController.currentClass = index != -1 ? self.classesList[index] : nil
+            selectedClassIndex = index
+        } else if self.classesList.count > 0 {
+            SideMenuViewController.currentClass = self.classesList.first
+            selectedClassIndex = 0
+        } else {
+            SideMenuViewController.currentClass = nil
+            selectedClassIndex = -1
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initClass()
-        
-        classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
-        
+        initializeClasses()
+    
         self.classesTableView.delegate = self
         self.classesTableView.alwaysBounceVertical = false
         self.classesTableView.emptyDataSetSource = self
+        self.classesTableView.emptyDataSetDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         manageClassesButton.isHidden = classesList.isEmpty
-        
-        if SideMenuViewController.currentClass != nil {
-            selectedClassIndex = classesList.index(of: SideMenuViewController.currentClass!) ?? -1
-        }
-        
         classesTableView.reloadData()
     }
     
@@ -129,9 +112,12 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
         classVC.dismiss(animated: true, completion: nil)
         
         if success {
+            let previousCount = self.classesList.count
             self.classesList = (try? CoreDataManager.shared.managedContext.fetch(Class.fetchRequest())) ?? []
             
-            if self.classesList.isEmpty {
+            if previousCount < self.classesList.count {
+                selectClass(atIndex: previousCount)
+            } else if self.classesList.isEmpty {
                 selectClass(atIndex: -1)
             } else if SideMenuViewController.currentClass == nil || !self.classesList.contains(SideMenuViewController.currentClass!) {
                 self.selectClass(atIndex: 0)
@@ -146,22 +132,6 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate, DZN
         UserDefaults.standard.set(index, forKey: SideMenuViewController.savedClassIndex)
         SideMenuViewController.currentClass = index != -1 ? classesList[index] : nil
     }
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 20)!,
-                     NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "Your backpack is empty.", attributes: attrs)
-    }
-    
-    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
-                     NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "You can add your first class by tapping on the 'Add...' button above.", attributes: attrs)
-    }
-    
-    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
-        return self.classesTableView.frame.height / -8
-    }
 }
 
 extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
@@ -175,17 +145,18 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.classesTableView.dequeueReusableCell(withIdentifier: "classButtonCell")
+        let cell = self.classesTableView.dequeueReusableCell(withIdentifier: "classButtonCell", for: indexPath)
 
-        let className = cell?.contentView.subviews[0].subviews[0] as! UILabel
-        className.text = self.classesList[indexPath.row].name
-        cell?.contentView.subviews.first!.backgroundColor = selectedClassIndex == indexPath.row ? selectedCellColor : unselectedCellColor
+        if let className = cell.contentView.subviews[0].subviews[0] as? UILabel {
+            className.text = self.classesList[indexPath.row].name
+            cell.contentView.subviews.first!.backgroundColor = selectedClassIndex == indexPath.row ? selectedCellColor : unselectedCellColor
+        }
         
-        return cell!
+        return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return self.classesTableView.dequeueReusableCell(withIdentifier: "header")?.contentView
+        return !self.classesList.isEmpty ? self.classesTableView.dequeueReusableCell(withIdentifier: "header")?.contentView : UIView(frame: CGRect.zero)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -196,4 +167,33 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource
             selectClass(atIndex: indexPath.row)
         }
     }        
+}
+
+extension SideMenuViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate
+{
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "AvenirNext-Bold", size: 20)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "Your backpack is empty.", attributes: attrs)
+    }
+    
+    func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
+                     NSForegroundColorAttributeName: UIColor.white]
+        return NSAttributedString(string: "You can add your first class by tapping on the 'Add...' button above.", attributes: attrs)
+    }
+    
+    func buttonTitle(forEmptyDataSet scrollView: UIScrollView!, for state: UIControlState) -> NSAttributedString! {
+        let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
+                     NSForegroundColorAttributeName: state == .normal ? UIColor(red: 1.0, green: 1.0, blue: 102/255.0, alpha: 1.0) : UIColor.lightGray]
+        return NSAttributedString(string: "Add your first class", attributes: attrs)
+    }
+    
+    func emptyDataSet(_ scrollView: UIScrollView!, didTap button: UIButton!) {
+        performSegue(withIdentifier: "addNewClass", sender: nil)
+    }
+    
+    func verticalOffset(forEmptyDataSet scrollView: UIScrollView!) -> CGFloat {
+        return self.classesTableView.frame.height / -8.0
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingViewController: UIPageViewController
 {
-    fileprivate static let pagesCount = 5
+    fileprivate static let pagesCount = 6
     
     fileprivate lazy var pages: [UIViewController] = {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
