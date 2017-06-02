@@ -49,7 +49,7 @@ public class Class: NSManagedObject
         dateFormatter.dateStyle = .long
         
         while currentDate < todayDate {
-            lectureNames.insert("Lecture \(lecturesCount) - \(dateFormatter.string(from: currentDate))", at: 0)
+            lectureNames.insert("Lecture on \(dateFormatter.string(from: currentDate))", at: 0)
             currentDate = currentDate.addingTimeInterval(TimeInterval(3600 * 24 * lectureIntervals.first!))
             lectureIntervals.append(lectureIntervals.removeFirst())
             lecturesCount += 1

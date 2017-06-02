@@ -20,12 +20,12 @@ class AudioRecorderController: NSObject, ContentProvider, IQAudioRecorderViewCon
         super.init()
         
         self.audioRecorderVC.delegate = self
-        self.audioRecorderVC.maximumRecordDuration = 1800
+        self.audioRecorderVC.maximumRecordDuration = 3600
         self.audioRecorderVC.title = "Voice Recording"
         self.audioRecorderVC.allowCropping = false
         self.audioRecorderVC.normalTintColor = .white
-        self.audioRecorderVC.highlightedTintColor = .green
-        self.audioRecorderVC.barStyle = .black
+        self.audioRecorderVC.highlightedTintColor = UIColor(red: 1.0, green: 0.25, blue: 0.25, alpha: 1.0)
+        self.audioRecorderVC.barStyle = .default
     }
     
     // MARK: Conforming to ContentProvider protocol

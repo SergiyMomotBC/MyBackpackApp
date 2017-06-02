@@ -34,12 +34,12 @@ class ContentPresenter
                 self.presentImage(photo!, in: vc)
             }
         }
-    }
+    } 
     
     private func presentVideo(url: URL, in vc: UIViewController) {
         let playerViewController = AVPlayerViewController()
         playerViewController.player = AVPlayer(url: url)
-        vc.present(playerViewController, animated: true, completion: nil)
+        vc.present(playerViewController, animated: true, completion: { playerViewController.player?.play() })
     }
     
     private func presentImage(_ image: UIImage, in vc: UIViewController) {

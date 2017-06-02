@@ -227,7 +227,7 @@ extension ContentTableViewController
         let headerLabel = cell?.contentView.subviews.first as! UILabel
         let lecture = self.contentObjects[section][0].lecture
         
-        headerLabel.text = "Lecture \(lecture.countID + 1) • \(dateFormatter.string(from: lecture.date as Date))"
+        headerLabel.text = "Lecture on \(dateFormatter.string(from: lecture.date as Date))"
         
         return cell?.contentView
     }

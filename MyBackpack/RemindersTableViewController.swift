@@ -27,6 +27,7 @@ class RemindersTableViewController: UIViewController
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
         tableView.tableFooterView = UIView()
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(30, 0, 0, 0)
     }
     
     func showReminders(forDate date: Date?, isSearching: Bool = false) {
@@ -70,7 +71,6 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let header = UIView()

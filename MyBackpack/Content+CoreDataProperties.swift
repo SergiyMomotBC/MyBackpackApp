@@ -2,7 +2,7 @@
 //  Content+CoreDataProperties.swift
 //  My Backpack
 //
-//  Created by Sergiy Momot on 6/1/17.
+//  Created by Sergiy Momot on 6/2/17.
 //  Copyright © 2017 Sergiy Momot. All rights reserved.
 //
 
@@ -20,6 +20,7 @@ extension Content {
     @NSManaged public var resourceURL: String
     @NSManaged public var title: String
     @NSManaged public var typeID: Int16
+    @NSManaged public var fileSize: Int64
     @NSManaged public var lecture: Lecture
 
 }

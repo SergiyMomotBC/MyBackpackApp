@@ -246,7 +246,7 @@
         
         _stopRecordingButton.tintColor = [UIColor redColor];
         _cancelRecordingButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelRecordingAction:)];
-        _cancelRecordingButton.tintColor = [self _highlightedTintColor];
+        _cancelRecordingButton.tintColor = [self _normalTintColor];
         
         //Playing controls
         _stopPlayButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"stop_playing" inBundle:bundle compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(stopPlayingButtonAction:)];
@@ -271,7 +271,7 @@
         
         _cropOrDeleteButton.tintColor = [self _normalTintColor];
         
-        [self setToolbarItems:@[_playButton, _flexItem,_startRecordingButton, _flexItem, _cropOrDeleteButton] animated:NO];
+        [self setToolbarItems:@[_flexItem,_startRecordingButton, _flexItem] animated:NO];
 
         _playButton.enabled = NO;
         _cropOrDeleteButton.enabled = NO;
@@ -363,8 +363,9 @@
     
     if (self.barStyle == UIBarStyleDefault)
     {
-        self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
-        self.navigationController.toolbar.barStyle = UIBarStyleDefault;
+        self.navigationController.navigationBar.barTintColor = [[UIColor alloc] initWithRed:0.5 green:0 blue:0.25 alpha:1.0];
+        [self.navigationController.navigationBar setTitleTextAttributes: @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        self.navigationController.toolbar.barTintColor = [[UIColor alloc] initWithRed:0.5 green:0 blue:0.25 alpha:1.0];
         self.navigationController.navigationBar.tintColor = [self _normalTintColor];
         self.navigationController.toolbar.tintColor = [self _normalTintColor];
     }
@@ -623,7 +624,7 @@
 {
     //UI Update
     {
-        [self setToolbarItems:@[_stopRecordingButton,_flexItem, _pauseRecordingButton,_flexItem, _cropOrDeleteButton] animated:YES];
+        [self setToolbarItems:@[_stopRecordingButton,_flexItem, _pauseRecordingButton,_flexItem] animated:YES];
         _cropOrDeleteButton.enabled = NO;
         [self.navigationItem setLeftBarButtonItem:_cancelRecordingButton animated:YES];
         _doneButton.enabled = NO;
@@ -658,7 +659,7 @@
 {
     //UI Update
     {
-        [self setToolbarItems:@[_stopRecordingButton,_flexItem, _pauseRecordingButton,_flexItem, _cropOrDeleteButton] animated:YES];
+        [self setToolbarItems:@[_stopRecordingButton,_flexItem, _pauseRecordingButton,_flexItem] animated:YES];
     }
 
     _isRecordingPaused = NO;
@@ -669,7 +670,7 @@
 {
     _isRecordingPaused = YES;
     [_audioRecorder pause];
-    [self setToolbarItems:@[_stopRecordingButton,_flexItem, _continueRecordingButton,_flexItem, _cropOrDeleteButton] animated:YES];
+    [self setToolbarItems:@[_stopRecordingButton,_flexItem, _continueRecordingButton,_flexItem] animated:YES];
 }
 
 -(void)stopRecordingButtonAction:(UIBarButtonItem*)item
@@ -695,7 +696,7 @@
     {
         //UI Update
         {
-            [self setToolbarItems:@[_playButton,_flexItem, _startRecordingButton,_flexItem, _cropOrDeleteButton] animated:YES];
+            [self setToolbarItems:@[_flexItem, _startRecordingButton,_flexItem] animated:YES];
             [self.navigationItem setLeftBarButtonItem:_cancelButton animated:YES];
             
             if ([[NSFileManager defaultManager] fileExistsAtPath:_recordingFilePath])
@@ -731,6 +732,8 @@
 
 -(void)cancelAction:(UIBarButtonItem*)item
 {
+    [[NSFileManager defaultManager] removeItemAtPath:_recordingFilePath error:nil]; 
+    
     if ([self.delegate respondsToSelector:@selector(audioRecorderControllerDidCancel:)])
     {
         [self.delegate audioRecorderControllerDidCancel:self];

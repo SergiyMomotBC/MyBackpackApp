@@ -16,6 +16,7 @@
     </entity>
     <entity name="Content" representedClassName="Content" syncable="YES">
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="fileSize" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="resourceURL" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="typeID" attributeType="Integer 16" minValueString="0" maxValueString="3" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
@@ -38,7 +39,7 @@
     <elements>
         <element name="Class" positionX="358" positionY="207" width="128" height="135"/>
         <element name="ClassDay" positionX="126" positionY="63" width="128" height="105"/>
-        <element name="Content" positionX="-72" positionY="468" width="128" height="120"/>
+        <element name="Content" positionX="-72" positionY="468" width="128" height="135"/>
         <element name="Lecture" positionX="126" positionY="336" width="128" height="105"/>
         <element name="Reminder" positionX="619" positionY="348" width="128" height="135"/>
     </elements>

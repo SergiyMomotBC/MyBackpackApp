@@ -71,9 +71,12 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         newObject.typeID = Int16(self.resourceType.rawValue)
         newObject.title = ((self.contentTitleTextField.text?.isEmpty)! ? self.contentTitleTextField.placeholder : self.contentTitleTextField.text) ?? ""
         newObject.dateCreated = NSDate()
-        
         newObject.resourceURL = resourceURL
         
+        if let attribute = try? FileManager.default.attributesOfItem(atPath: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(newObject.resourceURL).path) {
+            newObject.fileSize = attribute[FileAttributeKey.size] as! Int64
+        }        
+                
         let currClass = SideMenuViewController.currentClass!
         
         let id = Int16(lectureDropDownList.itemList.count - lectureDropDownList.selectedRow - 1)
@@ -85,7 +88,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
             let newLecture = NSEntityDescription.insertNewObject(forEntityName: "Lecture", into: CoreDataManager.shared.managedContext) as! Lecture
             newLecture.countID = id
             
-            var index = lectureDropDownList.selectedItem!.characters.index(of: "-")!
+            var index = lectureDropDownList.selectedItem!.characters.index(of: "n")!
             index = lectureDropDownList.selectedItem!.index(index, offsetBy: 2)
             let dateString = lectureDropDownList.selectedItem!.substring(from: index)
             

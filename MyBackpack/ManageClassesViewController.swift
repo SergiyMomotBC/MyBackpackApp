@@ -15,6 +15,7 @@ class ManageClassesViewController: UIViewController
     
     fileprivate var listOfClasses: [Class]!
     fileprivate var contentCounts: [Int] = []
+    fileprivate var sizeCounts: [Int] = []
     fileprivate var classesToDelete: [Class] = []
     weak var delegate: ClassViewControllerDelegate?
     
@@ -29,6 +30,15 @@ class ManageClassesViewController: UIViewController
                 return res + (lec as! Lecture).contents.count
             })
             contentCounts.append(count)
+            
+            let size = classObject.lectures.reduce(0, { (res: Int, lec: Any) -> Int in
+                var sum: Int64 = 0
+                for content in (lec as! Lecture).contents {
+                    sum += (content as! Content).fileSize
+                }
+                return res + Int(sum)
+            })
+            sizeCounts.append(size)
         }
         
         classesListTableView.layer.cornerRadius = 12
@@ -79,7 +89,17 @@ extension ManageClassesViewController:  UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = listOfClasses[indexPath.row].name
         cell.textLabel?.font = UIFont(name: "Avenir Next", size: 14)
         
-        cell.detailTextLabel?.text = "Lectures: \(listOfClasses[indexPath.row].lectures.count)   Resources: \(contentCounts[indexPath.row])"
+        let size = sizeCounts[indexPath.row]
+        var sizeString = ""
+        if size > 1024 * 1024 {
+            sizeString = "\(size / (1024 * 1024)) MB"
+        } else if size > 1024 {
+            sizeString = "\(size / 1024) kB"
+        } else {
+            sizeString = "\(size) bytes"
+        }
+        
+        cell.detailTextLabel?.text = "\(contentCounts[indexPath.row]) content \(contentCounts[indexPath.row] == 1 ? "file" : "files") of total size \(sizeString)"
         cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 11)
         cell.detailTextLabel?.textColor = .gray
         
