@@ -31,8 +31,8 @@ class PopUp: SCLAlertView {
         showInfo(title, subTitle: "", closeButtonTitle: "Close", duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
     }    
     
-    func displayError(message: String) {
-        showError("Error", subTitle: message, closeButtonTitle: "OK", duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
+    func displayError(message: String, closeButtonTitle: String = "OK") {
+        showError(closeButtonTitle == "OK" ? "Error" : "Access denied", subTitle: message, closeButtonTitle: closeButtonTitle, duration: 0.0, colorStyle: 0x800040, colorTextButton: 0xFFFFFF, circleIconImage: nil, animationStyle: .topToBottom)
     }
     
     func displayWarning(message: String) {

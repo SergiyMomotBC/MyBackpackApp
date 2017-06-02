@@ -18,13 +18,19 @@ class RemindersTableViewController: UIViewController
     fileprivate var headerText = "All reminders:"
     var controller: RemindersViewController!
     
+    weak var headerView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
         tableView.alwaysBounceVertical = false
         tableView.tableFooterView = UIView()
+        
+        headerView = tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
+        headerView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
     }
     
     func showReminders(forDate date: Date?, isSearching: Bool = false) {
@@ -67,15 +73,23 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
         cell.setup(forReminder: reminders[indexPath.row])
         return cell
     }
+
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
+
+        let header = UIView()
         
-        if let headerLabel = headerView.subviews.first as? UILabel {
+        if let headerLabel = headerView!.subviews.first as? UILabel {
             headerLabel.text = headerText
-        }
+        }  
         
-        return headerView
+        header.addSubview(headerView!)
+        
+        return header
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        headerView!.frame = CGRect(x: 0, y: tableView.contentOffset.y < 0 ? tableView.contentOffset.y : 0, width: self.view.frame.width, height: 30)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

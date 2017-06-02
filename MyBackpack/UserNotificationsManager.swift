@@ -47,7 +47,6 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
         content.sound = UNNotificationSound.default()
         
         for day in days {
-          
             let fireDate = Calendar.current.date(byAdding: .day, value: -day, to: date)!
             let components = Calendar.current.dateComponents(in: .current, from: fireDate)
             let fireComponents = DateComponents(calendar: Calendar.current, timeZone: .current, month: components.month, day: components.day, hour: components.hour, minute: components.minute)

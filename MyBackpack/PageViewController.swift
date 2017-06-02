@@ -80,9 +80,58 @@ class PageViewController: UIPageViewController, ClassObserver
     }
     
     @IBAction func newContentTapped(_ sender: UIButton) {
-        let newContentVC = NewContentViewController(forContentType: ContentType(rawValue: sender.tag)!)
+        defer {
+            self.hideMenu()
+        }
+        
+        func displayPopUp(message: String) {
+            let popup = PopUp()
+            popup.addButton("Go to Settings", action: { 
+                if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            })
+            popup.displayError(message: message, closeButtonTitle: "Close")
+        }
+        
+        let type = ContentType(rawValue: sender.tag)!
+        
+        if (type == .Picture || type == .Video) { 
+            let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
+            
+            if status == .denied {
+                displayPopUp(message: "Please enable the camera access in Settings app in order to take pictures and record videos.")
+                return
+            } else if status == .notDetermined {
+                AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { granted in
+                    if granted {
+                        let newContentVC = NewContentViewController(forContentType: type)
+                        self.present(newContentVC, animated: true, completion: nil)
+                    }
+                })
+                
+                return 
+            }
+        } else if type == .Audio {
+            let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeAudio)
+            
+            if status == .denied {
+                displayPopUp(message: "Please enable the microphone access in Settings app in order to record audio.")
+                return
+            } else if status == .notDetermined {
+                AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { granted in
+                    if granted {
+                        let newContentVC = NewContentViewController(forContentType: type)
+                        self.present(newContentVC, animated: true, completion: nil)
+                    }
+                })
+                
+                return
+            }
+        } 
+        
+        let newContentVC = NewContentViewController(forContentType: type)
         self.present(newContentVC, animated: true, completion: nil)
-        self.hideMenu()
     }
     
     @IBAction func newReminderTapped(_ sender: UIButton) {

@@ -11,6 +11,10 @@ import CoreData
 import SideMenu
 import DZNEmptyDataSet
 
+protocol ClassObserver: class {
+    func classDidChange()
+}
+
 class SideMenuViewController: UIViewController, ClassViewControllerDelegate
 {
     static let savedClassIndex = "savedClassIndex"

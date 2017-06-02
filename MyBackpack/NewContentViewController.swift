@@ -20,7 +20,8 @@ class NewContentViewController: UIPageViewController
         self.saveContentVC.view.tag = 0
         
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        self.saveContentVC.contentController = self
+        
+        self.saveContentVC.contentController = self 
         
         switch type {
         case .Picture:
