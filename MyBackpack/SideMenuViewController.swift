@@ -11,6 +11,10 @@ import CoreData
 import SideMenu
 import DZNEmptyDataSet
 
+protocol ClassViewControllerDelegate: class {
+    func classViewController(_ classVC: UIViewController, didCommitChanges success: Bool)
+}
+
 protocol ClassObserver: class {
     func classDidChange()
 }

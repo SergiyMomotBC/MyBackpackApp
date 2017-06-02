@@ -69,10 +69,8 @@ class ContentTableViewCell: UITableViewCell
         var path = pathString
 
         if let pointIndex = path.characters.index(of: ".") {
-            path.insert(contentsOf: "_t".characters, at: pointIndex)
-            
+            path.insert(contentsOf: "_t".characters, at: pointIndex) 
             path = path.replacingOccurrences(of: ".mov", with: ".jpeg")
-            
             self.contentPreview.image = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(path).path)
         }
     }

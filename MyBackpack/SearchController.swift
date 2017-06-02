@@ -9,6 +9,14 @@
 import UIKit
 import DZNEmptyDataSet
 
+protocol Searchable
+{
+    func prepareForSearch(with controller: SearchController)
+    func getFilterViewControllerToPresent() -> UIViewController
+    func updateSearch(forText text: String)
+    func endSearch()
+}
+
 fileprivate class NoCancelButtonSearchBar: UISearchBar {
     override func layoutSubviews() {
         super.layoutSubviews()
