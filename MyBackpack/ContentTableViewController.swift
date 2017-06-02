@@ -61,12 +61,12 @@ class ContentTableViewController: UITableViewController
                 usleep(250_000)
             }
             
-            let lectures = (currentClass.lectures?.allObjects as! [Lecture]).sorted { $0.date! as Date > $1.date! as Date }
+            let lectures = (currentClass.lectures.allObjects as! [Lecture]).sorted { $0.date as Date > $1.date as Date }
             
             for lecture in lectures {
                 let fetchRequest: NSFetchRequest<Content> = Content.fetchRequest()
                 fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
-                fetchRequest.predicate = NSPredicate(format: "lecture.countID == %d AND lecture.inClass.name == %@", lecture.countID, currentClass.name!) 
+                fetchRequest.predicate = NSPredicate(format: "lecture.countID == %d AND lecture.inClass.name == %@", lecture.countID, currentClass.name) 
                 fetchRequest.fetchBatchSize = 10
                 self.contentObjects.append((try? CoreDataManager.shared.managedContext.fetch(fetchRequest)) as [Content]? ?? [])
             }
@@ -103,9 +103,9 @@ extension ContentTableViewController: Searchable
         let options = filterViewController.filterOptions.options
         for lecture in backup! {
             let result = lecture.filter { 
-                $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
+                $0.title.lowercased().contains(text.isEmpty ? $0.title.lowercased() : text.lowercased()) 
                     && options.types.contains(Int($0.typeID)) 
-                    && (options.fromLecture...options.toLecture).contains(Int($0.lecture!.countID))
+                    && (options.fromLecture...options.toLecture).contains(Int($0.lecture.countID))
             }
             
             if result.count > 0 {
@@ -156,23 +156,23 @@ extension ContentTableViewController
            
             //deletion
             let content = self.contentObjects[indexPath.section].remove(at: indexPath.row)
-            let lecture = content.lecture!
+            let lecture = content.lecture
             
             lecture.removeFromContents(content)
             CoreDataManager.shared.managedContext.delete(content)
             
-            if lecture.contents?.count == 0 {
+            if lecture.contents.count == 0 {
                 self.contentObjects.remove(at: indexPath.section)
                 SideMenuViewController.currentClass!.removeFromLectures(lecture)
                 CoreDataManager.shared.managedContext.delete(lecture)
             }
             
             do {
-                try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
+                try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL))
                 
                 let type = ContentType(rawValue: Int(content.typeID))!
                 if type == .Picture || type == .Video {
-                    let thumbnailPath = content.resourceURL!.replacingOccurrences(of: type == .Picture ? ".jpeg" : ".mov", with: "_t.jpeg") 
+                    let thumbnailPath = content.resourceURL.replacingOccurrences(of: type == .Picture ? ".jpeg" : ".mov", with: "_t.jpeg") 
                     try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(thumbnailPath))
                 }
             } catch {
@@ -198,8 +198,8 @@ extension ContentTableViewController
             let newTitle = editPopUp.addTextField("Enter new title")
             
             editPopUp.addButton("Save", backgroundColor: nil, textColor: .white, showDurationStatus: false) {
-                if let text = newTitle.text, text != self.contentObjects[indexPath.section][indexPath.row].title! {
-                    self.contentObjects[indexPath.section][indexPath.row].title = newTitle.text
+                if let text = newTitle.text, text != self.contentObjects[indexPath.section][indexPath.row].title {
+                    self.contentObjects[indexPath.section][indexPath.row].title = newTitle.text ?? ""
                     self.tableView.reloadData()
                 }
             }
@@ -225,9 +225,9 @@ extension ContentTableViewController
         dateFormatter.dateStyle = .long
         
         let headerLabel = cell?.contentView.subviews.first as! UILabel
-        let lecture = self.contentObjects[section][0].lecture!
+        let lecture = self.contentObjects[section][0].lecture
         
-        headerLabel.text = "Lecture \(lecture.countID + 1) • \(dateFormatter.string(from: lecture.date! as Date))"
+        headerLabel.text = "Lecture \(lecture.countID + 1) • \(dateFormatter.string(from: lecture.date as Date))"
         
         return cell?.contentView
     }

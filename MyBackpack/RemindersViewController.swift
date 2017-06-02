@@ -72,7 +72,7 @@ class RemindersViewController: UIViewController
             
             let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
             fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
-            fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", currentClass.name!)
+            fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", currentClass.name)
             fetchReminders.fetchBatchSize = 10
                 
             self.reminders = (try? CoreDataManager.shared.managedContext.fetch(fetchReminders)) ?? []
@@ -99,7 +99,7 @@ class RemindersViewController: UIViewController
         var results: [Reminder] = []
         
         for reminder in reminders {
-            if Calendar.current.compare(date, to: reminder.date! as Date, toGranularity: .day) == .orderedSame {
+            if Calendar.current.compare(date, to: reminder.date as Date, toGranularity: .day) == .orderedSame {
                 results.append(reminder)
             }
         }

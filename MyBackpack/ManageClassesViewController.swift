@@ -25,12 +25,10 @@ class ManageClassesViewController: UIViewController
         listOfClasses = (try? CoreDataManager.shared.managedContext.fetch(fetchRequest)) ?? [] as [Class]
         
         for classObject in listOfClasses {
-            if let lectures = classObject.lectures {
-                let count = lectures.reduce(0, { (res: Int, lec: Any) -> Int in
-                    return res + ((lec as! Lecture).contents?.count ?? 0)
-                })
-                contentCounts.append(count)
-            }
+            let count = classObject.lectures.reduce(0, { (res: Int, lec: Any) -> Int in
+                return res + (lec as! Lecture).contents.count
+            })
+            contentCounts.append(count)
         }
         
         classesListTableView.layer.cornerRadius = 12
@@ -81,7 +79,7 @@ extension ManageClassesViewController:  UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = listOfClasses[indexPath.row].name
         cell.textLabel?.font = UIFont(name: "Avenir Next", size: 14)
         
-        cell.detailTextLabel?.text = "Lectures: \(listOfClasses[indexPath.row].lectures?.count ?? 0)   Resources: \(contentCounts[indexPath.row])"
+        cell.detailTextLabel?.text = "Lectures: \(listOfClasses[indexPath.row].lectures.count)   Resources: \(contentCounts[indexPath.row])"
         cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 11)
         cell.detailTextLabel?.textColor = .gray
         

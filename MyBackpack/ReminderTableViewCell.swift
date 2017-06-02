@@ -13,16 +13,12 @@ class ReminderTableViewCell: UITableViewCell
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func setup(forReminder reminder: Reminder) {
         titleLabel.text = reminder.title
-        let typeName = ReminderType.typeNames[Int(reminder.typeID)] //• \()"
+        let typeName = ReminderType.typeNames[Int(reminder.typeID)]
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
+        dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
-        detailsLabel.text = "\(typeName) • \(dateFormatter.string(from: reminder.date! as Date))"
+        detailsLabel.text = "\(typeName) • \(dateFormatter.string(from: reminder.date as Date))" + (reminder.shouldNotify ? " • 🔔" : "")
     }
 }

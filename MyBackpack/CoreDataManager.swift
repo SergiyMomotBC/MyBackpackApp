@@ -41,11 +41,11 @@ class CoreDataManager
     
     func deleteClasses(_ classes: [Class]) {
         for object in classes {
-            if let lectures = object.lectures?.allObjects as? [Lecture] {
+            if let lectures = object.lectures.allObjects as? [Lecture] {
                 for lecture in lectures {
-                    for content in lecture.contents!.allObjects as! [Content] {
+                    for content in lecture.contents.allObjects as! [Content] {
                         do {
-                            try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
+                            try FileManager.default.removeItem(at: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL))
                         } catch {
                             print("File could not be deleted")
                         }
@@ -57,13 +57,13 @@ class CoreDataManager
                 }
             }
             
-            if let days = object.days?.allObjects as? [ClassDay] {
+            if let days = object.days.allObjects as? [ClassDay] {
                 for day in days {
                     managedContext.delete(day)
                 }
             }
             
-            object.reminders?.forEach { 
+            object.reminders.forEach { 
                 self.managedContext.delete($0 as! Reminder)
                 UserNotificationsManager.shared.removerNotification(forReminder: $0 as! Reminder)
             }

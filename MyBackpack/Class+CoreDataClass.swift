@@ -21,7 +21,7 @@ public class Class: NSManagedObject
         
         var lectureIntervals: [Int] = []
         
-        let days = (currClass.days?.map { ($0 as! ClassDay).day } ?? []).sorted()
+        let days = (currClass.days.map { ($0 as! ClassDay).day }).sorted()
         
         if days.isEmpty {
             return lectureNames
@@ -33,7 +33,7 @@ public class Class: NSManagedObject
         
         lectureIntervals.append(Int(7 - days.last!) + Int(days.first!))
         
-        let dayOfWeek = Calendar.current.dateComponents([.weekday], from: currClass.firstLectureDate! as Date).weekday!
+        let dayOfWeek = Calendar.current.dateComponents([.weekday], from: currClass.firstLectureDate as Date).weekday!
         
         let firstDay = days.index(of: Int16(dayOfWeek))!
         
@@ -41,7 +41,7 @@ public class Class: NSManagedObject
             lectureIntervals.append(lectureIntervals.removeFirst())
         }
         
-        var currentDate = currClass.firstLectureDate! as Date
+        var currentDate = currClass.firstLectureDate as Date
         let todayDate = Date()
         var lecturesCount = 1
         

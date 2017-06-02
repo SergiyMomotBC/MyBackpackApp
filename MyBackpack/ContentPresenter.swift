@@ -21,16 +21,16 @@ class ContentPresenter
         if let contentType = ContentType(rawValue: Int(content.typeID)) {
             switch contentType {
             case .Audio:
-                let audioURL = ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!)
+                let audioURL = ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL)
                 self.presentAudio(url: audioURL, in: vc)
             case .Video:
-                let videoURL = ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!)
+                let videoURL = ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL)
                 self.presentVideo(url: videoURL, in: vc)
             case .Note:
-                let noteText = try! String(contentsOf: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!))
+                let noteText = try! String(contentsOf: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL))
                 self.presentNote(text: noteText, in: vc)
             case .Picture:
-                let photo = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL!).path)
+                let photo = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL).path)
                 self.presentImage(photo!, in: vc)
             }
         }

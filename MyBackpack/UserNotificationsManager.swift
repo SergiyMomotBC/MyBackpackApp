@@ -25,7 +25,7 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
         
         let now = Date()
         reminders.forEach{ reminder in
-            if (reminder.date! as Date) < now && reminder.shouldNotify {
+            if (reminder.date as Date) < now && reminder.shouldNotify {
                 CoreDataManager.shared.managedContext.delete(reminder)
             }
         }
@@ -53,18 +53,18 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
              
             switch type {
                 case .homework:
-                    content.body = "You have a homework for \(reminder.inClass!.name!) class\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
+                    content.body = "You have a homework for \(reminder.inClass.name) class\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
                 
                 case .test:
-                    content.body = "You have a \(reminder.inClass!.name!) test\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
+                    content.body = "You have a \(reminder.inClass.name) test\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
                 
                 case .classCanceled:
                     let formatter = DateFormatter()
                     formatter.dateStyle = .long
-                    content.body = "\(reminder.inClass!.name!) class is canceled on \(formatter.string(from: date))."
+                    content.body = "\(reminder.inClass.name) class is canceled on \(formatter.string(from: date))."
                 
                 case .custom:
-                    content.body = reminder.remark!
+                    content.body = reminder.remark
             }
             
             if let date = fireComponents.date, Calendar.current.compare(date, to: Date(), toGranularity: .minute) == .orderedSame {
@@ -73,7 +73,7 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
             
             let trigger = UNCalendarNotificationTrigger(dateMatching: fireComponents, repeats: false)
             
-            let request = UNNotificationRequest(identifier: reminder.title!, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: reminder.title, content: content, trigger: trigger)
             notificationCenter.add(request) { error in
                 if let error = error {
                     print(error.localizedDescription)
@@ -83,7 +83,7 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
     }
     
     func removerNotification(forReminder reminder: Reminder) {
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [reminder.title!])
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [reminder.title])
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

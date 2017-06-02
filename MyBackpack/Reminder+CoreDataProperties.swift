@@ -16,11 +16,11 @@ extension Reminder {
         return NSFetchRequest<Reminder>(entityName: "Reminder")
     }
 
-    @NSManaged public var date: NSDate?
-    @NSManaged public var remark: String?
-    @NSManaged public var title: String?
+    @NSManaged public var date: NSDate
+    @NSManaged public var remark: String
+    @NSManaged public var title: String
     @NSManaged public var typeID: Int16
     @NSManaged public var shouldNotify: Bool
-    @NSManaged public var inClass: Class?
+    @NSManaged public var inClass: Class
 
 }

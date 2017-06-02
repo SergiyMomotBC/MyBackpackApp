@@ -19,6 +19,6 @@ extension ClassDay {
     @NSManaged public var day: Int16
     @NSManaged public var endTime: Int16
     @NSManaged public var startTime: Int16
-    @NSManaged public var forClass: Class?
+    @NSManaged public var forClass: Class
 
 }

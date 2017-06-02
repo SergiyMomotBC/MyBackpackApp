@@ -69,7 +69,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         let newObject = NSEntityDescription.insertNewObject(forEntityName: "Content", into: CoreDataManager.shared.managedContext) as! Content
         
         newObject.typeID = Int16(self.resourceType.rawValue)
-        newObject.title = (self.contentTitleTextField.text?.isEmpty)! ? self.contentTitleTextField.placeholder : self.contentTitleTextField.text
+        newObject.title = ((self.contentTitleTextField.text?.isEmpty)! ? self.contentTitleTextField.placeholder : self.contentTitleTextField.text) ?? ""
         newObject.dateCreated = NSDate()
         
         newObject.resourceURL = resourceURL
@@ -78,7 +78,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
         
         let id = Int16(lectureDropDownList.itemList.count - lectureDropDownList.selectedRow - 1)
         
-        if let lecture = currClass.lectures?.first(where: { return ($0 as! Lecture).countID == id }) as? Lecture {
+        if let lecture = currClass.lectures.first(where: { return ($0 as! Lecture).countID == id }) as? Lecture {
             newObject.lecture = lecture
             lecture.addToContents(newObject)
         } else {
@@ -92,7 +92,7 @@ class SaveContentViewController: UIViewController, UITextFieldDelegate
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .long
             
-            newLecture.date = dateFormatter.date(from: dateString) as NSDate? 
+            newLecture.date = dateFormatter.date(from: dateString)! as NSDate
             newObject.lecture = newLecture
             newLecture.addToContents(newObject)
             currClass.addToLectures(newLecture)

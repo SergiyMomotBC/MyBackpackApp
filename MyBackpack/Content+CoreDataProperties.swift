@@ -16,10 +16,10 @@ extension Content {
         return NSFetchRequest<Content>(entityName: "Content")
     }
 
-    @NSManaged public var dateCreated: NSDate?
-    @NSManaged public var resourceURL: String?
-    @NSManaged public var title: String?
+    @NSManaged public var dateCreated: NSDate
+    @NSManaged public var resourceURL: String
+    @NSManaged public var title: String
     @NSManaged public var typeID: Int16
-    @NSManaged public var lecture: Lecture?
+    @NSManaged public var lecture: Lecture
 
 }

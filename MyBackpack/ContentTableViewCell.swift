@@ -29,7 +29,7 @@ class ContentTableViewCell: UITableViewCell
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a   MM/dd/yyyy"
-        self.contentTimeDateLabel.text = dateFormatter.string(from: content.dateCreated! as Date)
+        self.contentTimeDateLabel.text = dateFormatter.string(from: content.dateCreated as Date)
         
         switch type {
         case .Audio:
@@ -43,11 +43,11 @@ class ContentTableViewCell: UITableViewCell
             self.contentTypeLabel.text = "Text Note"
             
         case .Picture:
-            setImageThumbnail(fromPath: content.resourceURL!)
+            setImageThumbnail(fromPath: content.resourceURL)
             self.contentTypeLabel.text = "Picture"
             
         case .Video:
-            setImageThumbnail(fromPath: content.resourceURL!)
+            setImageThumbnail(fromPath: content.resourceURL)
                         
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: contentPreview.frame.width, height: contentPreview.frame.height))
             imageView.contentMode = .center

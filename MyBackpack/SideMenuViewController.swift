@@ -43,7 +43,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
         let weekday = Int16(components.weekday!)
             
         for (index, object) in self.classesList.enumerated() {
-            for day in object.days?.allObjects as! [ClassDay] {
+            for day in object.days.allObjects as! [ClassDay] {
                 if timeStamp >= day.startTime && timeStamp <= day.endTime && day.day == weekday {
                     SideMenuViewController.currentClass = object
                     selectedClassIndex = index

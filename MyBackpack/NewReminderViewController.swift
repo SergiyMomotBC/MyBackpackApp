@@ -50,7 +50,7 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         datePicker.dropDownMode = .dateTimePicker
         datePicker.isOptionalDropDown = false
         datePicker.minimumDate = Date()
-        datePicker.maximumDate = Calendar.current.date(byAdding: .month, value: 1, to: (SideMenuViewController.currentClass!.lastLectureDate! as Date))
+        datePicker.maximumDate = Calendar.current.date(byAdding: .month, value: 1, to: (SideMenuViewController.currentClass!.lastLectureDate as Date))
         datePicker.date = Calendar.current.date(byAdding: .day, value: 1, to: Date())
         
         descriptionTextField.keyboardAppearance = .dark
@@ -139,8 +139,8 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         let newReminder = NSEntityDescription.insertNewObject(forEntityName: "Reminder", into: CoreDataManager.shared.managedContext) as! Reminder
         
         newReminder.typeID = Int16(typePicker.selectedRow)
-        newReminder.title = titleTextField.text
-        newReminder.date = datePicker.date as NSDate?
+        newReminder.title = titleTextField.text ?? ""
+        newReminder.date = datePicker.date! as NSDate
         newReminder.remark = descriptionTextField.text
         newReminder.shouldNotify = notificationSwitch.isOn
         SideMenuViewController.currentClass?.addToReminders(newReminder)

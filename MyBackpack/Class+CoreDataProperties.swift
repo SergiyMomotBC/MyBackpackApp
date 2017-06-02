@@ -16,12 +16,12 @@ extension Class {
         return NSFetchRequest<Class>(entityName: "Class")
     }
 
-    @NSManaged public var firstLectureDate: NSDate?
-    @NSManaged public var lastLectureDate: NSDate?
-    @NSManaged public var name: String?
-    @NSManaged public var days: NSSet?
-    @NSManaged public var lectures: NSSet?
-    @NSManaged public var reminders: NSSet?
+    @NSManaged public var firstLectureDate: NSDate
+    @NSManaged public var lastLectureDate: NSDate
+    @NSManaged public var name: String
+    @NSManaged public var days: NSSet
+    @NSManaged public var lectures: NSSet
+    @NSManaged public var reminders: NSSet
 
 }
 

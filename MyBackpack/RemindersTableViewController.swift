@@ -26,11 +26,7 @@ class RemindersTableViewController: UIViewController
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetSource = self
-        tableView.alwaysBounceVertical = false
         tableView.tableFooterView = UIView()
-        
-        headerView = tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
-        headerView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
     }
     
     func showReminders(forDate date: Date?, isSearching: Bool = false) {
@@ -51,9 +47,9 @@ class RemindersTableViewController: UIViewController
     
     func searchRemindersFor(_ text: String, withFilterOptions options: RemindersFilterOptions) {
         self.reminders = controller.reminders.filter({
-            $0.title!.lowercased().contains(text.isEmpty ? $0.title!.lowercased() : text.lowercased()) 
+            $0.title.lowercased().contains(text.isEmpty ? $0.title.lowercased() : text.lowercased()) 
                 && options.types.contains(Int($0.typeID)) 
-                && (options.fromDate...options.toDate).contains($0.date! as Date)
+                && (options.fromDate...options.toDate).contains($0.date as Date)
         })
     }
 }
@@ -78,6 +74,11 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let header = UIView()
+        
+        if headerView == nil {
+            headerView = tableView.dequeueReusableCell(withIdentifier: "header")!.contentView
+            headerView!.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 30)
+        }
         
         if let headerLabel = headerView!.subviews.first as? UILabel {
             headerLabel.text = headerText
@@ -106,10 +107,10 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
         textView.layer.cornerRadius = 8.0
         textView.layer.borderWidth = 1.0
         textView.layer.borderColor = UIColor.lightGray.cgColor
-        textView.text = reminder.remark!.isEmpty ? "No description" : reminder.remark
+        textView.text = reminder.remark.isEmpty ? "No description" : reminder.remark
         
         editPopUp.customSubview = textView
-        editPopUp.displayInfo(title: reminder.title!)
+        editPopUp.displayInfo(title: reminder.title)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

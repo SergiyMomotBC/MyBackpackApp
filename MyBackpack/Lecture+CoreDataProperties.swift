@@ -17,9 +17,9 @@ extension Lecture {
     }
 
     @NSManaged public var countID: Int16
-    @NSManaged public var date: NSDate?
-    @NSManaged public var contents: NSSet?
-    @NSManaged public var inClass: Class?
+    @NSManaged public var date: NSDate
+    @NSManaged public var contents: NSSet
+    @NSManaged public var inClass: Class
 
 }
 
