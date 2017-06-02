@@ -55,5 +55,9 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource
         return SideMenuViewController.currentClass?.firstLectureDate as Date? ?? Date()
     }
     
+    func maximumDate(for calendar: FSCalendar) -> Date {
+        return Calendar.current.date(byAdding: .month, value: 1, to: SideMenuViewController.currentClass?.lastLectureDate as Date? ?? Date())!
+    }
+    
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {}
 }

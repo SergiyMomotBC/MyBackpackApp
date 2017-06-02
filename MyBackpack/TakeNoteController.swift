@@ -51,14 +51,12 @@ class NoteController: UIViewController
         let keyboardRect = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue ?? CGRect.zero
         
         if notification.name == NSNotification.Name.UIKeyboardWillShow {
-            print("Start")
             self.view.addSubview(self.toolbar)
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                 self.editorView.frame = CGRect(x: 8, y: 4, width: self.view.frame.width - 16, height: self.editorView.frame.height - keyboardRect.height - 44)
                 self.toolbar.frame.origin.y = self.view.frame.height - (keyboardRect.height + self.toolbar.frame.height)
             }, completion: nil)
         } else if notification.name == NSNotification.Name.UIKeyboardWillHide {
-            print("Finish")
             UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
                 self.editorView.frame = CGRect(x: 8, y: 4, width: self.view.frame.width - 16, height: self.view.frame.height - 4)
                 self.toolbar.frame.origin.y = self.view.frame.height

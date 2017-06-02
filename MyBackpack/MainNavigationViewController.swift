@@ -14,7 +14,7 @@ class MainNavigationViewController: UINavigationController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 17)!]
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "AvenirNext-Demibold", size: 17)!]
 
         SideMenuManager.menuLeftNavigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenu") as? UISideMenuNavigationController
         SideMenuManager.menuAddScreenEdgePanGesturesToPresent(toView: self.view)

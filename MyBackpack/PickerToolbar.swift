@@ -18,7 +18,7 @@ class PickerToolbar: UIToolbar
         super.init(frame: CGRect.zero)
         
         barStyle = .default
-        barTintColor = .darkGray
+        barTintColor = .gray
         isTranslucent = true
         tintColor = UIColor(red: 1.0, green: 1.0, blue: 102/255.0, alpha: 1.0)
         sizeToFit() 
