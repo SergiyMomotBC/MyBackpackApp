@@ -11,8 +11,7 @@ import UIKit
 class ContentTableViewCell: UITableViewCell
 {
     @IBOutlet weak var contentPreview: UIImageView!
-    @IBOutlet weak var contentTypeLabel: UILabel!
-    @IBOutlet weak var contentTimeDateLabel: UILabel!
+    @IBOutlet weak var contentInfoLabel: UILabel!
     @IBOutlet weak var contentTitleLabel: UILabel!
 
     func prepareCell(forContent content: Content) {
@@ -27,24 +26,22 @@ class ContentTableViewCell: UITableViewCell
         
         self.contentTitleLabel.text = content.title
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a   MM/dd/yyyy"
-        self.contentTimeDateLabel.text = dateFormatter.string(from: content.dateCreated as Date)
+        var typeString = ""
         
         switch type {
         case .Audio:
             self.contentPreview.image = UIImage(named: "recordingContent")?.withRenderingMode(.alwaysTemplate)
             self.contentPreview.contentMode = .center
-            self.contentTypeLabel.text = "Audio"
+            typeString = "Audio"
             
         case .Note:
             self.contentPreview.image = UIImage(named: "documentContent")?.withRenderingMode(.alwaysTemplate)
             self.contentPreview.contentMode = .center
-            self.contentTypeLabel.text = "Text Note"
+            typeString = "Text Note"
             
         case .Picture:
             setImageThumbnail(fromPath: content.resourceURL)
-            self.contentTypeLabel.text = "Picture"
+            typeString = "Picture"
             
         case .Video:
             setImageThumbnail(fromPath: content.resourceURL)
@@ -56,8 +53,25 @@ class ContentTableViewCell: UITableViewCell
             imageView.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.6)
             self.contentPreview.addSubview(imageView)
             
-            self.contentTypeLabel.text = "Video"
+            typeString = "Video"
         }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy  h:mm a"
+        let dateString = dateFormatter.string(from: content.dateCreated as Date)
+        
+        let size = content.fileSize
+        var sizeString = ""
+        
+        if size > 1024 * 1024 {
+            sizeString = String(format: "%.2f MB", Double(size) / (1024.0 * 1024.0))
+        } else if size > 1024 {
+            sizeString = String(format: "%.2f kB", Double(size) / 1024.0)
+        } else {
+            sizeString = "\(size) B"
+        }
+        
+        self.contentInfoLabel.text = "   " + typeString + " ● " + dateString + " ● " + sizeString
     }
     
     override func prepareForReuse() {

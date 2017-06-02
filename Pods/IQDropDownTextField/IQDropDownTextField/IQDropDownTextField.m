@@ -199,7 +199,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
         }
         else
         {
-            labelText.textColor = [UIColor lightGrayColor];
+            labelText.textColor = [UIColor grayColor];
         }
         
         labelText.adjustsFontSizeToFitWidth = self.adjustPickerLabelFontSizeWidth;
@@ -764,6 +764,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
         [_timePicker setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
         [_timePicker setDatePickerMode:UIDatePickerModeTime];
         [_timePicker addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
+        _timePicker.backgroundColor = UIColor.redColor;
     }
     return _timePicker;
 }

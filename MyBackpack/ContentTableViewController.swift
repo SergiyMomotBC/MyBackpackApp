@@ -33,6 +33,7 @@ class ContentTableViewController: UITableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
+        tableView.scrollIndicatorInsets = UIEdgeInsetsMake(CGFloat(NavigationTabBar.height), 0, 0, 0)
         tableView.emptyDataSetSource = self
     }
     
@@ -128,6 +129,12 @@ extension ContentTableViewController: Searchable
 
 extension ContentTableViewController 
 {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y < -CGFloat(NavigationTabBar.height) {
+            tableView.contentOffset.y = -CGFloat(NavigationTabBar.height)
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return contentObjects.count
     }
