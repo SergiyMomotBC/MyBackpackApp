@@ -44,6 +44,10 @@ final class NewClassViewController: UIViewController
     }
     
     @IBAction func addDay(_ sender: Any) {
+        guard dayField.selectedItem != nil, fromTimeField.date != nil, toTimeField.date != nil else {
+            return
+        }
+        
         guard !self.lectureDays.contains(where: { $0.0 == dayField.selectedItem! }) else {
             let errorPopUp = PopUp()
             errorPopUp.displayError(message: "Class already has \(dayField.selectedItem!) as a lecture day.")
@@ -173,23 +177,18 @@ fileprivate extension NewClassViewController
     func setupPickers() {
         firstLectureDateField.dropDownMode = .datePicker
         firstLectureDateField.inputAccessoryView = PickerToolbar(for: firstLectureDateField)
-        firstLectureDateField.isOptionalDropDown = false
         
         lastLectureDateField.dropDownMode = .datePicker
         lastLectureDateField.inputAccessoryView = PickerToolbar(for: lastLectureDateField)
-        lastLectureDateField.isOptionalDropDown = false
         
         fromTimeField.dropDownMode = .timePicker
         fromTimeField.inputAccessoryView = PickerToolbar(for: fromTimeField)
-        fromTimeField.isOptionalDropDown = false
         
         toTimeField.dropDownMode = .timePicker
         toTimeField.inputAccessoryView = PickerToolbar(for: toTimeField)
-        toTimeField.isOptionalDropDown = false
         
         dayField.dropDownMode = .textPicker
         dayField.inputAccessoryView = PickerToolbar(for: dayField)
-        dayField.isOptionalDropDown = false
         dayField.itemList = dayNames
     }
 }

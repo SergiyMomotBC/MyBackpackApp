@@ -14,9 +14,11 @@ class ManageClassesViewController: UIViewController
     @IBOutlet weak var classesListTableView: UITableView!
     
     fileprivate var listOfClasses: [Class]!
+    fileprivate var classesToDelete: [Class] = []
+    
     fileprivate var contentCounts: [Int] = []
     fileprivate var sizeCounts: [Int] = []
-    fileprivate var classesToDelete: [Class] = []
+
     weak var delegate: ClassViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -60,7 +62,7 @@ class ManageClassesViewController: UIViewController
                 self.delegate?.classViewController(self, didCommitChanges: true)
             })
             
-            popUp.displayWarning(message: "Classes and all of its content will be deleted and cannot be restored.")
+            popUp.displayWarning(message: "Classes and all of their content files will be deleted and cannot be restored.")
             
         } else {
             delegate?.classViewController(self, didCommitChanges: false)
@@ -91,17 +93,17 @@ extension ManageClassesViewController:  UITableViewDelegate, UITableViewDataSour
         
         let size = sizeCounts[indexPath.row]
         var sizeString = ""
-        if size > 1024 * 1024 {
-            sizeString = "\(size / (1024 * 1024)) MB"
-        } else if size > 1024 {
-            sizeString = "\(size / 1024) kB"
+        if size >= 1024 * 1024 {
+            sizeString = String(format: "%.2f MB", Double(size) / (1024.0 * 1024.0))
+        } else if size >= 1024 {
+            sizeString = String(format: "%.2f kB", Double(size) / 1024.0)
         } else {
-            sizeString = "\(size) bytes"
+            sizeString = "\(size) B"
         }
         
-        cell.detailTextLabel?.text = "\(contentCounts[indexPath.row]) content \(contentCounts[indexPath.row] == 1 ? "file" : "files") of total size \(sizeString)"
-        cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 11)
-        cell.detailTextLabel?.textColor = .gray
+        cell.detailTextLabel?.text = "Content files: \(contentCounts[indexPath.row])    Total size: \(sizeString)"
+        cell.detailTextLabel?.font = UIFont(name: "Avenir Next", size: 12)
+        cell.detailTextLabel?.textColor = .darkGray
         
         return cell
     }

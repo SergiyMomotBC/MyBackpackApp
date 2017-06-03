@@ -157,7 +157,7 @@
                                     <segue destination="nCi-eC-3Q9" kind="presentation" identifier="manageClasses" id="GWo-21-0q4"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your backpack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-OK-u1w">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My backpack" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Udl-OK-u1w">
                                 <rect key="frame" x="20" y="40" width="335" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="ddS-mx-2tG"/>
@@ -1353,6 +1353,7 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6M7-to-NbE">
                                         <rect key="frame" x="286" y="0.0" width="51" height="30"/>
+                                        <color key="onTintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="notificationSwitchToggled:" destination="ENS-yk-zYs" eventType="valueChanged" id="1lh-V4-HlD"/>
                                         </connections>

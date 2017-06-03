@@ -117,6 +117,39 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
     [self setDropDownMode:IQDropDownModeTextPicker];
     [self setIsOptionalDropDown:YES];
     [self setAdjustPickerLabelFontSizeWidth:NO];
+    
+    [self addTarget:self action:@selector(textFieldBecameActive) forControlEvents:UIControlEventEditingDidBegin];
+}
+
+-(void)textFieldBecameActive
+{
+    if(!self.isOptionalDropDown)
+        return;
+    
+    switch (_dropDownMode)
+    {
+        case IQDropDownModeTextPicker:
+            if(self.selectedItem == NULL) {
+                 self.isOptionalDropDown = NO;
+                [self setSelectedItem:[_ItemListsInternal objectAtIndex:0] animated:NO shouldNotifyDelegate:NO];
+            }
+            break;
+        case IQDropDownModeDatePicker:
+            if(self.date == NULL)
+                [self setSelectedItem:[self.dropDownDateFormatter stringFromDate:[NSDate new]] animated:NO shouldNotifyDelegate:NO];
+            break;
+        case IQDropDownModeTimePicker:
+            if(self.date == NULL)
+                [self setSelectedItem:[self.dropDownTimeFormatter stringFromDate:[NSDate new]] animated:NO shouldNotifyDelegate:NO];
+            break;
+        case IQDropDownModeDateTimePicker:
+            if(self.date == NULL)
+                [self setSelectedItem:[self.dropDownDateTimeFormater stringFromDate:[NSDate new]] animated:NO shouldNotifyDelegate:NO];
+            break;
+        case IQDropDownModeTextField:
+        default:
+            break;
+    }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -764,7 +797,6 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
         [_timePicker setAutoresizingMask:(UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight)];
         [_timePicker setDatePickerMode:UIDatePickerModeTime];
         [_timePicker addTarget:self action:@selector(timeChanged:) forControlEvents:UIControlEventValueChanged];
-        _timePicker.backgroundColor = UIColor.redColor;
     }
     return _timePicker;
 }

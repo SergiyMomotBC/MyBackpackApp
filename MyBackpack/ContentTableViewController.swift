@@ -190,7 +190,7 @@ extension ContentTableViewController
             //deletion end
             
             if count == 1 {
-                self.tableView.deleteSections([indexPath.section], with: .top)
+                self.tableView.deleteSections([indexPath.section], with: .fade)
             } else {
                 self.tableView.deleteRows(at: [indexPath], with: .left)
             }

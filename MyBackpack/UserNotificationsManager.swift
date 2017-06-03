@@ -20,17 +20,6 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
         super.init()
         self.notificationCenter.delegate = self
         notificationCenter.removeAllDeliveredNotifications()
-        
-        let reminders = (try? CoreDataManager.shared.managedContext.fetch(Reminder.fetchRequest())) ?? []
-        
-        let now = Date()
-        reminders.forEach{ reminder in
-            if (reminder.date as Date) < now && reminder.shouldNotify {
-                CoreDataManager.shared.managedContext.delete(reminder)
-            }
-        }
-        
-        CoreDataManager.shared.saveContext()
     }
     
     func scheduleNotification(forReminder reminder: Reminder, onDate date: Date, repeatDayBefore days: [Int]) {
