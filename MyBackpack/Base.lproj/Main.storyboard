@@ -1325,6 +1325,17 @@
                                             <action selector="cancel:" destination="ENS-yk-zYs" eventType="touchUpInside" id="gnj-VF-ekO"/>
                                         </connections>
                                     </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51I-Lt-3bB">
+                                        <rect key="frame" x="150" y="0.0" width="46" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backAction:" destination="WbK-Nc-YhJ" eventType="touchUpInside" id="TEh-EG-etQ"/>
+                                            <action selector="doneEditingDescription:" destination="ENS-yk-zYs" eventType="touchUpInside" id="trV-U2-9nt"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMu-xY-efP">
                                         <rect key="frame" x="289" y="0.0" width="46" height="30"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
@@ -1398,8 +1409,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="aQ1-Vt-BZh" id="0KC-59-GKQ"/>
                         <outlet property="datePicker" destination="ORO-hn-cpK" id="Tne-IQ-bto"/>
                         <outlet property="descriptionTextField" destination="kqZ-Ks-D7b" id="aYV-41-QQs"/>
+                        <outlet property="doneButton" destination="OMu-xY-efP" id="50m-5J-qkV"/>
+                        <outlet property="doneDescriptionButton" destination="51I-Lt-3bB" id="1dL-xM-F7f"/>
                         <outlet property="notificationSwitch" destination="6M7-to-NbE" id="Q3d-LR-TwK"/>
                         <outlet property="segmentedControlContainer" destination="NCY-FA-MAv" id="dPl-de-zku"/>
                         <outlet property="segmentedControlTitle" destination="U6i-2o-J3A" id="Qom-Vr-ych"/>

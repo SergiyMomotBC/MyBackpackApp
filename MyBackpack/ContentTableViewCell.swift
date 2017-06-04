@@ -71,7 +71,7 @@ class ContentTableViewCell: UITableViewCell
             sizeString = "\(size) B"
         }
         
-        self.contentInfoLabel.text = "   " + typeString + " ● " + dateString + " ● " + sizeString
+        self.contentInfoLabel.text = "   " + typeString + " • " + dateString + " • " + sizeString
     }
     
     override func prepareForReuse() {

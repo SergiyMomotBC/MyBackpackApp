@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         } 
         
         UITextField.appearance().keyboardAppearance = .dark
+        window?.backgroundColor = UIColor(red: 128/255.0, green: 0.0, blue: 64/255.0, alpha: 1.0)
         
         return true
     }

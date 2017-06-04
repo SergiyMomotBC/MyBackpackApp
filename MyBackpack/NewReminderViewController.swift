@@ -24,6 +24,9 @@ enum ReminderType: Int {
 
 class NewReminderViewController: UIViewController, UITextFieldDelegate 
 {
+    @IBOutlet weak var doneDescriptionButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var typePicker: IQDropDownTextField!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var datePicker: IQDropDownTextField!
@@ -59,7 +62,7 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         daysControl.tintColor = .white
         daysToRemindControl = daysControl
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0166667) { 
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.0166667) {
             self.daysToRemindControl.selectedSegmentIndices = [1]
         }
         
@@ -106,7 +109,21 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
             if self.view.frame.origin.y == 0 && descriptionTextField.isFirstResponder {
                 self.view.frame.origin.y -= keyboardSize.height
             }
-        }        
+        }
+        
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
+        
+        UIView.animate(withDuration: duration) {
+            self.typePicker.isHidden = true
+            self.titleTextField.isHidden = true
+            self.datePicker.isHidden = true
+            self.notificationSwitch.superview?.isHidden = true
+            self.segmentedControlTitle.isHidden = true
+            self.segmentedControlContainer.isHidden = true
+            self.cancelButton.isHidden = true
+            self.doneButton.isHidden = true
+            self.doneDescriptionButton.isHidden = false
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -114,6 +131,20 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
             if self.view.frame.origin.y != 0 && descriptionTextField.isFirstResponder {
                 self.view.frame.origin.y += keyboardSize.height
             }
+        }
+        
+        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
+        
+        UIView.animate(withDuration: duration) {
+            self.typePicker.isHidden = false
+            self.titleTextField.isHidden = false
+            self.datePicker.isHidden = false
+            self.notificationSwitch.superview?.isHidden = false
+            self.segmentedControlTitle.isHidden = false
+            self.segmentedControlContainer.isHidden = false
+            self.cancelButton.isHidden = false
+            self.doneButton.isHidden = false
+            self.doneDescriptionButton.isHidden = true
         }
     }
     
@@ -127,6 +158,10 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
                 self.daysToRemindControl.selectedSegmentIndices = [1]
             }
         }
+    }
+    
+    @IBAction func doneEditingDescription(_ sender: Any) {
+        self.descriptionTextField.endEditing(true)
     }
     
     @IBAction func saveReminder(_ sender: Any) {
