@@ -576,6 +576,8 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
 
 -(void)setSelectedItem:(NSString *)selectedItem animated:(BOOL)animated shouldNotifyDelegate:(BOOL)shouldNotifyDelegate
 {
+    int fontSize = self.font.pointSize;
+    
     switch (_dropDownMode)
     {
         case IQDropDownModeTextPicker:
@@ -643,6 +645,9 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
         }
             break;
     }
+    
+    self.font = nil;
+    self.font = [UIFont fontWithName:@"Avenir Next" size:fontSize];
 }
 
 - (void)setDatePickerMode:(UIDatePickerMode)datePickerMode

@@ -78,7 +78,7 @@ class OnboardingViewController: UIPageViewController
         
         let root = self.storyboard!.instantiateViewController(withIdentifier: "root")
         
-        UIView.transition(with: window, duration: 0.4, options: .transitionFlipFromLeft, animations: { 
+        UIView.transition(with: window, duration: 0.4, options: .transitionCrossDissolve, animations: {
             window.rootViewController = root
         }, completion: nil)
     }
