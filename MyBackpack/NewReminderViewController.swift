@@ -108,21 +108,21 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 && descriptionTextField.isFirstResponder {
                 self.view.frame.origin.y -= keyboardSize.height
+                
+                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
+                
+                UIView.animate(withDuration: duration) {
+                    self.typePicker.superview?.isHidden = true
+                    self.titleTextField.superview?.isHidden = true
+                    self.datePicker.superview?.isHidden = true
+                    self.notificationSwitch.superview?.isHidden = true
+                    self.segmentedControlTitle.isHidden = true
+                    self.segmentedControlContainer.isHidden = true
+                    self.cancelButton.isHidden = true
+                    self.doneButton.isHidden = true
+                    self.doneDescriptionButton.isHidden = false
+                }
             }
-        }
-        
-        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
-        
-        UIView.animate(withDuration: duration) {
-            self.typePicker.isHidden = true
-            self.titleTextField.isHidden = true
-            self.datePicker.isHidden = true
-            self.notificationSwitch.superview?.isHidden = true
-            self.segmentedControlTitle.isHidden = true
-            self.segmentedControlContainer.isHidden = true
-            self.cancelButton.isHidden = true
-            self.doneButton.isHidden = true
-            self.doneDescriptionButton.isHidden = false
         }
     }
     
@@ -130,21 +130,21 @@ class NewReminderViewController: UIViewController, UITextFieldDelegate
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y != 0 && descriptionTextField.isFirstResponder {
                 self.view.frame.origin.y += keyboardSize.height
+                
+                let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
+                
+                UIView.animate(withDuration: duration) {
+                    self.typePicker.superview?.isHidden = false
+                    self.titleTextField.superview?.isHidden = false
+                    self.datePicker.superview?.isHidden = false
+                    self.notificationSwitch.superview?.isHidden = false
+                    self.segmentedControlTitle.isHidden = false
+                    self.segmentedControlContainer.isHidden = false
+                    self.cancelButton.isHidden = false
+                    self.doneButton.isHidden = false
+                    self.doneDescriptionButton.isHidden = true
+                }
             }
-        }
-        
-        let duration = notification.userInfo?[UIKeyboardAnimationDurationUserInfoKey] as? Double ?? 0.25
-        
-        UIView.animate(withDuration: duration) {
-            self.typePicker.isHidden = false
-            self.titleTextField.isHidden = false
-            self.datePicker.isHidden = false
-            self.notificationSwitch.superview?.isHidden = false
-            self.segmentedControlTitle.isHidden = false
-            self.segmentedControlContainer.isHidden = false
-            self.cancelButton.isHidden = false
-            self.doneButton.isHidden = false
-            self.doneDescriptionButton.isHidden = true
         }
     }
     
