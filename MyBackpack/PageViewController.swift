@@ -162,7 +162,7 @@ class PageViewController: UIPageViewController, ClassObserver
         }
         
         if searchController.isActive {
-            searchController.hideSearchBar()
+            searchController.hideSearchBar(forced: true)
         }
         
         self.navigationController?.navigationBar.topItem?.title = SideMenuViewController.currentClass?.name ?? "No classes"

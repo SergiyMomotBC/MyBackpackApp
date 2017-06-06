@@ -71,7 +71,7 @@ class RemindersViewController: UIViewController
             }
             
             let fetchReminders: NSFetchRequest<Reminder> = Reminder.fetchRequest()
-            fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+            fetchReminders.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
             fetchReminders.predicate = NSPredicate(format: "inClass.name == %@", currentClass.name)
             fetchReminders.fetchBatchSize = 10
                 
@@ -137,7 +137,7 @@ extension RemindersViewController: Searchable
         remindersTableViewController.tableView.reloadData()
     }
     
-    func endSearch() {
+    func endSearch(forced: Bool) {
         isSearching = false
         
         UIView.animate(withDuration: 0.25) { 
@@ -148,6 +148,8 @@ extension RemindersViewController: Searchable
         filterViewController = nil
         remindersTableViewController.tableView.emptyDataSetSource = remindersTableViewController
         remindersTableViewController.showReminders(forDate: calendarViewController.calendar.selectedDates.first)
-        remindersTableViewController.tableView.reloadData()
+        if !forced {
+            remindersTableViewController.tableView.reloadData()
+        }
     }
 }

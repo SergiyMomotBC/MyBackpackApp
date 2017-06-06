@@ -117,12 +117,14 @@ extension ContentTableViewController: Searchable
         self.tableView.reloadData()
     }
     
-    func endSearch() {
+    func endSearch(forced: Bool) {
         isSearching = false
         self.tableView.emptyDataSetSource = self
         self.filterViewController = nil
         self.contentObjects = backup
-        self.tableView.reloadData()
+        if !forced {
+            self.tableView.reloadData()
+        }
         self.backup = nil
     }
 }
@@ -162,13 +164,22 @@ extension ContentTableViewController
             let count = self.contentObjects[indexPath.section].count
            
             //deletion
+            if self.backup != nil {
+                self.backup[indexPath.section].remove(at: indexPath.row)
+            }
+            
             let content = self.contentObjects[indexPath.section].remove(at: indexPath.row)
+            
             let lecture = content.lecture
             
             lecture.removeFromContents(content)
             CoreDataManager.shared.managedContext.delete(content)
             
             if lecture.contents.count == 0 {
+                if self.backup != nil {
+                    self.backup.remove(at: indexPath.section)
+                }
+                
                 self.contentObjects.remove(at: indexPath.section)
                 SideMenuViewController.currentClass!.removeFromLectures(lecture)
                 CoreDataManager.shared.managedContext.delete(lecture)

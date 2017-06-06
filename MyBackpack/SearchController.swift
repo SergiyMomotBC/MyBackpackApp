@@ -14,7 +14,7 @@ protocol Searchable
     func prepareForSearch(with controller: SearchController)
     func getFilterViewControllerToPresent() -> UIViewController
     func updateSearch(forText text: String)
-    func endSearch()
+    func endSearch(forced: Bool)
 }
 
 fileprivate class NoCancelButtonSearchBar: UISearchBar {
@@ -92,7 +92,7 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         parentViewController.currentSearchableViewController?.prepareForSearch(with: self)
     }
     
-    func hideSearchBar() {
+    func hideSearchBar(forced: Bool = false) {
         guard isActive else { return }
         
         UIView.animate(withDuration: 0.2) { 
@@ -104,7 +104,7 @@ class SearchController: NSObject, UISearchBarDelegate, DZNEmptyDataSetSource
         
         isActive = false
         
-        parentViewController.currentSearchableViewController?.endSearch()
+        parentViewController.currentSearchableViewController?.endSearch(forced: forced)
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {

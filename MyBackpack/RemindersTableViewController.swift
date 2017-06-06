@@ -90,7 +90,7 @@ extension RemindersTableViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        headerView!.frame = CGRect(x: 0, y: tableView.contentOffset.y < 0 ? tableView.contentOffset.y : 0, width: self.view.frame.width, height: 30)
+        headerView?.frame = CGRect(x: 0, y: tableView.contentOffset.y < 0 ? tableView.contentOffset.y : 0, width: self.view.frame.width, height: 30)
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

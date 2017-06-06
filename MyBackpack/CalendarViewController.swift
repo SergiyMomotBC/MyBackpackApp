@@ -25,8 +25,12 @@ class CalendarViewController: UIViewController
     }
 }
 
-extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource 
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance
 {
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]? {
+        return date < Date() ? [UIColor.lightGray] : [UIColor(red: 0.5, green: 0.0, blue: 0.25, alpha: 1.0)]
+    }
+    
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         if let lastDate = previouslySelectedDate, lastDate == date {
             calendar.deselect(date)
