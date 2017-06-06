@@ -427,6 +427,14 @@
 {
     [super viewWillDisappear:animated];
     
+    [_audioPlayer stop];
+    [_audioRecorder stop];
+    
+    [self stopUpdatingMeter];
+}
+
+-(void)dealloc 
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     
     _audioPlayer.delegate = nil;

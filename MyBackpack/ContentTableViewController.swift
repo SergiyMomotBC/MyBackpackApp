@@ -209,7 +209,7 @@ extension ContentTableViewController
             self.tableView.endUpdates()
         }
         
-        let edit = UITableViewRowAction(style: .normal, title: " Edit     ") { (action, indexPath) in
+        let edit = UITableViewRowAction(style: .normal, title: "Rename   ") { (action, indexPath) in
             let editPopUp = PopUp()
             editPopUp.appearance.setkWindowHeight(self.view.bounds.size.height / 2.0)
             
