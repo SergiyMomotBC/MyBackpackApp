@@ -29,7 +29,6 @@ class ContentPreviewer
     }
     
     func preparePreview() {
-        
         switch contentType {
         case .Picture:
             self.previewImage(image: resource as! UIImage)
@@ -38,17 +37,20 @@ class ContentPreviewer
         case .Audio:
             self.previewAudio(url: resource as! URL)
         case .Note:
-            self.previewNote(string: resource as! String)
+            self.previewNote(data: resource as! Data)
         }
     }
     
-    private func previewNote(string note: String) {
-        let editorView = RichEditorView(frame: CGRect(x: 10, y: 2, width: self.view.frame.width - 20, height: self.view.frame.height - 7))
+    private func previewNote(data note: Data) {
+        let editorView = UITextView()
         editorView.backgroundColor = UIColor.white
-        editorView.clipsToBounds = true
-        editorView.isEditingEnabled = false
-        editorView.html = note
+        editorView.autocorrectionType = .no
+        editorView.isEditable = false
+        editorView.font = UIFont(name: "AvenirNext-Regular", size: 14)
+        editorView.attributedText = try? NSAttributedString(data: note, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
         self.view.addSubview(editorView)
+        self.view.addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: editorView)
+        self.view.addConstraintsWithFormat(format: "V:|-4-[v0]-4-|", views: editorView)
         
         self.view.backgroundColor = UIColor.white
         self.view.layer.cornerRadius = 10

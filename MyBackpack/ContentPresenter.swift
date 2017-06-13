@@ -27,8 +27,8 @@ class ContentPresenter
                 let videoURL = ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL)
                 self.presentVideo(url: videoURL, in: vc)
             case .Note:
-                let noteText = try! String(contentsOf: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL))
-                self.presentNote(text: noteText, in: vc)
+                let noteText = try! Data(contentsOf: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL))
+                self.presentNote(data: noteText, in: vc)
             case .Picture:
                 let photo = UIImage(contentsOfFile: ContentFileManager.shared.documentsFolderURL.appendingPathComponent(content.resourceURL).path)
                 self.presentImage(photo!, in: vc)
@@ -48,14 +48,17 @@ class ContentPresenter
         vc.present(controller, animated: true, completion: nil)
     }
     
-    private func presentNote(text: String, in vc: UIViewController) {
+    private func presentNote(data: Data, in vc: UIViewController) {
         let noteViewerController = UIViewController()
         noteViewerController.view.backgroundColor = .white
-        let editorView = RichEditorView(frame: CGRect(x: 8, y: 4, width: noteViewerController.view.frame.width - 16, height: noteViewerController.view.frame.height - 4))
+        let editorView = UITextView()
+        editorView.autocorrectionType = .no
         editorView.backgroundColor = .white
-        editorView.html = text
-        editorView.isEditingEnabled = false
+        editorView.attributedText = try? NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
+        editorView.isEditable = false
         noteViewerController.view.addSubview(editorView)
+        noteViewerController.view.addConstraintsWithFormat(format: "H:|-10-[v0]-10-|", views: editorView)
+        noteViewerController.view.addConstraintsWithFormat(format: "V:|-4-[v0]-4-|", views: editorView)
         
         let navigationVC = UINavigationController(rootViewController: noteViewerController)
         navigationVC.navigationBar.topItem?.title = "Note"

@@ -6,13 +6,11 @@
 //  Copyright (c) 2015 Teodor Patras. All rights reserved.
 //
 
-import Foundation
 import UIKit
-import MediaPlayer
 import Jukebox
 
-class MusicViewController: UIViewController, JukeboxDelegate {
-    
+class MusicViewController: UIViewController, JukeboxDelegate
+{
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var playPauseButton: UIButton!
     @IBOutlet weak var replayButton: UIButton!
@@ -34,23 +32,14 @@ class MusicViewController: UIViewController, JukeboxDelegate {
         self.stopAction()
     }
     
-    func configureUI ()
-    {
+    func configureUI() {
         resetUI()
-        
         slider.setThumbImage(UIImage(named: "sliderThumb"), for: UIControlState())
-        
         view.backgroundColor = UIColor.clear
     }
     
-    // MARK:- JukeboxDelegate -
-    
-    func jukeboxDidLoadItem(_ jukebox: Jukebox, item: JukeboxItem) {}
-    
     func jukeboxPlaybackProgressDidChange(_ jukebox: Jukebox) {
-        
         if let currentTime = jukebox.currentItem?.currentTime, let duration = jukebox.currentItem?.meta.duration {
-            
             if currentTime == duration {
                 stopAction()
                 return
@@ -66,7 +55,6 @@ class MusicViewController: UIViewController, JukeboxDelegate {
     }
     
     func jukeboxStateDidChange(_ jukebox: Jukebox) {
-        
         UIView.animate(withDuration: 0.3, animations: { () -> Void in
             self.playPauseButton.alpha = jukebox.state == .loading ? 0 : 1
             self.playPauseButton.isEnabled = jukebox.state == .loading ? false : true
@@ -88,10 +76,8 @@ class MusicViewController: UIViewController, JukeboxDelegate {
         }
     }
     
+    func jukeboxDidLoadItem(_ jukebox: Jukebox, item: JukeboxItem) {}
     func jukeboxDidUpdateMetadata(_ jukebox: Jukebox, forItem: JukeboxItem) {}
-    
-    
-    // MARK:- Callbacks -
  
     @IBAction func progressSliderValueChanged() {
         if let duration = jukebox.currentItem?.meta.duration {
@@ -123,8 +109,6 @@ class MusicViewController: UIViewController, JukeboxDelegate {
         jukebox.stop()
     }
     
-    // MARK:- Helpers -
-    
     func populateLabelWithTime(_ label : UILabel, time: Double) {
         let minutes = Int(time / 60)
         let seconds = Int(time) - minutes * 60
@@ -132,9 +116,7 @@ class MusicViewController: UIViewController, JukeboxDelegate {
         label.text = String(format: "%02d", minutes) + ":" + String(format: "%02d", seconds)
     }
     
-    
-    func resetUI()
-    {
+    func resetUI() {
         durationLabel.text = "00:00"
         currentTimeLabel.text = "00:00"
         slider.value = 0

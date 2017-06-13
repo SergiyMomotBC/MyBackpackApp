@@ -32,7 +32,7 @@ class ContentFileManager
         case .Audio:
             return self.saveAudio(url: resource as! URL, filename: prefix + String(UserDefaults.standard.integer(forKey: IDParameter.nextAudioID.rawValue)))
         case .Note:
-            return self.saveNote(text: resource as! String, filename: prefix + String(UserDefaults.standard.integer(forKey: IDParameter.nextNoteID.rawValue)))
+            return self.saveNote(data: resource as! Data, filename: prefix + String(UserDefaults.standard.integer(forKey: IDParameter.nextNoteID.rawValue)))
         case .Picture:
             return self.savePicture(image: resource as! UIImage, filename: prefix + String(UserDefaults.standard.integer(forKey: IDParameter.nextPictureID.rawValue)))
         case .Video:
@@ -40,12 +40,11 @@ class ContentFileManager
         }
     }
     
-    private func saveNote(text: String, filename: String) -> (String?, Error?) {
-        let data = text.data(using: String.Encoding.unicode)
+    private func saveNote(data: Data, filename: String) -> (String?, Error?) {
         let path = documentsFolderURL.appendingPathComponent(filename + ".html")
         
         do {
-            try data?.write(to: path, options: .atomic)
+            try data.write(to: path, options: .atomic)
             UserDefaults.standard.set(UserDefaults.standard.integer(forKey: IDParameter.nextNoteID.rawValue) + 1, forKey: IDParameter.nextNoteID.rawValue)
             return (filename + ".html", nil)
         } catch {
