@@ -42,7 +42,7 @@ class UserNotificationsManager: NSObject, UNUserNotificationCenterDelegate
              
             switch type {
                 case .homework:
-                    content.body = "You have a homework for \(reminder.inClass.name) class\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."
+                    content.body = "You have homework for \(reminder.inClass.name) class\(day > 0 ? " due in \(day) \(day == 1 ? "day" : "days")" :  "")."
                 
                 case .test:
                     content.body = "You have a \(reminder.inClass.name) test\(day > 0 ? " in \(day) \(day == 1 ? "day" : "days")" :  "")."

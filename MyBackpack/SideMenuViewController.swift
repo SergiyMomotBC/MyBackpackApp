@@ -88,7 +88,7 @@ class SideMenuViewController: UIViewController, ClassViewControllerDelegate
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "addNewClass" && classesList.count >= 8 {
             let popUp = PopUp()
-            popUp.displayError(message: "Maximum of 8 classes can be managed simultaneously.")
+            popUp.displayError(message: "Maximum of 8 classes can be managed by My Backpack application at the same time.")
             return false
         } else {
             return true

@@ -100,7 +100,7 @@ class PageViewController: UIPageViewController, ClassObserver
             let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
             
             if status == .denied {
-                displayPopUp(message: "Please enable the camera access in Settings app in order to take pictures and record videos.")
+                displayPopUp(message: "Please allow My Backpack application to use the camera in the Settings to take pictures and record videos.")
                 return
             } else if status == .notDetermined {
                 AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { granted in
@@ -116,7 +116,7 @@ class PageViewController: UIPageViewController, ClassObserver
             let status = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeAudio)
             
             if status == .denied {
-                displayPopUp(message: "Please enable the microphone access in Settings app in order to record audio.")
+                displayPopUp(message: "Please allow My Backpack application to use the microphone in the Settings to record audio.")
                 return
             } else if status == .notDetermined {
                 AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { granted in

@@ -145,7 +145,7 @@ extension RemindersTableViewController: DZNEmptyDataSetSource
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
                      NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "You can add new reminders by pressing a '+' button in the upper right corner.", attributes: attrs)
+        return NSAttributedString(string: "You can add new reminders by pressing the '+' button in the upper right corner.", attributes: attrs)
     }
     
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {

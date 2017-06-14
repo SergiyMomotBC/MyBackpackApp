@@ -163,7 +163,6 @@ extension ContentTableViewController
             
             let count = self.contentObjects[indexPath.section].count
            
-            //deletion
             if self.backup != nil {
                 self.backup[indexPath.section].remove(at: indexPath.row)
             }
@@ -198,7 +197,6 @@ extension ContentTableViewController
             }
             
             CoreDataManager.shared.saveContext()
-            //deletion end
             
             if count == 1 {
                 self.tableView.deleteSections([indexPath.section], with: .fade)
@@ -262,7 +260,7 @@ extension ContentTableViewController: DZNEmptyDataSetSource
     func description(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let attrs = [NSFontAttributeName: UIFont(name: "Avenir Next", size: 16)!,
                      NSForegroundColorAttributeName: UIColor.white]
-        return NSAttributedString(string: "You can add new content by pressing a '+' button in the upper right corner.", attributes: attrs)
+        return NSAttributedString(string: "You can add new content by pressing the '+' button in the upper right corner.", attributes: attrs)
     }
     
     func backgroundColor(forEmptyDataSet scrollView: UIScrollView!) -> UIColor! {

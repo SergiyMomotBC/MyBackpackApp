@@ -93,13 +93,13 @@ final class NewClassViewController: UIViewController
             var weekday = Calendar.current.dateComponents([Calendar.Component.weekday], from: self.firstLectureDateField.date! as Date).weekday!
         
             if !lectureDays.contains(where: { self.dayNames.index(of: $0.0)! + 1 == weekday }) {
-                errorMessage = "First lecture date is not one of the lecture days."
+                errorMessage = "First lecture date is not on the class schedule."
             }
             
             weekday = Calendar.current.dateComponents([Calendar.Component.weekday], from: self.lastLectureDateField.date! as Date).weekday!
             
             if !lectureDays.contains(where: { self.dayNames.index(of: $0.0)! + 1 == weekday }) {
-                errorMessage = "Last lecture date is not one of the lecture days."
+                errorMessage = "Last lecture date is not on the class schedule."
             }
         }
         
