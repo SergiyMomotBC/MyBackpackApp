@@ -59,11 +59,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>RichEditorView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>SCLAlertView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,22 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4DF78D330F9EDCA6CA6EBB0B8B9F48B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6AA13DD4B3F89867331EE88E06DCB4E8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>71EDE3D3764B80BFC0B6269304E7CCDB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7745501694AA4F2FC5A0A87B26A8FDC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,17 +102,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A119198D4FAA76D4E97DEBF860D699D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B6E369C222DD33457F12EE0AA1A80ACD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BC263F4F9844CC08A4BF54BC7E695914</key>
+		<key>B7F1708005D33F370130A066381323C3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>BF5E8492AD833171E67A19F798CC6361</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0D2356559F8DF597B17B160B90002E1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

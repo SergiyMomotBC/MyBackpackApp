@@ -15,7 +15,6 @@ PODS:
     - FLAnimatedImage (~> 1.0.12)
     - NYTPhotoViewer/Core
   - NYTPhotoViewer/Core (1.2.0)
-  - RichEditorView (3.2.0)
   - SCLAlertView (0.7.0)
   - SCSiriWaveformView (1.1.0)
   - SideMenu (2.3.2)
@@ -29,7 +28,6 @@ DEPENDENCIES:
   - IQDropDownTextField
   - Jukebox
   - NYTPhotoViewer
-  - RichEditorView
   - SCLAlertView
   - SideMenu
 
@@ -43,11 +41,10 @@ SPEC CHECKSUMS:
   IQDropDownTextField: 614f79ca905529c992045eaa112d0fc9ebb875d1
   Jukebox: 81db618ccd3a1cc9b154f4ae0f5c4b54638666dd
   NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
-  RichEditorView: b4ee60a4f5301cbe8f3fcb1f065cdd7de74ddd10
   SCLAlertView: 8a14ffc40590c619e183eed2298b854385f30be1
   SCSiriWaveformView: fbb2be796930670698ed6705f3b48f3dd387a73f
   SideMenu: 3fa07dd05d4bade2b6f9889fb1877e312e1ba319
 
-PODFILE CHECKSUM: ab40c4dfec1c6d4b931757d8d30384596fb03cd2
+PODFILE CHECKSUM: 96291b5c045943766332c6d7fad3781a82e7e861
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

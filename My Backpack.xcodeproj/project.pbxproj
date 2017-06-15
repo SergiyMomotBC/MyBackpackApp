@@ -309,7 +309,7 @@
 					6576D4E91E4A8AEB0036176B = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6UKDQC3S2K;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -387,7 +387,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -562,15 +562,19 @@
 			baseConfigurationReference = 79029CD0AABD628340E58694 /* Pods-My Backpack.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Sergiy Momot (T7MDG2DP5T)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Sergiy Momot (T7MDG2DP5T)";
 				DEVELOPMENT_TEAM = 6UKDQC3S2K;
 				INFOPLIST_FILE = MyBackpack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smomot.MyBackpack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "26c2fef5-a167-4ad1-b07d-e4567b8cc7dc";
+				PROVISIONING_PROFILE_SPECIFIER = "My Backpack development";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/MyBackpack/Objective-C-Bridging-Headers.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 			};
 			name = Debug;
@@ -580,15 +584,19 @@
 			baseConfigurationReference = 01FF2DCAFB1091E9E192E9E3 /* Pods-My Backpack.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Sergiy Momot (6UKDQC3S2K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Sergiy Momot (6UKDQC3S2K)";
 				DEVELOPMENT_TEAM = 6UKDQC3S2K;
 				INFOPLIST_FILE = MyBackpack/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = smomot.MyBackpack;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "596a4280-96e6-4a75-9abd-24d711ad48f7";
+				PROVISIONING_PROFILE_SPECIFIER = "My Backpack distribution";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/MyBackpack/Objective-C-Bridging-Headers.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
 			};
 			name = Release;
