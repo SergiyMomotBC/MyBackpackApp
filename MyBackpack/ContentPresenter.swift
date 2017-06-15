@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import NYTPhotoViewer
 import AVKit
-import RichEditorView
 import Jukebox
 
 class ContentPresenter

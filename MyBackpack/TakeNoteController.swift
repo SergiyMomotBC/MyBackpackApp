@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RichEditorView
 
 class NoteController: UIViewController
 {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RichEditorView
 import Jukebox
 
 class ContentPreviewer
